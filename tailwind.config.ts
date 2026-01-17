@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -45,6 +46,7 @@ export default {
           foreground: "hsl(var(--accent-foreground))",
           glow: "hsl(var(--accent-glow))",
           hover: "hsl(var(--accent-hover))",
+          secondary: "hsl(var(--accent-secondary))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -72,6 +74,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
         xl: "calc(var(--radius) + 4px)",
         "2xl": "var(--radius-lg)",
+        full: "var(--radius-full)",
       },
       keyframes: {
         "accordion-down": {
@@ -99,8 +102,8 @@ export default {
           "100%": { transform: "translateX(0)", opacity: "1" },
         },
         "glow-pulse": {
-          "0%, 100%": { opacity: "0.6" },
-          "50%": { opacity: "1" },
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
@@ -125,7 +128,7 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-accent': 'linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-hover)) 100%)',
-        'hero-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--accent-glow)), transparent)',
+        'hero-glow': 'radial-gradient(ellipse 60% 40% at 50% 50%, hsl(var(--accent-glow)), transparent)',
       },
       boxShadow: {
         'glow': '0 0 60px hsl(var(--accent-glow))',

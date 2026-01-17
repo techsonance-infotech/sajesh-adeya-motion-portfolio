@@ -194,7 +194,7 @@ function ProjectCard({ project, image, isActive, onInView }: ProjectCardProps) {
           isActive ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
-          background: `linear-gradient(135deg, ${project.color}40, transparent)`,
+          background: `linear-gradient(135deg, hsl(142 76% 50% / 0.4), transparent)`,
         }}
       />
 
@@ -206,7 +206,7 @@ function ProjectCard({ project, image, isActive, onInView }: ProjectCardProps) {
             alt={project.name}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
         {/* Content */}

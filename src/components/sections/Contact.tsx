@@ -49,7 +49,7 @@ export function Contact() {
             </div>
             <div className="hidden sm:block w-1 h-1 bg-white/20 rounded-full" />
             <div className="flex items-center gap-3 text-muted-foreground">
-              <MapPin size={20} className="text-accent" />
+              <MapPin size={20} className="text-accent-secondary" />
               <span>{siteConfig.location}</span>
             </div>
           </motion.div>
@@ -86,7 +86,7 @@ export function Contact() {
               href={siteConfig.socials.twitter} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-accent hover:underline"
+              className="text-accent-secondary hover:underline"
             >
               Twitter
             </a>

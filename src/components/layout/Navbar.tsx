@@ -11,7 +11,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -34,7 +34,7 @@ export function Navbar() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-surface/80 backdrop-blur-xl border-b border-white/5' 
+            ? 'bg-background/90 backdrop-blur-xl border-b border-white/5' 
             : 'bg-transparent'
         }`}
       >
@@ -42,47 +42,40 @@ export function Navbar() {
           {/* Logo */}
           <a 
             href="#home" 
-            className="font-display text-xl font-semibold text-foreground hover:text-accent transition-colors"
+            className="flex items-center gap-3"
             onClick={(e) => {
               e.preventDefault();
               handleLinkClick('#home');
             }}
           >
-            {siteConfig.name.split(' ')[0]}
-            <span className="text-accent">.</span>
+            <span className="font-display text-xl font-bold text-foreground">
+              SA
+            </span>
+            <div className="hidden sm:block border-l border-white/20 pl-3">
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Creative Engineer</p>
+              <p className="text-xs text-accent uppercase tracking-wide">Building the Future</p>
+            </div>
           </a>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation - Pill Style */}
+          <div className="hidden md:flex items-center gap-1 bg-surface/80 backdrop-blur-sm rounded-full p-1 border border-white/5">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleLinkClick(link.href);
-                    }}
-                    className={`relative py-2 text-sm font-medium transition-colors ${
-                      isActive 
-                        ? 'text-foreground' 
-                        : 'text-muted-foreground hover:text-foreground'
-                    }`}
-                  >
-                    {link.label}
-                    {isActive && (
-                      <motion.span
-                        layoutId="activeSection"
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
-                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                      />
-                    )}
-                  </a>
-                </li>
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(link.href);
+                  }}
+                  className={`nav-pill ${isActive ? 'nav-pill-active' : ''}`}
+                >
+                  {link.label}
+                </a>
               );
             })}
-          </ul>
+          </div>
 
           {/* CTA Button - Desktop */}
           <a
@@ -91,9 +84,9 @@ export function Navbar() {
               e.preventDefault();
               handleLinkClick('#contact');
             }}
-            className="hidden md:inline-flex btn-primary text-sm"
+            className="hidden md:inline-flex btn-secondary text-sm"
           >
-            Get in Touch
+            Book a Call
           </a>
 
           {/* Mobile Menu Button */}
@@ -115,24 +108,31 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-20 z-40 bg-surface/95 backdrop-blur-xl border-b border-white/5 md:hidden"
+            className="fixed inset-x-0 top-20 z-40 bg-background/95 backdrop-blur-xl border-b border-white/5 md:hidden"
           >
             <nav className="container-custom py-6">
-              <ul className="flex flex-col gap-4">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleLinkClick(link.href);
-                      }}
-                      className="block py-2 text-lg font-medium text-foreground hover:text-accent transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+              <ul className="flex flex-col gap-2">
+                {navLinks.map((link) => {
+                  const isActive = activeSection === link.href.replace('#', '');
+                  return (
+                    <li key={link.href}>
+                      <a
+                        href={link.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleLinkClick(link.href);
+                        }}
+                        className={`block py-3 px-4 rounded-lg text-lg font-medium transition-colors ${
+                          isActive 
+                            ? 'bg-foreground text-background' 
+                            : 'text-foreground hover:bg-white/5'
+                        }`}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  );
+                })}
                 <li className="pt-4">
                   <a
                     href="#contact"
@@ -140,9 +140,9 @@ export function Navbar() {
                       e.preventDefault();
                       handleLinkClick('#contact');
                     }}
-                    className="btn-primary w-full justify-center"
+                    className="btn-secondary w-full justify-center"
                   >
-                    Get in Touch
+                    Book a Call
                   </a>
                 </li>
               </ul>

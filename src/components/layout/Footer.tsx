@@ -14,9 +14,9 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-2">
             <a 
               href="#home" 
-              className="font-display text-xl font-semibold text-foreground hover:text-accent transition-colors"
+              className="font-display text-xl font-bold text-foreground"
             >
-              {siteConfig.name.split(' ')[0]}
+              SA
               <span className="text-accent">.</span>
             </a>
             <p className="text-sm text-muted-foreground">
@@ -43,7 +43,7 @@ export function Footer() {
               href={siteConfig.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-card hover:bg-card-hover border border-border hover:border-border-strong transition-all"
+              className="p-2 rounded-full bg-card hover:bg-card-hover border border-border hover:border-accent/30 transition-all"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -52,7 +52,7 @@ export function Footer() {
               href={siteConfig.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-card hover:bg-card-hover border border-border hover:border-border-strong transition-all"
+              className="p-2 rounded-full bg-card hover:bg-card-hover border border-border hover:border-accent/30 transition-all"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
@@ -61,14 +61,14 @@ export function Footer() {
               href={siteConfig.socials.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-card hover:bg-card-hover border border-border hover:border-border-strong transition-all"
+              className="p-2 rounded-full bg-card hover:bg-card-hover border border-border hover:border-accent-secondary/30 transition-all"
               aria-label="Twitter"
             >
               <Twitter size={20} />
             </a>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-accent/10 hover:bg-accent/20 border border-accent/30 hover:border-accent/50 text-accent transition-all ml-2"
+              className="p-2 rounded-full bg-accent/10 hover:bg-accent/20 border border-accent/30 hover:border-accent/50 text-accent transition-all ml-2"
               aria-label="Scroll to top"
             >
               <ArrowUp size={20} />
