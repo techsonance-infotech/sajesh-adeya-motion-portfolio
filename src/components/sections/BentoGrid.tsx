@@ -34,21 +34,21 @@ export function BentoGrid() {
   };
 
   return (
-    <section className="py-6 md:py-10" id="bento">
-      <div className="container-custom">
+    <section className="py-10 lg:py-[60px]" id="bento">
+      <div className="mx-auto w-full max-w-[1600px] px-5 md:px-8 lg:px-[60px]">
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-12 auto-rows-auto gap-4"
+          className="grid grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-auto md:gap-4 lg:grid-cols-[360px_680px_400px] lg:grid-rows-[576px_504px] lg:gap-6 xl:grid-cols-[400px_760px_440px] xl:grid-rows-[640px_560px]"
         >
           {/* ROW 1 - 3 columns */}
           
           {/* Card 1: Profile Card (Left) */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-6 flex flex-col min-h-[520px] relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-4 lg:col-start-1 lg:row-start-1 lg:col-span-1 lg:row-span-1 rounded-[2rem] p-6 flex flex-col min-h-[520px] lg:min-h-0 lg:h-full relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
             style={{
               background: 'linear-gradient(180deg, rgba(30,30,30,0.9) 0%, rgba(12,12,12,0.98) 100%)',
               border: '1px solid rgba(255,255,255,0.06)',
@@ -93,7 +93,7 @@ export function BentoGrid() {
           {/* Card 2: Philosophy/Clock Card (Center) - spans 2 rows */}
           <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-8 lg:col-span-6 row-span-2 relative overflow-visible min-h-[700px] lg:min-h-[860px] transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-8 md:row-span-2 lg:col-start-2 lg:row-start-1 lg:col-span-1 lg:row-span-2 relative overflow-visible h-full transition-all duration-300 hover:-translate-y-1"
             style={{
               background: '#000000',
               border: '1px solid rgba(255,255,255,0.06)',
@@ -159,7 +159,7 @@ export function BentoGrid() {
           {/* Card 3: CTA Card (Right) */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-6 flex flex-col min-h-[520px] transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-4 lg:col-start-3 lg:row-start-1 lg:col-span-1 lg:row-span-1 rounded-[2rem] p-6 flex flex-col min-h-[520px] lg:min-h-0 lg:h-full transition-all duration-300 hover:-translate-y-1"
             style={{
               background: '#0A0A0A',
               border: '1px solid rgba(255,255,255,0.06)',
@@ -218,7 +218,7 @@ export function BentoGrid() {
           {/* Card 4: Available Globally (Left) */}
           <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-5 flex flex-col h-[380px] relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-4 lg:col-start-1 lg:row-start-2 lg:col-span-1 lg:row-span-1 rounded-[2rem] p-5 flex flex-col h-[380px] lg:h-full relative overflow-hidden transition-all duration-300 hover:-translate-y-1 z-10"
             style={{
               background: '#050505',
               border: '1px solid rgba(255,255,255,0.06)',
@@ -243,7 +243,7 @@ export function BentoGrid() {
           {/* Card 5: Founder of Rune (Center) */}
           <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-5 lg:col-span-4 rounded-[2rem] p-5 lg:p-6 relative overflow-hidden h-[380px] flex items-end transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-8 lg:col-start-2 lg:row-start-2 lg:col-span-2 lg:row-span-1 rounded-[2rem] p-5 lg:p-6 relative overflow-hidden h-[380px] lg:h-full flex items-end transition-all duration-300 hover:-translate-y-1 z-20 lg:-translate-y-[120px] xl:-translate-y-[140px]"
             style={{
               background: 'linear-gradient(135deg, #0A0A0A 0%, #150A18 100%)',
               border: '1px solid rgba(255,255,255,0.06)',
@@ -279,7 +279,7 @@ export function BentoGrid() {
           {/* Card 6: Work Style (Right) */}
           <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-3 lg:col-span-2 rounded-[2rem] p-5 flex flex-col justify-center h-[380px] transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-4 lg:col-start-3 lg:row-start-2 lg:col-span-1 lg:row-span-1 rounded-[2rem] p-5 flex flex-col justify-center h-[380px] lg:h-full transition-all duration-300 hover:-translate-y-1 z-20 lg:-translate-y-[120px] xl:-translate-y-[140px]"
             style={{
               background: '#080808',
               border: '1px solid rgba(255,255,255,0.06)',

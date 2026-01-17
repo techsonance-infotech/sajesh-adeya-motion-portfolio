@@ -33,11 +33,15 @@
     --accent-glow: 142 76% 50% / 0.30;
     --accent-hover: 142 76% 60%;
     --accent-foreground: 0 0% 5%;
+
+    /* Accent - Orange (portfolio highlight) */
+    --accent-orange: 14 100% 56%; /* #FF5722 */
+    --accent-orange-glow: 14 100% 56% / 0.30;
     
     /* Secondary Accent - Cyan */
     --accent-secondary: 192 91% 55%;
     --accent-secondary-hex: #22D3EE;
-    
+
     /* Primary mapped to accent */
     --primary: 142 76% 50%;
     --primary-foreground: 0 0% 5%;

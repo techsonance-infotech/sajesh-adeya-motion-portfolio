@@ -62,7 +62,7 @@ export function AnalogClock() {
           cy="130"
           r="145"
           fill="none"
-          stroke="rgba(255, 87, 34, 0.08)"
+          stroke="hsl(var(--accent-orange) / 0.08)"
           strokeWidth="0.5"
           strokeLinecap="round"
           strokeDasharray="300 100"
@@ -77,7 +77,7 @@ export function AnalogClock() {
           cy="130"
           r="160"
           fill="none"
-          stroke="rgba(255, 87, 34, 0.12)"
+          stroke="hsl(var(--accent-orange) / 0.15)"
           strokeWidth="1"
           strokeLinecap="round"
           strokeDasharray="250 150"
@@ -92,7 +92,7 @@ export function AnalogClock() {
           cy="130"
           r="180"
           fill="none"
-          stroke="rgba(255, 87, 34, 0.06)"
+          stroke="hsl(var(--accent-orange) / 0.08)"
           strokeWidth="0.5"
           strokeLinecap="round"
           strokeDasharray="200 200"
@@ -200,11 +200,11 @@ export function AnalogClock() {
             y1="150"
             x2="130"
             y2="28"
-            stroke="#FF5722"
+            stroke="hsl(var(--accent-orange))"
             strokeWidth="1.5"
             strokeLinecap="round"
           />
-          <circle cx="130" cy="28" r="3" fill="#FF5722" />
+          <circle cx="130" cy="28" r="3" fill="hsl(var(--accent-orange))" />
         </g>
 
         {/* Center hub */}
