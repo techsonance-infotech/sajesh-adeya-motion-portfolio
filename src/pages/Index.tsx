@@ -4,6 +4,7 @@ import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
+import { BentoGrid } from '@/components/sections/BentoGrid';
 import { About } from '@/components/sections/About';
 import { ProjectShowcase } from '@/components/sections/ProjectShowcase';
 import { Skills } from '@/components/sections/Skills';
@@ -39,6 +40,7 @@ function Index() {
         {/* Main content */}
         <main>
           <Hero />
+          <BentoGrid />
           <About />
           <ProjectShowcase />
           <Skills />
