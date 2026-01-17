@@ -3,12 +3,12 @@ import { MapPin, Linkedin, Github, Twitter, Sparkles, ArrowUpRight, Copy, Check,
 import { useState, useEffect } from 'react';
 import { siteConfig } from '@/lib/data';
 import { staggerContainer, fadeInUp } from '@/lib/animations';
+import { AnalogClock } from '@/components/ui/AnalogClock';
 
 // Import images
 import gallery1 from '@/assets/gallery-1.jpg';
 import gallery2 from '@/assets/gallery-2.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
-import clockFace from '@/assets/clock-face.png';
 import mobileMockups from '@/assets/mobile-mockups.png';
 
 export function BentoGrid() {
@@ -51,7 +51,7 @@ export function BentoGrid() {
           {/* Card 1: Profile Card */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-4 lg:col-span-3 row-span-2 bento-card p-5 flex flex-col"
+            className="col-span-12 md:col-span-4 lg:col-span-3 row-span-2 bento-card rounded-[2rem] p-5 flex flex-col"
           >
             <div className="mb-4">
               <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-1">
@@ -99,7 +99,7 @@ export function BentoGrid() {
           {/* Card 2: Detail-Driven UI */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-6 md:col-span-4 lg:col-span-2 bento-card p-5 flex flex-col justify-between"
+            className="col-span-6 md:col-span-4 lg:col-span-2 bento-card rounded-[2rem] p-5 flex flex-col justify-between"
           >
             <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest mb-3">
               <Sparkles size={12} className="text-accent" />
@@ -121,7 +121,7 @@ export function BentoGrid() {
           {/* Card 3: Philosophy Tags */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-6 md:col-span-4 lg:col-span-2 bento-card p-5 flex flex-col"
+            className="col-span-6 md:col-span-4 lg:col-span-2 bento-card rounded-[2rem] p-5 flex flex-col"
           >
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs text-muted-foreground uppercase tracking-widest">Philosophy</span>
@@ -152,7 +152,7 @@ export function BentoGrid() {
           {/* Card 4: Available for Work + CTA */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-6 lg:col-span-5 xl:col-span-5 row-span-2 bento-card p-5 flex flex-col"
+            className="col-span-12 md:col-span-6 lg:col-span-5 xl:col-span-5 row-span-2 bento-card rounded-[2rem] p-5 flex flex-col"
           >
             <div className="flex items-center justify-between mb-4">
               <div className="w-6 h-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
@@ -201,26 +201,22 @@ export function BentoGrid() {
 
           {/* Row 2 */}
 
-          {/* Card 5: Clock */}
+          {/* Card 5: Clock - No box, just the clock */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-6 lg:col-span-4 row-span-2 bento-card p-0 overflow-hidden relative flex items-center justify-center"
+            className="col-span-12 md:col-span-6 lg:col-span-4 row-span-2 flex flex-col items-center justify-center relative py-8"
           >
-            {/* Clock Image */}
-            <div className="relative w-[70%] max-w-[280px] aspect-square">
-              <img 
-                src={clockFace} 
-                alt="Precision & Detail" 
-                className="w-full h-full object-contain"
-              />
+            {/* Analog Clock */}
+            <div className="relative">
+              <AnalogClock />
             </div>
 
             {/* Country badges at bottom */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20">
+            <div className="flex flex-col items-center gap-2 mt-6">
               <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-muted-foreground">
                 GB UK
               </span>
-              <span className="px-4 py-1.5 rounded-lg bg-orange-500/20 border border-orange-500/40 text-xs text-orange-400 font-medium">
+              <span className="px-4 py-1.5 rounded-lg bg-accent/20 border border-accent/40 text-xs text-accent font-medium">
                 IN India
               </span>
               <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-muted-foreground">
@@ -232,7 +228,7 @@ export function BentoGrid() {
           {/* Card 6: Available Globally with Globe */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-6 lg:col-span-3 row-span-2 bento-card p-5 flex flex-col relative overflow-hidden"
+            className="col-span-12 md:col-span-6 lg:col-span-3 row-span-2 bento-card rounded-[2rem] p-5 flex flex-col relative overflow-hidden"
           >
             <div className="relative z-10">
               <span className="text-xs text-muted-foreground uppercase tracking-widest mb-2 block">
@@ -294,7 +290,7 @@ export function BentoGrid() {
           {/* Card 7: Founder / Creator Card with Mobile Mockups */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 lg:col-span-5 bento-card p-5 relative overflow-hidden min-h-[280px]"
+            className="col-span-12 lg:col-span-5 bento-card rounded-[2rem] p-5 relative overflow-hidden min-h-[280px]"
           >
             <div className="relative z-10">
               <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">
