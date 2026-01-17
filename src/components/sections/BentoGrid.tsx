@@ -201,43 +201,11 @@ export function BentoGrid() {
 
           {/* Row 2 */}
 
-          {/* Card 5: Clock with Curved Arc */}
+          {/* Card 5: Clock */}
           <motion.div 
             variants={fadeInUp}
             className="col-span-12 md:col-span-6 lg:col-span-4 row-span-2 bento-card p-0 overflow-hidden relative flex items-center justify-center"
           >
-            {/* Curved Arc SVG */}
-            <svg 
-              className="absolute inset-0 w-full h-full pointer-events-none z-10"
-              viewBox="0 0 400 400"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <defs>
-                <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#F97316" stopOpacity="0.8" />
-                  <stop offset="50%" stopColor="#EA580C" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#DC2626" stopOpacity="0.6" />
-                </linearGradient>
-              </defs>
-              {/* Main curved arc */}
-              <path 
-                d="M 50 350 Q 30 200 100 80 Q 180 -20 320 50 Q 400 100 380 200"
-                fill="none" 
-                stroke="url(#arcGradient)" 
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              {/* Inner subtle arc */}
-              <path 
-                d="M 80 320 Q 60 200 120 100 Q 180 20 300 70"
-                fill="none" 
-                stroke="url(#arcGradient)" 
-                strokeWidth="1"
-                strokeLinecap="round"
-                opacity="0.3"
-              />
-            </svg>
-            
             {/* Clock Image */}
             <div className="relative w-[70%] max-w-[280px] aspect-square">
               <img 
