@@ -149,8 +149,8 @@ export function BentoGrid() {
               </div>
             </div>
             
-            {/* Clock - Large, extending beyond the card */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[20%] w-[380px] h-[380px] md:w-[480px] md:h-[480px] lg:w-[580px] lg:h-[580px]">
+            {/* Clock - Properly sized, extending beyond the card */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[15%] w-[280px] h-[280px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px]">
               <AnalogClock />
             </div>
           </motion.div>
@@ -214,46 +214,47 @@ export function BentoGrid() {
 
           {/* ROW 2 */}
 
-          {/* Card 4: Available Globally (Left) */}
-          <motion.div 
+          {/* Card 4: Available Globally (Left) - No right rounded corners */}
+          <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-6 flex flex-col min-h-[380px] relative overflow-visible transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-4 lg:col-span-3 p-5 flex flex-col h-[340px] relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
             style={{
-              background: '#080808',
+              background: '#050505',
               border: '1px solid rgba(255,255,255,0.06)',
+              borderRadius: '2rem 0 0 2rem',
             }}
           >
             {/* Header */}
-            <div className="mb-3">
-              <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] block mb-1.5">
+            <div className="mb-2">
+              <span className="text-[9px] text-white/40 uppercase tracking-[0.2em] block mb-1">
                 Available Globally
               </span>
-              <h3 className="font-display text-lg lg:text-xl font-bold text-white leading-tight">
+              <h3 className="font-display text-base lg:text-lg font-semibold text-white leading-snug">
                 Adaptable across<br />time zones
               </h3>
             </div>
 
-            {/* Globe */}
-            <div className="flex-1 flex items-center justify-center -mb-6">
+            {/* Globe with country pills */}
+            <div className="flex-1">
               <GlobeVisualization />
             </div>
           </motion.div>
 
           {/* Card 5: Founder of Rune (Center, spans remaining) */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-8 lg:col-span-6 rounded-[2rem] p-6 lg:p-8 relative overflow-hidden min-h-[380px] flex items-center transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-8 lg:col-span-6 rounded-[2rem] p-5 lg:p-6 relative overflow-hidden h-[340px] flex items-center transition-all duration-300 hover:-translate-y-1"
             style={{
               background: 'linear-gradient(135deg, #0A0A0A 0%, #150A18 100%)',
               border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             {/* Left text area */}
-            <div className="relative z-10 max-w-[280px]">
-              <h3 className="font-display text-3xl lg:text-4xl font-bold text-white leading-tight">
+            <div className="relative z-10 max-w-[240px] pl-2">
+              <h3 className="font-display text-2xl lg:text-3xl font-bold text-white leading-tight">
                 Founder of{' '}
-                <span 
-                  className="font-serif-italic block"
+                <span
+                  className="font-serif-italic"
                   style={{
                     background: 'linear-gradient(135deg, #E91E63 0%, #9C27B0 100%)',
                     WebkitBackgroundClip: 'text',
@@ -264,39 +265,39 @@ export function BentoGrid() {
                   Rune
                 </span>
               </h3>
-              <p className="text-sm text-white/40 mt-2 font-serif-italic">
+              <p className="text-xs text-white/40 mt-1.5 font-serif-italic">
                 &lt; Crafting Digital Experiences /&gt;
               </p>
             </div>
 
             {/* Phone mockups */}
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 scale-[0.85] lg:scale-100">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 scale-75 lg:scale-90">
               <PhoneMockups />
             </div>
           </motion.div>
 
-          {/* Card 6: Work Style (Right) */}
-          <motion.div 
+          {/* Card 6: Work Style (Right) - Hidden on this layout since we merged with globe */}
+          <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-6 flex flex-col justify-between min-h-[380px] transition-all duration-300 hover:-translate-y-1"
+            className="hidden lg:flex col-span-3 rounded-[2rem] p-5 flex-col justify-between h-[340px] transition-all duration-300 hover:-translate-y-1"
             style={{
               background: '#080808',
               border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             <div>
-              <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] block mb-1.5">
+              <span className="text-[9px] text-white/40 uppercase tracking-[0.2em] block mb-1">
                 Work Style
               </span>
-              <h3 className="font-display text-lg lg:text-xl font-bold text-white">
+              <h3 className="font-display text-base lg:text-lg font-semibold text-white">
                 Fully Remote
               </h3>
             </div>
-            
-            <div className="flex items-center gap-2.5">
+
+            <div className="flex items-center gap-2">
               <Globe size={14} className="text-white/40" />
               <div>
-                <p className="text-[10px] text-white/30 uppercase tracking-[0.15em]">Based in</p>
+                <p className="text-[9px] text-white/30 uppercase tracking-[0.15em]">Based in</p>
                 <p className="text-sm font-medium text-white">India</p>
               </div>
             </div>
