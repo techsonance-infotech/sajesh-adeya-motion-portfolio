@@ -62,7 +62,7 @@ export function Hero() {
           <div className="flex items-center gap-3 text-center sm:text-left">
             <MapPin size={18} className="text-accent flex-shrink-0" />
             <div>
-              <p className="text-sm font-medium text-foreground uppercase tracking-wide">Based in Noida,</p>
+              <p className="text-sm font-medium text-foreground uppercase tracking-wide">Based in Surat,</p>
               <p className="text-xs text-muted-foreground uppercase tracking-wide">India</p>
             </div>
           </div>

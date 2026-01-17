@@ -6,13 +6,13 @@ export const siteConfig = {
   heroHeadline: "I design and build products that deliver real impact.",
   heroSubtext:
     "Senior Full-Stack Developer with hands-on experience building scalable web products, modern dashboards, and MVPs. I focus on clean code, smooth UX, and reliable delivery — from idea to production.",
-  email: "[YOUR_EMAIL_HERE]",
-  location: "[YOUR_LOCATION_HERE]",
+  email: "sajesh.adeya@gmail.com",
+  location: "NOIDA, India",
   socials: {
-    github: "[YOUR_GITHUB_URL_HERE]",
-    linkedin: "[YOUR_LINKEDIN_URL_HERE]",
-    twitter: "[YOUR_TWITTER_URL_HERE]",
-    portfolio: "https://[YOUR_DOMAIN_HERE]"
+    github: "https://github.com/sajeshadeya",
+    linkedin: "https://linkedin.com/in/sajeshadeya",
+    twitter: "https://twitter.com/sajeshadeya",
+    portfolio: "https://sajeshadeya.dev"
   }
 };
 
