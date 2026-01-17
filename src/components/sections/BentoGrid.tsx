@@ -204,12 +204,10 @@ export function BentoGrid() {
           {/* Card 5: Clock - No box, just the clock */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-6 lg:col-span-4 row-span-2 flex flex-col items-center justify-center relative py-8"
+            className="col-span-12 md:col-span-6 lg:col-span-4 row-span-2 flex flex-col items-center justify-center relative py-8 min-h-[400px]"
           >
             {/* Analog Clock */}
-            <div className="relative">
-              <AnalogClock />
-            </div>
+            <AnalogClock />
 
             {/* Country badges at bottom */}
             <div className="flex flex-col items-center gap-2 mt-6">
