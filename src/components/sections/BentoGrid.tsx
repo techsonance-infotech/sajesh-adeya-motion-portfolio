@@ -1,263 +1,274 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Copy, Check } from 'lucide-react';
-import { useState } from 'react';
-import { AnalogClock } from '@/components/ui/AnalogClock';
-import { GlobeVisualization } from '@/components/ui/GlobeVisualization';
-import { PhoneMockups } from '@/components/ui/PhoneMockups';
-import profileImage from '@/assets/profile.jpg';
+import { MapPin, Linkedin, Github, Twitter, Sparkles, Globe, ArrowUpRight, Copy, Check } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { siteConfig } from '@/lib/data';
+import { staggerContainer, fadeInUp } from '@/lib/animations';
+
+// Import images
+import gallery1 from '@/assets/gallery-1.jpg';
+import gallery2 from '@/assets/gallery-2.jpg';
+import gallery3 from '@/assets/gallery-3.jpg';
+import watchFace from '@/assets/watch-face.png';
+import mobileMockups from '@/assets/mobile-mockups.png';
 
 export function BentoGrid() {
   const [copied, setCopied] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(now.toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        hour12: true,
+        timeZone: 'Asia/Kolkata'
+      }));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('hello@sajesh.in');
+    navigator.clipboard.writeText(siteConfig.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section id="about" className="relative py-16 lg:py-24">
-      <div className="container mx-auto px-4 lg:px-8 max-w-[1400px]">
-        {/* Desktop Grid Layout - Optimized for 13" MacBook (1440px) */}
+    <section className="py-6 md:py-10">
+      <div className="container-custom">
         <motion.div
-          className="hidden lg:grid gap-4"
-          style={{
-            gridTemplateColumns: '300px 1fr 320px',
-            gridTemplateRows: '520px 380px',
-          }}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
         >
-          {/* Card 1: Profile - Top Left */}
-          <motion.div
-            className="relative rounded-3xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A]"
-            style={{ gridColumn: '1', gridRow: '1' }}
-            whileHover={{ scale: 1.01 }}
-            transition={{ duration: 0.3 }}
+          {/* Card 1: Profile Card - Takes 1 column on lg */}
+          <motion.div 
+            variants={fadeInUp}
+            className="lg:row-span-2 bento-card p-6 flex flex-col"
           >
-            <div className="absolute inset-0">
-              <img
-                src={profileImage}
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Parth Patel
-              </h3>
-              <p className="text-white/60 text-sm">
-                Product Designer crafting digital experiences with passion
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Card 2: Clock - Center, spans 2 rows */}
-          <motion.div
-            className="relative rounded-3xl overflow-hidden border border-white/[0.08] bg-black"
-            style={{ gridColumn: '2', gridRow: '1 / 3' }}
-            whileHover={{ scale: 1.005 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-[380px] h-[380px] xl:w-[420px] xl:h-[420px]">
-                <AnalogClock />
+            <div className="mb-6">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-1">
+                {siteConfig.name.split(' ')[0]}{' '}
+                <span className="font-serif-italic font-normal text-muted-foreground">
+                  {siteConfig.name.split(' ')[1]}
+                </span>
+              </h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <MapPin size={14} className="text-accent" />
+                <span>NOIDA, IN • {currentTime}</span>
               </div>
             </div>
-            {/* Time zone label */}
-            <div className="absolute top-6 left-6">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">
-                Local Time
-              </span>
+
+            {/* Photo Gallery */}
+            <div className="flex-1 flex gap-2 mb-6 min-h-[200px] md:min-h-[280px]">
+              <div className="flex-1 rounded-xl overflow-hidden">
+                <img src={gallery1} alt="Gallery" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-1 rounded-xl overflow-hidden">
+                <img src={gallery2} alt="Gallery" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-1 rounded-xl overflow-hidden">
+                <img src={gallery3} alt="Gallery" className="w-full h-full object-cover" />
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center justify-center gap-6 pt-4 border-t border-white/10">
+              <a href={siteConfig.socials.linkedin} target="_blank" rel="noopener noreferrer" 
+                className="text-muted-foreground hover:text-foreground transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <a href={siteConfig.socials.github} target="_blank" rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors">
+                <Github size={20} />
+              </a>
+              <a href={siteConfig.socials.twitter} target="_blank" rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors">
+                <Twitter size={20} />
+              </a>
             </div>
           </motion.div>
 
-          {/* Card 3: CTA - Top Right */}
-          <motion.div
-            className="relative rounded-3xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-6 flex flex-col justify-between"
-            style={{ gridColumn: '3', gridRow: '1' }}
-            whileHover={{ scale: 1.01 }}
-            transition={{ duration: 0.3 }}
+          {/* Card 2: Detail-Driven UI */}
+          <motion.div 
+            variants={fadeInUp}
+            className="bento-card p-6 flex flex-col justify-between min-h-[200px]"
           >
+            <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest mb-4">
+              <Sparkles size={14} className="text-accent" />
+              <span>Detail-Driven UI</span>
+            </div>
             <div>
-              <div className="flex items-center gap-2 mb-6">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-[10px] uppercase tracking-widest text-white/50">Available for work</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Let's Create Together
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-1">
+                Interfaces
               </h3>
-              <p className="text-white/50 text-sm leading-relaxed">
-                Looking for a designer who brings both creativity and strategic thinking? Let's discuss your project.
+              <p className="font-serif-italic text-xl md:text-2xl text-muted-foreground">
+                you can feel.
+              </p>
+              <p className="text-sm text-muted-foreground mt-4">
+                I sweat spacing, timing, and feedback — the tiny stuff.
               </p>
             </div>
-            
-            <div className="space-y-3">
+          </motion.div>
+
+          {/* Card 3: Philosophy Tags + Micro-interactions */}
+          <motion.div 
+            variants={fadeInUp}
+            className="bento-card p-6 flex flex-col min-h-[200px]"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-xs text-muted-foreground uppercase tracking-widest">Philosophy</span>
+              <span className="text-accent">+</span>
+            </div>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {['Motion', 'Type', 'Feedback', 'Craft'].map((tag, i) => (
+                <span 
+                  key={tag} 
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                    i === 0 
+                      ? 'bg-accent/20 border-accent/40 text-accent' 
+                      : 'bg-white/5 border-white/10 text-muted-foreground hover:border-white/20'
+                  }`}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="mt-auto">
+              <h4 className="font-medium text-foreground mb-1">Micro-interactions</h4>
+              <p className="text-sm text-muted-foreground">
+                Subtle movement that confirms intent — never distracting.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Card 4: Available for Work + CTA */}
+          <motion.div 
+            variants={fadeInUp}
+            className="lg:row-span-2 bento-card p-6 flex flex-col"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                <div className="w-2 h-2 rounded-full bg-white/60" />
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/30">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-xs font-medium text-accent">Available for work</span>
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground uppercase leading-tight mb-2">
+                Let's Build<br />Something
+              </h3>
+              <p className="font-serif-italic text-xl md:text-2xl text-accent">
+                that actually works.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-white/10">
               <button 
                 onClick={copyEmail}
-                className="flex items-center gap-3 group cursor-pointer w-full"
+                className="flex items-center gap-3 mb-2 group cursor-pointer w-full"
               >
-                <div className="w-8 h-8 rounded-full bg-white/[0.05] border border-white/[0.08] flex items-center justify-center group-hover:bg-white/[0.1] transition-colors">
-                  {copied ? <Check size={14} className="text-brand-orange" /> : <Copy size={14} className="text-white/60" />}
+                <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                  {copied ? <Check size={14} className="text-accent" /> : <Copy size={14} />}
                 </div>
-                <span className="text-sm text-white/70 group-hover:text-white transition-colors">
-                  hello@sajesh.in
+                <span className="font-serif-italic text-lg text-foreground group-hover:text-accent transition-colors truncate">
+                  {siteConfig.email}
                 </span>
               </button>
-              
-              <motion.a
+              <p className="text-xs text-muted-foreground uppercase tracking-widest mb-6 ml-11">
+                {copied ? 'Copied!' : 'Tap to copy email'}
+              </p>
+
+              <a 
                 href="#contact"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition-colors"
-                whileHover={{ scale: 1.02 }}
+                className="flex items-center justify-center gap-2 w-full py-4 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors"
               >
-                <span>Get in touch</span>
-                <ArrowUpRight size={16} />
-              </motion.a>
+                Connect Now
+                <ArrowUpRight size={18} />
+              </a>
             </div>
           </motion.div>
 
-          {/* Card 4: Globe - Bottom Left */}
-          <motion.div
-            className="relative rounded-3xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-5"
-            style={{ gridColumn: '1', gridRow: '2', marginTop: '-60px' }}
-            whileHover={{ scale: 1.01 }}
-            transition={{ duration: 0.3 }}
+          {/* Card 5: Watch/Time Visual - Spans 2 columns */}
+          <motion.div 
+            variants={fadeInUp}
+            className="md:col-span-2 bento-card p-0 overflow-hidden relative min-h-[280px] md:min-h-[320px]"
           >
-            <div className="mb-3">
-              <h4 className="text-xs uppercase tracking-[0.15em] text-white/40 mb-1">
-                Available Globally
-              </h4>
-              <p className="text-[11px] text-white/30">
-                Adaptable across time zones
-              </p>
-            </div>
-            <div className="h-[calc(100%-60px)]">
-              <GlobeVisualization />
-            </div>
+            <img 
+              src={watchFace} 
+              alt="Precision & Detail" 
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
           </motion.div>
 
-          {/* Card 5: Phones + Work Style - Bottom Right, spans 2 columns */}
-          <motion.div
-            className="relative rounded-3xl overflow-hidden border border-white/[0.08] bg-gradient-to-br from-[#0A0A0A] to-[#150A18]"
-            style={{ gridColumn: '2 / 4', gridRow: '2', marginTop: '-60px' }}
-            whileHover={{ scale: 1.005 }}
-            transition={{ duration: 0.3 }}
+          {/* Card 6: Available Globally */}
+          <motion.div 
+            variants={fadeInUp}
+            className="bento-card p-6 flex flex-col justify-between min-h-[200px] relative overflow-hidden"
           >
-            {/* Phones */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="scale-[0.85] xl:scale-95">
-                <PhoneMockups />
-              </div>
-            </div>
-            
-            {/* Founder label */}
-            <div className="absolute bottom-6 left-6">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 block mb-1">
-                Founder of
-              </span>
-              <span className="text-lg font-semibold text-white">Rune</span>
-            </div>
-
-            {/* Work Style indicator */}
-            <div className="absolute bottom-6 right-6 flex items-center gap-3">
-              <div className="flex flex-col gap-0.5">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div
-                    key={i}
-                    className={`w-1 h-3 rounded-full ${
-                      i <= 3 ? 'bg-brand-orange' : 'bg-white/10'
-                    }`}
-                  />
-                ))}
-              </div>
-              <div>
-                <span className="text-[10px] uppercase tracking-[0.15em] text-white/40 block">
-                  Work Style
-                </span>
-                <span className="text-sm font-medium text-white">
-                  Fully Remote
-                </span>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Mobile/Tablet Layout */}
-        <motion.div
-          className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-4"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          {/* Profile Card */}
-          <motion.div
-            className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] h-[400px] md:col-span-2"
-            whileHover={{ scale: 1.01 }}
-          >
-            <div className="absolute inset-0">
-              <img
-                src={profileImage}
-                alt="Profile"
-                className="w-full h-full object-cover"
+            {/* Globe visualization - simplified */}
+            <div className="absolute right-0 bottom-0 w-40 h-40 opacity-20">
+              <div className="w-full h-full rounded-full border border-accent/30" 
+                style={{
+                  background: 'radial-gradient(ellipse at 30% 30%, transparent 40%, hsl(var(--accent) / 0.1) 100%)'
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-accent rounded-full animate-pulse" />
             </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-2xl font-bold text-white mb-2">Parth Patel</h3>
-              <p className="text-white/60 text-sm">
-                Product Designer crafting digital experiences
+
+            <div>
+              <span className="text-xs text-muted-foreground uppercase tracking-widest mb-3 block">
+                Available Globally
+              </span>
+              <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
+                Adaptable across<br />time zones
+              </h3>
+            </div>
+
+            <div className="flex flex-wrap gap-2 mt-4">
+              {['GB UK', 'IN India', 'US USA'].map((zone, i) => (
+                <span 
+                  key={zone}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
+                    i === 1 
+                      ? 'bg-accent/20 border-accent/40 text-accent' 
+                      : 'bg-white/5 border-white/10 text-muted-foreground'
+                  }`}
+                >
+                  {zone}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Card 7: Mobile Mockups / Founder */}
+          <motion.div 
+            variants={fadeInUp}
+            className="md:col-span-2 lg:col-span-1 bento-card p-6 relative overflow-hidden min-h-[280px]"
+          >
+            <div className="relative z-10 mb-4">
+              <h3 className="font-display text-xl font-bold text-foreground">
+                Creator of <span className="font-serif-italic text-accent">Impact</span>
+              </h3>
+              <p className="text-xs text-muted-foreground mt-1">
+                &lt; Crafting Digital Experiences /&gt;
               </p>
             </div>
-          </motion.div>
 
-          {/* Clock Card */}
-          <motion.div
-            className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] h-[350px]"
-            whileHover={{ scale: 1.01 }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[280px] h-[280px]">
-                <AnalogClock />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Globe Card */}
-          <motion.div
-            className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] h-[350px] p-4"
-            whileHover={{ scale: 1.01 }}
-          >
-            <div className="mb-3">
-              <h4 className="text-xs uppercase tracking-[0.15em] text-white/40">
-                Available Globally
-              </h4>
-            </div>
-            <GlobeVisualization />
-          </motion.div>
-
-          {/* CTA Card */}
-          <motion.div
-            className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0A0A] p-6 md:col-span-2"
-            whileHover={{ scale: 1.01 }}
-          >
-            <h3 className="text-xl font-semibold text-white mb-3">
-              Let's Create Together
-            </h3>
-            <p className="text-white/50 text-sm mb-4">
-              Looking for a designer who brings both creativity and strategic thinking?
-            </p>
-            <motion.a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-brand-orange"
-              whileHover={{ x: 4 }}
-            >
-              <span className="text-sm font-medium">Get in touch</span>
-              <ArrowUpRight size={16} />
-            </motion.a>
+            <img 
+              src={mobileMockups} 
+              alt="Mobile App Mockups" 
+              className="absolute bottom-0 right-0 w-full h-auto max-h-[200px] object-contain object-right-bottom opacity-90"
+            />
           </motion.div>
         </motion.div>
       </div>

@@ -25,10 +25,6 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         surface: "hsl(var(--surface))",
-        brand: {
-          orange: "hsl(var(--accent-orange))",
-          "orange-glow": "hsl(var(--accent-orange-glow))",
-        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
