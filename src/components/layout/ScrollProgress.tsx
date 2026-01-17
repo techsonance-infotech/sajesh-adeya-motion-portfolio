@@ -11,10 +11,10 @@ export function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-[3px] z-[100] origin-left"
+      className="fixed top-0 left-0 right-0 h-[2px] z-[100] origin-left"
       style={{
         scaleX,
-        background: 'linear-gradient(90deg, hsl(var(--accent)) 0%, hsl(var(--accent-hover)) 100%)',
+        background: 'linear-gradient(90deg, hsl(142 76% 50%) 0%, hsl(192 91% 55%) 100%)',
       }}
     />
   );

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,11 +6,11 @@
 
 @layer base {
   :root {
-    /* Dark Premium Theme */
-    --background: 240 10% 2%;
-    --background-hex: #050507;
-    --surface: 230 15% 6%;
-    --surface-hex: #0B0C10;
+    /* Dark Premium Theme - Neon Green & Cyan */
+    --background: 0 0% 2%;
+    --background-hex: #050505;
+    --surface: 0 0% 5%;
+    --surface-hex: #0D0D0D;
     
     /* Cards with glassmorphism */
     --card: 0 0% 100% / 0.04;
@@ -23,23 +23,27 @@
     
     /* Text colors */
     --foreground: 0 0% 96%;
-    --text-muted: 0 0% 96% / 0.70;
-    --muted: 230 15% 15%;
-    --muted-foreground: 0 0% 96% / 0.70;
+    --text-muted: 0 0% 96% / 0.60;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 96% / 0.60;
     
-    /* Accent - Violet */
-    --accent: 263 70% 58%;
-    --accent-hex: #7C3AED;
-    --accent-glow: 263 70% 58% / 0.35;
-    --accent-hover: 263 70% 65%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent - Neon Green */
+    --accent: 142 76% 50%;
+    --accent-hex: #22C55E;
+    --accent-glow: 142 76% 50% / 0.30;
+    --accent-hover: 142 76% 60%;
+    --accent-foreground: 0 0% 5%;
+    
+    /* Secondary Accent - Cyan */
+    --accent-secondary: 192 91% 55%;
+    --accent-secondary-hex: #22D3EE;
     
     /* Primary mapped to accent */
-    --primary: 263 70% 58%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 142 76% 50%;
+    --primary-foreground: 0 0% 5%;
     
     /* Secondary */
-    --secondary: 230 15% 12%;
+    --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 96%;
     
     /* Destructive */
@@ -47,26 +51,27 @@
     --destructive-foreground: 0 0% 100%;
     
     /* Popover */
-    --popover: 230 15% 6%;
+    --popover: 0 0% 5%;
     --popover-foreground: 0 0% 96%;
     
     /* Input & Ring */
     --input: 0 0% 100% / 0.10;
-    --ring: 263 70% 58%;
+    --ring: 142 76% 50%;
     
     /* Radius */
     --radius: 0.75rem;
     --radius-lg: 1.5rem;
+    --radius-full: 9999px;
     
     /* Sidebar (keeping for compatibility) */
-    --sidebar-background: 230 15% 6%;
+    --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 263 70% 58%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 230 15% 12%;
+    --sidebar-primary: 142 76% 50%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 96%;
     --sidebar-border: 0 0% 100% / 0.10;
-    --sidebar-ring: 263 70% 58%;
+    --sidebar-ring: 142 76% 50%;
   }
 }
 
@@ -141,37 +146,56 @@
     box-shadow: 0 0 60px hsl(var(--accent-glow)), 0 0 100px hsl(var(--accent-glow));
   }
   
+  /* Serif italic text */
+  .font-serif-italic {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+  }
+  
   /* Button styles */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300;
-    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-hover)) 100%);
-    color: hsl(var(--accent-foreground));
-    box-shadow: 0 4px 20px hsl(var(--accent-glow));
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300;
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
   }
   
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px hsl(var(--accent-glow));
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px hsl(var(--foreground) / 0.2);
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300;
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300;
+    background: transparent;
+    border: 1px solid hsl(var(--border-strong));
     color: hsl(var(--foreground));
   }
   
   .btn-secondary:hover {
     background: hsl(var(--card-hover));
-    border-color: hsl(var(--border-strong));
-    transform: translateY(-2px);
+    border-color: hsl(var(--foreground) / 0.4);
+  }
+  
+  /* Pill nav button */
+  .nav-pill {
+    @apply px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300;
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .nav-pill:hover {
+    color: hsl(var(--foreground));
+  }
+  
+  .nav-pill-active {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background)) !important;
   }
   
   /* Tech badge */
   .tech-badge {
     @apply inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium;
     background: hsl(var(--accent) / 0.15);
-    color: hsl(var(--accent-hover));
+    color: hsl(var(--accent));
     border: 1px solid hsl(var(--accent) / 0.3);
   }
   
@@ -181,7 +205,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.035;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
   
@@ -207,8 +231,9 @@
 @layer utilities {
   /* Fluid typography */
   .text-hero {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    line-height: 1.1;
+    font-size: clamp(3.5rem, 12vw, 10rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
   }
   
   .text-section {
@@ -224,6 +249,11 @@
   .text-body-lg {
     font-size: 1.125rem;
     line-height: 1.7;
+  }
+  
+  /* Tracking wide for uppercase text */
+  .tracking-hero {
+    letter-spacing: 0.3em;
   }
   
   /* Focus visible */

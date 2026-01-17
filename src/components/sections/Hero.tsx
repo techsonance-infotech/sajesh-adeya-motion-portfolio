@@ -1,124 +1,82 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, ArrowRight } from 'lucide-react';
+import { MapPin, Layers } from 'lucide-react';
 import { siteConfig } from '@/lib/data';
 import { heroAnimations } from '@/lib/animations';
-import { MagneticButton } from '@/components/ui/MagneticButton';
-import profileImage from '@/assets/profile.jpg';
 
 export function Hero() {
-  const handleScroll = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // Split the headline for styling
+  const headlinePart1 = "I DESIGN AND BUILD PRODUCTS THAT";
+  const headlinePart2 = "deliver real impact.";
 
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
-      {/* Background glow */}
-      <motion.div
-        variants={heroAnimations.glow}
-        initial="initial"
-        animate="animate"
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-[60%] bg-hero-glow opacity-60 pointer-events-none"
-      />
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-hero-glow opacity-20 pointer-events-none" />
 
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-glow-pulse pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-[100px] animate-glow-pulse pointer-events-none" style={{ animationDelay: '1.5s' }} />
-
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 flex-1 flex flex-col justify-center py-20">
         <motion.div
           variants={heroAnimations.container}
           initial="initial"
           animate="animate"
-          className="flex flex-col items-center text-center max-w-4xl mx-auto"
+          className="flex flex-col items-center text-center"
         >
-          {/* Profile Image */}
-          <motion.div 
-            variants={heroAnimations.item}
-            className="mb-8"
-          >
-            <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-accent to-accent-hover rounded-full blur-md opacity-50" />
-              <img
-                src={profileImage}
-                alt={siteConfig.name}
-                className="relative w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-white/10"
-              />
-            </div>
-          </motion.div>
-
-          {/* Name */}
+          {/* Large Name */}
           <motion.h1 
             variants={heroAnimations.item}
-            className="font-display text-hero font-bold text-foreground mb-4"
+            className="font-display text-hero font-extrabold text-foreground uppercase tracking-tight mb-8 md:mb-12"
           >
-            {siteConfig.name}
+            {siteConfig.name.split(' ')[0]}
+            <span className="block md:inline">{' '}{siteConfig.name.split(' ')[1]}</span>
           </motion.h1>
 
-          {/* Headline */}
+          {/* Tagline - Part 1: Uppercase tracking */}
           <motion.p 
             variants={heroAnimations.item}
-            className="text-xl md:text-2xl lg:text-3xl text-foreground/90 font-medium mb-6"
+            className="text-xs sm:text-sm md:text-base text-muted-foreground uppercase tracking-hero mb-4"
           >
-            {siteConfig.heroHeadline}
+            {headlinePart1}
           </motion.p>
 
-          {/* Subtext */}
+          {/* Tagline - Part 2: Serif italic */}
           <motion.p 
             variants={heroAnimations.item}
-            className="text-body-lg text-muted-foreground max-w-2xl mb-10"
+            className="font-serif-italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground"
           >
-            {siteConfig.heroSubtext}
+            {headlinePart2}
           </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div 
-            variants={heroAnimations.item}
-            className="flex flex-col sm:flex-row items-center gap-4"
-          >
-            <MagneticButton>
-              <button
-                onClick={() => handleScroll('#showcase')}
-                className="btn-primary group"
-              >
-                View My Work
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </MagneticButton>
-            
-            <MagneticButton>
-              <button
-                onClick={() => handleScroll('#contact')}
-                className="btn-secondary"
-              >
-                Get in Touch
-              </button>
-            </MagneticButton>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          >
-            <button
-              onClick={() => handleScroll('#about')}
-              className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
-              aria-label="Scroll to about section"
-            >
-              <span className="text-xs uppercase tracking-widest">Scroll</span>
-              <ArrowDown size={20} className="animate-scroll-hint" />
-            </button>
-          </motion.div>
         </motion.div>
       </div>
+
+      {/* Bottom Info Bar */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.6 }}
+        className="container-custom pb-10 md:pb-16"
+      >
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          {/* Location - Left */}
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <MapPin size={18} className="text-accent flex-shrink-0" />
+            <div>
+              <p className="text-sm font-medium text-foreground uppercase tracking-wide">Based in Noida,</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">India</p>
+            </div>
+          </div>
+
+          {/* Role - Right */}
+          <div className="flex items-center gap-3 text-center sm:text-right">
+            <div className="order-2 sm:order-1">
+              <p className="text-sm font-medium text-foreground uppercase tracking-wide">Full Stack Dev,</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">& Designer</p>
+            </div>
+            <Layers size={18} className="text-accent-secondary order-1 sm:order-2 flex-shrink-0" />
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

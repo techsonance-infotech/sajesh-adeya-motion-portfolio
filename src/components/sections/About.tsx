@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { aboutContent, siteConfig } from '@/lib/data';
+import { aboutContent } from '@/lib/data';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { staggerContainer, fadeInUp } from '@/lib/animations';
 
@@ -55,19 +55,19 @@ export function About() {
             variants={fadeInUp}
             className="grid grid-cols-2 gap-4"
           >
-            <div className="glass-card p-6 rounded-2xl">
+            <div className="glass-card p-6 rounded-2xl group hover:border-accent/30 transition-all duration-300">
               <div className="text-3xl font-display font-bold text-accent mb-2">5+</div>
               <div className="text-sm text-muted-foreground">Years Experience</div>
             </div>
-            <div className="glass-card p-6 rounded-2xl">
-              <div className="text-3xl font-display font-bold text-accent mb-2">50+</div>
+            <div className="glass-card p-6 rounded-2xl group hover:border-accent/30 transition-all duration-300">
+              <div className="text-3xl font-display font-bold text-accent-secondary mb-2">50+</div>
               <div className="text-sm text-muted-foreground">Projects Delivered</div>
             </div>
-            <div className="glass-card p-6 rounded-2xl">
-              <div className="text-3xl font-display font-bold text-accent mb-2">20+</div>
+            <div className="glass-card p-6 rounded-2xl group hover:border-accent/30 transition-all duration-300">
+              <div className="text-3xl font-display font-bold text-accent-secondary mb-2">20+</div>
               <div className="text-sm text-muted-foreground">Happy Clients</div>
             </div>
-            <div className="glass-card p-6 rounded-2xl">
+            <div className="glass-card p-6 rounded-2xl group hover:border-accent/30 transition-all duration-300">
               <div className="text-3xl font-display font-bold text-accent mb-2">100%</div>
               <div className="text-sm text-muted-foreground">Commitment</div>
             </div>
