@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Linkedin, Github, Twitter, Sparkles, ArrowUpRight, Copy, Check, Globe, MousePointer } from 'lucide-react';
+import { MapPin, Linkedin, Github, Twitter, ArrowUpRight, Copy, Check, Globe, MousePointer } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { siteConfig } from '@/lib/data';
 import { staggerContainer, fadeInUp } from '@/lib/animations';
@@ -34,232 +34,226 @@ export function BentoGrid() {
   };
 
   return (
-    <section className="py-4 md:py-8" id="bento">
+    <section className="py-6 md:py-10" id="bento">
       <div className="container-custom">
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-12 gap-5 lg:gap-6"
-          style={{
-            gridTemplateRows: 'auto auto',
-          }}
+          className="grid grid-cols-12 auto-rows-auto gap-4"
         >
-          {/* ROW 1 */}
+          {/* ROW 1 - 3 columns */}
           
-          {/* Card 1: Profile Card (Top-Left) - spans 2 rows */}
+          {/* Card 1: Profile Card (Left) */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-6 lg:col-span-3 row-span-1 lg:row-span-2 rounded-[2rem] p-6 lg:p-8 flex flex-col min-h-[500px] lg:min-h-[640px] relative overflow-hidden transition-all duration-400 hover:-translate-y-2 hover:border-white/15"
+            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-6 flex flex-col min-h-[520px] relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
             style={{
-              background: 'linear-gradient(180deg, rgba(30,30,30,0.8) 0%, rgba(15,15,15,0.95) 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'linear-gradient(180deg, rgba(30,30,30,0.9) 0%, rgba(12,12,12,0.98) 100%)',
+              border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             {/* Name section */}
-            <div className="mb-6">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">
+            <div className="mb-4">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-1.5">
                 {siteConfig.name.split(' ')[0]}{' '}
-                <span className="font-serif-italic font-normal text-white/70">
+                <span className="font-serif-italic font-normal text-white/60">
                   {siteConfig.name.split(' ')[1]}
                 </span>
               </h2>
-              <div className="flex items-center gap-2 text-sm text-white/60">
-                <MapPin size={14} />
+              <div className="flex items-center gap-1.5 text-xs text-white/50">
+                <MapPin size={12} />
                 <span>NOIDA, IN • {currentTime}</span>
               </div>
             </div>
 
             {/* Polaroid Photos */}
-            <div className="flex-1 flex items-center justify-center mb-6">
+            <div className="flex-1 flex items-center justify-center">
               <PolaroidPhotos />
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center justify-center gap-6 pt-4 border-t border-white/10">
+            <div className="flex items-center justify-center gap-5 pt-4 border-t border-white/[0.06]">
               <a href={siteConfig.socials.linkedin} target="_blank" rel="noopener noreferrer" 
-                className="text-white/60 hover:text-white transition-colors">
-                <Linkedin size={20} />
+                className="text-white/50 hover:text-white transition-colors">
+                <Linkedin size={18} />
               </a>
               <a href={siteConfig.socials.github} target="_blank" rel="noopener noreferrer"
-                className="text-white/60 hover:text-white transition-colors">
-                <Github size={20} />
+                className="text-white/50 hover:text-white transition-colors">
+                <Github size={18} />
               </a>
               <a href={siteConfig.socials.twitter} target="_blank" rel="noopener noreferrer"
-                className="text-white/60 hover:text-white transition-colors">
-                <Twitter size={20} />
+                className="text-white/50 hover:text-white transition-colors">
+                <Twitter size={18} />
               </a>
             </div>
           </motion.div>
 
-          {/* Card 2: Philosophy/Clock Card (Top-Center) - spans 2 rows */}
+          {/* Card 2: Philosophy/Clock Card (Center) - spans 2 rows */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 lg:col-span-6 row-span-1 lg:row-span-2 rounded-[2rem] p-6 lg:p-10 relative overflow-visible min-h-[600px] lg:min-h-[800px] transition-all duration-400 hover:-translate-y-2"
+            className="col-span-12 md:col-span-8 lg:col-span-6 row-span-2 rounded-[2rem] relative overflow-visible min-h-[700px] lg:min-h-[900px] transition-all duration-300 hover:-translate-y-1"
             style={{
               background: '#000000',
-              border: '1px solid rgba(255,255,255,0.08)',
+              border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             {/* Top Left Content */}
-            <div className="absolute top-8 left-8 lg:top-12 lg:left-12 z-10">
-              <div className="flex items-center gap-2 text-xs text-white/50 uppercase tracking-widest mb-6">
-                <MousePointer size={14} />
+            <div className="absolute top-6 left-6 lg:top-8 lg:left-8 z-10">
+              <div className="flex items-center gap-2 text-[10px] text-white/40 uppercase tracking-[0.2em] mb-5">
+                <MousePointer size={12} />
                 <span>Detail-Driven UI</span>
               </div>
               
-              <h3 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-2">
+              <h3 className="font-display text-4xl lg:text-5xl xl:text-[3.5rem] font-bold text-white leading-[1.05] mb-1">
                 Interfaces
               </h3>
-              <p className="font-serif-italic text-3xl lg:text-4xl xl:text-5xl text-white/70 mb-6">
+              <p className="font-serif-italic text-3xl lg:text-4xl xl:text-[2.75rem] text-white/60 mb-5">
                 you can feel.
               </p>
-              <p className="text-sm lg:text-base text-white/60 max-w-[320px] leading-relaxed">
+              <p className="text-sm text-white/50 max-w-[280px] leading-relaxed">
                 I sweat spacing, timing, and feedback — the tiny stuff.
               </p>
             </div>
             
             {/* Top Right Content */}
-            <div className="absolute top-8 right-8 lg:top-12 lg:right-12 z-10 text-right">
-              <div className="flex items-center justify-end gap-2 text-xs text-white/50 uppercase tracking-widest mb-6">
+            <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-10 text-right">
+              <div className="flex items-center justify-end gap-1.5 text-[10px] text-white/40 uppercase tracking-[0.2em] mb-4">
                 <span>Philosophy</span>
-                <span className="text-lg">+</span>
+                <span className="text-sm">+</span>
               </div>
               
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 justify-end mb-6">
+              <div className="flex flex-wrap gap-1.5 justify-end mb-4">
                 {['Motion', 'Type', 'Feedback'].map((tag) => (
                   <span 
                     key={tag} 
-                    className="px-4 py-2 rounded-full text-xs font-medium border border-white/10 text-white/50"
+                    className="px-3 py-1.5 rounded-full text-[10px] font-medium border border-white/[0.08] text-white/40"
                   >
                     {tag}
                   </span>
                 ))}
                 <span 
-                  className="px-4 py-2 rounded-full text-xs font-medium border border-[#FF5722]/40 text-[#FF5722]"
+                  className="px-3 py-1.5 rounded-full text-[10px] font-medium border border-[#FF5722]/50 text-[#FF5722]"
                 >
                   Craft
                 </span>
               </div>
               
-              <div className="max-w-[200px] ml-auto">
-                <h4 className="font-medium text-sm text-white mb-1">Attention to detail</h4>
-                <p className="text-xs text-white/50 leading-relaxed">
+              <div className="max-w-[180px] ml-auto">
+                <h4 className="font-medium text-sm text-white mb-0.5">Attention to detail</h4>
+                <p className="text-[11px] text-white/40 leading-relaxed">
                   Polish lives in the edges: spacing, timing, and states.
                 </p>
               </div>
             </div>
             
-            {/* Clock - Centered, positioned lower */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[15%] w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] xl:w-[600px] xl:h-[600px]">
+            {/* Clock - Large, extending beyond the card */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[20%] w-[380px] h-[380px] md:w-[480px] md:h-[480px] lg:w-[580px] lg:h-[580px]">
               <AnalogClock />
             </div>
           </motion.div>
 
-          {/* Card 3: CTA Card (Top-Right) - spans 2 rows */}
+          {/* Card 3: CTA Card (Right) */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-6 lg:col-span-3 row-span-1 lg:row-span-2 rounded-[2rem] p-6 lg:p-8 flex flex-col min-h-[500px] lg:min-h-[640px] transition-all duration-400 hover:-translate-y-2"
+            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-6 flex flex-col min-h-[520px] transition-all duration-300 hover:-translate-y-1"
             style={{
               background: '#0A0A0A',
-              border: '1px solid rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
-            {/* Top row: record icon + available badge */}
-            <div className="flex items-center justify-between mb-8">
-              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-white/60" />
+            {/* Top row */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center">
+                <div className="w-2.5 h-2.5 rounded-full bg-white/50" />
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30">
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-xs font-medium text-accent">Available for work</span>
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                <span className="text-[10px] font-medium text-accent">Available for work</span>
               </div>
             </div>
 
             {/* Main heading */}
             <div className="flex-1 flex flex-col justify-center">
-              <h3 className="font-display text-3xl lg:text-4xl font-bold text-white uppercase leading-tight mb-2">
+              <h3 className="font-display text-2xl lg:text-3xl font-bold text-white uppercase leading-tight mb-1">
                 Let's Build<br />Something
               </h3>
-              <p className="font-serif-italic text-2xl lg:text-3xl text-white/60">
+              <p className="font-serif-italic text-xl lg:text-2xl text-white/50">
                 that actually works.
               </p>
             </div>
 
             {/* Email section */}
-            <div className="mt-auto pt-6 border-t border-white/10">
+            <div className="mt-auto pt-5 border-t border-white/[0.06]">
               <button 
                 onClick={copyEmail}
-                className="flex items-center gap-4 mb-2 group cursor-pointer w-full"
+                className="flex items-center gap-3 mb-1.5 group cursor-pointer w-full"
               >
-                <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/10 transition-colors">
-                  {copied ? <Check size={14} className="text-accent" /> : <Copy size={14} />}
+                <div className="w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center flex-shrink-0 group-hover:bg-white/[0.08] transition-colors">
+                  {copied ? <Check size={12} className="text-accent" /> : <Copy size={12} />}
                 </div>
-                <span className="font-serif-italic text-xl text-white group-hover:text-accent transition-colors">
-                  {siteConfig.email.includes('@') ? siteConfig.email : 'hello@sajesh.in'}
+                <span className="font-serif-italic text-base text-white group-hover:text-accent transition-colors">
+                  hello@sajesh.in
                 </span>
               </button>
-              <p className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-6 ml-12">
+              <p className="text-[9px] text-white/30 uppercase tracking-[0.2em] mb-4 ml-10">
                 {copied ? 'Copied!' : 'Tap to copy email'}
               </p>
 
               <a 
                 href="#contact"
-                className="flex items-center justify-center gap-2 w-full py-4 rounded-full bg-white text-black font-medium text-sm tracking-wide hover:scale-[1.02] transition-transform"
-                style={{
-                  boxShadow: '0 12px 40px rgba(255,255,255,0.1)'
-                }}
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-white text-black font-medium text-xs tracking-wide hover:scale-[1.02] transition-transform uppercase"
               >
-                CONNECT NOW
-                <ArrowUpRight size={16} />
+                Connect Now
+                <ArrowUpRight size={14} />
               </a>
             </div>
           </motion.div>
 
           {/* ROW 2 */}
 
-          {/* Card 4: Available Globally (Bottom-Left) */}
+          {/* Card 4: Available Globally (Left) */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-6 lg:col-span-3 rounded-[2rem] p-6 lg:p-8 flex flex-col min-h-[400px] lg:min-h-[480px] relative overflow-visible transition-all duration-400 hover:-translate-y-2"
+            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-6 flex flex-col min-h-[380px] relative overflow-visible transition-all duration-300 hover:-translate-y-1"
             style={{
-              background: '#0A0A0A',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: '#080808',
+              border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             {/* Header */}
-            <div className="mb-6">
-              <span className="text-[11px] text-white/50 uppercase tracking-widest block mb-2">
+            <div className="mb-3">
+              <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] block mb-1.5">
                 Available Globally
               </span>
-              <h3 className="font-display text-xl lg:text-2xl font-bold text-white leading-tight">
+              <h3 className="font-display text-lg lg:text-xl font-bold text-white leading-tight">
                 Adaptable across<br />time zones
               </h3>
             </div>
 
             {/* Globe */}
-            <div className="flex-1 flex items-center justify-center -mb-8">
+            <div className="flex-1 flex items-center justify-center -mb-6">
               <GlobeVisualization />
             </div>
           </motion.div>
 
-          {/* Card 5: Founder of Rune (Bottom-Right, spans 2 columns on large screens) */}
+          {/* Card 5: Founder of Rune (Center, spans remaining) */}
           <motion.div 
             variants={fadeInUp}
-            className="col-span-12 md:col-span-6 lg:col-span-6 rounded-[2rem] p-6 lg:p-10 relative overflow-hidden min-h-[320px] lg:min-h-[400px] flex flex-col lg:flex-row items-center justify-between transition-all duration-400 hover:-translate-y-2"
+            className="col-span-12 md:col-span-8 lg:col-span-6 rounded-[2rem] p-6 lg:p-8 relative overflow-hidden min-h-[380px] flex items-center transition-all duration-300 hover:-translate-y-1"
             style={{
-              background: 'linear-gradient(135deg, #0A0A0A 0%, #1A0A1A 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'linear-gradient(135deg, #0A0A0A 0%, #150A18 100%)',
+              border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             {/* Left text area */}
-            <div className="relative z-10 lg:max-w-[300px]">
-              <h3 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-white">
+            <div className="relative z-10 max-w-[280px]">
+              <h3 className="font-display text-3xl lg:text-4xl font-bold text-white leading-tight">
                 Founder of{' '}
                 <span 
-                  className="font-serif-italic"
+                  className="font-serif-italic block"
                   style={{
                     background: 'linear-gradient(135deg, #E91E63 0%, #9C27B0 100%)',
                     WebkitBackgroundClip: 'text',
@@ -270,43 +264,40 @@ export function BentoGrid() {
                   Rune
                 </span>
               </h3>
-              <p className="text-sm lg:text-base text-white/50 mt-3 font-serif-italic">
+              <p className="text-sm text-white/40 mt-2 font-serif-italic">
                 &lt; Crafting Digital Experiences /&gt;
               </p>
             </div>
 
             {/* Phone mockups */}
-            <div className="relative mt-8 lg:mt-0 lg:absolute lg:right-8 lg:top-1/2 lg:-translate-y-1/2">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 scale-[0.85] lg:scale-100">
               <PhoneMockups />
             </div>
           </motion.div>
 
-          {/* Card 6: Placeholder for third row if needed - hidden on mobile */}
+          {/* Card 6: Work Style (Right) */}
           <motion.div 
             variants={fadeInUp}
-            className="hidden lg:block lg:col-span-3 rounded-[2rem] p-6 relative overflow-hidden min-h-[320px] transition-all duration-400 hover:-translate-y-2"
+            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-6 flex flex-col justify-between min-h-[380px] transition-all duration-300 hover:-translate-y-1"
             style={{
-              background: '#0A0A0A',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: '#080808',
+              border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
-            {/* Remote work indicator */}
-            <div className="h-full flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] text-white/40 uppercase tracking-[0.2em] block mb-1.5">
+                Work Style
+              </span>
+              <h3 className="font-display text-lg lg:text-xl font-bold text-white">
+                Fully Remote
+              </h3>
+            </div>
+            
+            <div className="flex items-center gap-2.5">
+              <Globe size={14} className="text-white/40" />
               <div>
-                <span className="text-[11px] text-white/50 uppercase tracking-widest block mb-2">
-                  Work Style
-                </span>
-                <h3 className="font-display text-xl font-bold text-white leading-tight">
-                  Fully Remote
-                </h3>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Globe size={16} className="text-white/50" />
-                <div>
-                  <p className="text-xs text-white/40 uppercase tracking-widest">Based in</p>
-                  <p className="text-sm font-medium text-white">India</p>
-                </div>
+                <p className="text-[10px] text-white/30 uppercase tracking-[0.15em]">Based in</p>
+                <p className="text-sm font-medium text-white">India</p>
               </div>
             </div>
           </motion.div>
