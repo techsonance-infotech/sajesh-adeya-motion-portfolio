@@ -91,12 +91,13 @@ export function BentoGrid() {
           </motion.div>
 
           {/* Card 2: Philosophy/Clock Card (Center) - spans 2 rows */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-8 lg:col-span-6 row-span-2 rounded-[2rem] relative overflow-visible min-h-[700px] lg:min-h-[900px] transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-8 lg:col-span-6 row-span-2 relative overflow-visible min-h-[700px] lg:min-h-[860px] transition-all duration-300 hover:-translate-y-1"
             style={{
               background: '#000000',
               border: '1px solid rgba(255,255,255,0.06)',
+              borderRadius: '2rem',
             }}
           >
             {/* Top Left Content */}
@@ -105,7 +106,7 @@ export function BentoGrid() {
                 <MousePointer size={12} />
                 <span>Detail-Driven UI</span>
               </div>
-              
+
               <h3 className="font-display text-4xl lg:text-5xl xl:text-[3.5rem] font-bold text-white leading-[1.05] mb-1">
                 Interfaces
               </h3>
@@ -116,31 +117,29 @@ export function BentoGrid() {
                 I sweat spacing, timing, and feedback — the tiny stuff.
               </p>
             </div>
-            
+
             {/* Top Right Content */}
             <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-10 text-right">
               <div className="flex items-center justify-end gap-1.5 text-[10px] text-white/40 uppercase tracking-[0.2em] mb-4">
                 <span>Philosophy</span>
                 <span className="text-sm">+</span>
               </div>
-              
+
               {/* Tags */}
               <div className="flex flex-wrap gap-1.5 justify-end mb-4">
                 {['Motion', 'Type', 'Feedback'].map((tag) => (
-                  <span 
-                    key={tag} 
+                  <span
+                    key={tag}
                     className="px-3 py-1.5 rounded-full text-[10px] font-medium border border-white/[0.08] text-white/40"
                   >
                     {tag}
                   </span>
                 ))}
-                <span 
-                  className="px-3 py-1.5 rounded-full text-[10px] font-medium border border-[#FF5722]/50 text-[#FF5722]"
-                >
+                <span className="px-3 py-1.5 rounded-full text-[10px] font-medium border border-[#FF5722]/50 text-[#FF5722]">
                   Craft
                 </span>
               </div>
-              
+
               <div className="max-w-[180px] ml-auto">
                 <h4 className="font-medium text-sm text-white mb-0.5">Attention to detail</h4>
                 <p className="text-[11px] text-white/40 leading-relaxed">
@@ -148,10 +147,12 @@ export function BentoGrid() {
                 </p>
               </div>
             </div>
-            
-            {/* Clock - Properly sized, extending beyond the card */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[15%] w-[280px] h-[280px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px]">
-              <AnalogClock />
+
+            {/* Clock - Large, centered, extending beyond the card */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[500px] h-[500px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] translate-y-[10%]">
+                <AnalogClock />
+              </div>
             </div>
           </motion.div>
 
@@ -214,14 +215,13 @@ export function BentoGrid() {
 
           {/* ROW 2 */}
 
-          {/* Card 4: Available Globally (Left) - No right rounded corners */}
+          {/* Card 4: Available Globally (Left) */}
           <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-4 lg:col-span-3 p-5 flex flex-col h-[340px] relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-[2rem] p-5 flex flex-col h-[380px] relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
             style={{
               background: '#050505',
               border: '1px solid rgba(255,255,255,0.06)',
-              borderRadius: '2rem 0 0 2rem',
             }}
           >
             {/* Header */}
@@ -234,23 +234,28 @@ export function BentoGrid() {
               </h3>
             </div>
 
-            {/* Globe with country pills */}
+            {/* Globe with country pills at bottom */}
             <div className="flex-1">
               <GlobeVisualization />
             </div>
           </motion.div>
 
-          {/* Card 5: Founder of Rune (Center, spans remaining) */}
+          {/* Card 5: Founder of Rune (Center) */}
           <motion.div
             variants={fadeInUp}
-            className="col-span-12 md:col-span-8 lg:col-span-6 rounded-[2rem] p-5 lg:p-6 relative overflow-hidden h-[340px] flex items-center transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-5 lg:col-span-4 rounded-[2rem] p-5 lg:p-6 relative overflow-hidden h-[380px] flex items-end transition-all duration-300 hover:-translate-y-1"
             style={{
               background: 'linear-gradient(135deg, #0A0A0A 0%, #150A18 100%)',
               border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
-            {/* Left text area */}
-            <div className="relative z-10 max-w-[240px] pl-2">
+            {/* Phone mockups positioned at top */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 scale-75 lg:scale-85">
+              <PhoneMockups />
+            </div>
+
+            {/* Bottom text area */}
+            <div className="relative z-10">
               <h3 className="font-display text-2xl lg:text-3xl font-bold text-white leading-tight">
                 Founder of{' '}
                 <span
@@ -265,43 +270,34 @@ export function BentoGrid() {
                   Rune
                 </span>
               </h3>
-              <p className="text-xs text-white/40 mt-1.5 font-serif-italic">
+              <p className="text-xs text-white/40 mt-1 font-serif-italic">
                 &lt; Crafting Digital Experiences /&gt;
               </p>
             </div>
-
-            {/* Phone mockups */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 scale-75 lg:scale-90">
-              <PhoneMockups />
-            </div>
           </motion.div>
 
-          {/* Card 6: Work Style (Right) - Hidden on this layout since we merged with globe */}
+          {/* Card 6: Work Style (Right) */}
           <motion.div
             variants={fadeInUp}
-            className="hidden lg:flex col-span-3 rounded-[2rem] p-5 flex-col justify-between h-[340px] transition-all duration-300 hover:-translate-y-1"
+            className="col-span-12 md:col-span-3 lg:col-span-2 rounded-[2rem] p-5 flex flex-col justify-center h-[380px] transition-all duration-300 hover:-translate-y-1"
             style={{
               background: '#080808',
               border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
-            <div>
-              <span className="text-[9px] text-white/40 uppercase tracking-[0.2em] block mb-1">
-                Work Style
-              </span>
-              <h3 className="font-display text-base lg:text-lg font-semibold text-white">
-                Fully Remote
-              </h3>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <Globe size={14} className="text-white/40" />
+            <div className="flex items-start gap-3">
+              <div className="w-1 h-12 bg-white/20 rounded-full" />
               <div>
-                <p className="text-[9px] text-white/30 uppercase tracking-[0.15em]">Based in</p>
-                <p className="text-sm font-medium text-white">India</p>
+                <span className="text-[9px] text-white/40 uppercase tracking-[0.2em] block mb-1">
+                  Work Style
+                </span>
+                <h3 className="font-display text-lg lg:text-xl font-semibold text-white">
+                  Fully Remote
+                </h3>
               </div>
             </div>
           </motion.div>
+
         </motion.div>
       </div>
     </section>
