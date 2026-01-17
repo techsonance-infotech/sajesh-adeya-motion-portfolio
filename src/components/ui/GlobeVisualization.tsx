@@ -70,134 +70,132 @@ export function GlobeVisualization() {
   const activeLocation = countries.find((c) => c.name === activeCountry);
 
   return (
-    <div className="relative w-full h-full">
-      <div className="flex h-full items-center justify-between gap-4">
-        {/* Globe */}
-        <div className="relative flex-1 flex items-center justify-center">
-          <div className="relative w-[220px] h-[220px] lg:w-[260px] lg:h-[260px] xl:w-[320px] xl:h-[320px]">
-            <svg viewBox="0 0 340 340" className="w-full h-full">
-              <defs>
-                <radialGradient id="globeGradient" cx="30%" cy="30%" r="70%">
-                  <stop offset="0%" stopColor="rgba(40,40,40,0.9)" />
-                  <stop offset="100%" stopColor="rgba(10,10,10,1)" />
-                </radialGradient>
-                <linearGradient id="globeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(255,255,255,0.1)" />
-                  <stop offset="50%" stopColor="rgba(255,255,255,0.03)" />
-                  <stop offset="100%" stopColor="rgba(255,255,255,0.08)" />
-                </linearGradient>
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
+    <div className="relative w-full h-full flex">
+      {/* Globe container */}
+      <div className="flex-1 flex items-center justify-center">
+        <div className="relative w-[180px] h-[180px] lg:w-[200px] lg:h-[200px]">
+          <svg viewBox="0 0 340 340" className="w-full h-full">
+            <defs>
+              <radialGradient id="globeGradient" cx="30%" cy="30%" r="70%">
+                <stop offset="0%" stopColor="rgba(40,40,40,0.9)" />
+                <stop offset="100%" stopColor="rgba(10,10,10,1)" />
+              </radialGradient>
+              <linearGradient id="globeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(255,255,255,0.1)" />
+                <stop offset="50%" stopColor="rgba(255,255,255,0.03)" />
+                <stop offset="100%" stopColor="rgba(255,255,255,0.08)" />
+              </linearGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                <feMerge>
+                  <feMergeNode in="coloredBlur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
 
-              {/* Globe background */}
-              <circle
-                cx="170"
-                cy="170"
-                r="165"
-                fill="url(#globeGradient)"
-                stroke="url(#globeBorder)"
-                strokeWidth="1"
-              />
+            {/* Globe background */}
+            <circle
+              cx="170"
+              cy="170"
+              r="165"
+              fill="url(#globeGradient)"
+              stroke="url(#globeBorder)"
+              strokeWidth="1"
+            />
 
-              {/* World map dots */}
+            {/* World map dots */}
+            <g>
+              {worldDots.map((dot, i) => (
+                <circle
+                  key={i}
+                  cx={dot.x}
+                  cy={dot.y}
+                  r={dot.r}
+                  fill={`rgba(255,255,255,${dot.opacity})`}
+                />
+              ))}
+            </g>
+
+            {/* Active location indicator */}
+            {activeLocation && (
               <g>
-                {worldDots.map((dot, i) => (
-                  <circle
-                    key={i}
-                    cx={dot.x}
-                    cy={dot.y}
-                    r={dot.r}
-                    fill={`rgba(255,255,255,${dot.opacity})`}
-                  />
-                ))}
+                <motion.circle
+                  cx={activeLocation.x}
+                  cy={activeLocation.y}
+                  fill="none"
+                  stroke="hsl(var(--accent-orange))"
+                  strokeWidth={1}
+                  initial={{ r: 8, opacity: 0.6 }}
+                  animate={{ r: 30, opacity: 0 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
+                />
+                <motion.circle
+                  cx={activeLocation.x}
+                  cy={activeLocation.y}
+                  fill="none"
+                  stroke="hsl(var(--accent-orange))"
+                  strokeWidth={1}
+                  initial={{ r: 8, opacity: 0.8 }}
+                  animate={{ r: 22, opacity: 0 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeOut', delay: 0.5 }}
+                />
+                <circle
+                  cx={activeLocation.x}
+                  cy={activeLocation.y}
+                  r={10}
+                  fill="none"
+                  stroke="hsl(var(--accent-orange))"
+                  strokeWidth={1.5}
+                  opacity={0.5}
+                />
+                <motion.circle
+                  cx={activeLocation.x}
+                  cy={activeLocation.y}
+                  r={5}
+                  fill="hsl(var(--accent-orange))"
+                  filter="url(#glow)"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  style={{ transformOrigin: `${activeLocation.x}px ${activeLocation.y}px` }}
+                />
               </g>
-
-              {/* Active location indicator */}
-              {activeLocation && (
-                <g>
-                  <motion.circle
-                    cx={activeLocation.x}
-                    cy={activeLocation.y}
-                    fill="none"
-                    stroke="hsl(var(--accent-orange))"
-                    strokeWidth={1}
-                    initial={{ r: 8, opacity: 0.6 }}
-                    animate={{ r: 30, opacity: 0 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
-                  />
-                  <motion.circle
-                    cx={activeLocation.x}
-                    cy={activeLocation.y}
-                    fill="none"
-                    stroke="hsl(var(--accent-orange))"
-                    strokeWidth={1}
-                    initial={{ r: 8, opacity: 0.8 }}
-                    animate={{ r: 22, opacity: 0 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: 'easeOut', delay: 0.5 }}
-                  />
-                  <circle
-                    cx={activeLocation.x}
-                    cy={activeLocation.y}
-                    r={10}
-                    fill="none"
-                    stroke="hsl(var(--accent-orange))"
-                    strokeWidth={1.5}
-                    opacity={0.5}
-                  />
-                  <motion.circle
-                    cx={activeLocation.x}
-                    cy={activeLocation.y}
-                    r={5}
-                    fill="hsl(var(--accent-orange))"
-                    filter="url(#glow)"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    style={{ transformOrigin: `${activeLocation.x}px ${activeLocation.y}px` }}
-                  />
-                </g>
-              )}
-            </svg>
-          </div>
+            )}
+          </svg>
 
           {/* Remote badge */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
-            <div className="flex items-center justify-center gap-2 text-white/40">
-              <MapPin size={14} />
-              <span className="text-[10px] uppercase tracking-[0.2em]">Remote</span>
+          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+            <div className="flex items-center justify-center gap-1.5 text-white/40">
+              <MapPin size={12} />
+              <span className="text-[9px] uppercase tracking-[0.15em]">Remote</span>
             </div>
-            <div className="mt-1 text-sm font-medium text-white">{activeCountry}</div>
+            <div className="text-xs font-medium text-white mt-0.5">{activeCountry}</div>
           </div>
         </div>
+      </div>
 
-        {/* Country pills (vertical stack) */}
-        <div className="flex flex-col gap-3 pr-1">
-          {countries.map((country) => {
-            const isActive = activeCountry === country.name;
+      {/* Country pills - Vertical stack on right */}
+      <div className="flex flex-col gap-2 justify-center pr-2">
+        {countries.map((country) => {
+          const isActive = activeCountry === country.name;
 
-            return (
-              <motion.button
-                key={country.name}
-                onClick={() => setActiveCountry(country.name)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium border transition-all duration-300 ${
-                  isActive
-                    ? 'bg-brand-orange/15 border-brand-orange/40 text-brand-orange'
-                    : 'bg-white/[0.04] border-white/10 text-white/60 hover:border-white/20 hover:text-white/80'
-                }`}
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="text-xs opacity-80">{country.code}</span>
-                <span>{country.name}</span>
-              </motion.button>
-            );
-          })}
-        </div>
+          return (
+            <motion.button
+              key={country.name}
+              onClick={() => setActiveCountry(country.name)}
+              className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium border transition-all duration-300 ${
+                isActive
+                  ? 'bg-brand-orange/15 border-brand-orange/40 text-brand-orange'
+                  : 'bg-white/[0.04] border-white/10 text-white/60 hover:border-white/20 hover:text-white/80'
+              }`}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="text-[10px] opacity-80">{country.code}</span>
+              <span>{country.name}</span>
+            </motion.button>
+          );
+        })}
       </div>
     </div>
   );

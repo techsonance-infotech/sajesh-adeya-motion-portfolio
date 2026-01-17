@@ -3,21 +3,21 @@ import { motion } from 'framer-motion';
 export function PhoneMockups() {
   return (
     <div 
-      className="flex items-center justify-center gap-[-60px]"
+      className="flex items-center justify-center"
       style={{ perspective: '1200px' }}
     >
       {/* Left phone */}
       <motion.div
         className="relative z-10"
         style={{
-          transform: 'rotateY(25deg) rotateX(-10deg) rotateZ(-5deg) translateX(-40px) scale(0.88)',
+          transform: 'rotateY(25deg) rotateX(-8deg) rotateZ(-4deg) translateX(-30px) scale(0.85)',
           transformStyle: 'preserve-3d',
         }}
         animate={{
-          rotateY: [25, 30, 25],
+          rotateY: [25, 28, 25],
         }}
         transition={{
-          duration: 3,
+          duration: 4,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
@@ -29,14 +29,14 @@ export function PhoneMockups() {
       <motion.div
         className="relative z-30"
         style={{
-          transform: 'rotateY(0deg) rotateX(-5deg) scale(1)',
+          transform: 'rotateY(0deg) rotateX(-4deg) scale(1)',
           transformStyle: 'preserve-3d',
         }}
         animate={{
-          rotateY: [-4, 4, -4],
+          rotateY: [-3, 3, -3],
         }}
         transition={{
-          duration: 3,
+          duration: 4,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
@@ -48,14 +48,14 @@ export function PhoneMockups() {
       <motion.div
         className="relative z-20"
         style={{
-          transform: 'rotateY(-25deg) rotateX(-10deg) rotateZ(5deg) translateX(40px) scale(0.88)',
+          transform: 'rotateY(-25deg) rotateX(-8deg) rotateZ(4deg) translateX(30px) scale(0.85)',
           transformStyle: 'preserve-3d',
         }}
         animate={{
-          rotateY: [-25, -30, -25],
+          rotateY: [-25, -28, -25],
         }}
         transition={{
-          duration: 3,
+          duration: 4,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
@@ -77,54 +77,54 @@ function PhoneFrame({ screenColor, accentColor, isMain = false }: PhoneFrameProp
     <div 
       className="relative"
       style={{
-        width: isMain ? '200px' : '180px',
-        height: isMain ? '420px' : '380px',
+        width: isMain ? '160px' : '140px',
+        height: isMain ? '340px' : '300px',
       }}
     >
       {/* Phone frame */}
       <div 
-        className="absolute inset-0 rounded-[40px] bg-[#1A1A1A] border border-white/10 overflow-hidden"
+        className="absolute inset-0 rounded-[32px] bg-[#1A1A1A] border border-white/10 overflow-hidden"
         style={{
-          boxShadow: '0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05)',
+          boxShadow: '0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05)',
         }}
       >
         {/* Screen area */}
         <div 
-          className="absolute inset-2 rounded-[36px] overflow-hidden"
+          className="absolute inset-1.5 rounded-[28px] overflow-hidden"
           style={{ backgroundColor: screenColor }}
         >
           {/* Screen content - scrolling animation */}
           <motion.div
             className="w-full"
-            animate={{ y: [0, -400, 0] }}
+            animate={{ y: [0, -300, 0] }}
             transition={{
-              duration: 15,
+              duration: 12,
               repeat: Infinity,
               ease: 'linear',
             }}
           >
             {/* App header */}
-            <div className="h-14 flex items-center justify-between px-4 border-b border-white/5">
-              <div className="flex items-center gap-2">
+            <div className="h-10 flex items-center justify-between px-3 border-b border-white/5">
+              <div className="flex items-center gap-1.5">
                 <div 
-                  className="w-6 h-6 rounded-lg"
+                  className="w-4 h-4 rounded-md"
                   style={{ backgroundColor: accentColor }}
                 />
-                <span className="text-white/80 text-xs font-medium">Rune</span>
+                <span className="text-white/80 text-[9px] font-medium">Rune</span>
               </div>
-              <div className="flex gap-1">
-                <div className="w-1 h-1 rounded-full bg-white/30" />
-                <div className="w-1 h-1 rounded-full bg-white/30" />
-                <div className="w-1 h-1 rounded-full bg-white/30" />
+              <div className="flex gap-0.5">
+                <div className="w-0.5 h-0.5 rounded-full bg-white/30" />
+                <div className="w-0.5 h-0.5 rounded-full bg-white/30" />
+                <div className="w-0.5 h-0.5 rounded-full bg-white/30" />
               </div>
             </div>
             
             {/* Content cards */}
-            <div className="p-3 space-y-3">
+            <div className="p-2 space-y-2">
               {/* Stats card */}
-              <div className="bg-white/5 rounded-xl p-3">
-                <div className="text-white/40 text-[10px] mb-1">Analytics</div>
-                <div className="flex items-end gap-1 h-12">
+              <div className="bg-white/5 rounded-lg p-2">
+                <div className="text-white/40 text-[8px] mb-1">Analytics</div>
+                <div className="flex items-end gap-0.5 h-8">
                   {[40, 65, 45, 80, 55, 70, 90].map((h, i) => (
                     <motion.div
                       key={i}
@@ -142,44 +142,44 @@ function PhoneFrame({ screenColor, accentColor, isMain = false }: PhoneFrameProp
               </div>
               
               {/* List items */}
-              {[1, 2, 3, 4].map((item) => (
+              {[1, 2, 3].map((item) => (
                 <div 
                   key={item}
-                  className="flex items-center gap-3 bg-white/5 rounded-xl p-3"
+                  className="flex items-center gap-2 bg-white/5 rounded-lg p-2"
                 >
                   <div 
-                    className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    className="w-6 h-6 rounded-md flex items-center justify-center"
                     style={{ backgroundColor: `${accentColor}20` }}
                   >
                     <div 
-                      className="w-3 h-3 rounded-sm"
+                      className="w-2 h-2 rounded-sm"
                       style={{ backgroundColor: accentColor }}
                     />
                   </div>
                   <div className="flex-1">
-                    <div className="h-2 w-16 bg-white/20 rounded mb-1" />
-                    <div className="h-1.5 w-24 bg-white/10 rounded" />
+                    <div className="h-1.5 w-12 bg-white/20 rounded mb-0.5" />
+                    <div className="h-1 w-16 bg-white/10 rounded" />
                   </div>
                 </div>
               ))}
               
               {/* CTA button */}
               <div 
-                className="rounded-xl p-3 text-center text-xs font-medium text-white"
+                className="rounded-lg p-2 text-center text-[8px] font-medium text-white"
                 style={{ backgroundColor: accentColor }}
               >
                 Get Started
               </div>
               
               {/* More content for scrolling */}
-              <div className="bg-white/5 rounded-xl p-4 h-32" />
-              <div className="bg-white/5 rounded-xl p-4 h-24" />
+              <div className="bg-white/5 rounded-lg p-3 h-20" />
+              <div className="bg-white/5 rounded-lg p-3 h-16" />
             </div>
           </motion.div>
         </div>
         
         {/* Notch */}
-        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-5 bg-black rounded-full" />
+        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-12 h-4 bg-black rounded-full" />
       </div>
     </div>
   );
