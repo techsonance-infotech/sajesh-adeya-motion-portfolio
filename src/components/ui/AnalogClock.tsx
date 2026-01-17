@@ -43,7 +43,7 @@ export function AnalogClock() {
   });
 
   return (
-    <div className="relative w-full aspect-square max-w-[350px]">
+    <div className="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px]">
       {/* Outer glow ring */}
       <div 
         className="absolute inset-[-8%] rounded-full"
