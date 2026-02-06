@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Check } from 'lucide-react';
-import { showcaseContent, showcaseProjects } from '@/lib/data';
+import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import { showcaseProjects } from '@/lib/data';
 import { useInView } from 'react-intersection-observer';
 import project1Image from '@/assets/project-1.jpg';
 import project2Image from '@/assets/project-2.jpg';
@@ -19,6 +19,7 @@ export function ProjectShowcase() {
   const progressFillRef = useRef<HTMLDivElement>(null);
   const progressKnobRef = useRef<HTMLDivElement>(null);
   const [activeProject, setActiveProject] = useState(0);
+  const currentProject = showcaseProjects[activeProject];
 
   // GSAP ScrollTrigger for progress indicator
   useEffect(() => {
@@ -55,98 +56,102 @@ export function ProjectShowcase() {
     <section 
       id="showcase" 
       ref={sectionRef}
-      className="relative min-h-[300vh]"
+      className="relative min-h-[300vh] bg-background"
     >
       <div className="container-custom">
+        {/* Section Header */}
+        <div className="mb-24 pt-20 text-center">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-accent text-sm font-medium uppercase tracking-widest mb-4 block"
+          >
+            Crafting Modern Experiences
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-5xl md:text-8xl font-bold tracking-tight mb-2"
+          >
+            <span className="text-foreground font-display">VENTURE</span>{' '}
+            <span className="font-serif-italic bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent/60 pr-4">
+              SHOWCASE
+            </span>
+          </motion.h2>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left Column - Sticky */}
-          <div className="lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] flex flex-col justify-center py-20 lg:py-0">
-            {/* Progress Indicator - Desktop only */}
-            <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2">
-              <div className="relative h-[200px] w-[2px] bg-white/10 rounded-full">
-                <div 
-                  ref={progressFillRef}
-                  className="absolute top-0 left-0 w-full bg-accent rounded-full origin-top"
-                  style={{ height: '100%', transform: 'scaleY(0)' }}
-                />
+          {/* Left Column - Sticky Content */}
+          <div className="lg:sticky lg:top-48 lg:h-[calc(100vh-12rem)] flex flex-col justify-start lg:pt-10 relative">
+             {/* Progress Indicator - Center of Columns */}
+             <div className="hidden lg:block absolute right-[-40px] top-10 h-[300px] w-full max-w-[2px]">
+               <div className="relative h-full w-full bg-white/10 rounded-full overflow-hidden">
+                 <div 
+                   ref={progressFillRef}
+                   className="absolute top-0 left-0 w-full bg-accent rounded-full origin-top"
+                   style={{ height: '100%', transform: 'scaleY(0)' }}
+                 />
+               </div>
                 <div 
                   ref={progressKnobRef}
-                  className="absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full shadow-glow"
+                  className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-accent rounded-full shadow-glow border-2 border-background z-10"
                   style={{ top: '0%' }}
                 />
+             </div>
+
+            <div className="lg:pl-12 lg:pr-12">
+              {/* Dynamic Content Switching */}
+              <div key={activeProject}>
+                <h2 className="font-display text-section font-bold text-foreground mb-6">
+                  {currentProject.name}
+                </h2>
+
+                <p className="text-body-lg text-muted-foreground mb-8">
+                  {currentProject.description}
+                </p>
+
+                {/* Features / Bullets */}
+                <ul className="space-y-4 mb-8">
+                  {currentProject.features?.map((feature, index) => (
+                    <li key={index} className="flex gap-3 items-start group">
+                      <Sparkles className="w-5 h-5 text-accent mt-1 shrink-0 group-hover:scale-110 transition-transform" />
+                      <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {currentProject.stack?.map((tech) => (
+                    <span key={tech} className="tech-badge text-xs">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                 <a
+                  href={currentProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-foreground hover:text-accent transition-colors"
+                >
+                  View Project <ArrowRight size={16} />
+                </a>
               </div>
-            </div>
-
-            <div className="lg:pl-12">
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-accent text-sm font-medium uppercase tracking-widest mb-4 block"
-              >
-                Featured Work
-              </motion.span>
-
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="font-display text-section font-bold text-foreground mb-6"
-              >
-                {showcaseContent.heading}
-              </motion.h2>
-
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-body-lg text-muted-foreground mb-8"
-              >
-                {showcaseContent.paragraph}
-              </motion.p>
-
-              {/* Bullets */}
-              <motion.ul 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="space-y-3 mb-8"
-              >
-                {showcaseContent.bullets.map((bullet, index) => (
-                  <li key={index} className="flex items-start gap-3 text-muted-foreground">
-                    <Check size={18} className="text-accent mt-0.5 flex-shrink-0" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </motion.ul>
-
-              {/* Tech Stack */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="flex flex-wrap gap-2"
-              >
-                {showcaseContent.stack.map((tech) => (
-                  <span key={tech} className="tech-badge text-xs">
-                    {tech}
-                  </span>
-                ))}
-              </motion.div>
             </div>
           </div>
 
           {/* Right Column - Scrollable Project Cards */}
-          <div className="space-y-16 lg:space-y-32 py-20 lg:py-40">
+          <div className="space-y-32 py-20 lg:py-40">
             {showcaseProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
-                image={projectImages[index]}
                 isActive={activeProject === index}
                 onInView={() => setActiveProject(index)}
               />
@@ -160,12 +165,11 @@ export function ProjectShowcase() {
 
 interface ProjectCardProps {
   project: typeof showcaseProjects[0];
-  image: string;
   isActive: boolean;
   onInView: () => void;
 }
 
-function ProjectCard({ project, image, isActive, onInView }: ProjectCardProps) {
+function ProjectCard({ project, isActive, onInView }: ProjectCardProps) {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: false,
@@ -180,54 +184,55 @@ function ProjectCard({ project, image, isActive, onInView }: ProjectCardProps) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: '-20%' }}
       transition={{ duration: 0.6 }}
-      className={`relative group transition-all duration-500 ${
-        isActive ? 'opacity-100 scale-100' : 'opacity-60 scale-[0.98]'
+      className={`relative rounded-[2.5rem] p-8 md:p-12 overflow-hidden shadow-2xl transition-all duration-500 ${
+        isActive ? 'opacity-100 scale-100' : 'opacity-40 scale-[0.95] blur-sm'
       }`}
+      style={{
+        backgroundColor: project.color ? `${project.color}20` : '#1a1a1a', // Low opacity background
+        borderColor: project.color || '#333',
+        borderWidth: '1px'
+      }}
     >
-      {/* Glow border */}
-      <div 
-        className={`absolute -inset-[1px] rounded-2xl transition-opacity duration-500 ${
-          isActive ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{
-          background: `linear-gradient(135deg, hsl(142 76% 50% / 0.4), transparent)`,
-        }}
-      />
+        {/* Background Gradient */}
+        <div 
+          className="absolute inset-0 opacity-10" 
+          style={{ background: project.color || 'red' }} 
+        />
 
-      <div className="relative glass-card overflow-hidden rounded-2xl">
-        {/* Image */}
-        <div className="relative aspect-[16/10] overflow-hidden">
-          <img
-            src={image}
-            alt={project.name}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-        </div>
+        {/* 3 Images Grid Layout */}
+        <div className="grid grid-cols-2 gap-4 md:gap-6 h-[400px] md:h-[500px]">
+           {/* Column 1: 2 Phones */}
+           <div className="space-y-4 md:space-y-6 flex flex-col justify-center">
+              <div className="bg-black/90 rounded-[20px] aspect-[9/16] w-full border-4 border-white/5 shadow-lg overflow-hidden relative group">
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-3 bg-black rounded-b-lg z-20" />
+                <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 group-hover:scale-105 transition-transform duration-700" />
+                {/* Image Placeholder */}
+                <div className="absolute inset-0 flex items-center justify-center text-white/20 text-xs font-mono">Mobile View</div>
+              </div>
+              <div className="bg-black/90 rounded-[20px] aspect-[9/16] w-full border-4 border-white/5 shadow-lg overflow-hidden relative group">
+                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-3 bg-black rounded-b-lg z-20" />
+                 <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 group-hover:scale-105 transition-transform duration-700" />
+                 <div className="absolute inset-0 flex items-center justify-center text-white/20 text-xs font-mono">Mobile Feature</div>
+              </div>
+           </div>
 
-        {/* Content */}
-        <div className="p-6 lg:p-8">
-          <h3 className="font-display text-xl lg:text-2xl font-semibold text-foreground mb-3">
-            {project.name}
-          </h3>
-          <p className="text-muted-foreground mb-6">
-            {project.description}
-          </p>
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors group/link"
-          >
-            View Project
-            <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-          </a>
+           {/* Column 2: 1 Tablet/Desktop */}
+           <div className="h-full flex items-center">
+              <div className="bg-black/90 rounded-[24px] aspect-[16/10] w-full border-4 border-white/5 shadow-lg overflow-hidden relative h-auto group">
+                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3 bg-black rounded-b-lg z-20" />
+                 <img 
+                    src={project.image} 
+                    alt={project.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+              </div>
+           </div>
         </div>
-      </div>
     </motion.div>
   );
 }
