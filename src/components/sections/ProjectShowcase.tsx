@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,11 +16,13 @@ gsap.registerPlugin(ScrollTrigger);
 const projectImages = [project1Image, project2Image, project3Image, project4Image];
 
 export function ProjectShowcase() {
+  const navigate = useNavigate();
   const sectionRef = useRef<HTMLDivElement>(null);
   const progressFillRef = useRef<HTMLDivElement>(null);
   const progressKnobRef = useRef<HTMLDivElement>(null);
+  const homeProjects = showcaseProjects.slice(0, 3);
   const [activeProject, setActiveProject] = useState(0);
-  const currentProject = showcaseProjects[activeProject];
+  const currentProject = homeProjects[activeProject];
 
   // GSAP ScrollTrigger for progress indicator
   useEffect(() => {
@@ -134,42 +137,72 @@ export function ProjectShowcase() {
                   ))}
                 </div>
 
-                 <a
-                  href={currentProject.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-foreground hover:text-accent transition-colors"
-                >
-                  View Project <ArrowRight size={16} />
-                </a>
-              </div>
+                  <div className="flex gap-4 items-center">
+                    <button
+                      onClick={() => navigate(`/projects/${currentProject.slug}`)}
+                      className="flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-accent hover:text-foreground transition-colors cursor-none"
+                    >
+                      Read Case Study <ArrowRight size={16} />
+                    </button>
+                    {currentProject.liveUrl && currentProject.liveUrl !== '#' && (
+                      <a
+                        href={currentProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors cursor-none"
+                      >
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                </div>
             </div>
           </div>
 
           {/* Right Column - Scrollable Project Cards */}
           <div className="space-y-32 py-20 lg:py-40">
-            {showcaseProjects.map((project, index) => (
+            {homeProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
                 isActive={activeProject === index}
                 onInView={() => setActiveProject(index)}
+                onClick={() => navigate(`/projects/${project.slug}`)}
               />
             ))}
           </div>
+        </div>
+
+        {/* Dynamic CTA at bottom of Showcase */}
+        <div className="mt-16 flex justify-center pb-20 relative z-20">
+          <button
+            onClick={() => navigate('/projects')}
+            className="flex items-center gap-3 px-8 py-4 rounded-xl bg-accent text-accent-foreground font-mono text-xs uppercase tracking-wider hover:bg-accent/80 transition-all duration-300 cursor-none group shadow-glow"
+          >
+            <span>View All Venture Case Studies</span>
+            <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+          </button>
         </div>
       </div>
     </section>
   );
 }
 
+import { useReducedMotion } from '@/hooks/useReducedMotion';
+
 interface ProjectCardProps {
   project: typeof showcaseProjects[0];
   isActive: boolean;
   onInView: () => void;
+  onClick: () => void;
 }
 
-function ProjectCard({ project, isActive, onInView }: ProjectCardProps) {
+function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: false,
@@ -181,58 +214,186 @@ function ProjectCard({ project, isActive, onInView }: ProjectCardProps) {
     }
   }, [inView, onInView]);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    
+    // Mouse coords relative to card
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Position the floating preview offset slightly from the cursor
+    if (previewRef.current && !isMobile) {
+      gsap.to(previewRef.current, {
+        x: x + 20,
+        y: y + 20,
+        duration: 0.2,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+    }
+
+    if (prefersReducedMotion) return;
+
+    // Normalised position [-1, 1]
+    const normalizedX = (x / rect.width) * 2 - 1;
+    const normalizedY = (y / rect.height) * 2 - 1;
+    
+    // Tilt card up to 6 degrees max
+    gsap.to(card, {
+      rotateX: -normalizedY * 6,
+      rotateY: normalizedX * 6,
+      transformPerspective: 1000,
+      ease: 'power1.out',
+      duration: 0.3,
+      overwrite: 'auto',
+    });
+  };
+
+  const handleMouseEnter = () => {
+    if (previewRef.current && !isMobile) {
+      gsap.to(previewRef.current, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (previewRef.current && !isMobile) {
+      gsap.to(previewRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    }
+
+    if (!cardRef.current) return;
+    gsap.to(cardRef.current, {
+      rotateX: 0,
+      rotateY: 0,
+      ease: 'power2.out',
+      duration: 0.5,
+      overwrite: 'auto',
+    });
+  };
+
   return (
     <motion.div
-      ref={ref}
+      onClick={onClick}
+      ref={(el) => {
+        // Double-bind the intersection observer ref and the element ref
+        ref(el);
+        (cardRef as any).current = el;
+      }}
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: '-20%' }}
       transition={{ duration: 0.6 }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      data-cursor-text="VIEW"
       className={`relative rounded-[2.5rem] p-8 md:p-12 overflow-hidden shadow-2xl transition-all duration-500 ${
         isActive ? 'opacity-100 scale-100' : 'opacity-40 scale-[0.95] blur-sm'
       }`}
       style={{
-        backgroundColor: project.color ? `${project.color}20` : '#1a1a1a', // Low opacity background
+        backgroundColor: project.color ? `${project.color}20` : '#1a1a1a', 
         borderColor: project.color || '#333',
-        borderWidth: '1px'
+        borderWidth: '1px',
+        transformStyle: 'preserve-3d',
       }}
     >
-        {/* Background Gradient */}
-        <div 
-          className="absolute inset-0 opacity-10" 
-          style={{ background: project.color || 'red' }} 
-        />
-
-        {/* 3 Images Grid Layout */}
-        <div className="grid grid-cols-2 gap-4 md:gap-6 h-[400px] md:h-[500px]">
-           {/* Column 1: 2 Phones */}
-           <div className="space-y-4 md:space-y-6 flex flex-col justify-center">
-              <div className="bg-black/90 rounded-[20px] aspect-[9/16] w-full border-4 border-white/5 shadow-lg overflow-hidden relative group">
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-3 bg-black rounded-b-lg z-20" />
-                <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 group-hover:scale-105 transition-transform duration-700" />
-                {/* Image Placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center text-white/20 text-xs font-mono">Mobile View</div>
-              </div>
-              <div className="bg-black/90 rounded-[20px] aspect-[9/16] w-full border-4 border-white/5 shadow-lg overflow-hidden relative group">
-                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-3 bg-black rounded-b-lg z-20" />
-                 <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute inset-0 flex items-center justify-center text-white/20 text-xs font-mono">Mobile Feature</div>
-              </div>
-           </div>
-
-           {/* Column 2: 1 Tablet/Desktop */}
-           <div className="h-full flex items-center">
-              <div className="bg-black/90 rounded-[24px] aspect-[16/10] w-full border-4 border-white/5 shadow-lg overflow-hidden relative h-auto group">
-                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3 bg-black rounded-b-lg z-20" />
-                 <img 
-                    src={project.image} 
-                    alt={project.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 />
-                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-              </div>
-           </div>
+      {/* Floating Image Preview on Hover (desktop only) */}
+      {!isMobile && (
+        <div
+          ref={previewRef}
+          className="absolute pointer-events-none z-50 w-[220px] h-[135px] rounded-xl overflow-hidden border border-white/20 shadow-glow opacity-0 scale-75 origin-top-left"
+          style={{ 
+            top: 0, 
+            left: 0,
+            willChange: 'transform, opacity'
+          }}
+        >
+          <img 
+            src={project.image} 
+            alt={`${project.name} preview`} 
+            className="w-full h-full object-cover" 
+          />
         </div>
+      )}
+
+      {/* Background Gradient */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none" 
+        style={{ background: project.color || 'red' }} 
+      />
+
+      {/* Premium Overlapping Mockup Composition */}
+      <div className="relative w-full h-[320px] md:h-[420px] flex items-center justify-center pointer-events-none mt-6">
+         {/* Desktop Browser Mockup */}
+         <div className="absolute w-[88%] aspect-[16/10] bg-neutral-950 rounded-[1.5rem] border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden transition-all duration-700 group-hover:scale-[1.02] group-hover:border-white/20 origin-center">
+            {/* Browser Header Bar */}
+            <div className="h-8 w-full bg-neutral-900 border-b border-white/5 px-4 flex items-center gap-2 shrink-0">
+               <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]/90" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/90" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]/90" />
+               </div>
+               <div className="mx-auto w-[55%] h-5 rounded-md bg-white/5 border border-white/5 flex items-center justify-center px-3">
+                  <span className="text-[10px] text-muted-foreground font-mono truncate tracking-wide select-none">
+                     {project.liveUrl && project.liveUrl !== '#' ? project.liveUrl.replace('https://', '') : `${project.slug}.techsonance.co.in`}
+                  </span>
+               </div>
+            </div>
+            {/* Screen Content */}
+            <div className="w-full h-[calc(100%-32px)] bg-neutral-950 relative">
+               {project.image ? (
+                  <img 
+                     src={project.image} 
+                     alt={`${project.name} Desktop Dashboard`} 
+                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.01]"
+                  />
+               ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-950" />
+               )}
+               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+            </div>
+         </div>
+
+         {/* Overlapping Mobile Phone Mockup (if mobileImage1 exists) */}
+         {(project as any).mobileImage1 && (
+            <div className="absolute bottom-[-15px] right-[4%] w-[34%] aspect-[9/16] bg-black rounded-[2.2rem] border-[5px] border-neutral-900 shadow-[0_20px_50px_rgba(0,0,0,0.95)] overflow-hidden z-20 transition-all duration-700 group-hover:translate-y-[-8px] group-hover:scale-[1.03]">
+               {/* iPhone Notch / Dynamic Island */}
+               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[38%] h-4 bg-black rounded-full z-30 border border-white/5 flex items-center justify-center">
+                 <div className="w-1.5 h-1.5 rounded-full bg-neutral-900 ml-auto mr-1.5" />
+               </div>
+               {/* Screen Content */}
+               <div className="w-full h-full bg-neutral-950 relative">
+                  <img 
+                     src={(project as any).mobileImage1} 
+                     alt={`${project.name} Mobile View`} 
+                     className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+               </div>
+            </div>
+         )}
+      </div>
     </motion.div>
   );
 }
+

@@ -1,15 +1,14 @@
 import { SmoothScroll } from '@/components/effects/SmoothScroll';
 import { NoiseTexture } from '@/components/ui/NoiseTexture';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
+import { CustomCursor } from '@/components/effects/CustomCursor';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { BentoGrid } from '@/components/sections/BentoGrid';
-import { About } from '@/components/sections/About';
 import { ProjectShowcase } from '@/components/sections/ProjectShowcase';
-import { Skills } from '@/components/sections/Skills';
-import { Highlights } from '@/components/sections/Highlights';
 import { Contact } from '@/components/sections/Contact';
+import { SchedulingModal } from '@/components/common/SchedulingModal';
 import { siteConfig } from '@/lib/data';
 import { useEffect } from 'react';
 
@@ -28,11 +27,15 @@ function Index() {
   return (
     <SmoothScroll>
       <div className="relative min-h-screen bg-background">
+        {/* Custom cursor overlay */}
+        <CustomCursor />
+
         {/* Noise texture overlay */}
         <NoiseTexture />
         
         {/* Scroll progress bar */}
         <ScrollProgress />
+
         
         {/* Navigation */}
         <Navbar />
@@ -41,15 +44,15 @@ function Index() {
         <main>
           <Hero />
           <BentoGrid />
-          <About />
           <ProjectShowcase />
-          <Skills />
-          <Highlights />
           <Contact />
         </main>
         
         {/* Footer */}
         <Footer />
+
+        {/* Scheduling Modal Popup */}
+        <SchedulingModal />
       </div>
     </SmoothScroll>
   );

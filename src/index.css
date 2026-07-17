@@ -110,8 +110,8 @@
   
   /* Section spacing */
   .section-padding {
-    padding-top: min(10vh, 120px);
-    padding-bottom: min(10vh, 120px);
+    padding-top: min(6vh, 72px);
+    padding-bottom: min(6vh, 72px);
   }
   
   /* Glassmorphism card */
@@ -281,4 +281,13 @@
     @apply outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
     --tw-ring-color: hsl(var(--accent));
   }
+
+  /* Custom Cursor styles - enabled only on desktop hover devices */
+  @media (hover: hover) and (pointer: fine) {
+    .custom-cursor-active, 
+    .custom-cursor-active * {
+      cursor: none !important;
+    }
+  }
 }
+

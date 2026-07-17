@@ -1,13 +1,29 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { MapPin, Linkedin, Github, Twitter, Sparkles, ArrowUpRight, Copy, Check, Globe, Clock } from 'lucide-react';
+import { MapPin, Linkedin, Github, Sparkles, ArrowUpRight, Copy, Check, Globe, Clock, Mail, Phone } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { siteConfig } from '@/lib/data';
 
 // Import images
-import gallery1 from '@/assets/gallery-1.jpg';
-import gallery2 from '@/assets/gallery-2.jpg';
-import gallery3 from '@/assets/gallery-3.jpg';
+import gallery1 from '@/assets/gallery-1.png';
+import gallery2 from '@/assets/gallery-2.png';
+import gallery3 from '@/assets/gallery-3.png';
 import mobileMockups from '@/assets/mobile-mockups.png';
+
+// Custom X (Twitter) Icon since lucide-react doesn't provide a modern X logo
+function XIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      width={size} 
+      height={size} 
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+  );
+}
 
 
 
@@ -267,7 +283,7 @@ export function BentoGrid() {
                 {[
                   { icon: Linkedin, url: siteConfig.socials.linkedin },
                   { icon: Github, url: siteConfig.socials.github },
-                  { icon: Twitter, url: siteConfig.socials.twitter },
+                  { icon: XIcon, url: siteConfig.socials.x },
                 ].map(({ icon: Icon, url }, idx) => (
                   <motion.a 
                     key={idx}
@@ -519,38 +535,86 @@ export function BentoGrid() {
               <div className="absolute right-0 bottom-0 w-full h-full bg-gradient-to-l from-black/80 via-transparent to-transparent pointer-events-none" />
             </motion.div>
 
-            {/* BOTTOM RIGHT: Mockups/Founder with Curved Top-Left + Trapezoidal Geometry */}
+            {/* BOTTOM RIGHT: TechSonance InfoTech LLP Card */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] flex relative group hover:border-white/30 transition-all duration-700 overflow-hidden h-[500px]"
+              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-8 flex flex-col justify-between relative group hover:border-white/30 transition-all duration-700 overflow-hidden h-[500px]"
               style={{
                 maskImage: 'radial-gradient(circle at -16px 8px, transparent 215px, black 216px)',
                 WebkitMaskImage: 'radial-gradient(circle at -16px 8px, transparent 215px, black 216px)',
-                background: 'radial-gradient(circle at bottom right, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)',
+                background: 'radial-gradient(circle at bottom right, #1155cc15 0%, #0f0f0f 60%, #0a0a0a 100%)',
               }}
             >
-              {/* Content: Founder - increased top padding for curve safety */}
-              <motion.div 
-                className="absolute top-12 right-12 z-20 text-right"
-              >
-                <h3 className="font-display text-2xl font-bold text-white mb-1 tracking-tight">
-                  Founder of <span className="font-serif italic text-emerald-500">Sync Serve POS</span>
+              {/* Top Row: Logo & Title (aligned right due to top-left cutout mask) */}
+              <div className="flex flex-col items-end text-right z-20 mt-6 sm:mt-10">
+                <div className="flex items-center gap-3 mb-2 justify-end">
+                  <img 
+                    src="/techsonance_logo.png" 
+                    alt="TechSonance Logo" 
+                    className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
+                  />
+                  <span className="font-display text-xl sm:text-2xl font-bold text-white tracking-wide">
+                    TechSonance <span className="font-serif italic text-blue-400 font-light">InfoTech</span>
+                  </span>
+                </div>
+                <h3 className="font-mono text-sm sm:text-base font-bold text-emerald-400 mb-1 uppercase tracking-wider">
+                  CO-Founder & CTO
                 </h3>
-                <p className="font-mono text-xs text-white/40">
-                  &lt; Crafting Digital Experiences /&gt;
+                <p className="text-xs text-white/50 max-w-[280px]">
+                  Delivering next-gen digital solutions, enterprise systems, and AI workflows.
                 </p>
-              </motion.div>
+              </div>
 
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent z-[5]" />
-              
-              {/* Mobile mockups */}
-              <motion.img 
-                src={mobileMockups} 
-                alt="Mobile App Mockups" 
-                className="absolute bottom-0 right-0 w-3/4 h-3/4 object-contain object-right-bottom"
-              />
-              
-              <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/5 transition-all duration-500 z-[3]" />
+              {/* Bottom Row: Contact Details & Links */}
+              <div className="flex flex-col gap-3.5 z-20 mt-auto ml-2 sm:ml-4 max-w-[320px] relative">
+                <div className="h-px bg-white/10 w-full mb-1" />
+                
+                {/* Website */}
+                <a 
+                  href="https://www.techsonance.co.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 group/link text-white/70 hover:text-white transition-colors cursor-pointer text-sm"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/link:border-blue-500/50 group-hover/link:bg-blue-500/10 transition-all duration-300">
+                    <Globe size={14} className="text-white/60 group-hover/link:text-blue-400 transition-colors" />
+                  </div>
+                  <span className="font-mono hover:underline">www.techsonance.co.in</span>
+                </a>
+
+                {/* Email */}
+                <a 
+                  href="mailto:admin@techsonance.co.in"
+                  className="flex items-center gap-3 group/link text-white/70 hover:text-white transition-colors cursor-pointer text-sm"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/link:border-blue-500/50 group-hover/link:bg-blue-500/10 transition-all duration-300">
+                    <Mail size={14} className="text-white/60 group-hover/link:text-blue-400 transition-colors" />
+                  </div>
+                  <span className="font-mono hover:underline">admin@techsonance.co.in</span>
+                </a>
+
+                {/* Phone */}
+                <a 
+                  href="tel:+919173101711"
+                  className="flex items-center gap-3 group/link text-white/70 hover:text-white transition-colors cursor-pointer text-sm"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/link:border-blue-500/50 group-hover/link:bg-blue-500/10 transition-all duration-300">
+                    <Phone size={14} className="text-white/60 group-hover/link:text-blue-400 transition-colors" />
+                  </div>
+                  <span className="font-mono">+91 91731 01711</span>
+                </a>
+              </div>
+
+              {/* Background watermarked Logo Icon */}
+              <div className="absolute bottom-[-20px] right-[-20px] opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700 pointer-events-none z-[0]">
+                <img 
+                  src="/techsonance_logo.png" 
+                  alt="TechSonance Watermark" 
+                  className="w-64 h-64 object-contain"
+                />
+              </div>
+
+              {/* Graphic overlay */}
+              <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/5 transition-all duration-500 z-[1] pointer-events-none" />
             </motion.div>
           </div>
           

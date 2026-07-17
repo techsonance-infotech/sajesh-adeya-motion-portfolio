@@ -1,80 +1,241 @@
-import { Github, Linkedin, Twitter, ArrowUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Github, Linkedin, ArrowUp, Mail, Phone, Globe, ExternalLink } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { siteConfig, navLinks } from '@/lib/data';
 
+// Custom X (Twitter) Icon
+function XIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      width={size} 
+      height={size} 
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+  );
+}
+
 export function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [localTime, setLocalTime] = useState('');
+
+  // Live time ticker for Surat, IN (IST)
+  useEffect(() => {
+    const updateTime = () => {
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      };
+      setLocalTime(new Date().toLocaleTimeString('en-US', options));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000 * 60); // update every minute
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const [path, hash] = href.split('#');
+
+    if (path && path !== location.pathname) {
+      navigate(href);
+      return;
+    }
+
+    if (hash) {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      scrollToTop();
+    }
+  };
+
   return (
-    <footer className="border-t border-white/5 bg-surface/50">
-      <div className="container-custom py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo & Copyright */}
-          <div className="flex flex-col items-center md:items-start gap-2">
+    <footer className="relative border-t border-white/5 bg-surface/30 backdrop-blur-md overflow-hidden">
+      {/* Decorative radial gradients for luxury backdrop glow */}
+      <div className="absolute -bottom-48 -left-48 w-96 h-96 rounded-full bg-accent/5 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-48 -right-48 w-96 h-96 rounded-full bg-accent-secondary/5 blur-3xl pointer-events-none" />
+
+      <div className="container-custom py-16 relative z-10">
+        
+        {/* Top Tier: Columns Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16">
+          
+          {/* Col 1: Bio & Mission Statement (Span 5) */}
+          <div className="md:col-span-5 flex flex-col gap-6">
             <a 
-              href="#home" 
-              className="font-display text-xl font-bold text-foreground"
+              href="/" 
+              className="flex items-center gap-3 w-fit cursor-none"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToTop();
+              }}
             >
-              SA
-              <span className="text-accent">.</span>
+              <img 
+                src="/sajesh_logo_only.png" 
+                alt="Logo Symbol" 
+                className="h-8 w-auto hover:rotate-12 transition-transform duration-300"
+              />
+              <img 
+                src="/sajesh_logo_name.png" 
+                alt="Sajesh Adeya" 
+                className="h-9 w-auto"
+              />
             </a>
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            
+            <p className="text-body-sm text-muted-foreground max-w-sm leading-relaxed font-light">
+              Co-founder & CTO at <span className="text-foreground font-normal">TechSonance InfoTech LLP</span>. 
+              Architecting high-performance enterprise systems, custom SaaS, and low-latency database sync models.
             </p>
+
+            {/* Availability status badge */}
+            <div className="flex items-center gap-2.5 bg-accent/5 border border-accent/15 px-4 py-2 rounded-full w-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+              </span>
+              <span className="text-xs text-accent font-mono uppercase tracking-wider">
+                Available for Partnerships & Consulting
+              </span>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <nav className="flex flex-wrap justify-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+          {/* Col 2: Sitemap (Span 3) */}
+          <div className="md:col-span-3 flex flex-col gap-5 md:ml-auto">
+            <h4 className="text-xs text-foreground/80 font-mono uppercase tracking-wider">
+              Navigation
+            </h4>
+            <nav className="flex flex-col gap-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className="text-body-sm text-muted-foreground hover:text-accent transition-colors flex items-center gap-1.5 group cursor-none"
+                >
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full scale-0 group-hover:scale-100 transition-transform duration-200" />
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
-            <a
-              href={siteConfig.socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-card hover:bg-card-hover border border-border hover:border-accent/30 transition-all"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href={siteConfig.socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-card hover:bg-card-hover border border-border hover:border-accent/30 transition-all"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href={siteConfig.socials.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-card hover:bg-card-hover border border-border hover:border-accent-secondary/30 transition-all"
-              aria-label="Twitter"
-            >
-              <Twitter size={20} />
-            </a>
-            <button
-              onClick={scrollToTop}
-              className="p-2 rounded-full bg-accent/10 hover:bg-accent/20 border border-accent/30 hover:border-accent/50 text-accent transition-all ml-2"
-              aria-label="Scroll to top"
-            >
-              <ArrowUp size={20} />
-            </button>
+          {/* Col 3: Direct Connect / Business contact details (Span 4) */}
+          <div className="md:col-span-4 flex flex-col gap-5">
+            <h4 className="text-xs text-foreground/80 font-mono uppercase tracking-wider">
+              Direct Office
+            </h4>
+            <div className="flex flex-col gap-4">
+              <a 
+                href="mailto:admin@techsonance.co.in" 
+                className="flex items-center gap-3 text-body-sm text-muted-foreground hover:text-foreground transition-colors group cursor-none"
+              >
+                <div className="p-2 rounded-lg bg-white/5 border border-white/5 group-hover:border-accent/30 transition-colors">
+                  <Mail size={16} className="text-accent" />
+                </div>
+                <span>admin@techsonance.co.in</span>
+              </a>
+
+              <a 
+                href="tel:+919173101711" 
+                className="flex items-center gap-3 text-body-sm text-muted-foreground hover:text-foreground transition-colors group cursor-none"
+              >
+                <div className="p-2 rounded-lg bg-white/5 border border-white/5 group-hover:border-accent-secondary/30 transition-colors">
+                  <Phone size={16} className="text-accent-secondary" />
+                </div>
+                <span>+91 91731 01711</span>
+              </a>
+
+              <a 
+                href="https://www.techsonance.co.in" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-body-sm text-muted-foreground hover:text-foreground transition-colors group cursor-none"
+              >
+                <div className="p-2 rounded-lg bg-white/5 border border-white/5 group-hover:border-accent/30 transition-colors">
+                  <Globe size={16} className="text-muted-foreground" />
+                </div>
+                <span className="flex items-center gap-1">
+                  techsonance.co.in
+                  <ExternalLink size={12} className="opacity-50" />
+                </span>
+              </a>
+            </div>
           </div>
         </div>
+
+        {/* Bottom Tier: Copyright, Local Time, & Social Connections */}
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          
+          {/* Copyright & Location Info */}
+          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left text-xs text-muted-foreground">
+            <span>
+              © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            </span>
+            <span className="hidden md:inline text-white/10">|</span>
+            <span className="font-mono">
+              Surat, Gujarat, IN {localTime ? `— ${localTime} IST` : ''}
+            </span>
+          </div>
+
+          {/* Social Links & Scroll-to-Top Button */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <a
+                href={siteConfig.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-accent/30 text-muted-foreground hover:text-foreground transition-all cursor-none"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href={siteConfig.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-accent/30 text-muted-foreground hover:text-foreground transition-all cursor-none"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href={siteConfig.socials.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-accent-secondary/30 text-muted-foreground hover:text-foreground transition-all cursor-none"
+                aria-label="X"
+              >
+                <XIcon size={18} />
+              </a>
+            </div>
+
+            <span className="h-6 w-px bg-white/10" />
+
+            <button
+              onClick={scrollToTop}
+              className="group flex items-center justify-center p-2.5 rounded-full bg-accent/10 hover:bg-accent/20 border border-accent/20 hover:border-accent/50 text-accent transition-all cursor-none"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp size={18} className="group-hover:-translate-y-1 transition-transform duration-300" />
+            </button>
+          </div>
+
+        </div>
+
       </div>
     </footer>
   );

@@ -39,22 +39,25 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
     });
 
     // Sync Lenis with ScrollTrigger
-    lenisRef.current.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenisRef.current?.raf(time * 1000);
+    lenisRef.current.on('scroll', () => {
+      ScrollTrigger.update();
     });
 
+    // Use a named function to prevent memory leaks during hot reloads or unmounts
+    const updateLenis = (time: number) => {
+      lenisRef.current?.raf(time * 1000);
+    };
+
+    gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       window.removeEventListener('resize', checkMobile);
       lenisRef.current?.destroy();
-      gsap.ticker.remove((time) => {
-        lenisRef.current?.raf(time * 1000);
-      });
+      gsap.ticker.remove(updateLenis);
     };
   }, [isMobile]);
+
 
   return <>{children}</>;
 }

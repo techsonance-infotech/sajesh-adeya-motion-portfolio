@@ -21,7 +21,9 @@ export function useActiveSection() {
 
     // Observe all sections
     navLinks.forEach((link) => {
-      const sectionId = link.href.replace('#', '');
+      // Extract section ID, e.g. from "/about#experience" or "/#showcase" or "#home"
+      const hash = link.href.includes('#') ? link.href.split('#')[1] : link.href.replace(/^\//, '');
+      const sectionId = hash || 'home';
       const element = document.getElementById(sectionId);
       if (element) {
         observer.observe(element);

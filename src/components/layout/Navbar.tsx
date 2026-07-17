@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { navLinks, siteConfig } from '@/lib/data';
 import { useActiveSection } from '@/hooks/useActiveSection';
 
@@ -8,6 +9,8 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,9 +23,24 @@ export function Navbar() {
 
   const handleLinkClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
+    // Parse path and hash from target URL (e.g. "/about#experience" or "/")
+    const [path, hash] = href.split('#');
+
+    // If target path is different from current path
+    if (path && path !== location.pathname) {
+      navigate(href);
+      return;
+    }
+
+    // If target path is same, scroll to the hash element
+    if (hash) {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -41,26 +59,47 @@ export function Navbar() {
         <nav className="container-custom flex items-center justify-between h-20">
           {/* Logo */}
           <a 
-            href="#home" 
-            className="flex items-center gap-3"
+            href="/" 
+            className="flex items-center gap-3 cursor-none"
             onClick={(e) => {
               e.preventDefault();
-              handleLinkClick('#home');
+              handleLinkClick('/');
             }}
           >
-            <span className="font-display text-xl font-bold text-foreground">
-              SA
-            </span>
-            <div className="hidden sm:block border-l border-white/20 pl-3">
-              <p className="text-xs text-muted-foreground uppercase tracking-wide">Creative Engineer</p>
-              <p className="text-xs text-accent uppercase tracking-wide">Building the Future</p>
-            </div>
+            {/* Logo Icon on the left */}
+            <img 
+              src="/sajesh_logo_only.png" 
+              alt="Logo Symbol" 
+              className="h-8 md:h-9 w-auto"
+            />
+            {/* Logo Name Image, enlarged for high legibility */}
+            <img 
+              src="/sajesh_logo_name.png" 
+              alt="Sajesh Adeya" 
+              className="h-9 md:h-11 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation - Pill Style */}
           <div className="hidden md:flex items-center gap-1 bg-surface/80 backdrop-blur-sm rounded-full p-1 border border-white/5">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace('#', '');
+              const isActive = (() => {
+                if (link.href === '/projects') {
+                  return location.pathname.startsWith('/projects');
+                }
+                if (link.href.includes('#')) {
+                  const [linkPath, linkHash] = link.href.split('#');
+                  const pathMatches = (linkPath === '/' && location.pathname === '/') || (linkPath === '/about' && location.pathname === '/about');
+                  return pathMatches && activeSection === linkHash;
+                }
+                if (link.href === '/about') {
+                  return location.pathname === '/about' && activeSection !== 'experience' && activeSection !== 'skills';
+                }
+                if (link.href === '/') {
+                  return location.pathname === '/' && activeSection !== 'contact';
+                }
+                return false;
+              })();
               return (
                 <a
                   key={link.href}
@@ -78,16 +117,12 @@ export function Navbar() {
           </div>
 
           {/* CTA Button - Desktop */}
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              handleLinkClick('#contact');
-            }}
-            className="hidden md:inline-flex btn-secondary text-sm"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('open-scheduling'))}
+            className="hidden md:inline-flex btn-secondary text-sm cursor-pointer"
           >
             Book a Call
-          </a>
+          </button>
 
           {/* Mobile Menu Button */}
           <button
@@ -113,7 +148,23 @@ export function Navbar() {
             <nav className="container-custom py-6">
               <ul className="flex flex-col gap-2">
                 {navLinks.map((link) => {
-                  const isActive = activeSection === link.href.replace('#', '');
+                  const isActive = (() => {
+                    if (link.href === '/projects') {
+                      return location.pathname.startsWith('/projects');
+                    }
+                    if (link.href.includes('#')) {
+                      const [linkPath, linkHash] = link.href.split('#');
+                      const pathMatches = (linkPath === '/' && location.pathname === '/') || (linkPath === '/about' && location.pathname === '/about');
+                      return pathMatches && activeSection === linkHash;
+                    }
+                    if (link.href === '/about') {
+                      return location.pathname === '/about' && activeSection !== 'experience' && activeSection !== 'skills';
+                    }
+                    if (link.href === '/') {
+                      return location.pathname === '/' && activeSection !== 'contact';
+                    }
+                    return false;
+                  })();
                   return (
                     <li key={link.href}>
                       <a
@@ -134,16 +185,15 @@ export function Navbar() {
                   );
                 })}
                 <li className="pt-4">
-                  <a
-                    href="#contact"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleLinkClick('#contact');
+                  <button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      window.dispatchEvent(new CustomEvent('open-scheduling'));
                     }}
-                    className="btn-secondary w-full justify-center"
+                    className="btn-secondary w-full justify-center cursor-pointer"
                   >
                     Book a Call
-                  </a>
+                  </button>
                 </li>
               </ul>
             </nav>
