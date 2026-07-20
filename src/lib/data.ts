@@ -46,6 +46,46 @@ export const showcaseContent = {
 export const showcaseProjects = [
   {
     id: 1,
+    slug: "marketplace",
+    name: "TechSonance Marketplace",
+    description:
+      "A multi-tenant e-commerce platform allowing sellers to launch fully branded online stores with custom domains, isolated tenant data, Razorpay payment routing, Shiprocket shipping automation, and native promo workflows.",
+    image: "/projects/marketplace-dashboard.png",
+    logo: "/projects/marketplace-logo.png",
+    mobileImage1: "/projects/marketplace-mobile.png",
+    mobileImage2: "/projects/marketplace-logo.png",
+    gallery: ["/projects/marketplace-dashboard.png", "/projects/marketplace-mobile.png"],
+    liveUrl: "https://marketplace.techsonance.co.in/",
+    color: "#2563EB",
+    features: [
+      "100% Fully Branded Storefronts with Custom Domain Support & Tenant-Scoped Data Isolation",
+      "Drag & Drop Page Builder & Mobile-First Responsive Themes",
+      "Product & Inventory Management: Unlimited Products, Variant Management, Bulk Import/Export & Warehouse Tracking",
+      "Seamless Payments & Logistics: Razorpay Integration, Shiprocket Auto-Shipping, Automatic Invoices & Tracking",
+      "Promotions & Growth Suite: Coupons, Referral Rewards, Flash Sales, Bundles, Email Campaigns & Cart Recovery",
+      "Real-Time Business Insights: Sales Analytics, Revenue Trends, Top Products & Performance Dashboards"
+    ],
+    stack: ["Next.js", "React 19", "Node.js", "PostgreSQL", "Razorpay", "Shiprocket", "Tailwind CSS"],
+    client: "TechSonance Venture / Global E-Commerce Vendors",
+    duration: "5 Months",
+    role: "Co-Founder & Lead Architect",
+    metrics: [
+      { label: "Store Setup", value: "<10m" },
+      { label: "Platform Uptime", value: "99.9%" },
+      { label: "Stores Launched", value: "500+" }
+    ],
+    fullDescription: "TechSonance Marketplace is an independent, highly customizable multi-tenant e-commerce SaaS platform that allows entrepreneurs, brands, and retail businesses to launch fully branded online storefronts in minutes without code. Equipped with custom domain integration, isolated tenant-scoped database architecture, automated Razorpay payment routing, and Shiprocket shipping orchestration, it gives vendors complete ownership over their catalog, branding, and customer relationships.",
+    challenges: "Sellers and retail brands often struggle with third-party marketplaces that charge steep transaction fees, suppress custom branding, and lock customer data inside walled gardens. Conversely, custom ecommerce software builds are expensive, require continuous developer maintenance, and complicate payment gateway and logistics integrations.",
+    solution: "We engineered a turn-key multi-tenant platform built on Next.js, React 19, and PostgreSQL with tenant-scoped isolation and proxy-friendly onboarding. Vendors can configure custom domain records, customize mobile-first responsive themes, manage inventory across multiple warehouses, and automate payment payouts via Razorpay alongside shipping labels and order tracking through Shiprocket.",
+    results: "Empowered 500+ independent stores to go live with zero code overhead. Reduced store deployment timelines to under 10 minutes, processing millions in annual GMV with 99.9% platform availability and 0% platform transaction commission fees.",
+    aiDetails: [
+      { engine: "Tenant-Scoped Analytics Engine", usecase: "Aggregates real-time sales trends, top product movers, customer cohorts, and inventory replenishment curves." },
+      { engine: "Automated Logistics & NDR Dispatcher", usecase: "Coordinates Shiprocket courier selection, generates automatic PDF tax invoices, and handles non-delivery exception workflows." }
+    ],
+    architectureDetails: "Built on Next.js App Router and React 19. Database operations use PostgreSQL with multi-tenant data scoping policies. Integrates Razorpay SDK for zero-commission checkout flows, Shiprocket REST APIs for fulfillment, and Cloudinary media pipelines for high-performance responsive image serving."
+  },
+  {
+    id: 2,
     slug: "accunest",
     name: "AccuNest",
     description:
@@ -85,7 +125,7 @@ export const showcaseProjects = [
     architectureDetails: "The application features a monorepo setup. The client uses Next.js and Zustand stores, query invalidations are synchronized using React Query v5, and styles utilize TailwindCSS v4 HSL variables. The server acts as a TypeScript Express REST API querying a MongoDB backend via Mongoose v9, utilizing jsPDF for high-resolution vector PDF receipts and SheetJS for Excel spreadsheets."
   },
   {
-    id: 2,
+    id: 3,
     slug: "freightflow",
     name: "FreightFlow",
     description:
@@ -124,7 +164,7 @@ export const showcaseProjects = [
     architectureDetails: "Engineered on a Turborepo monorepo. The client uses Next.js with Zustand state, API communication uses TanStack Query v5 over a TypeScript Express backend. Database operations utilize PostgreSQL with Prisma ORM, leveraging Postgres Row-Level Security (RLS) to strictly isolate multi-tenant customer directories."
   },
   {
-    id: 3,
+    id: 4,
     slug: "sync-serve-pos",
     name: "SyncServe POS",
     description:
@@ -162,7 +202,7 @@ export const showcaseProjects = [
     architectureDetails: "SyncServe is packaged as a shared Next.js application running inside a native Electron container. It features a shared codebase using customized CSS variables, Prisma Client generators for both local SQLite databases and remote PostgreSQL servers, and jsPDF-autotable to build vector invoice receipts on local thermal printer terminals."
   },
   {
-    id: 4,
+    id: 5,
     slug: "masterweg",
     name: "Masterweg",
     description:
@@ -200,7 +240,7 @@ export const showcaseProjects = [
     architectureDetails: "Built on a modern Next.js framework using Radix UI primitives and Tailwind CSS. The app uses static page pre-rendering for tools to ensure sub-100ms load speeds, local storage for offline profile caching, and a light REST API to query the catalog of 1,500+ German master's courses."
   },
   {
-    id: 5,
+    id: 6,
     slug: "utsav",
     name: "Utsav",
     description:
@@ -237,7 +277,7 @@ export const showcaseProjects = [
     architectureDetails: "Structured as a Turborepo monorepo sharing types and configurations. The web client is built on Next.js (App Router), while the mobile app uses Expo/React Native. Real-time updates and database storage are handled by Supabase (PostgreSQL) leveraging Postgres RLS policies to isolate temple trust database partitions."
   },
   {
-    id: 6,
+    id: 7,
     slug: "learn",
     name: "TechSonance Learn",
     description:
@@ -274,7 +314,7 @@ export const showcaseProjects = [
     architectureDetails: "Built on Next.js 15 using Drizzle ORM with LibSQL Client connection. Utilized Radix UI primitives and Tailwind CSS for rapid responsive interface layouts, Jose and Bcryptjs for secure session handlers, and Stripe checkout hooks."
   },
   {
-    id: 7,
+    id: 8,
     slug: "cms",
     name: "CMS TechSonance",
     description:

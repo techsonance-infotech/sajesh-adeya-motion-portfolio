@@ -23,9 +23,9 @@ export function Hero() {
 
       // Initial state setters to prevent flash of unstyled content
       gsap.set('.char-reveal', { yPercent: 105 });
-      gsap.set([headline1Ref.current, headline2Ref.current, bottomBarRef.current], { 
-        opacity: 0, 
-        y: 20 
+      gsap.set([headline1Ref.current, headline2Ref.current, bottomBarRef.current], {
+        opacity: 0,
+        y: 20
       });
 
       // 1. Stagger animate name characters sliding up from the clip-mask
@@ -60,9 +60,9 @@ export function Hero() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      id="home" 
+      id="home"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background"
     >
       {/* 3D background layer with lazy loading Suspense */}
@@ -75,22 +75,22 @@ export function Hero() {
       <div className="container-custom relative z-10 flex-1 flex flex-col justify-center py-20">
         <div className="flex flex-col items-center text-center select-none">
           {/* Large Name with clip-path mask reveals */}
-          <h1 
+          <h1
             ref={nameRef}
             className="font-display text-hero font-extrabold text-foreground uppercase tracking-tight mb-8 md:mb-12 flex flex-col items-center leading-[0.85]"
           >
             <span className="block overflow-hidden pb-2">
-              <TextSplitter 
-                text={siteConfig.name.split(' ')[0]} 
-                charClassName="char-reveal inline-block origin-bottom" 
-                by="char" 
+              <TextSplitter
+                text={siteConfig.name.split(' ')[0]}
+                charClassName="char-reveal inline-block origin-bottom"
+                by="char"
               />
             </span>
             <span className="block overflow-hidden pb-2">
-              <TextSplitter 
-                text={siteConfig.name.split(' ')[1]} 
-                charClassName="char-reveal inline-block origin-bottom" 
-                by="char" 
+              <TextSplitter
+                text={siteConfig.name.split(' ')[1]}
+                charClassName="char-reveal inline-block origin-bottom"
+                by="char"
               />
             </span>
           </h1>
@@ -122,7 +122,7 @@ export function Hero() {
       </div>
 
       {/* Bottom Info Bar */}
-      <div 
+      <div
         ref={bottomBarRef}
         className="container-custom pb-10 md:pb-16 relative z-10"
       >
@@ -139,8 +139,8 @@ export function Hero() {
           {/* Role - Right */}
           <div className="flex items-center gap-3 text-center sm:text-right">
             <div className="order-2 sm:order-1">
-              <p className="text-sm font-medium text-foreground uppercase tracking-wide">Full Stack Dev,</p>
-              <p className="text-xs text-muted-foreground uppercase tracking-wide">& Designer</p>
+              <p className="text-sm font-medium text-foreground uppercase tracking-wide">Full Stack Developer,</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Co-Founder & CTO - TechSonance InfoTech LLP</p>
             </div>
             <Layers size={18} className="text-accent-secondary order-1 sm:order-2 flex-shrink-0" />
           </div>
