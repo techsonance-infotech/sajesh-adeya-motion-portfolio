@@ -25,13 +25,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ success: false, error: 'Name, email, and message are required' });
   }
 
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
+  const user = process.env.GMAIL_USER || process.env.SMTP_USER;
+  const pass = process.env.GMAIL_APP_PASSWORD || process.env.SMTP_PASS;
 
   if (!user || !pass) {
     return res.status(500).json({
       success: false,
-      error: 'SMTP credentials not configured. Please set GMAIL_USER and GMAIL_APP_PASSWORD environment variables.',
+      error: 'SMTP credentials not configured. Please set GMAIL_USER / SMTP_USER and GMAIL_APP_PASSWORD / SMTP_PASS environment variables.',
     });
   }
 
