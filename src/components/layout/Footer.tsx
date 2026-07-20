@@ -78,7 +78,7 @@ export function Footer() {
           <div className="md:col-span-5 flex flex-col gap-6">
             <a 
               href="/" 
-              className="flex items-center gap-3 w-fit cursor-none"
+              className="flex items-center gap-3 w-fit"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToTop();
@@ -87,12 +87,12 @@ export function Footer() {
               <img 
                 src="/sajesh_logo_only.png" 
                 alt="Logo Symbol" 
-                className="h-8 w-auto hover:rotate-12 transition-transform duration-300"
+                className="h-7 sm:h-8 w-auto hover:rotate-12 transition-transform duration-300"
               />
               <img 
                 src="/sajesh_logo_name.png" 
                 alt="Sajesh Adeya" 
-                className="h-9 w-auto"
+                className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-none"
               />
             </a>
             

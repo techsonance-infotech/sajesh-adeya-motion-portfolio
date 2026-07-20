@@ -72,9 +72,9 @@ export function Skills() {
           {skills.map((skillGroup) => (
             <div
               key={skillGroup.category}
-              className="skill-card glass-card p-8 rounded-2xl group hover:border-white/20 transition-all duration-300"
+              className="skill-card glass-card p-6 sm:p-8 rounded-2xl group hover:border-white/20 transition-all duration-300"
             >
-              <h3 className="font-display text-lg font-semibold text-foreground mb-6 flex items-center gap-3">
+              <h3 className="font-display text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 flex items-center gap-3">
                 <span className="w-2 h-2 bg-accent rounded-full" />
                 {skillGroup.category}
               </h3>
@@ -85,7 +85,7 @@ export function Skills() {
                     key={skill}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className="px-4 py-2 rounded-lg bg-white/5 border border-white/5 text-sm text-foreground/80 cursor-none select-none transition-colors duration-300 inline-block"
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-white/5 border border-white/5 text-xs sm:text-sm text-foreground/80 select-none transition-colors duration-300 inline-block"
                   >
                     {skill}
                   </span>

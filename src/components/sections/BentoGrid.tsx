@@ -173,9 +173,20 @@ function CentralClock({ isInView }: { isInView: boolean }) {
 export function BentoGrid() {
   const [copied, setCopied] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const [isDesktop, setIsDesktop] = useState(false);
   const clockRef = useRef<HTMLDivElement>(null);
   const isClockInView = useInView(clockRef, { once: true, margin: '-50px' });
   const imageContainerRef = useRef<HTMLDivElement>(null);
+
+  // Check desktop screen size for radial clock mask cutouts
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
 
   // Check for reduced motion preference
   const prefersReducedMotion = typeof window !== 'undefined' 
@@ -229,31 +240,30 @@ export function BentoGrid() {
             {/* LEFT CARD: Profile with Scroll-Driven Image Slideshow */}
             <motion.div
               ref={imageContainerRef}
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-8 flex flex-col relative overflow-hidden group hover:border-white/30 transition-all duration-700 h-[500px]"
+              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-6 sm:p-8 flex flex-col relative overflow-hidden group hover:border-white/30 transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
               style={{
                 background: 'radial-gradient(circle at top left, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)'
               }}
             >
               {/* Header */}
               <div className="mb-6 relative z-10">
-                <h2 className="font-display text-3xl font-bold text-white mb-2 tracking-tight">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
                   {siteConfig.name.split(' ')[0]}{' '}
                   <span className="font-serif italic font-light text-white/60">
                     {siteConfig.name.split(' ')[1]}
                   </span>
                 </h2>
-                <div className="flex items-center gap-2 text-sm text-white/50">
-                  <MapPin size={14} className="text-emerald-500" />
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/50">
+                  <MapPin size={14} className="text-emerald-500 shrink-0" />
                   <span>SURAT, IN</span>
                   <span className="text-white/20">•</span>
-                  <Clock size={14} className="text-emerald-500/70" />
+                  <Clock size={14} className="text-emerald-500/70 shrink-0" />
                   <span className="font-mono text-xs">{currentTime}</span>
                 </div>
               </div>
 
               {/* Scroll-driven horizontal image slideshow */}
-              {/* Scroll-driven horizontal image slideshow */}
-              <div className="flex-1 relative z-10 overflow-hidden mask-linear-fade w-full">
+              <div className="flex-1 relative z-10 overflow-hidden mask-linear-fade w-full my-2">
                 <div 
                   className="flex flex-row gap-3 h-full w-full"
                   style={{ perspective: '1000px' }}
@@ -263,10 +273,10 @@ export function BentoGrid() {
                         key={idx}
                         style={{ 
                           x: x1,
-                          rotateY: idx % 3 === 0 ? 15 : idx % 3 === 1 ? 0 : -15, // Reduced slightly to 15deg for cleaner look
+                          rotateY: idx % 3 === 0 ? 15 : idx % 3 === 1 ? 0 : -15,
                           zIndex: idx % 3 === 1 ? 20 : 10
                         }} 
-                        className="w-[140px] shrink-0 rounded-2xl overflow-hidden h-full border border-white/20 relative aspect-[9/16]"
+                        className="w-[110px] sm:w-[140px] shrink-0 rounded-2xl overflow-hidden h-full border border-white/20 relative aspect-[9/16]"
                       >
                         <img 
                           src={img} 
@@ -279,7 +289,7 @@ export function BentoGrid() {
               </div>
 
               {/* Social links */}
-              <div className="flex items-center justify-center gap-6 pt-6 border-t border-white/[0.06] mt-6 relative z-10">
+              <div className="flex items-center justify-center gap-6 pt-5 border-t border-white/[0.06] mt-4 relative z-10">
                 {[
                   { icon: Linkedin, url: siteConfig.socials.linkedin },
                   { icon: Github, url: siteConfig.socials.github },
@@ -302,10 +312,10 @@ export function BentoGrid() {
 
             {/* CENTER CARD: Philosophy with Curved Bottom (SVG ClipPath) */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-12 flex flex-col relative group hover:border-white/30 transition-all duration-700 h-[500px]"
+              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-6 sm:p-8 lg:p-12 flex flex-col relative group hover:border-white/30 transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
               style={{
-                maskImage: 'radial-gradient(circle at 50% 540px, transparent 215px, black 216px)',
-                WebkitMaskImage: 'radial-gradient(circle at 50% 540px, transparent 215px, black 216px)',
+                maskImage: isDesktop ? 'radial-gradient(circle at 50% 540px, transparent 215px, black 216px)' : 'none',
+                WebkitMaskImage: isDesktop ? 'radial-gradient(circle at 50% 540px, transparent 215px, black 216px)' : 'none',
                 background: 'radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)'
               }}
             >
@@ -315,41 +325,40 @@ export function BentoGrid() {
                 <div className="absolute top-12 left-12 w-32 h-32 border border-white/20 rounded-full" />
               </div>
 
-              {/* Content - with INCREASED bottom padding for larger clock overlap zone */}
-              {/* Content - Split into 2 columns */}
-              <div className="flex-1 grid grid-cols-2 gap-8 relative z-10 w-full h-full">
+              {/* Content - Split into responsive columns */}
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 w-full h-full">
                 
                 {/* Left Column: Main Title */}
-                <div className="flex flex-col justify-start pt-4">
-                  <div className="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest mb-6">
+                <div className="flex flex-col justify-start pt-2 md:pt-4">
+                  <div className="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest mb-4 md:mb-6">
                     <Sparkles size={12} className="text-emerald-500" />
                     <span>Detail-Driven UI</span>
                   </div>
                   
-                  <h3 className="font-display text-5xl font-bold text-white mb-3 tracking-tight leading-[0.9]">
+                  <h3 className="font-display text-4xl sm:text-5xl font-bold text-white mb-2 md:mb-3 tracking-tight leading-[0.9]">
                     Interfaces
                   </h3>
-                  <p className="font-serif italic text-4xl text-white/60 mb-6 leading-tight">
+                  <p className="font-serif italic text-3xl sm:text-4xl text-white/60 mb-4 md:mb-6 leading-tight">
                     you can feel.
                   </p>
                   
-                  <p className="text-sm text-white/50 leading-relaxed max-w-[200px] font-light">
+                  <p className="text-sm text-white/50 leading-relaxed max-w-[240px] font-light">
                     I sweat spacing, timing, and feedback — the tiny stuff.
                   </p>
                 </div>
 
                 {/* Right Column: Features & Micro-interactions */}
-                <div className="flex flex-col items-end pt-4 text-right">
-                  <div className="flex items-center justify-end gap-2 mb-8">
+                <div className="flex flex-col items-start md:items-end pt-2 md:pt-4 text-left md:text-right">
+                  <div className="flex flex-wrap items-center justify-start md:justify-end gap-1.5 sm:gap-2 mb-4 md:mb-8">
                      {['Motion', 'Type', 'Feedback', 'Craft'].map((pill) => (
-                       <span key={pill} className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-wider text-white/40">
+                       <span key={pill} className="px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-wider text-white/40">
                          {pill}
                        </span>
                      ))}
                   </div>
 
-                  <h4 className="text-lg font-bold text-white mb-2">Micro-interactions</h4>
-                  <p className="text-sm text-white/40 leading-relaxed max-w-[200px]">
+                  <h4 className="text-base sm:text-lg font-bold text-white mb-1.5 md:mb-2">Micro-interactions</h4>
+                  <p className="text-xs sm:text-sm text-white/40 leading-relaxed max-w-[220px]">
                     Subtle movement that confirms intent — never distracting.
                   </p>
                 </div>
@@ -358,13 +367,13 @@ export function BentoGrid() {
 
             {/* RIGHT CARD: CTA */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-8 flex flex-col relative group hover:border-white/30 transition-all duration-700 h-[500px]"
+              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-6 sm:p-8 flex flex-col relative group hover:border-white/30 transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
               style={{
                 background: 'radial-gradient(circle at top right, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)'
               }}
             >
               {/* Header with status */}
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-6 sm:mb-8">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center">
                   <div className="w-3 h-3 rounded-full bg-white/60" />
                 </div>
@@ -385,11 +394,11 @@ export function BentoGrid() {
               </div>
 
               {/* Main CTA text */}
-              <div className="flex-1 flex flex-col justify-center">
-                <h3 className="font-display text-3xl font-bold text-white uppercase leading-tight mb-3 tracking-wide">
+              <div className="flex-1 flex flex-col justify-center my-4">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase leading-tight mb-2 tracking-wide">
                   Let's Build<br />Something
                 </h3>
-                <p className="font-serif italic text-2xl text-white/60">
+                <p className="font-serif italic text-xl sm:text-2xl text-white/60">
                   that actually works.
                 </p>
               </div>
@@ -465,28 +474,28 @@ export function BentoGrid() {
             
             {/* BOTTOM LEFT: Globe/Timezone with Curved Top-Right + Trapezoidal Geometry */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] flex relative group hover:border-white/30 transition-all duration-700 overflow-hidden h-[500px]"
+              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] flex relative group hover:border-white/30 transition-all duration-700 overflow-hidden h-auto min-h-[460px] lg:h-[500px]"
               style={{
-                maskImage: 'radial-gradient(circle at calc(100% + 16px) 8px, transparent 215px, black 216px)',
-                WebkitMaskImage: 'radial-gradient(circle at calc(100% + 16px) 8px, transparent 215px, black 216px)',
+                maskImage: isDesktop ? 'radial-gradient(circle at calc(100% + 16px) 8px, transparent 215px, black 216px)' : 'none',
+                WebkitMaskImage: isDesktop ? 'radial-gradient(circle at calc(100% + 16px) 8px, transparent 215px, black 216px)' : 'none',
                 background: 'radial-gradient(circle at bottom left, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)',
               }}
             >
-              <div className="flex w-full h-full relative z-10 p-8">
+              <div className="flex w-full h-full relative z-10 p-6 sm:p-8">
                 
                 {/* Text Content - Top Left */}
-                <div className="absolute top-8 left-8 z-20">
-                  <div className="flex items-center gap-2 mb-4">
+                <div className="absolute top-6 sm:top-8 left-6 sm:left-8 z-20">
+                  <div className="flex items-center gap-2 mb-3 sm:mb-4">
                     <Globe size={14} className="text-emerald-500" />
                     <span className="text-xs text-emerald-500 uppercase tracking-widest font-medium">Available Globally</span>
                   </div>
-                  <h3 className="font-display text-3xl font-bold text-white leading-tight tracking-tight">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight">
                     Adaptable across<br />time zones
                   </h3>
                 </div>
 
                 {/* India Map Background */}
-                <div className="absolute top-[60%] -translate-y-1/2 left-[-18%] w-[80%] h-[80%]  mix-blend-screen pointer-events-none scale-150">
+                <div className="absolute top-[60%] -translate-y-1/2 left-[-18%] w-[80%] h-[80%] mix-blend-screen pointer-events-none scale-150">
                    <img 
                       src="/indiaMap.png" 
                       alt="World Map" 
@@ -494,8 +503,8 @@ export function BentoGrid() {
                    />
                 </div>
                 
-                {/* Rights Side Content - Pushed Down/Left to avoid Top-Right Cutout */}
-                <div className="absolute bottom-6 right-[3rem] flex flex-col items-end gap-[4.5rem] z-30">
+                {/* Rights Side Content */}
+                <div className="absolute bottom-6 right-6 sm:right-[3rem] flex flex-col items-end gap-10 sm:gap-[4.5rem] z-30">
                      {/* Country Pills */}
                      <div className="flex flex-col gap-2 items-end">
                       {[
@@ -537,16 +546,16 @@ export function BentoGrid() {
 
             {/* BOTTOM RIGHT: TechSonance InfoTech LLP Card */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-8 flex flex-col justify-between relative group hover:border-white/30 transition-all duration-700 overflow-hidden h-[500px]"
+              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-6 sm:p-8 flex flex-col justify-between relative group hover:border-white/30 transition-all duration-700 overflow-hidden h-auto min-h-[460px] lg:h-[500px]"
               style={{
-                maskImage: 'radial-gradient(circle at -16px 8px, transparent 215px, black 216px)',
-                WebkitMaskImage: 'radial-gradient(circle at -16px 8px, transparent 215px, black 216px)',
+                maskImage: isDesktop ? 'radial-gradient(circle at -16px 8px, transparent 215px, black 216px)' : 'none',
+                WebkitMaskImage: isDesktop ? 'radial-gradient(circle at -16px 8px, transparent 215px, black 216px)' : 'none',
                 background: 'radial-gradient(circle at bottom right, #1155cc15 0%, #0f0f0f 60%, #0a0a0a 100%)',
               }}
             >
-              {/* Top Row: Logo & Title (aligned right due to top-left cutout mask) */}
-              <div className="flex flex-col items-end text-right z-20 mt-6 sm:mt-10">
-                <div className="flex items-center gap-3 mb-2 justify-end">
+              {/* Top Row: Logo & Title */}
+              <div className="flex flex-col items-start lg:items-end text-left lg:text-right z-20 mt-4 sm:mt-6 lg:mt-10">
+                <div className="flex items-center gap-3 mb-2 justify-start lg:justify-end">
                   <img 
                     src="/techsonance_logo.png" 
                     alt="TechSonance Logo" 
@@ -565,7 +574,7 @@ export function BentoGrid() {
               </div>
 
               {/* Bottom Row: Contact Details & Links */}
-              <div className="flex flex-col gap-3.5 z-20 mt-auto ml-2 sm:ml-4 max-w-[320px] relative">
+              <div className="flex flex-col gap-3.5 z-20 mt-6 lg:mt-auto ml-0 sm:ml-2 max-w-[320px] relative">
                 <div className="h-px bg-white/10 w-full mb-1" />
                 
                 {/* Website */}

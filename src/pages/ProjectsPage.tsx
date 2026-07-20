@@ -67,7 +67,7 @@ export default function ProjectsPage() {
               <span className="text-accent text-sm font-medium uppercase tracking-widest mb-3 block font-mono">
                 Case Studies
               </span>
-              <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+              <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
                 Venture Showcase
               </h1>
               <p className="text-body-lg text-muted-foreground font-light leading-relaxed">
@@ -143,7 +143,7 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Card Content */}
-                    <div className="p-8 flex flex-col flex-grow justify-between gap-6">
+                    <div className="p-6 sm:p-8 flex flex-col flex-grow justify-between gap-6">
                       <div className="flex flex-col gap-4">
                         
                         {/* Stack badges */}

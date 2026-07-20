@@ -101,7 +101,7 @@ export function ExperienceAndEducation() {
             </div>
 
             {/* Timeline Area */}
-            <div className="relative pl-8 md:pl-10 space-y-12 ml-2 sm:ml-4">
+            <div className="relative pl-6 sm:pl-8 md:pl-10 space-y-8 sm:space-y-12 ml-1 sm:ml-4">
               {/* Rails */}
               <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-white/[0.06] rounded-full" />
               <div
@@ -116,7 +116,7 @@ export function ExperienceAndEducation() {
                   className="timeline-item-anim relative group"
                 >
                   {/* Indicator Node */}
-                  <div className="absolute left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050505] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(34,197,94,0.15)]">
+                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050505] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(34,197,94,0.15)]">
                     <div className="h-1.5 w-1.5 rounded-full bg-accent group-hover:bg-emerald-400 transition-colors duration-300" />
                   </div>
 
@@ -197,7 +197,7 @@ export function ExperienceAndEducation() {
             </div>
 
             {/* Timeline Area */}
-            <div className="relative pl-8 md:pl-10 space-y-12 ml-2 sm:ml-4">
+            <div className="relative pl-6 sm:pl-8 md:pl-10 space-y-8 sm:space-y-12 ml-1 sm:ml-4">
               {/* Rails */}
               <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-white/[0.06] rounded-full" />
               <div
@@ -212,7 +212,7 @@ export function ExperienceAndEducation() {
                   className="timeline-item-anim relative group"
                 >
                   {/* Indicator Node */}
-                  <div className="absolute left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050505] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(34,197,94,0.15)]">
+                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050505] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(34,197,94,0.15)]">
                     <div className="h-1.5 w-1.5 rounded-full bg-accent group-hover:bg-emerald-400 transition-colors duration-300" />
                   </div>
 

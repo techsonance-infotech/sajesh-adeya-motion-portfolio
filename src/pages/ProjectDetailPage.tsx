@@ -95,7 +95,7 @@ export default function ProjectDetailPage() {
                       className="h-16 w-auto object-contain bg-white/5 p-3 rounded-2xl border border-white/10"
                     />
                   )}
-                  <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                  <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                     {project.name}
                   </h1>
                 </div>

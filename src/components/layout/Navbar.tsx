@@ -70,13 +70,13 @@ export function Navbar() {
             <img 
               src="/sajesh_logo_only.png" 
               alt="Logo Symbol" 
-              className="h-8 md:h-9 w-auto"
+              className="h-7 sm:h-8 md:h-9 w-auto"
             />
-            {/* Logo Name Image, enlarged for high legibility */}
+            {/* Logo Name Image */}
             <img 
               src="/sajesh_logo_name.png" 
               alt="Sajesh Adeya" 
-              className="h-9 md:h-11 w-auto"
+              className="h-7 sm:h-9 md:h-11 w-auto max-w-[140px] sm:max-w-none"
             />
           </a>
 
@@ -143,7 +143,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-20 z-40 bg-background/95 backdrop-blur-xl border-b border-white/5 md:hidden"
+            className="fixed inset-x-0 top-20 z-40 bg-background/95 backdrop-blur-xl border-b border-white/5 md:hidden max-h-[calc(100vh-5rem)] overflow-y-auto shadow-2xl"
           >
             <nav className="container-custom py-6">
               <ul className="flex flex-col gap-2">

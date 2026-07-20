@@ -106,7 +106,7 @@ export function Contact() {
               Get in Touch
             </span>
             
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Let's Build Something Great
             </h2>
             
@@ -117,20 +117,20 @@ export function Contact() {
 
             <div className="space-y-6 mb-10">
               <div className="flex items-center gap-4 text-muted-foreground group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-accent group-hover:border-accent/20 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-accent group-hover:border-accent/20 transition-all duration-300 shrink-0">
                   <Mail size={18} />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Email</span>
-                  <a href={`mailto:${siteConfig.email}`} className="text-foreground hover:text-accent transition-colors font-light select-all cursor-none">{siteConfig.email}</a>
+                  <a href={`mailto:${siteConfig.email}`} className="text-foreground hover:text-accent transition-colors font-light select-all truncate">{siteConfig.email}</a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4 text-muted-foreground group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-accent-secondary group-hover:border-accent-secondary/20 transition-all duration-300">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-accent-secondary group-hover:border-accent-secondary/20 transition-all duration-300 shrink-0">
                   <MapPin size={18} />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Location</span>
                   <span className="text-foreground font-light">{siteConfig.location}</span>
                 </div>
@@ -143,7 +143,7 @@ export function Contact() {
                 href={siteConfig.socials.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-accent hover:underline cursor-none"
+                className="text-accent hover:underline"
               >
                 LinkedIn
               </a>
@@ -152,7 +152,7 @@ export function Contact() {
                 href={siteConfig.socials.x} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-accent-secondary hover:underline cursor-none"
+                className="text-accent-secondary hover:underline"
               >
                 X
               </a>
@@ -163,7 +163,7 @@ export function Contact() {
           <div className="lg:col-span-7">
             <form 
               onSubmit={handleSubmit(onSubmit)} 
-              className="glass-card p-8 md:p-10 rounded-[2rem] border border-white/5 space-y-6 relative overflow-hidden"
+              className="glass-card p-6 sm:p-8 md:p-10 rounded-[1.75rem] sm:rounded-[2rem] border border-white/5 space-y-6 relative overflow-hidden"
             >
               {/* Decorative light glows */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl pointer-events-none" />

@@ -96,17 +96,17 @@ export function Hero() {
           </h1>
 
           {/* Tagline - Part 1: Uppercase tracking */}
-          <p 
+          <p
             ref={headline1Ref}
-            className="text-xs sm:text-sm md:text-base text-muted-foreground uppercase tracking-hero mb-4"
+            className="text-[11px] sm:text-sm md:text-base text-muted-foreground uppercase tracking-wider sm:tracking-hero mb-3 px-2 max-w-full"
           >
             {headlinePart1}
           </p>
 
           {/* Tagline - Part 2: Serif italic */}
-          <p 
+          <p
             ref={headline2Ref}
-            className="font-serif-italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground"
+            className="font-serif-italic text-xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground px-2"
           >
             {headlinePart2}
           </p>

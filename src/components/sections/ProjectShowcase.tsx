@@ -77,18 +77,18 @@ export function ProjectShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-8xl font-bold tracking-tight mb-2"
+            className="text-3xl sm:text-5xl md:text-8xl font-bold tracking-tight mb-2"
           >
             <span className="text-foreground font-display">VENTURE</span>{' '}
-            <span className="font-serif-italic bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent/60 pr-4">
+            <span className="font-serif-italic bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent/60 pr-2 sm:pr-4">
               SHOWCASE
             </span>
           </motion.h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20">
           {/* Left Column - Sticky Content */}
-          <div className="lg:sticky lg:top-48 lg:h-[calc(100vh-12rem)] flex flex-col justify-start lg:pt-10 relative">
+          <div className="lg:sticky lg:top-36 lg:max-h-[calc(100vh-8rem)] flex flex-col justify-start lg:pt-6 relative">
              {/* Progress Indicator - Center of Columns */}
              <div className="hidden lg:block absolute right-[-40px] top-10 h-[300px] w-full max-w-[2px]">
                <div className="relative h-full w-full bg-white/10 rounded-full overflow-hidden">
@@ -307,7 +307,7 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       data-cursor-text="VIEW"
-      className={`relative rounded-[2.5rem] p-8 md:p-12 overflow-hidden shadow-2xl transition-all duration-500 ${
+      className={`relative rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-12 overflow-hidden shadow-2xl transition-all duration-500 ${
         isActive ? 'opacity-100 scale-100' : 'opacity-40 scale-[0.95] blur-sm'
       }`}
       style={{
@@ -343,7 +343,7 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
       />
 
       {/* Premium Overlapping Mockup Composition */}
-      <div className="relative w-full h-[320px] md:h-[420px] flex items-center justify-center pointer-events-none mt-6">
+      <div className="relative w-full h-[240px] sm:h-[320px] md:h-[420px] flex items-center justify-center pointer-events-none mt-4 sm:mt-6">
          {/* Desktop Browser Mockup */}
          <div className="absolute w-[88%] aspect-[16/10] bg-neutral-950 rounded-[1.5rem] border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden transition-all duration-700 group-hover:scale-[1.02] group-hover:border-white/20 origin-center">
             {/* Browser Header Bar */}
