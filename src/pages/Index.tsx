@@ -8,25 +8,20 @@ import { Hero } from '@/components/sections/Hero';
 import { BentoGrid } from '@/components/sections/BentoGrid';
 import { ProjectShowcase } from '@/components/sections/ProjectShowcase';
 import { Contact } from '@/components/sections/Contact';
+import { AEOFAQ } from '@/components/sections/AEOFAQ';
 import { SchedulingModal } from '@/components/common/SchedulingModal';
-import { siteConfig } from '@/lib/data';
-import { useEffect } from 'react';
+import { SEOHead } from '@/components/common/SEOHead';
 
 function Index() {
-  useEffect(() => {
-    // Update document title
-    document.title = `${siteConfig.name} | ${siteConfig.title}`;
-    
-    // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', siteConfig.description);
-    }
-  }, []);
-
   return (
     <SmoothScroll>
       <div className="relative min-h-screen bg-background">
+        <SEOHead 
+          canonicalUrl="/"
+          title="Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech LLP | Senior Full-Stack Developer"
+          description="Sajesh Adeya is the Co-Founder & CTO of TechSonance InfoTech LLP and a Senior Full-Stack Developer specializing in React, Next.js, Node.js, Java, and AWS Cloud Architecture. Building high-performance enterprise SaaS, e-commerce, and logistics platforms."
+        />
+
         {/* Custom cursor overlay */}
         <CustomCursor />
 
@@ -36,7 +31,6 @@ function Index() {
         {/* Scroll progress bar */}
         <ScrollProgress />
 
-        
         {/* Navigation */}
         <Navbar />
         
@@ -45,6 +39,7 @@ function Index() {
           <Hero />
           <BentoGrid />
           <ProjectShowcase />
+          <AEOFAQ />
           <Contact />
         </main>
         

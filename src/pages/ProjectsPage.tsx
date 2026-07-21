@@ -7,8 +7,9 @@ import { CustomCursor } from '@/components/effects/CustomCursor';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { SchedulingModal } from '@/components/common/SchedulingModal';
-import { showcaseProjects, siteConfig } from '@/lib/data';
-import { ArrowRight, Filter, Layers, Database, Cpu, Award } from 'lucide-react';
+import { SEOHead } from '@/components/common/SEOHead';
+import { showcaseProjects } from '@/lib/data';
+import { ArrowRight, Filter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -17,15 +18,43 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FILTER_TAGS = ['All', 'React / Next.js', 'Node.js', 'AI Solutions', 'Mobile / Offline'];
 
+const projectsSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://sajesh.techsonance.co.in/projects/#webpage",
+      "url": "https://sajesh.techsonance.co.in/projects",
+      "name": "Venture Showcase & Enterprise SaaS Case Studies | TechSonance InfoTech LLP",
+      "description": "Explore production enterprise SaaS systems engineered by Sajesh Adeya and TechSonance InfoTech LLP, including TechSonance Marketplace, AccuNest, FreightFlow, and SyncServe POS."
+    },
+    {
+      "@type": "ItemList",
+      "name": "Enterprise SaaS Showcase",
+      "itemListElement": showcaseProjects.map((p, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": p.name,
+        "url": `https://sajesh.techsonance.co.in/projects/${p.slug}`
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sajesh.techsonance.co.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://sajesh.techsonance.co.in/projects" }
+      ]
+    }
+  ]
+};
+
 export default function ProjectsPage() {
   const navigate = useNavigate();
   const [selectedFilter, setSelectedFilter] = useState('All');
 
   useEffect(() => {
-    document.title = `Projects | ${siteConfig.name}`;
     window.scrollTo(0, 0);
     
-    // Refresh ScrollTrigger positions after page mount
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 150);
@@ -54,6 +83,13 @@ export default function ProjectsPage() {
   return (
     <SmoothScroll>
       <div className="relative min-h-screen bg-background">
+        <SEOHead 
+          canonicalUrl="/projects"
+          title="Venture Showcase & Enterprise SaaS Case Studies | TechSonance InfoTech LLP"
+          description="A detailed look into enterprise architectures, high-performance backends, and multi-tenant SaaS platforms engineered by Sajesh Adeya and TechSonance InfoTech LLP."
+          keywords="TechSonance Marketplace, FreightFlow, AccuNest, SyncServe POS, SaaS Case Studies, Next.js Projects, React Architecture"
+          schemaData={projectsSchema}
+        />
         <CustomCursor />
         <NoiseTexture />
         <ScrollProgress />

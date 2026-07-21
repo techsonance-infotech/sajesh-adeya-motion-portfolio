@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { SmoothScroll } from '@/components/effects/SmoothScroll';
 import { NoiseTexture } from '@/components/ui/NoiseTexture';
@@ -7,6 +7,7 @@ import { CustomCursor } from '@/components/effects/CustomCursor';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { SchedulingModal } from '@/components/common/SchedulingModal';
+import { SEOHead } from '@/components/common/SEOHead';
 import { showcaseProjects } from '@/lib/data';
 import { ArrowLeft, Calendar, User, Building, ExternalLink, Cpu, Sparkles, Server, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -23,9 +24,6 @@ export default function ProjectDetailPage() {
   const project = showcaseProjects.find((p) => p.slug === slug);
 
   useEffect(() => {
-    if (project) {
-      document.title = `${project.name} | Case Study`;
-    }
     window.scrollTo(0, 0);
 
     const timer = setTimeout(() => {
@@ -49,6 +47,51 @@ export default function ProjectDetailPage() {
     );
   }
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": `https://sajesh.techsonance.co.in/projects/${project.slug}/#software`,
+        "name": project.name,
+        "description": project.fullDescription || project.description,
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "url": project.liveUrl,
+        "author": {
+          "@type": "Person",
+          "name": "Sajesh Adeya",
+          "url": "https://sajesh.techsonance.co.in"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TechSonance InfoTech LLP",
+          "url": "https://marketplace.techsonance.co.in"
+        }
+      },
+      {
+        "@type": "TechArticle",
+        "@id": `https://sajesh.techsonance.co.in/projects/${project.slug}/#article`,
+        "headline": `${project.name} - Architectural Case Study`,
+        "description": project.description,
+        "articleBody": project.fullDescription,
+        "url": `https://sajesh.techsonance.co.in/projects/${project.slug}`,
+        "author": {
+          "@type": "Person",
+          "name": "Sajesh Adeya"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sajesh.techsonance.co.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://sajesh.techsonance.co.in/projects" },
+          { "@type": "ListItem", "position": 3, "name": project.name, "item": `https://sajesh.techsonance.co.in/projects/${project.slug}` }
+        ]
+      }
+    ]
+  };
+
   const triggerScheduling = () => {
     window.dispatchEvent(new CustomEvent('open-scheduling'));
   };
@@ -56,6 +99,15 @@ export default function ProjectDetailPage() {
   return (
     <SmoothScroll>
       <div className="relative min-h-screen bg-background">
+        <SEOHead 
+          canonicalUrl={`/projects/${project.slug}`}
+          title={`${project.name} Case Study | Sajesh Adeya & TechSonance InfoTech LLP`}
+          description={`${project.description} Engineered by Sajesh Adeya, CTO at TechSonance InfoTech LLP.`}
+          keywords={`${project.name}, ${project.stack.join(', ')}, Sajesh Adeya, TechSonance InfoTech LLP, Enterprise SaaS`}
+          ogImage={project.image}
+          ogType="article"
+          schemaData={projectSchema}
+        />
         <CustomCursor />
         <NoiseTexture />
         <ScrollProgress />
