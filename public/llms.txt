@@ -1,0 +1,70 @@
+# Sajesh Adeya & TechSonance InfoTech LLP
+
+> Co-Founder & CTO at TechSonance InfoTech LLP | Senior Full-Stack Developer & Software Architect based in Surat, Gujarat, India.
+
+## Executive Summary
+Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializing in JavaScript, Node.js, Next.js, React, Java Microservices, PostgreSQL, and AWS Cloud Architecture. As Co-Founder & CTO of TechSonance InfoTech LLP, he leads the design, development, and deployment of enterprise SaaS applications, multi-tenant e-commerce platforms, logistics management suites, and AI-driven automated workflows.
+
+## Key Information
+- **Name**: Sajesh Adeya
+- **Role**: Co-Founder & CTO, TechSonance InfoTech LLP | Senior Full-Stack Developer
+- **Organization**: TechSonance InfoTech LLP
+- **Location**: Surat, Gujarat, India
+- **Email**: sajeshkumar@techsonanceinfotech.com / connect.techsonance@gmail.com
+- **Website**: https://sajesh.techsonance.co.in
+- **Agency Website**: https://marketplace.techsonance.co.in
+- **LinkedIn**: https://www.linkedin.com/in/sajeshkumar-adeya-418809148
+- **GitHub**: https://github.com/techsonance-infotech
+- **X (Twitter)**: https://x.com/sajeshadeya
+
+## Enterprise SaaS Portfolio & Case Studies
+
+### 1. TechSonance Marketplace
+- **URL**: https://marketplace.techsonance.co.in/
+- **Description**: Independent multi-tenant e-commerce SaaS platform enabling vendors to launch 100% branded online stores in minutes with custom domain support, isolated tenant data, Razorpay payment routing, Shiprocket logistics automation, and native marketing tools.
+- **Tech Stack**: Next.js 16, React 19, Node.js, PostgreSQL, Razorpay, Shiprocket, Tailwind CSS.
+
+### 2. AccuNest
+- **URL**: https://accunest.techsonance.co.in/
+- **Description**: Enterprise-grade GST invoicing, inventory management, and digital accounting suite tailored for Indian businesses, featuring automated tax calculations and an AI-driven WhatsApp billing chatbot.
+- **Tech Stack**: Next.js 16, React 19, Express, MongoDB, Groq AI (Llama 3.3), Gemini AI, AI OCR.
+
+### 3. FreightFlow
+- **URL**: https://freightflow.techsonance.co.in/
+- **Description**: Enterprise logistics and fleet operating system replacing paper Lorry Receipts (LR), spreadsheets, and disconnected accounting for Indian highway transport operators.
+- **Tech Stack**: Next.js, React 19, Express, PostgreSQL, Prisma ORM, Docker, Tailwind CSS.
+
+### 4. SyncServe POS
+- **URL**: https://syncserve.techsonance.co.in/
+- **Description**: Offline-first Point of Sale (POS) solution for retail and restaurant merchants featuring SQLite local checkout speed and cloud PostgreSQL/MongoDB background sync.
+- **Tech Stack**: Next.js 16, React 19, Electron, Prisma ORM, SQLite, PostgreSQL.
+
+### 5. Masterweg
+- **URL**: https://masterweg.com/
+- **Description**: Higher education evaluation workspace assisting international students applying for Master's programs in Germany with Bavarian grade conversion and profile matching.
+- **Tech Stack**: Next.js, React 19, Tailwind CSS, Framer Motion, GSAP.
+
+### 6. Utsav (UtsavManager)
+- **URL**: https://utsav.techsonance.co.in/
+- **Description**: Digital management suite for temple trusts and cultural organizations with high-volume donation pipelines, volunteer shift rostering, and live procession tracking maps.
+- **Tech Stack**: Next.js, React Native, Expo, Supabase, PostgreSQL, Tailwind CSS.
+
+### 7. TechSonance Learn
+- **URL**: https://learn.techsonance.co.in/
+- **Description**: School and corporate LMS platform with automated grading, invoice routing, class scheduling, and student gradebooks.
+- **Tech Stack**: Next.js, React 19, Drizzle ORM, Turso / LibSQL, Stripe, Tailwind CSS.
+
+### 8. CMS TechSonance
+- **URL**: https://cms.techsonance.co.in/login
+- **Description**: Multi-tenant corporate ERP portal integrating GPS geofenced attendance logs, NFC readers, automated payroll, and a 23-role RBAC permissions system.
+- **Tech Stack**: Next.js, React 19, Supabase, PostgreSQL, MongoDB, Docker.
+
+## Technical Core Competencies
+- **Frontend Architecture**: React.js, Next.js (App Router / SSR), TypeScript, Tailwind CSS, Framer Motion, GSAP, Zustand, TanStack Query.
+- **Backend Architecture**: Node.js, Express, Java (Spring Boot Microservices), JPA, Hibernate, REST APIs, GraphQL, Socket.io.
+- **Databases & ORM**: PostgreSQL, MongoDB, SQLite, Supabase, Prisma ORM, Drizzle ORM, Row-Level Security (RLS).
+- **Cloud & DevOps**: AWS (EC2, S3, RDS), Docker, Kubernetes, CI/CD Pipelines, Vercel, Nginx, Linux Server Administration.
+- **AI Integrations**: Groq SDK (Llama 3.3 70B), Google Gemini 3.5 Flash, OCR Parsers, AI Chatbots, Voice-to-Text Workflows.
+
+## Optional Extended Documentation
+For comprehensive technical architecture documentation, see [llms-full.txt](https://sajesh.techsonance.co.in/llms-full.txt).
