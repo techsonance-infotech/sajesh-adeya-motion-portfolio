@@ -106,7 +106,7 @@ export function Hero() {
           {/* Tagline - Part 2: Serif italic */}
           <p
             ref={headline2Ref}
-            className="font-serif-italic text-xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground px-2"
+            className="font-serif-italic text-xl sm:text-3xl md:text-4xl lg:text-5xl text-[#1155CC] px-2"
           >
             {headlinePart2}
           </p>
@@ -115,9 +115,9 @@ export function Hero() {
 
       {/* Looping micro-animated scroll cue */}
       <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex flex-col items-center gap-2">
-        <span className="text-[10px] uppercase tracking-widest text-muted-foreground/60 font-mono">Scroll</span>
-        <div className="w-[18px] h-[30px] rounded-full border border-muted-foreground/30 relative flex justify-center">
-          <div className="w-1.5 h-1.5 bg-accent rounded-full absolute top-2 animate-scroll-hint" />
+        <span className="text-[10px] uppercase tracking-widest text-gray-400 font-mono">Scroll</span>
+        <div className="w-[18px] h-[30px] rounded-full border border-gray-300 relative flex justify-center">
+          <div className="w-1.5 h-1.5 bg-[#1155CC] rounded-full absolute top-2 animate-scroll-hint" />
         </div>
       </div>
 

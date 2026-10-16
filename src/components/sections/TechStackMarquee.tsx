@@ -2,33 +2,33 @@ import { motion } from 'framer-motion';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 
 const techRow1 = [
-  { name: 'React', icon: '⚛️', color: '#61DAFB' },
-  { name: 'Next.js', icon: '▲', color: '#ffffff' },
-  { name: 'TypeScript', icon: 'TS', color: '#3178C6' },
-  { name: 'Node.js', icon: '⬡', color: '#68A063' },
-  { name: 'Java', icon: '☕', color: '#ED8B00' },
-  { name: 'Spring Boot', icon: '🍃', color: '#6DB33F' },
-  { name: 'PostgreSQL', icon: '🐘', color: '#4169E1' },
-  { name: 'MongoDB', icon: '⬡', color: '#47A248' },
-  { name: 'Redis', icon: '⬡', color: '#DC382D' },
-  { name: 'AWS', icon: '☁️', color: '#FF9900' },
-  { name: 'Docker', icon: '🐳', color: '#2496ED' },
-  { name: 'Kubernetes', icon: '⚙️', color: '#326CE5' },
+  { name: 'React', icon: '⚛️', color: '#0284C7' },
+  { name: 'Next.js', icon: '▲', color: '#0F172A' },
+  { name: 'TypeScript', icon: 'TS', color: '#2563EB' },
+  { name: 'Node.js', icon: '⬡', color: '#16A34A' },
+  { name: 'Java', icon: '☕', color: '#D97706' },
+  { name: 'Spring Boot', icon: '🍃', color: '#15803D' },
+  { name: 'PostgreSQL', icon: '🐘', color: '#2563EB' },
+  { name: 'MongoDB', icon: '⬡', color: '#16A34A' },
+  { name: 'Redis', icon: '⬡', color: '#DC2626' },
+  { name: 'AWS', icon: '☁️', color: '#D97706' },
+  { name: 'Docker', icon: '🐳', color: '#0284C7' },
+  { name: 'Kubernetes', icon: '⚙️', color: '#2563EB' },
 ];
 
 const techRow2 = [
-  { name: 'GraphQL', icon: '◈', color: '#E10098' },
-  { name: 'Tailwind CSS', icon: '~', color: '#06B6D4' },
-  { name: 'Framer Motion', icon: '◎', color: '#BB4BE5' },
-  { name: 'Python', icon: '🐍', color: '#3776AB' },
-  { name: 'Vercel', icon: '▲', color: '#eeeeee' },
-  { name: 'Supabase', icon: '⚡', color: '#3ECF8E' },
-  { name: 'Prisma', icon: '◆', color: '#5A67D8' },
-  { name: 'Firebase', icon: '🔥', color: '#FFCA28' },
-  { name: 'GitHub Actions', icon: '⚙️', color: '#2088FF' },
-  { name: 'Nginx', icon: '▶', color: '#009900' },
-  { name: 'Flutter', icon: '◇', color: '#54C5F8' },
-  { name: 'OpenAI', icon: '◎', color: '#74AA9C' },
+  { name: 'GraphQL', icon: '◈', color: '#DB2777' },
+  { name: 'Tailwind CSS', icon: '~', color: '#0891B2' },
+  { name: 'Framer Motion', icon: '◎', color: '#9333EA' },
+  { name: 'Python', icon: '🐍', color: '#2563EB' },
+  { name: 'Vercel', icon: '▲', color: '#0F172A' },
+  { name: 'Supabase', icon: '⚡', color: '#059669' },
+  { name: 'Prisma', icon: '◆', color: '#4F46E5' },
+  { name: 'Firebase', icon: '🔥', color: '#D97706' },
+  { name: 'GitHub Actions', icon: '⚙️', color: '#2563EB' },
+  { name: 'Nginx', icon: '▶', color: '#15803D' },
+  { name: 'Flutter', icon: '◇', color: '#0284C7' },
+  { name: 'OpenAI', icon: '◎', color: '#0F766E' },
 ];
 
 const stats = [
@@ -47,17 +47,17 @@ interface TechBadgeProps {
 function TechBadge({ name, icon, color }: TechBadgeProps) {
   return (
     <motion.div
-      className="flex items-center gap-2.5 shrink-0 px-4 py-2.5 rounded-full border bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 cursor-default select-none"
-      style={{ borderColor: `${color}25` }}
+      className="flex items-center gap-2.5 shrink-0 px-4 py-2.5 rounded-full border bg-white shadow-xs hover:bg-slate-50 transition-all duration-300 cursor-default select-none"
+      style={{ borderColor: `${color}35` }}
       whileHover={{ 
         scale: 1.05, 
         y: -2,
-        borderColor: `${color}60`,
-        boxShadow: `0 4px 20px ${color}20`
+        borderColor: color,
+        boxShadow: `0 4px 16px ${color}20`
       }}
     >
       <span className="text-sm leading-none font-bold" style={{ color }}>{icon}</span>
-      <span className="text-xs font-medium text-white/60 whitespace-nowrap font-sans">{name}</span>
+      <span className="text-xs font-semibold text-slate-800 whitespace-nowrap font-sans">{name}</span>
     </motion.div>
   );
 }

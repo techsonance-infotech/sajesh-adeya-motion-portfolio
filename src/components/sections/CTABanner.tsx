@@ -6,15 +6,15 @@ export function CTABanner() {
     <section className="relative py-20 overflow-hidden">
       {/* Background gradient */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none border-y border-slate-200/80"
         style={{
-          background: 'linear-gradient(135deg, rgba(15,82,186,0.15) 0%, rgba(17,85,204,0.08) 40%, rgba(34,182,246,0.12) 100%)',
+          background: 'linear-gradient(135deg, #EEF6FF 0%, #FAFBFD 50%, #EFF8FF 100%)',
         }}
       />
 
       {/* Decorative glow circles */}
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[120px] pointer-events-none" style={{ background: 'rgba(17,85,204,0.12)' }} />
-      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] rounded-full blur-[100px] pointer-events-none" style={{ background: 'rgba(34,182,246,0.08)' }} />
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[120px] pointer-events-none" style={{ background: 'rgba(17,85,204,0.08)' }} />
+      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] rounded-full blur-[100px] pointer-events-none" style={{ background: 'rgba(34,182,246,0.06)' }} />
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -30,20 +30,16 @@ export function CTABanner() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8"
-            style={{
-              background: 'rgba(17,85,204,0.1)',
-              borderColor: 'rgba(17,85,204,0.3)',
-            }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8 bg-blue-50/80 border-blue-200"
           >
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#22B6F6' }} />
-            <span className="text-xs font-medium uppercase tracking-wider" style={{ color: '#22B6F6' }}>
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#1155CC' }} />
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#1155CC]">
               Open for Projects & Partnerships
             </span>
           </motion.div>
 
           {/* Heading */}
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
             Ready to Build Your{' '}
             <span
               className="bg-clip-text text-transparent"
@@ -55,7 +51,7 @@ export function CTABanner() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-muted-foreground text-lg sm:text-xl max-w-xl mx-auto mb-10 font-light leading-relaxed">
+          <p className="text-slate-600 text-lg sm:text-xl max-w-xl mx-auto mb-10 font-light leading-relaxed">
             From startup MVPs to enterprise SaaS platforms — let's architect, build, and ship
             something that drives real growth.
           </p>
@@ -81,13 +77,12 @@ export function CTABanner() {
 
             <motion.a
               href="#contact"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border font-semibold uppercase tracking-wide text-sm text-foreground overflow-hidden"
-              style={{ borderColor: 'rgba(255,255,255,0.2)' }}
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-slate-300 font-semibold uppercase tracking-wide text-sm text-slate-800 bg-white hover:bg-slate-50 transition-all shadow-xs overflow-hidden"
               whileHover={{
                 y: -2,
                 borderColor: '#1155CC',
-                color: '#22B6F6',
-                boxShadow: '0 8px 20px rgba(17,85,204,0.15)',
+                color: '#1155CC',
+                boxShadow: '0 8px 20px rgba(17,85,204,0.12)',
               }}
               whileTap={{ y: 0 }}
             >

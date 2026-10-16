@@ -40,8 +40,8 @@ export function Skills() {
       x: 0,
       y: 0,
       scale: 1,
-      borderColor: 'rgba(255, 255, 255, 0.05)',
-      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      borderColor: '#E2E8F0',
+      backgroundColor: '#F8FAFC',
       duration: 0.4,
       ease: 'elastic.out(1.1, 0.4)',
     });
@@ -72,7 +72,7 @@ export function Skills() {
           {skills.map((skillGroup) => (
             <div
               key={skillGroup.category}
-              className="skill-card glass-card p-6 sm:p-8 rounded-2xl group hover:border-white/20 transition-all duration-300"
+              className="skill-card glass-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/90 hover:border-slate-300 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-md group transition-all duration-300"
             >
               <h3 className="font-display text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 flex items-center gap-3">
                 <span className="w-2 h-2 bg-accent rounded-full" />
@@ -85,7 +85,7 @@ export function Skills() {
                     key={skill}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-white/5 border border-white/5 text-xs sm:text-sm text-foreground/80 select-none transition-colors duration-300 inline-block"
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 select-none transition-colors duration-300 inline-block"
                   >
                     {skill}
                   </span>

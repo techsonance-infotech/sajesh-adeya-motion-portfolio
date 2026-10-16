@@ -38,13 +38,13 @@ export function AEOFAQ() {
   };
 
   return (
-    <section className="py-16 border-t border-white/5 bg-background/50 relative">
+    <section className="py-16 border-t border-slate-200/80 bg-slate-50/40 relative">
       <script type="application/ld+json">
         {JSON.stringify(faqSchema)}
       </script>
 
       <div className="container-custom max-w-4xl">
-        <div className="flex items-center gap-2 mb-3 text-accent text-xs font-mono uppercase tracking-widest">
+        <div className="flex items-center gap-2 mb-3 text-accent text-xs font-mono uppercase tracking-widest font-semibold">
           <HelpCircle size={14} />
           <span>Entity Insights & FAQs</span>
         </div>
@@ -59,13 +59,13 @@ export function AEOFAQ() {
             return (
               <div 
                 key={idx}
-                className="glass-card rounded-2xl border border-white/5 overflow-hidden transition-all duration-300"
+                className="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden transition-all duration-300 hover:border-slate-300"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-none"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="font-display text-base sm:text-lg font-semibold text-foreground">
+                  <span className="font-display text-base sm:text-lg font-semibold text-slate-900">
                     {faq.question}
                   </span>
                   <ChevronDown 
@@ -79,7 +79,7 @@ export function AEOFAQ() {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="px-5 sm:px-6 pb-6 pt-0 text-sm text-muted-foreground font-light leading-relaxed border-t border-white/5 mt-2"
+                    className="px-5 sm:px-6 pb-6 pt-0 text-sm text-slate-600 font-light leading-relaxed border-t border-slate-100 mt-2"
                   >
                     {faq.answer}
                   </motion.div>

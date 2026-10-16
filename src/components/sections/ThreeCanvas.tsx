@@ -55,11 +55,11 @@ const BlobShader = {
       float colorShift = sin(vPosition.x * 1.5 + uTime * 0.4) * 0.5 + 0.5;
       vec3 baseColor = mix(colorBlue, colorSky, colorShift);
       
-      // Holographic glow composition
-      vec3 finalColor = mix(baseColor * 0.3, baseColor, fresnel) + vec3(fresnel * 0.4);
+      // Iridescent highlight composition
+      vec3 finalColor = mix(baseColor, vec3(0.1, 0.5, 0.95), fresnel * 0.5);
       
       // Add fine transparency structure
-      gl_FragColor = vec4(finalColor, 0.25 + fresnel * 0.55);
+      gl_FragColor = vec4(finalColor, 0.35 + fresnel * 0.45);
     }
   `,
 };
@@ -115,7 +115,7 @@ function BlobMesh() {
         uniforms={uniforms}
         transparent={true}
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
+        blending={THREE.NormalBlending}
       />
     </mesh>
   );

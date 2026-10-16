@@ -233,31 +233,31 @@ export function SonanceAIAssistant() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[620px] h-[82vh] rounded-[28px] border shadow-[0_20px_60px_rgba(0,0,0,0.85)] flex flex-col overflow-hidden"
+            className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[620px] h-[82vh] rounded-[28px] border shadow-[0_20px_60px_rgba(0,0,0,0.12)] flex flex-col overflow-hidden"
             style={{
-              backgroundColor: '#07132B',
-              borderColor: 'rgba(17, 85, 204, 0.35)',
-              boxShadow: '0 20px 60px rgba(7, 26, 53, 0.9), 0 0 40px rgba(17, 85, 204, 0.2)',
+              backgroundColor: '#FFFFFF',
+              borderColor: '#E2E8F0',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.12), 0 0 30px rgba(17, 85, 204, 0.08)',
             }}
           >
             {/* Header */}
             <div
               className="p-4 sm:p-5 border-b flex items-center justify-between shrink-0"
               style={{
-                background: 'linear-gradient(135deg, rgba(15,82,186,0.3) 0%, rgba(17,85,204,0.2) 100%)',
-                borderColor: 'rgba(255, 255, 255, 0.08)',
+                background: 'linear-gradient(135deg, #0F52BA 0%, #1155CC 100%)',
+                borderColor: '#0F52BA',
               }}
             >
               <div className="flex items-center gap-3">
                 <div
                   className="w-10 h-10 rounded-2xl flex items-center justify-center border shrink-0 relative"
                   style={{
-                    background: 'linear-gradient(135deg, #1155CC, #22B6F6)',
-                    borderColor: 'rgba(255,255,255,0.2)',
+                    background: 'rgba(255, 255, 255, 0.15)',
+                    borderColor: 'rgba(255, 255, 255, 0.3)',
                   }}
                 >
                   <Bot size={20} className="text-white" />
-                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-[#07132B] rounded-full" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full" />
                 </div>
 
                 <div className="flex flex-col">
@@ -265,11 +265,11 @@ export function SonanceAIAssistant() {
                     <span className="font-display text-sm font-bold text-white tracking-wide">
                       Sonance AI
                     </span>
-                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-blue-500/20 text-[#22B6F6] font-mono uppercase">
+                    <span className="text-[10px] px-1.5 py-0.2 rounded bg-white/20 text-white font-mono uppercase font-semibold">
                       CTO Office
                     </span>
                   </div>
-                  <span className="text-[11px] text-white/50 flex items-center gap-1 font-mono">
+                  <span className="text-[11px] text-white/80 flex items-center gap-1 font-mono">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     Online • Sajesh Adeya Assistant
                   </span>
@@ -280,14 +280,14 @@ export function SonanceAIAssistant() {
                 <button
                   onClick={resetChat}
                   title="Reset Conversation"
-                  className="p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/15 transition-colors cursor-pointer"
                   aria-label="Reset chat"
                 >
                   <RotateCcw size={15} />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/15 transition-colors cursor-pointer"
                   aria-label="Close assistant"
                 >
                   <X size={18} />
@@ -296,24 +296,24 @@ export function SonanceAIAssistant() {
             </div>
 
             {/* Message Thread */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans bg-[#FAFBFD]">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
                   className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-3 leading-relaxed ${
+                    className={`max-w-[85%] rounded-2xl px-4 py-3 leading-relaxed shadow-xs ${
                       msg.sender === 'user'
                         ? 'text-white rounded-br-sm'
-                        : 'text-white/90 rounded-bl-sm border'
+                        : 'text-slate-800 rounded-bl-sm border'
                     }`}
                     style={
                       msg.sender === 'user'
                         ? { background: 'linear-gradient(135deg, #0F52BA, #1155CC)' }
                         : {
-                            backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                            borderColor: 'rgba(255, 255, 255, 0.08)',
+                            backgroundColor: '#FFFFFF',
+                            borderColor: '#E2E8F0',
                           }
                     }
                   >
@@ -327,11 +327,11 @@ export function SonanceAIAssistant() {
                         <button
                           key={aIdx}
                           onClick={() => handleActionClick(act)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium border transition-all duration-200 cursor-pointer hover:scale-102"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all duration-200 cursor-pointer hover:scale-102"
                           style={{
-                            backgroundColor: 'rgba(17, 85, 204, 0.15)',
-                            borderColor: 'rgba(17, 85, 204, 0.35)',
-                            color: '#22B6F6',
+                            backgroundColor: 'rgba(17, 85, 204, 0.08)',
+                            borderColor: 'rgba(17, 85, 204, 0.25)',
+                            color: '#1155CC',
                           }}
                         >
                           {act.actionType === 'schedule' && <Calendar size={12} />}
@@ -344,17 +344,17 @@ export function SonanceAIAssistant() {
                     </div>
                   )}
 
-                  <span className="text-[10px] text-white/30 font-mono mt-1 px-1">
+                  <span className="text-[10px] text-slate-400 font-mono mt-1 px-1">
                     {msg.timestamp}
                   </span>
                 </div>
               ))}
 
               {isTyping && (
-                <div className="flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-white/5 border border-white/5 w-fit">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#22B6F6] animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#22B6F6] animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#22B6F6] animate-bounce" style={{ animationDelay: '300ms' }} />
+                <div className="flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-white border border-slate-200 w-fit shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1155CC] animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1155CC] animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1155CC] animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
               )}
 
@@ -363,16 +363,16 @@ export function SonanceAIAssistant() {
 
             {/* Quick Suggestions (if few messages) */}
             {messages.length <= 2 && (
-              <div className="px-4 py-2 border-t border-white/5 overflow-x-auto flex gap-1.5 shrink-0 scrollbar-none">
+              <div className="px-4 py-2 border-t border-slate-200 bg-slate-50/80 overflow-x-auto flex gap-1.5 shrink-0 scrollbar-none">
                 {SUGGESTIONS.map((sugg, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSendMessage(sugg)}
-                    className="whitespace-nowrap px-3 py-1 rounded-full text-[11px] font-mono border transition-colors cursor-pointer shrink-0"
+                    className="whitespace-nowrap px-3 py-1 rounded-full text-[11px] font-mono border transition-colors cursor-pointer shrink-0 font-medium hover:border-accent hover:text-accent"
                     style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                      borderColor: 'rgba(255, 255, 255, 0.08)',
-                      color: 'rgba(255, 255, 255, 0.65)',
+                      backgroundColor: '#FFFFFF',
+                      borderColor: '#E2E8F0',
+                      color: '#475569',
                     }}
                   >
                     {sugg}
@@ -385,8 +385,8 @@ export function SonanceAIAssistant() {
             <div
               className="p-3 sm:p-4 border-t flex items-center gap-2 shrink-0"
               style={{
-                backgroundColor: '#050c1c',
-                borderColor: 'rgba(255, 255, 255, 0.08)',
+                backgroundColor: '#FAFBFD',
+                borderColor: '#E2E8F0',
               }}
             >
               <input
@@ -397,7 +397,7 @@ export function SonanceAIAssistant() {
                   if (e.key === 'Enter') handleSendMessage();
                 }}
                 placeholder="Ask about Sajesh, projects, tech stack..."
-                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-white/40 focus:outline-none focus:border-[#1155CC] transition-colors"
+                className="flex-1 bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1155CC] focus:ring-1 focus:ring-[#1155CC]/30 transition-colors"
               />
 
               <button

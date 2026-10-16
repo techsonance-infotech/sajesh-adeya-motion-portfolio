@@ -32,7 +32,7 @@ export function GlowCard({
       />
       
       {/* Card content */}
-      <div className="relative glass-card p-6 rounded-2xl transition-all duration-300 group-hover:border-white/20">
+      <div className="relative glass-card bg-white p-6 rounded-2xl border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] transition-all duration-300 group-hover:border-accent/30 group-hover:shadow-md">
         {children}
       </div>
     </motion.div>

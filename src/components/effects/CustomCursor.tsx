@@ -109,8 +109,8 @@ export function CustomCursor() {
         scale: 1,
         borderRadius: '50%',
         backgroundColor: 'transparent',
-        borderColor: 'rgba(255, 255, 255, 0.4)',
-        borderWidth: '1px',
+        borderColor: 'rgba(17, 85, 204, 0.3)',
+        borderWidth: '1.5px',
         xPercent: 0,
         yPercent: 0,
         duration: 0.3,
@@ -170,11 +170,11 @@ export function CustomCursor() {
       />
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white/40 flex items-center justify-center overflow-hidden z-[99990]"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-blue-600/30 flex items-center justify-center overflow-hidden z-[99990]"
         style={{ willChange: 'transform' }}
       >
         {cursorText && (
-          <span className="text-[10px] font-display font-bold uppercase tracking-wider text-black select-none pointer-events-none">
+          <span className="text-[10px] font-display font-bold uppercase tracking-wider text-white select-none pointer-events-none">
             {cursorText}
           </span>
         )}

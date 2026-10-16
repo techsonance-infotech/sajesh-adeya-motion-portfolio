@@ -57,9 +57,9 @@ function CentralClock({ isInView }: { isInView: boolean }) {
   return (
     <div className="relative w-[380px] h-[380px]">
       {/* Multi-layer enhanced glow for visual separation */}
-      <div className="absolute inset-0 rounded-full bg-white/10 blur-3xl scale-110" />
-      <div className="absolute inset-0 rounded-full bg-gradient-radial from-white/8 via-white/3 to-transparent blur-2xl" />
-      <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, rgba(17,85,204,0.12) 0%, transparent 70%)' }} />
+      <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-3xl scale-110" />
+      <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, rgba(17,85,204,0.15) 0%, transparent 70%)' }} />
+      <div className="absolute inset-2 rounded-full shadow-[0_15px_45px_rgba(15,23,42,0.25)]" />
       
       <svg viewBox="0 0 200 200" className="w-full h-full relative z-10">
         <defs>
@@ -228,7 +228,7 @@ export function BentoGrid() {
   const galleryImages = [gallery1, gallery2, gallery3, gallery1, gallery2, gallery3];
 
   return (
-    <section className="py-12 md:py-20 bg-black">
+    <section className="py-12 md:py-20 bg-[#FAFBFD]">
       <div className="container mx-auto px-6 md:px-8 lg:px-8 max-w-[1600px]">
         
         {/* Hybrid Layout: CSS Grid + Absolute Positioning */}
@@ -240,23 +240,20 @@ export function BentoGrid() {
             {/* LEFT CARD: Profile with Scroll-Driven Image Slideshow */}
             <motion.div
               ref={imageContainerRef}
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-6 sm:p-8 flex flex-col relative overflow-hidden group hover:border-white/30 transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
-              style={{
-                background: 'radial-gradient(circle at top left, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)'
-              }}
+              className="bg-white border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] rounded-[32px] p-6 sm:p-8 flex flex-col relative overflow-hidden group hover:border-[#1155CC]/30 hover:shadow-[0_12px_35px_rgba(17,85,204,0.08)] transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
             >
               {/* Header */}
               <div className="mb-6 relative z-10">
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mb-2 tracking-tight">
                   {siteConfig.name.split(' ')[0]}{' '}
-                  <span className="font-serif italic font-light text-white/60">
+                  <span className="font-serif italic font-light text-slate-500">
                     {siteConfig.name.split(' ')[1]}
                   </span>
                 </h2>
-                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/50">
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-500">
                   <MapPin size={14} className="text-accent shrink-0" />
                   <span>SURAT, IN</span>
-                  <span className="text-white/20">•</span>
+                  <span className="text-slate-300">•</span>
                   <Clock size={14} className="text-accent/70 shrink-0" />
                   <span className="font-mono text-xs">{currentTime}</span>
                 </div>
@@ -276,7 +273,7 @@ export function BentoGrid() {
                           rotateY: idx % 3 === 0 ? 15 : idx % 3 === 1 ? 0 : -15,
                           zIndex: idx % 3 === 1 ? 20 : 10
                         }} 
-                        className="w-[110px] sm:w-[140px] shrink-0 rounded-2xl overflow-hidden h-full border border-white/20 relative aspect-[9/16]"
+                        className="w-[110px] sm:w-[140px] shrink-0 rounded-2xl overflow-hidden h-full border border-slate-200 relative aspect-[9/16] shadow-sm"
                       >
                         <img 
                           src={img} 
@@ -289,7 +286,7 @@ export function BentoGrid() {
               </div>
 
               {/* Social links */}
-              <div className="flex items-center justify-center gap-6 pt-5 border-t border-white/[0.06] mt-4 relative z-10">
+              <div className="flex items-center justify-center gap-6 pt-5 border-t border-slate-100 mt-4 relative z-10">
                 {[
                   { icon: Linkedin, url: siteConfig.socials.linkedin },
                   { icon: Github, url: siteConfig.socials.github },
@@ -300,7 +297,7 @@ export function BentoGrid() {
                     href={url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-white/40 hover:text-accent transition-colors p-2 rounded-full hover:bg-accent/10"
+                    className="text-slate-400 hover:text-accent transition-colors p-2 rounded-full hover:bg-accent/10"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -312,17 +309,17 @@ export function BentoGrid() {
 
             {/* CENTER CARD: Philosophy with Curved Bottom (SVG ClipPath) */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-6 sm:p-8 lg:p-12 flex flex-col relative group hover:border-white/30 transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
+              className="bg-white border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] rounded-[32px] p-6 sm:p-8 lg:p-12 flex flex-col relative group hover:border-[#1155CC]/30 hover:shadow-[0_12px_35px_rgba(17,85,204,0.08)] transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
               style={{
                 maskImage: isDesktop ? 'radial-gradient(circle at 50% 540px, transparent 215px, black 216px)' : 'none',
                 WebkitMaskImage: isDesktop ? 'radial-gradient(circle at 50% 540px, transparent 215px, black 216px)' : 'none',
-                background: 'radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)'
+                background: 'radial-gradient(circle at center, #ffffff 0%, #FAFBFD 50%, #F1F5F9 100%)'
               }}
             >
               {/* Subtle background pattern */}
-              <div className="absolute inset-0 opacity-5 pointer-events-none">
-                <div className="absolute top-8 left-8 w-40 h-40 border border-white/30 rounded-full" />
-                <div className="absolute top-12 left-12 w-32 h-32 border border-white/20 rounded-full" />
+              <div className="absolute inset-0 opacity-20 pointer-events-none">
+                <div className="absolute top-8 left-8 w-40 h-40 border border-slate-200 rounded-full" />
+                <div className="absolute top-12 left-12 w-32 h-32 border border-slate-200/80 rounded-full" />
               </div>
 
               {/* Content - Split into responsive columns */}
@@ -330,19 +327,19 @@ export function BentoGrid() {
                 
                 {/* Left Column: Main Title */}
                 <div className="flex flex-col justify-start pt-2 md:pt-4">
-                  <div className="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest mb-4 md:mb-6">
+                  <div className="flex items-center gap-2 text-xs text-slate-500 uppercase tracking-widest mb-4 md:mb-6">
                     <Sparkles size={12} className="text-accent" />
                     <span>Detail-Driven UI</span>
                   </div>
                   
-                  <h3 className="font-display text-4xl sm:text-5xl font-bold text-white mb-2 md:mb-3 tracking-tight leading-[0.9]">
+                  <h3 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-2 md:mb-3 tracking-tight leading-[0.9]">
                     Interfaces
                   </h3>
-                  <p className="font-serif italic text-3xl sm:text-4xl text-white/60 mb-4 md:mb-6 leading-tight">
+                  <p className="font-serif italic text-3xl sm:text-4xl text-slate-500 mb-4 md:mb-6 leading-tight">
                     you can feel.
                   </p>
                   
-                  <p className="text-sm text-white/50 leading-relaxed max-w-[240px] font-light">
+                  <p className="text-sm text-slate-600 leading-relaxed max-w-[240px] font-light">
                     I sweat spacing, timing, and feedback — the tiny stuff.
                   </p>
                 </div>
@@ -351,14 +348,14 @@ export function BentoGrid() {
                 <div className="flex flex-col items-start md:items-end pt-2 md:pt-4 text-left md:text-right">
                   <div className="flex flex-wrap items-center justify-start md:justify-end gap-1.5 sm:gap-2 mb-4 md:mb-8">
                      {['Motion', 'Type', 'Feedback', 'Craft'].map((pill) => (
-                       <span key={pill} className="px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-wider text-white/40">
+                       <span key={pill} className="px-2.5 py-1 rounded-full border border-slate-200 bg-slate-50 text-[10px] uppercase tracking-wider text-slate-600">
                          {pill}
                        </span>
                      ))}
                   </div>
 
-                  <h4 className="text-base sm:text-lg font-bold text-white mb-1.5 md:mb-2">Micro-interactions</h4>
-                  <p className="text-xs sm:text-sm text-white/40 leading-relaxed max-w-[220px]">
+                  <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 md:mb-2">Micro-interactions</h4>
+                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-[220px]">
                     Subtle movement that confirms intent — never distracting.
                   </p>
                 </div>
@@ -367,44 +364,44 @@ export function BentoGrid() {
 
             {/* RIGHT CARD: CTA */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-6 sm:p-8 flex flex-col relative group hover:border-white/30 transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
+              className="bg-white border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] rounded-[32px] p-6 sm:p-8 flex flex-col relative group hover:border-[#1155CC]/30 hover:shadow-[0_12px_35px_rgba(17,85,204,0.08)] transition-all duration-700 h-auto min-h-[420px] lg:h-[500px]"
               style={{
-                background: 'radial-gradient(circle at top right, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)'
+                background: 'radial-gradient(circle at top right, #ffffff 0%, #FAFBFD 50%, #F1F5F9 100%)'
               }}
             >
               {/* Header with status */}
               <div className="flex items-center justify-between mb-6 sm:mb-8">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center">
-                  <div className="w-3 h-3 rounded-full bg-white/60" />
+                <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center">
+                  <div className="w-3 h-3 rounded-full bg-accent" />
                 </div>
                 <motion.div 
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30"
                   animate={{ 
                     boxShadow: [
                       '0 0 10px rgba(17,85,204,0.15)', 
-                      '0 0 20px rgba(17,85,204,0.30)', 
+                      '0 0 20px rgba(17,85,204,0.25)', 
                       '0 0 10px rgba(17,85,204,0.15)'
                     ] 
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="text-xs font-medium text-accent">Available</span>
+                  <span className="text-xs font-semibold text-accent">Available</span>
                 </motion.div>
               </div>
 
               {/* Main CTA text */}
               <div className="flex-1 flex flex-col justify-center my-4">
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase leading-tight mb-2 tracking-wide">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 uppercase leading-tight mb-2 tracking-wide">
                   Let's Build<br />Something
                 </h3>
-                <p className="font-serif italic text-xl sm:text-2xl text-white/60">
+                <p className="font-serif italic text-xl sm:text-2xl text-slate-500">
                   that actually works.
                 </p>
               </div>
 
               {/* Email + Connect button */}
-              <div className="mt-auto pt-6 border-t border-white/[0.06]">
+              <div className="mt-auto pt-6 border-t border-slate-100">
                 <motion.button 
                   onClick={copyEmail}
                   className="flex items-center gap-3 mb-3 group/email cursor-pointer w-full"
@@ -414,15 +411,15 @@ export function BentoGrid() {
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
                     copied 
                       ? 'bg-accent/20 border-accent text-accent' 
-                      : 'bg-white/5 border-white/10 group-hover/email:border-accent/50 group-hover/email:bg-accent/10'
+                      : 'bg-slate-50 border-slate-200 group-hover/email:border-accent/50 group-hover/email:bg-blue-50/50'
                   }`}>
-                    {copied ? <Check size={14} /> : <Copy size={14} />}
+                    {copied ? <Check size={14} className="text-accent" /> : <Copy size={14} className="text-slate-600" />}
                   </div>
-                  <span className="font-mono text-sm text-white group-hover/email:text-accent transition-colors truncate">
+                  <span className="font-mono text-sm text-slate-800 group-hover/email:text-accent transition-colors truncate font-medium">
                     {siteConfig.email}
                   </span>
                 </motion.button>
-                <p className="text-xs text-white/40 uppercase tracking-widest mb-5 ml-13">
+                <p className="text-xs text-slate-400 uppercase tracking-widest mb-5 ml-13">
                   {copied ? '✓ Copied!' : 'Tap to copy'}
                 </p>
 
@@ -446,14 +443,14 @@ export function BentoGrid() {
             className="absolute left-1/2 -translate-x-1/2 z-30 hidden lg:block"
             style={{ 
               top: '350px',
-              filter: 'drop-shadow(rgba(0, 0, 0, 0.6) 0px 8px 32px)'
+              filter: 'drop-shadow(rgba(17, 85, 204, 0.15) 0px 10px 30px)'
             }}
           >
              {/* Split Border Ring for precise gap masking */}
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[430px] h-[430px] pointer-events-none">
                 {/* Top Half - Cuts off at 175px (start of gap) */}
                 <div className="absolute top-0 left-0 w-full h-[175px] overflow-hidden">
-                  <div className="w-full h-[430px] rounded-full border border-white/20 absolute top-0 left-0" />
+                  <div className="w-full h-[430px] rounded-full border border-slate-300 absolute top-0 left-0" />
                 </div>
                 
                 {/* Bottom Half - Starts at 207px (end of gap), with vertical cutout */}
@@ -464,7 +461,7 @@ export function BentoGrid() {
                     WebkitMaskImage: 'linear-gradient(to right, black calc(50% - 16px), transparent calc(50% - 16px), transparent calc(50% + 16px), black calc(50% + 16px))'
                   }}
                 >
-                   <div className="w-full h-[430px] rounded-full border border-white/20 absolute -top-[207px] left-0" />
+                   <div className="w-full h-[430px] rounded-full border border-slate-300 absolute -top-[207px] left-0" />
                 </div>
              </div>
             <CentralClock isInView={isClockInView} />
@@ -475,11 +472,11 @@ export function BentoGrid() {
             
             {/* BOTTOM LEFT: Globe/Timezone with Curved Top-Right + Trapezoidal Geometry */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] flex relative group hover:border-white/30 transition-all duration-700 overflow-hidden h-auto min-h-[460px] lg:h-[500px]"
+              className="bg-white border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] rounded-[32px] flex relative group hover:border-[#1155CC]/30 hover:shadow-[0_12px_35px_rgba(17,85,204,0.08)] transition-all duration-700 overflow-hidden h-auto min-h-[460px] lg:h-[500px]"
               style={{
                 maskImage: isDesktop ? 'radial-gradient(circle at calc(100% + 16px) 8px, transparent 215px, black 216px)' : 'none',
                 WebkitMaskImage: isDesktop ? 'radial-gradient(circle at calc(100% + 16px) 8px, transparent 215px, black 216px)' : 'none',
-                background: 'radial-gradient(circle at bottom left, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%)',
+                background: 'radial-gradient(circle at bottom left, #ffffff 0%, #FAFBFD 50%, #F1F5F9 100%)',
               }}
             >
               <div className="flex w-full h-full relative z-10 p-6 sm:p-8">
@@ -488,15 +485,15 @@ export function BentoGrid() {
                 <div className="absolute top-6 sm:top-8 left-6 sm:left-8 z-20">
                   <div className="flex items-center gap-2 mb-3 sm:mb-4">
                     <Globe size={14} className="text-accent" />
-                    <span className="text-xs text-accent uppercase tracking-widest font-medium">Available Globally</span>
+                    <span className="text-xs text-accent uppercase tracking-widest font-semibold font-mono">Available Globally</span>
                   </div>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 leading-tight tracking-tight">
                     Adaptable across<br />time zones
                   </h3>
                 </div>
 
                 {/* India Map Background */}
-                <div className="absolute top-[60%] -translate-y-1/2 left-[-18%] w-[80%] h-[80%] mix-blend-screen pointer-events-none scale-150">
+                <div className="absolute top-[60%] -translate-y-1/2 left-[-18%] w-[80%] h-[80%] mix-blend-multiply opacity-25 pointer-events-none scale-150">
                    <img 
                       src="/indiaMap.png" 
                       alt="World Map" 
@@ -517,8 +514,8 @@ export function BentoGrid() {
                           key={country.code}
                           className={`px-4 py-2 rounded-full border text-xs font-medium cursor-pointer transition-all duration-300 w-fit flex items-center justify-between min-w-[100px] ${
                             country.active 
-                              ? 'bg-[#1155CC]/15 border-[#1155CC]/60 text-[#22B6F6] shadow-[0_0_15px_rgba(17,85,204,0.25)]' 
-                              : 'bg-white/5 border-white/10 text-white/40 hover:border-white/20'
+                              ? 'bg-[#1155CC]/10 border-[#1155CC]/50 text-[#1155CC] font-bold shadow-[0_2px_12px_rgba(17,85,204,0.15)]' 
+                              : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300'
                           }`}
                           whileHover={{ scale: 1.05, x: -4 }}
                           whileTap={{ scale: 0.95 }}
@@ -531,27 +528,24 @@ export function BentoGrid() {
 
                     {/* Location */}
                     <div className="flex flex-col items-end gap-1">
-                      <span className="text-[10px] uppercase tracking-wider text-white/40">Remote</span>
+                      <span className="text-[10px] uppercase tracking-wider text-slate-400 font-mono">Remote</span>
                       <div className="flex items-center gap-2">
-                        <MapPin size={14} className="text-white/40" />
-                        <span className="text-sm font-medium text-white">India</span>
+                        <MapPin size={14} className="text-accent" />
+                        <span className="text-sm font-semibold text-slate-900">India</span>
                       </div>
                     </div>
                 </div>
 
               </div>
-
-              {/* Gradient overlay */}
-              <div className="absolute right-0 bottom-0 w-full h-full bg-gradient-to-l from-black/80 via-transparent to-transparent pointer-events-none" />
             </motion.div>
 
             {/* BOTTOM RIGHT: TechSonance InfoTech LLP Card */}
             <motion.div
-              className="bg-[#0f0f0f] border border-white/20 rounded-[32px] p-6 sm:p-8 flex flex-col justify-between relative group hover:border-white/30 transition-all duration-700 overflow-hidden h-auto min-h-[460px] lg:h-[500px]"
+              className="bg-white border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] rounded-[32px] p-6 sm:p-8 flex flex-col justify-between relative group hover:border-[#1155CC]/30 hover:shadow-[0_12px_35px_rgba(17,85,204,0.08)] transition-all duration-700 overflow-hidden h-auto min-h-[460px] lg:h-[500px]"
               style={{
                 maskImage: isDesktop ? 'radial-gradient(circle at -16px 8px, transparent 215px, black 216px)' : 'none',
                 WebkitMaskImage: isDesktop ? 'radial-gradient(circle at -16px 8px, transparent 215px, black 216px)' : 'none',
-                background: 'radial-gradient(circle at bottom right, #1155cc15 0%, #0f0f0f 60%, #0a0a0a 100%)',
+                background: 'radial-gradient(circle at bottom right, rgba(17,85,204,0.05) 0%, #ffffff 60%, #F8FAFC 100%)',
               }}
             >
               {/* Top Row: Logo & Title */}
@@ -562,31 +556,31 @@ export function BentoGrid() {
                     alt="TechSonance Logo" 
                     className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
                   />
-                  <span className="font-display text-xl sm:text-2xl font-bold text-white tracking-wide">
-                    TechSonance <span className="font-serif italic text-blue-400 font-light">InfoTech</span>
+                  <span className="font-display text-xl sm:text-2xl font-bold text-slate-900 tracking-wide">
+                    TechSonance <span className="font-serif italic text-[#1155CC] font-light">InfoTech</span>
                   </span>
                 </div>
                 <h3 className="font-mono text-sm sm:text-base font-bold text-accent mb-1 uppercase tracking-wider">
                   CO-Founder & CTO
                 </h3>
-                <p className="text-xs text-white/50 max-w-[280px]">
+                <p className="text-xs text-slate-600 max-w-[280px] leading-relaxed">
                   Delivering next-gen digital solutions, enterprise systems, and AI workflows.
                 </p>
               </div>
 
               {/* Bottom Row: Contact Details & Links */}
               <div className="flex flex-col gap-3.5 z-20 mt-6 lg:mt-auto ml-0 sm:ml-2 max-w-[320px] relative">
-                <div className="h-px bg-white/10 w-full mb-1" />
+                <div className="h-px bg-slate-100 w-full mb-1" />
                 
                 {/* Website */}
                 <a 
                   href="https://www.techsonance.co.in" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 group/link text-white/70 hover:text-white transition-colors cursor-pointer text-sm"
+                  className="flex items-center gap-3 group/link text-slate-700 hover:text-accent transition-colors cursor-pointer text-sm font-medium"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/link:border-blue-500/50 group-hover/link:bg-blue-500/10 transition-all duration-300">
-                    <Globe size={14} className="text-white/60 group-hover/link:text-blue-400 transition-colors" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center group-hover/link:border-blue-400 group-hover/link:bg-blue-100 transition-all duration-300">
+                    <Globe size={14} className="text-[#1155CC]" />
                   </div>
                   <span className="font-mono hover:underline">www.techsonance.co.in</span>
                 </a>
@@ -594,10 +588,10 @@ export function BentoGrid() {
                 {/* Email */}
                 <a 
                   href="mailto:admin@techsonance.co.in"
-                  className="flex items-center gap-3 group/link text-white/70 hover:text-white transition-colors cursor-pointer text-sm"
+                  className="flex items-center gap-3 group/link text-slate-700 hover:text-accent transition-colors cursor-pointer text-sm font-medium"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/link:border-blue-500/50 group-hover/link:bg-blue-500/10 transition-all duration-300">
-                    <Mail size={14} className="text-white/60 group-hover/link:text-blue-400 transition-colors" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center group-hover/link:border-blue-400 group-hover/link:bg-blue-100 transition-all duration-300">
+                    <Mail size={14} className="text-[#1155CC]" />
                   </div>
                   <span className="font-mono hover:underline">admin@techsonance.co.in</span>
                 </a>
@@ -605,17 +599,17 @@ export function BentoGrid() {
                 {/* Phone */}
                 <a 
                   href="tel:+919173101711"
-                  className="flex items-center gap-3 group/link text-white/70 hover:text-white transition-colors cursor-pointer text-sm"
+                  className="flex items-center gap-3 group/link text-slate-700 hover:text-accent transition-colors cursor-pointer text-sm font-medium"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/link:border-blue-500/50 group-hover/link:bg-blue-500/10 transition-all duration-300">
-                    <Phone size={14} className="text-white/60 group-hover/link:text-blue-400 transition-colors" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center group-hover/link:border-blue-400 group-hover/link:bg-blue-100 transition-all duration-300">
+                    <Phone size={14} className="text-[#1155CC]" />
                   </div>
                   <span className="font-mono">+91 91731 01711</span>
                 </a>
               </div>
 
               {/* Background watermarked Logo Icon */}
-              <div className="absolute bottom-[-20px] right-[-20px] opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700 pointer-events-none z-[0]">
+              <div className="absolute bottom-[-20px] right-[-20px] opacity-10 mix-blend-multiply group-hover:opacity-15 group-hover:scale-105 transition-all duration-700 pointer-events-none z-[0]">
                 <img 
                   src="/techsonance_logo.png" 
                   alt="TechSonance Watermark" 

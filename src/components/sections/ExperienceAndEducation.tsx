@@ -95,7 +95,7 @@ export function ExperienceAndEducation() {
               <div className="h-10 w-10 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent">
                 <Briefcase className="h-5 w-5" />
               </div>
-              <h3 className="font-display text-2xl font-bold text-white tracking-tight">
+              <h3 className="font-display text-2xl font-bold text-slate-900 tracking-tight">
                 Work Experience
               </h3>
             </div>
@@ -103,7 +103,7 @@ export function ExperienceAndEducation() {
             {/* Timeline Area */}
             <div className="relative pl-6 sm:pl-8 md:pl-10 space-y-8 sm:space-y-12 ml-1 sm:ml-4">
               {/* Rails */}
-              <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-white/[0.06] rounded-full" />
+              <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-slate-200 rounded-full" />
               <div
                 ref={expLineRef}
                 className="absolute left-0 top-3 w-[1px] bg-gradient-to-b from-accent via-accent-secondary to-accent rounded-full origin-top transform-gpu"
@@ -116,18 +116,18 @@ export function ExperienceAndEducation() {
                   className="timeline-item-anim relative group"
                 >
                   {/* Indicator Node */}
-                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050A14] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(17,85,204,0.15)]">
+                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-white border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(17,85,204,0.15)]">
                     <div className="h-1.5 w-1.5 rounded-full bg-accent group-hover:bg-accent-secondary transition-colors duration-300" />
                   </div>
 
                   {/* Card Container */}
-                  <div className="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-white/10 bg-[#0f0f0f]/40 hover:bg-[#0f0f0f]/80 transition-all duration-300 flex flex-col gap-4">
-                    <div className="flex flex-wrap justify-between items-start gap-2 border-b border-white/5 pb-4">
+                  <div className="glass-card p-6 md:p-8 rounded-2xl border border-slate-200/90 hover:border-slate-300 bg-white hover:bg-slate-50/50 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex flex-col gap-4">
+                    <div className="flex flex-wrap justify-between items-start gap-2 border-b border-slate-200 pb-4">
                       <div>
-                        <h4 className="font-display text-lg md:text-xl font-bold text-white group-hover:text-accent transition-colors duration-300 leading-snug">
+                        <h4 className="font-display text-lg md:text-xl font-bold text-slate-900 group-hover:text-accent transition-colors duration-300 leading-snug">
                           {item.role}
                         </h4>
-                        <span className="text-sm font-medium text-white/70">
+                        <span className="text-sm font-medium text-slate-600">
                           {item.company}
                         </span>
                       </div>
@@ -136,8 +136,8 @@ export function ExperienceAndEducation() {
                           <Calendar className="h-3 w-3" />
                           {item.period}
                         </span>
-                        <span className="flex items-center gap-1 text-[11px] text-white/40">
-                          <MapPin className="h-3 w-3 text-white/30" />
+                        <span className="flex items-center gap-1 text-[11px] text-slate-500">
+                          <MapPin className="h-3 w-3 text-slate-400" />
                           {item.location}
                         </span>
                       </div>
@@ -152,13 +152,13 @@ export function ExperienceAndEducation() {
                         return (
                           <li
                             key={bIdx}
-                            className="text-body-md text-white/70 leading-relaxed flex items-start gap-3 group/bullet"
+                            className="text-body-md text-slate-600 leading-relaxed flex items-start gap-3 group/bullet"
                           >
                             <span className="h-1.5 w-1.5 rounded-full bg-accent/60 mt-2 flex-shrink-0 group-hover/bullet:bg-accent transition-colors duration-300" />
-                            <span className="group-hover/bullet:text-white transition-colors duration-300">
+                            <span className="group-hover/bullet:text-slate-900 transition-colors duration-300">
                               {hasLabel ? (
                                 <>
-                                  <strong className="text-white font-medium">{parts[0]}:</strong>
+                                  <strong className="text-slate-900 font-semibold">{parts[0]}:</strong>
                                   {parts.slice(1).join(':')}
                                 </>
                               ) : bullet}
@@ -173,7 +173,7 @@ export function ExperienceAndEducation() {
                       {item.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="bg-white/[0.03] border border-white/5 rounded-full px-3 py-1 font-mono text-[10px] text-white/60 hover:text-white hover:border-accent/40 hover:bg-accent/5 transition-all duration-300"
+                          className="bg-slate-50 border border-slate-200 rounded-full px-3 py-1 font-mono text-[10px] text-slate-600 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-all duration-300"
                         >
                           {tag}
                         </span>
@@ -191,7 +191,7 @@ export function ExperienceAndEducation() {
               <div className="h-10 w-10 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent">
                 <GraduationCap className="h-5 w-5" />
               </div>
-              <h3 className="font-display text-2xl font-bold text-white tracking-tight">
+              <h3 className="font-display text-2xl font-bold text-slate-900 tracking-tight">
                 Education
               </h3>
             </div>
@@ -199,7 +199,7 @@ export function ExperienceAndEducation() {
             {/* Timeline Area */}
             <div className="relative pl-6 sm:pl-8 md:pl-10 space-y-8 sm:space-y-12 ml-1 sm:ml-4">
               {/* Rails */}
-              <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-white/[0.06] rounded-full" />
+              <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-slate-200 rounded-full" />
               <div
                 ref={eduLineRef}
                 className="absolute left-0 top-3 w-[1px] bg-gradient-to-b from-accent via-accent-secondary to-accent rounded-full origin-top transform-gpu"
@@ -212,18 +212,18 @@ export function ExperienceAndEducation() {
                   className="timeline-item-anim relative group"
                 >
                   {/* Indicator Node */}
-                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050A14] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(17,85,204,0.15)]">
+                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-white border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(17,85,204,0.15)]">
                     <div className="h-1.5 w-1.5 rounded-full bg-accent group-hover:bg-accent-secondary transition-colors duration-300" />
                   </div>
 
                   {/* Card Container */}
-                  <div className="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-white/10 bg-[#0f0f0f]/40 hover:bg-[#0f0f0f]/80 transition-all duration-300 flex flex-col gap-3">
-                    <div className="flex flex-wrap justify-between items-start gap-2 border-b border-white/5 pb-4">
+                  <div className="glass-card p-6 md:p-8 rounded-2xl border border-slate-200/90 hover:border-slate-300 bg-white hover:bg-slate-50/50 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex flex-col gap-3">
+                    <div className="flex flex-wrap justify-between items-start gap-2 border-b border-slate-200 pb-4">
                       <div>
-                        <h4 className="font-display text-base md:text-lg font-bold text-white group-hover:text-accent transition-colors duration-300 leading-snug">
+                        <h4 className="font-display text-base md:text-lg font-bold text-slate-900 group-hover:text-accent transition-colors duration-300 leading-snug">
                           {item.degree}
                         </h4>
-                        <span className="text-sm font-medium text-white/70">
+                        <span className="text-sm font-medium text-slate-600">
                           {item.institution}
                         </span>
                       </div>
@@ -235,7 +235,7 @@ export function ExperienceAndEducation() {
                       </div>
                     </div>
 
-                    <p className="text-body-md text-white/60 leading-relaxed pt-1">
+                    <p className="text-body-md text-slate-600 leading-relaxed pt-1">
                       {item.details}
                     </p>
                   </div>

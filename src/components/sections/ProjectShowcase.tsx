@@ -91,7 +91,7 @@ export function ProjectShowcase() {
           <div className="lg:sticky lg:top-36 lg:max-h-[calc(100vh-8rem)] flex flex-col justify-start lg:pt-6 relative">
              {/* Progress Indicator - Center of Columns */}
              <div className="hidden lg:block absolute right-[-40px] top-10 h-[300px] w-full max-w-[2px]">
-               <div className="relative h-full w-full bg-white/10 rounded-full overflow-hidden">
+               <div className="relative h-full w-full bg-slate-200 rounded-full overflow-hidden">
                  <div 
                    ref={progressFillRef}
                    className="absolute top-0 left-0 w-full bg-accent rounded-full origin-top"
@@ -312,12 +312,12 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       data-cursor-text="VIEW"
-      className={`relative rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-12 overflow-hidden shadow-2xl transition-all duration-500 ${
-        isActive ? 'opacity-100 scale-100' : 'opacity-40 scale-[0.95] blur-sm'
+      className={`relative rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 md:p-12 overflow-hidden transition-all duration-500 cursor-pointer ${
+        isActive ? 'opacity-100 scale-100 shadow-[0_15px_50px_rgba(17,85,204,0.08)]' : 'opacity-40 scale-[0.95] blur-sm'
       }`}
       style={{
-        backgroundColor: project.color ? `${project.color}20` : '#1a1a1a', 
-        borderColor: project.color || '#333',
+        backgroundColor: '#FFFFFF', 
+        borderColor: project.color ? `${project.color}35` : '#E2E8F0',
         borderWidth: '1px',
         transformStyle: 'preserve-3d',
       }}
@@ -326,7 +326,7 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
       {!isMobile && (
         <div
           ref={previewRef}
-          className="absolute pointer-events-none z-50 w-[220px] h-[135px] rounded-xl overflow-hidden border border-white/20 shadow-glow opacity-0 scale-75 origin-top-left"
+          className="absolute pointer-events-none z-50 w-[220px] h-[135px] rounded-xl overflow-hidden border border-slate-200 shadow-xl opacity-0 scale-75 origin-top-left"
           style={{ 
             top: 0, 
             left: 0,
@@ -343,29 +343,29 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
 
       {/* Background Gradient */}
       <div 
-        className="absolute inset-0 opacity-10 pointer-events-none" 
-        style={{ background: project.color || 'red' }} 
+        className="absolute inset-0 opacity-5 pointer-events-none" 
+        style={{ background: project.color || '#1155CC' }} 
       />
 
       {/* Premium Overlapping Mockup Composition */}
       <div className="relative w-full h-[240px] sm:h-[320px] md:h-[420px] flex items-center justify-center pointer-events-none mt-4 sm:mt-6">
          {/* Desktop Browser Mockup */}
-         <div className="absolute w-[88%] aspect-[16/10] bg-neutral-950 rounded-[1.5rem] border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden transition-all duration-700 group-hover:scale-[1.02] group-hover:border-white/20 origin-center">
+         <div className="absolute w-[88%] aspect-[16/10] bg-slate-900 rounded-[1.5rem] border border-slate-700/60 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-700 group-hover:scale-[1.02] group-hover:border-slate-600 origin-center">
             {/* Browser Header Bar */}
-            <div className="h-8 w-full bg-neutral-900 border-b border-white/5 px-4 flex items-center gap-2 shrink-0">
+            <div className="h-8 w-full bg-slate-800 border-b border-slate-700 px-4 flex items-center gap-2 shrink-0">
                <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]/90" />
                   <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/90" />
                   <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]/90" />
                </div>
-               <div className="mx-auto w-[55%] h-5 rounded-md bg-white/5 border border-white/5 flex items-center justify-center px-3">
-                  <span className="text-[10px] text-muted-foreground font-mono truncate tracking-wide select-none">
+               <div className="mx-auto w-[55%] h-5 rounded-md bg-slate-700/60 border border-slate-600 flex items-center justify-center px-3">
+                  <span className="text-[10px] text-slate-300 font-mono truncate tracking-wide select-none">
                      {project.liveUrl && project.liveUrl !== '#' ? project.liveUrl.replace('https://', '') : `${project.slug}.techsonance.co.in`}
                   </span>
                </div>
             </div>
             {/* Screen Content */}
-            <div className="w-full h-[calc(100%-32px)] bg-neutral-950 relative">
+            <div className="w-full h-[calc(100%-32px)] bg-slate-950 relative">
                {project.image ? (
                   <img 
                      src={project.image} 
@@ -373,18 +373,18 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.01]"
                   />
                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-950" />
+                  <div className="w-full h-full bg-gradient-to-br from-slate-800 to-slate-950" />
                )}
-               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
             </div>
          </div>
 
          {/* Overlapping Mobile Phone Mockup (if mobileImage1 exists) */}
          {(project as any).mobileImage1 && (
-            <div className="absolute bottom-[-15px] right-[4%] w-[34%] aspect-[9/16] bg-black rounded-[2.2rem] border-[5px] border-neutral-900 shadow-[0_20px_50px_rgba(0,0,0,0.95)] overflow-hidden z-20 transition-all duration-700 group-hover:translate-y-[-8px] group-hover:scale-[1.03]">
+            <div className="absolute bottom-[-15px] right-[4%] w-[34%] aspect-[9/16] bg-slate-950 rounded-[2.2rem] border-[5px] border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.25)] overflow-hidden z-20 transition-all duration-700 group-hover:translate-y-[-8px] group-hover:scale-[1.03]">
                {/* iPhone Notch / Dynamic Island */}
-               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[38%] h-4 bg-black rounded-full z-30 border border-white/5 flex items-center justify-center">
-                 <div className="w-1.5 h-1.5 rounded-full bg-neutral-900 ml-auto mr-1.5" />
+               <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[38%] h-4 bg-slate-900 rounded-full z-30 border border-slate-700 flex items-center justify-center">
+                 <div className="w-1.5 h-1.5 rounded-full bg-slate-800 ml-auto mr-1.5" />
                </div>
                {/* Screen Content */}
                <div className="w-full h-full bg-neutral-950 relative">

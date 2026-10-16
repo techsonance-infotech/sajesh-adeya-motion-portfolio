@@ -38,8 +38,8 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
       <div 
         className="absolute inset-0 rounded-full"
         style={{
-          background: 'linear-gradient(135deg, #2a2a2a 0%, #0a0a0a 50%, #1a1a1a 100%)',
-          boxShadow: 'inset 0 2px 10px rgba(255,255,255,0.05), 0 10px 40px rgba(0,0,0,0.5)'
+          background: 'linear-gradient(135deg, #E2E8F0 0%, #FFFFFF 50%, #CBD5E1 100%)',
+          boxShadow: 'inset 0 1px 3px rgba(255,255,255,0.8), 0 8px 30px rgba(17,85,204,0.08), 0 2px 10px rgba(0,0,0,0.04)'
         }}
       />
       
@@ -48,8 +48,8 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
         className="absolute rounded-full"
         style={{
           inset: size * 0.03,
-          background: 'linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%)',
-          boxShadow: 'inset 0 0 20px rgba(0,0,0,0.8)'
+          background: 'linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%)',
+          boxShadow: 'inset 0 0 10px rgba(0,0,0,0.06)'
         }}
       />
 
@@ -58,7 +58,7 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
         className="absolute rounded-full"
         style={{
           inset: size * 0.06,
-          background: 'radial-gradient(ellipse at 30% 20%, #1e1e1e 0%, #0a0a0a 60%, #050505 100%)',
+          background: 'radial-gradient(ellipse at 30% 20%, #FFFFFF 0%, #FAFBFD 60%, #F1F5F9 100%)',
         }}
       />
 
@@ -83,8 +83,8 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 background: isHour 
-                  ? 'linear-gradient(180deg, #ffffff 0%, #cccccc 100%)'
-                  : 'rgba(255,255,255,0.3)',
+                  ? 'linear-gradient(180deg, #1155CC 0%, #0F172A 100%)'
+                  : 'rgba(100, 116, 139, 0.35)',
                 borderRadius: 2,
               }}
             />
@@ -103,7 +103,7 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
         return (
           <div
             key={`hour-${num}`}
-            className="absolute font-light text-white/90 tracking-wider"
+            className="absolute font-semibold text-slate-800 tracking-wider"
             style={{
               left: `calc(50% + ${x}px)`,
               top: `calc(50% + ${y}px)`,
@@ -124,9 +124,9 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
           width: size * 0.025,
           height: size * 0.22,
           marginLeft: -(size * 0.025) / 2,
-          background: 'linear-gradient(180deg, #ffffff 0%, #e0e0e0 100%)',
+          background: 'linear-gradient(180deg, #1E293B 0%, #0F172A 100%)',
           borderRadius: size * 0.01,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.5)',
+          boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
         }}
         animate={{ rotate: hoursRotation }}
         transition={{ type: 'tween', ease: 'linear', duration: 0.5 }}
@@ -139,9 +139,9 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
           width: size * 0.015,
           height: size * 0.32,
           marginLeft: -(size * 0.015) / 2,
-          background: 'linear-gradient(180deg, #ffffff 0%, #e0e0e0 100%)',
+          background: 'linear-gradient(180deg, #334155 0%, #1E293B 100%)',
           borderRadius: size * 0.005,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.5)',
+          boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
         }}
         animate={{ rotate: minutesRotation }}
         transition={{ type: 'tween', ease: 'linear', duration: 0.5 }}
@@ -154,7 +154,7 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
           width: 2,
           height: size * 0.36,
           marginLeft: -1,
-          background: 'hsl(var(--accent-secondary))',
+          background: '#1155CC',
           borderRadius: 1,
         }}
         animate={{ rotate: secondsRotation }}
@@ -168,8 +168,8 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
           width: size * 0.05,
           height: size * 0.05,
           transform: 'translate(-50%, -50%)',
-          background: 'linear-gradient(135deg, #ffffff 0%, #888888 100%)',
-          boxShadow: '0 2px 6px rgba(0,0,0,0.5)',
+          background: 'linear-gradient(135deg, #E2E8F0 0%, #94A3B8 100%)',
+          boxShadow: '0 1px 4px rgba(0,0,0,0.2)',
         }}
       />
 
@@ -180,7 +180,7 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
           width: size * 0.025,
           height: size * 0.025,
           transform: 'translate(-50%, -50%)',
-          background: 'hsl(var(--accent))',
+          background: '#1155CC',
         }}
       />
     </div>

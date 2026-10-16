@@ -5,39 +5,41 @@
 @layer base {
   :root {
     /* ================================================
-       TechSonance Brand Color System
-       Primary: #1155CC (Royal Blue)
-       Secondary: #22B6F6 (Sky Blue)
-       Deep: #0F52BA → #071A35 (gradient)
+       TechSonance Brand Color System - LIGHT THEME
+       Background: #FAFBFD (TechSonance clean white/slate)
+       Foreground: #0F172A (Deep navy/slate)
+       Primary Accent: #1155CC (TechSonance Royal Blue)
+       Secondary Accent: #22B6F6 (TechSonance Sky Blue)
+       Brand Gradient: #0F52BA → #1155CC → #22B6F6
     ================================================ */
 
-    /* Dark Premium Theme - TechSonance Blue */
-    --background: 222 47% 4%;
-    --background-hex: #050A14;
-    --surface: 222 47% 7%;
-    --surface-hex: #0B1220;
+    /* Light Theme Base */
+    --background: 220 33% 98%;      /* #FAFBFD */
+    --background-hex: #FAFBFD;
+    --surface: 210 40% 96%;         /* #F1F5F9 */
+    --surface-hex: #F1F5F9;
     
-    /* Cards with glassmorphism */
-    --card: 220 50% 100% / 0.04;
-    --card-hover: 220 50% 100% / 0.08;
-    --card-foreground: 210 40% 96%;
+    /* Cards */
+    --card: 0 0% 100%;              /* #FFFFFF */
+    --card-hover: 210 40% 98%;      /* #F8FAFC */
+    --card-foreground: 222 47% 11%; /* #0F172A */
     
     /* Borders */
-    --border: 220 50% 100% / 0.10;
-    --border-strong: 220 50% 100% / 0.20;
+    --border: 214 32% 91%;          /* #E2E8F0 */
+    --border-strong: 215 25% 82%;   /* #CBD5E1 */
     
     /* Text colors */
-    --foreground: 210 40% 96%;
-    --text-muted: 210 40% 96% / 0.60;
-    --muted: 222 47% 12%;
-    --muted-foreground: 210 40% 96% / 0.60;
+    --foreground: 222 47% 11%;      /* #0F172A */
+    --text-muted: 215 16% 47%;      /* #64748B */
+    --muted: 210 40% 96%;           /* #F1F5F9 */
+    --muted-foreground: 215 16% 47%;/* #64748B */
     
     /* Accent - TechSonance Royal Blue #1155CC */
-    --accent: 222 78% 56%;
+    --accent: 222 78% 56%;          /* #1155CC */
     --accent-hex: #1155CC;
-    --accent-glow: 222 78% 56% / 0.30;
-    --accent-hover: 222 78% 40%;
-    --accent-foreground: 0 0% 100%;
+    --accent-glow: 222 78% 56% / 0.15;
+    --accent-hover: 222 78% 46%;    /* #0D47A1 */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
     
     /* Secondary Accent - TechSonance Sky Blue #22B6F6 */
     --accent-secondary: 201 91% 55%;
@@ -53,19 +55,19 @@
     --primary-foreground: 0 0% 100%;
     
     /* Secondary */
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 40% 96%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
     
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
     /* Popover */
-    --popover: 222 47% 7%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
     
     /* Input & Ring */
-    --input: 220 50% 100% / 0.10;
+    --input: 214 32% 91%;
     --ring: 222 78% 56%;
     
     /* Radius */
@@ -74,13 +76,13 @@
     --radius-full: 9999px;
     
     /* Sidebar (keeping for compatibility) */
-    --sidebar-background: 222 47% 7%;
-    --sidebar-foreground: 210 40% 96%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
     --sidebar-primary: 222 78% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 47% 12%;
-    --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 220 50% 100% / 0.10;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
     --sidebar-ring: 222 78% 56%;
   }
 }
@@ -99,18 +101,19 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: hsl(var(--background));
+    background-color: #FAFBFD;
+    color: #0F172A;
     overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', system-ui, sans-serif;
-    @apply font-semibold tracking-tight;
+    @apply font-semibold tracking-tight text-gray-900;
   }
   
   ::selection {
-    background-color: hsl(var(--accent) / 0.3);
-    color: hsl(var(--foreground));
+    background-color: rgba(17, 85, 204, 0.15);
+    color: #1155CC;
   }
 }
 
@@ -126,13 +129,12 @@
     padding-bottom: min(6vh, 72px);
   }
   
-  /* Glassmorphism card */
+  /* Glassmorphism card for Light Theme */
   .glass-card {
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   }
   
   .glass-card-hover {
@@ -140,15 +142,16 @@
   }
   
   .glass-card-hover:hover {
-    background: hsl(var(--card-hover));
-    border-color: hsl(var(--border-strong));
+    background: #ffffff;
+    border-color: rgba(17, 85, 204, 0.3);
+    box-shadow: 0 12px 35px rgba(17, 85, 204, 0.08);
     transform: translateY(-4px);
   }
   
-  /* Gradient text - white to blue */
+  /* Gradient text */
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--accent)) 100%);
+    background-image: linear-gradient(135deg, #0F172A 0%, #1155CC 100%);
   }
   
   /* TechSonance brand gradient text - Blue to Sky Blue */
@@ -170,7 +173,7 @@
   
   /* Accent glow */
   .accent-glow {
-    box-shadow: 0 0 60px hsl(var(--accent-glow)), 0 0 100px hsl(var(--accent-glow));
+    box-shadow: 0 0 40px rgba(17, 85, 204, 0.15), 0 0 80px rgba(34, 182, 246, 0.1);
   }
   
   /* Serif italic text */
@@ -181,7 +184,7 @@
   
   /* Button styles - TechSonance Blue Primary */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold uppercase tracking-wide transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold uppercase tracking-wide transition-all duration-300 cursor-pointer overflow-hidden;
     background: linear-gradient(135deg, #0F52BA 0%, #1155CC 60%, #008BD9 100%);
     color: #ffffff;
     box-shadow: 0 4px 14px rgba(17, 85, 204, 0.35);
@@ -189,7 +192,7 @@
   
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(17, 85, 204, 0.5);
+    box-shadow: 0 10px 28px rgba(17, 85, 204, 0.45);
   }
   
   .btn-primary:active {
@@ -197,61 +200,58 @@
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300;
-    background: transparent;
-    border: 1px solid hsl(var(--border-strong));
-    color: hsl(var(--foreground));
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer;
+    background: #ffffff;
+    border: 1px solid #D1D5DB;
+    color: #1F2937;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   }
   
   .btn-secondary:hover {
-    background: hsl(var(--card-hover));
-    border-color: hsl(var(--foreground) / 0.4);
+    background: #FAFBFD;
+    border-color: #1155CC;
+    color: #1155CC;
+    box-shadow: 0 8px 20px rgba(17, 85, 204, 0.12);
+    transform: translateY(-1px);
   }
   
   /* Pill nav button */
   .nav-pill {
-    @apply px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300;
-    color: hsl(var(--muted-foreground));
+    @apply px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300;
+    color: #4B5563;
   }
   
   .nav-pill:hover {
-    color: hsl(var(--foreground));
+    color: #1155CC;
+    background: rgba(17, 85, 204, 0.05);
   }
   
   .nav-pill-active {
-    background: linear-gradient(135deg, #1155CC, #22B6F6);
+    background: #1155CC;
     color: #ffffff !important;
-    box-shadow: 0 2px 12px rgba(17, 85, 204, 0.4);
+    box-shadow: 0 4px 14px rgba(17, 85, 204, 0.35);
   }
   
   /* Tech badge */
   .tech-badge {
-    @apply inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium;
-    background: hsl(var(--accent) / 0.15);
-    color: hsl(var(--accent));
-    border: 1px solid hsl(var(--accent) / 0.3);
+    @apply inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold;
+    background: rgba(17, 85, 204, 0.06);
+    color: #1155CC;
+    border: 1px solid rgba(17, 85, 204, 0.15);
   }
   
-  /* Noise texture overlay */
-  .noise-overlay {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  }
-  
-  /* Bento card */
+  /* Bento card for Light Theme */
   .bento-card {
-    background: hsl(var(--surface));
-    border: 1px solid hsl(var(--border));
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     transition: all 0.3s ease;
   }
   
   .bento-card:hover {
-    border-color: hsl(var(--border-strong));
+    border-color: rgba(17, 85, 204, 0.3);
+    box-shadow: 0 10px 35px rgba(17, 85, 204, 0.08);
   }
 
   /* Mask Utilities */
@@ -260,7 +260,7 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
   
-  /* TechSonance marquee track for tech-stack scroll */
+  /* TechSonance marquee track */
   .marquee-track {
     animation: marquee-scroll 30s linear infinite;
   }
@@ -272,15 +272,15 @@
   /* TS Stats badge */
   .ts-stat-badge {
     @apply flex flex-col items-center justify-center p-4 rounded-2xl;
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    backdrop-filter: blur(12px);
+    background: #ffffff;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     transition: all 0.3s ease;
   }
   
   .ts-stat-badge:hover {
     border-color: rgba(17, 85, 204, 0.4);
-    box-shadow: 0 0 20px rgba(17, 85, 204, 0.15);
+    box-shadow: 0 10px 30px rgba(17, 85, 204, 0.1);
   }
   
   /* Scrollbar */
@@ -289,20 +289,16 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: hsl(var(--surface));
+    background: #F1F5F9;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--border-strong));
+    background: #CBD5E1;
     border-radius: 4px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--accent) / 0.5);
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--accent) / 0.5);
+    background: #1155CC;
   }
 }
 
@@ -343,7 +339,7 @@
   /* Focus visible */
   .focus-ring {
     @apply outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
-    --tw-ring-color: hsl(var(--accent));
+    --tw-ring-color: #1155CC;
   }
 
   /* Custom Cursor styles - enabled only on desktop hover devices */
@@ -354,4 +350,3 @@
     }
   }
 }
-

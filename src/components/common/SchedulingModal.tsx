@@ -69,7 +69,7 @@ export function SchedulingModal() {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-md p-4 sm:p-6"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/40 backdrop-blur-md p-4 sm:p-6"
     >
       {/* Background click close */}
       <div className="absolute inset-0" onClick={handleClose} />
@@ -77,21 +77,21 @@ export function SchedulingModal() {
       {/* Modal Frame */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-4xl h-[85vh] sm:h-[80vh] rounded-2xl border border-white/10 bg-[#0f0f0f] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col z-10"
+        className="relative w-full max-w-4xl h-[85vh] sm:h-[80vh] rounded-2xl border border-slate-200 bg-white shadow-[0_24px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col z-10"
       >
         {/* Header bar */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/5 bg-[#0a0a0a]/90 backdrop-blur-md">
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-200 bg-white/95 backdrop-blur-md">
           <div className="flex items-center gap-2.5">
             <div className="h-7 w-7 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent animate-pulse">
               <Calendar className="h-4 w-4" />
             </div>
-            <span className="font-mono text-xs uppercase tracking-widest font-bold text-white">
+            <span className="font-mono text-xs uppercase tracking-widest font-bold text-slate-900">
               Schedule Consultation
             </span>
           </div>
           <button
             onClick={handleClose}
-            className="p-1.5 rounded-lg border border-white/5 bg-white/[0.02] hover:bg-white/[0.08] hover:border-white/10 text-white/60 hover:text-white transition-all duration-200 cursor-pointer"
+            className="p-1.5 rounded-lg border border-slate-200 bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-all duration-200 cursor-pointer"
             aria-label="Close"
           >
             <X className="h-4 w-4" />
@@ -99,12 +99,12 @@ export function SchedulingModal() {
         </div>
 
         {/* Content Area / Iframe */}
-        <div className="flex-1 relative bg-[#0a0a0a]">
+        <div className="flex-1 relative bg-white">
           {isLoading && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0a0a0a] gap-3">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-white gap-3">
               {/* Spinner */}
               <div className="h-8 w-8 rounded-full border-2 border-accent/20 border-t-accent animate-spin" />
-              <p className="font-mono text-[9px] text-white/40 uppercase tracking-widest">
+              <p className="font-mono text-[9px] text-slate-400 uppercase tracking-widest">
                 Connecting to cal.id...
               </p>
             </div>

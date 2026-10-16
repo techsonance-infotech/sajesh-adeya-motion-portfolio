@@ -117,33 +117,33 @@ export function Contact() {
 
             <div className="space-y-6 mb-10">
               <div className="flex items-center gap-4 text-muted-foreground group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-accent group-hover:border-accent/20 transition-all duration-300 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1155CC] group-hover:border-[#1155CC]/30 transition-all duration-300 shrink-0">
                   <Mail size={18} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Email</span>
-                  <a href={`mailto:${siteConfig.email}`} className="text-foreground hover:text-accent transition-colors font-light select-all truncate">{siteConfig.email}</a>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500">Email</span>
+                  <a href={`mailto:${siteConfig.email}`} className="text-slate-900 hover:text-accent transition-colors font-medium select-all truncate">{siteConfig.email}</a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4 text-muted-foreground group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-accent-secondary group-hover:border-accent-secondary/20 transition-all duration-300 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#22B6F6] group-hover:border-[#22B6F6]/40 transition-all duration-300 shrink-0">
                   <MapPin size={18} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Location</span>
-                  <span className="text-foreground font-light">{siteConfig.location}</span>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500">Location</span>
+                  <span className="text-slate-900 font-medium">{siteConfig.location}</span>
                 </div>
               </div>
             </div>
 
-            <p className="text-xs text-muted-foreground border-t border-white/5 pt-6 font-mono">
+            <p className="text-xs text-slate-500 border-t border-slate-200 pt-6 font-mono">
               Or connect with me on{' '}
               <a 
                 href={siteConfig.socials.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-accent hover:underline"
+                className="text-accent hover:underline font-semibold"
               >
                 LinkedIn
               </a>
@@ -152,7 +152,7 @@ export function Contact() {
                 href={siteConfig.socials.x} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-accent-secondary hover:underline"
+                className="text-accent-secondary hover:underline font-semibold"
               >
                 X
               </a>
@@ -163,7 +163,7 @@ export function Contact() {
           <div className="lg:col-span-7">
             <form 
               onSubmit={handleSubmit(onSubmit)} 
-              className="glass-card p-6 sm:p-8 md:p-10 rounded-[1.75rem] sm:rounded-[2rem] border border-white/5 space-y-6 relative overflow-hidden"
+              className="bg-white p-6 sm:p-8 md:p-10 rounded-[1.75rem] sm:rounded-[2rem] border border-slate-200/90 shadow-[0_10px_35px_rgba(0,0,0,0.03)] space-y-6 relative overflow-hidden"
             >
               {/* Decorative light glows */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl pointer-events-none" />
@@ -172,7 +172,7 @@ export function Contact() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="flex flex-col">
-                  <label htmlFor="name" className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-1.5">
+                  <label htmlFor="name" className="text-[10px] font-mono uppercase tracking-wider text-slate-600 mb-2 flex items-center gap-1.5 font-semibold">
                     <User size={12} />
                     <span>Your Name</span>
                   </label>
@@ -181,21 +181,21 @@ export function Contact() {
                     type="text"
                     placeholder="Sajesh Kumar"
                     disabled={isSubmitting}
-                    className={`w-full bg-white/5 border rounded-xl px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 transition-all duration-300 cursor-none ${
+                    className={`w-full bg-slate-50/80 border rounded-xl px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-accent/20 transition-all duration-300 cursor-pointer ${
                       errors.name 
                         ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/30' 
-                        : 'border-white/5 focus:border-accent/40 focus:ring-accent/40'
+                        : 'border-slate-200 focus:border-accent'
                     }`}
                     {...register('name')}
                   />
                   {errors.name && (
-                    <span className="text-red-400 text-[10px] font-mono mt-1">{errors.name.message}</span>
+                    <span className="text-red-500 text-[10px] font-mono mt-1">{errors.name.message}</span>
                   )}
                 </div>
 
                 {/* Email */}
                 <div className="flex flex-col">
-                  <label htmlFor="email" className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-1.5">
+                  <label htmlFor="email" className="text-[10px] font-mono uppercase tracking-wider text-slate-600 mb-2 flex items-center gap-1.5 font-semibold">
                     <Mail size={12} />
                     <span>Email Address</span>
                   </label>
@@ -204,22 +204,22 @@ export function Contact() {
                     type="email"
                     placeholder="name@company.com"
                     disabled={isSubmitting}
-                    className={`w-full bg-white/5 border rounded-xl px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 transition-all duration-300 cursor-none ${
+                    className={`w-full bg-slate-50/80 border rounded-xl px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-accent/20 transition-all duration-300 cursor-pointer ${
                       errors.email 
                         ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/30' 
-                        : 'border-white/5 focus:border-accent/40 focus:ring-accent/40'
+                        : 'border-slate-200 focus:border-accent'
                     }`}
                     {...register('email')}
                   />
                   {errors.email && (
-                    <span className="text-red-400 text-[10px] font-mono mt-1">{errors.email.message}</span>
+                    <span className="text-red-500 text-[10px] font-mono mt-1">{errors.email.message}</span>
                   )}
                 </div>
               </div>
 
               {/* Subject */}
               <div className="flex flex-col">
-                <label htmlFor="subject" className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-1.5">
+                <label htmlFor="subject" className="text-[10px] font-mono uppercase tracking-wider text-slate-600 mb-2 flex items-center gap-1.5 font-semibold">
                   <Tag size={12} />
                   <span>Subject</span>
                 </label>
@@ -228,21 +228,21 @@ export function Contact() {
                   type="text"
                   placeholder="How can I help you?"
                   disabled={isSubmitting}
-                  className={`w-full bg-white/5 border rounded-xl px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 transition-all duration-300 cursor-none ${
+                  className={`w-full bg-slate-50/80 border rounded-xl px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-accent/20 transition-all duration-300 cursor-pointer ${
                     errors.subject 
                       ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/30' 
-                      : 'border-white/5 focus:border-accent/40 focus:ring-accent/40'
+                      : 'border-slate-200 focus:border-accent'
                   }`}
                   {...register('subject')}
                 />
                 {errors.subject && (
-                  <span className="text-red-400 text-[10px] font-mono mt-1">{errors.subject.message}</span>
+                  <span className="text-red-500 text-[10px] font-mono mt-1">{errors.subject.message}</span>
                 )}
               </div>
 
               {/* Message */}
               <div className="flex flex-col">
-                <label htmlFor="message" className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-1.5">
+                <label htmlFor="message" className="text-[10px] font-mono uppercase tracking-wider text-slate-600 mb-2 flex items-center gap-1.5 font-semibold">
                   <MessageSquare size={12} />
                   <span>Your Message</span>
                 </label>
@@ -251,15 +251,15 @@ export function Contact() {
                   placeholder="Describe your project, timeline, and goals..."
                   disabled={isSubmitting}
                   rows={5}
-                  className={`w-full bg-white/5 border rounded-xl px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 transition-all duration-300 resize-none cursor-none ${
+                  className={`w-full bg-slate-50/80 border rounded-xl px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-accent/20 transition-all duration-300 resize-none cursor-pointer ${
                     errors.message 
                       ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/30' 
-                      : 'border-white/5 focus:border-accent/40 focus:ring-accent/40'
+                      : 'border-slate-200 focus:border-accent'
                   }`}
                   {...register('message')}
                 />
                 {errors.message && (
-                  <span className="text-red-400 text-[10px] font-mono mt-1">{errors.message.message}</span>
+                  <span className="text-red-500 text-[10px] font-mono mt-1">{errors.message.message}</span>
                 )}
               </div>
 

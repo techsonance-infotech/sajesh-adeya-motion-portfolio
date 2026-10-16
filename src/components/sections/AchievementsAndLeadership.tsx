@@ -73,7 +73,7 @@ export function AchievementsAndLeadership() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="glass-card p-5 sm:p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-all duration-300 flex gap-3 sm:gap-4 group"
+                    className="glass-card bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 hover:border-slate-300 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex gap-3 sm:gap-4 group"
                   >
                     <div className={`p-3 rounded-xl border h-fit shrink-0 ${item.color} group-hover:scale-110 transition-transform duration-300`}>
                       <Icon size={20} />
@@ -113,9 +113,9 @@ export function AchievementsAndLeadership() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="glass-card p-5 sm:p-6 rounded-2xl border border-white/5 hover:border-accent-secondary/20 transition-all duration-300 flex flex-col gap-4 group"
+                    className="glass-card bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 hover:border-accent-secondary/30 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex flex-col gap-4 group"
                   >
-                    <div className="p-3 rounded-xl border border-white/5 bg-white/5 text-muted-foreground w-fit group-hover:text-accent-secondary group-hover:border-accent-secondary/30 transition-all duration-300">
+                    <div className="p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 w-fit group-hover:text-accent-secondary group-hover:border-accent-secondary/30 transition-all duration-300">
                       <Icon size={20} />
                     </div>
                     <div className="flex flex-col gap-2">

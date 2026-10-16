@@ -28,17 +28,17 @@ export function BrandPreloader() {
           exit={{ opacity: 0, transition: { duration: 0.5, ease: 'easeInOut' } }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center select-none"
           style={{
-            backgroundColor: '#050A14',
+            backgroundColor: '#FAFBFD',
           }}
         >
           {/* Ambient blur gradients matching TechSonance */}
           <div
             className="absolute w-[450px] h-[450px] rounded-full blur-[100px] pointer-events-none"
-            style={{ background: 'rgba(17, 85, 204, 0.18)' }}
+            style={{ background: 'rgba(17, 85, 204, 0.12)' }}
           />
           <div
             className="absolute w-[350px] h-[350px] rounded-full blur-[80px] pointer-events-none"
-            style={{ background: 'rgba(34, 182, 246, 0.12)' }}
+            style={{ background: 'rgba(34, 182, 246, 0.10)' }}
           />
 
           {/* Central Logo Ring Container */}
@@ -79,10 +79,10 @@ export function BrandPreloader() {
             transition={{ delay: 0.2 }}
             className="flex flex-col items-center gap-1.5 mt-8"
           >
-            <p className="text-[11px] font-bold uppercase tracking-[0.3em] font-mono" style={{ color: '#22B6F6' }}>
+            <p className="text-[11px] font-bold uppercase tracking-[0.3em] font-mono" style={{ color: '#1155CC' }}>
               Initializing Resonance
             </p>
-            <span className="text-[9px] uppercase tracking-[0.2em] text-white/40 font-mono">
+            <span className="text-[9px] uppercase tracking-[0.2em] text-slate-500 font-mono font-medium">
               TechSonance InfoTech LLP • Sajesh Adeya
             </span>
           </motion.div>

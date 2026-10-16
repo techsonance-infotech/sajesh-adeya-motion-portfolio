@@ -18,7 +18,7 @@ export function Highlights() {
             <motion.div
               key={highlight.label}
               variants={fadeInUp}
-              className="glass-card p-6 rounded-2xl text-center group hover:border-white/20 transition-all duration-300"
+              className="glass-card bg-white p-6 rounded-2xl border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] text-center group hover:border-slate-300 hover:shadow-md transition-all duration-300"
             >
               <span className="text-accent text-sm font-medium uppercase tracking-widest mb-3 block">
                 {highlight.label}

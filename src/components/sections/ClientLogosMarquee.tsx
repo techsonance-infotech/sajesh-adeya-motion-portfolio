@@ -80,7 +80,7 @@ export function ClientLogosMarquee() {
   const doubledClients = [...clients, ...clients];
 
   return (
-    <section className="relative py-16 overflow-hidden border-y border-white/5 bg-surface/40 backdrop-blur-sm">
+    <section className="relative py-16 overflow-hidden border-y border-slate-200/80 bg-white/70 backdrop-blur-sm">
       {/* Background ambient glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[250px] rounded-full blur-[120px] pointer-events-none opacity-20"
@@ -91,7 +91,7 @@ export function ClientLogosMarquee() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center gap-2.5">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#22B6F6' }} />
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground font-mono">
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 font-mono">
               Engineered & Trusted by Global Clients
             </span>
           </div>
@@ -100,7 +100,7 @@ export function ClientLogosMarquee() {
             href="https://www.techsonance.co.in/portfolio"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-accent hover:text-accent-secondary transition-colors group cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-accent hover:text-accent-secondary transition-colors group cursor-pointer font-medium"
           >
             <span>Explore TechSonance Ventures</span>
             <ExternalLink size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -129,10 +129,11 @@ export function ClientLogosMarquee() {
               href={client.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center gap-4 px-5 py-3.5 rounded-2xl border transition-all duration-300 select-none cursor-pointer"
+              className="group relative flex items-center gap-4 px-5 py-3.5 rounded-2xl border transition-all duration-300 select-none cursor-pointer hover:shadow-md"
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                borderColor: 'rgba(255, 255, 255, 0.07)',
+                backgroundColor: '#FFFFFF',
+                borderColor: '#E2E8F0',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
               }}
             >
               {/* Logo / Badge */}
@@ -162,7 +163,7 @@ export function ClientLogosMarquee() {
               {/* Client Info */}
               <div className="flex flex-col text-left">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-display text-sm font-bold text-foreground group-hover:text-accent-secondary transition-colors whitespace-nowrap">
+                  <span className="font-display text-sm font-bold text-slate-900 group-hover:text-accent transition-colors whitespace-nowrap">
                     {client.name}
                   </span>
                   <ExternalLink
@@ -171,7 +172,7 @@ export function ClientLogosMarquee() {
                     style={{ color: '#22B6F6' }}
                   />
                 </div>
-                <span className="text-[11px] text-muted-foreground font-mono uppercase tracking-wider">
+                <span className="text-[11px] text-slate-500 font-mono uppercase tracking-wider">
                   {client.category}
                 </span>
               </div>

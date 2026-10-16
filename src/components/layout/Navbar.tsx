@@ -52,7 +52,7 @@ export function Navbar() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-background/90 backdrop-blur-xl border-b border-white/5' 
+            ? 'bg-white/90 backdrop-blur-xl border-b border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)]' 
             : 'bg-transparent'
         }`}
       >
@@ -81,7 +81,7 @@ export function Navbar() {
           </a>
 
           {/* Desktop Navigation - Pill Style */}
-          <div className="hidden md:flex items-center gap-1 bg-surface/80 backdrop-blur-sm rounded-full p-1 border border-white/5">
+          <div className="hidden md:flex items-center gap-1 bg-slate-100/90 backdrop-blur-md rounded-full p-1 border border-slate-200/80 shadow-xs">
             {navLinks.map((link) => {
               const isActive = (() => {
                 if (link.href === '/projects') {
@@ -132,7 +132,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className="md:hidden p-2 text-gray-800 hover:text-accent transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -148,7 +148,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-20 z-40 bg-background/95 backdrop-blur-xl border-b border-white/5 md:hidden max-h-[calc(100vh-5rem)] overflow-y-auto shadow-2xl"
+            className="fixed inset-x-0 top-20 z-40 bg-white/98 backdrop-blur-xl border-b border-gray-200 md:hidden max-h-[calc(100vh-5rem)] overflow-y-auto shadow-2xl"
           >
             <nav className="container-custom py-6">
               <ul className="flex flex-col gap-2">
@@ -181,7 +181,7 @@ export function Navbar() {
                         className={`block py-3 px-4 rounded-lg text-lg font-medium transition-all duration-300 ${
                           isActive 
                             ? 'text-white shadow-brand' 
-                            : 'text-foreground hover:bg-white/5'
+                            : 'text-gray-800 hover:bg-gray-100/70'
                         }`}
                         style={isActive ? { background: 'linear-gradient(135deg, #1155CC, #22B6F6)' } : undefined}
                       >

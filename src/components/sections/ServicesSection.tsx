@@ -200,42 +200,28 @@ export function ServicesSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.06 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="group relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between border transition-all duration-300"
-                style={{
-                  backgroundColor: 'rgba(11, 18, 32, 0.65)',
-                  borderColor: 'rgba(255, 255, 255, 0.08)',
-                  backdropFilter: 'blur(16px)',
-                }}
+                className="group relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between border transition-all duration-300 bg-white border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-[#1155CC]/40 hover:shadow-[0_12px_35px_rgba(17,85,204,0.08)]"
               >
-                {/* Glow border on hover */}
-                <div
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{
-                    border: '1px solid rgba(17, 85, 204, 0.4)',
-                    boxShadow: '0 12px 35px rgba(17, 85, 204, 0.15)',
-                  }}
-                />
-
                 <div>
                   {/* Top: Icon + Highlight Badge */}
                   <div className="flex items-center justify-between mb-5">
                     <div
                       className="w-12 h-12 rounded-2xl flex items-center justify-center border transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        backgroundColor: 'rgba(17, 85, 204, 0.1)',
-                        borderColor: 'rgba(17, 85, 204, 0.25)',
-                        color: '#22B6F6',
+                        backgroundColor: 'rgba(17, 85, 204, 0.08)',
+                        borderColor: 'rgba(17, 85, 204, 0.2)',
+                        color: '#1155CC',
                       }}
                     >
                       <Icon size={22} />
                     </div>
 
                     <span
-                      className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border"
+                      className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border font-semibold"
                       style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                        borderColor: 'rgba(255, 255, 255, 0.1)',
-                        color: 'rgba(255, 255, 255, 0.7)',
+                        backgroundColor: 'rgba(17, 85, 204, 0.06)',
+                        borderColor: 'rgba(17, 85, 204, 0.15)',
+                        color: '#1155CC',
                       }}
                     >
                       {service.highlight}
@@ -243,19 +229,19 @@ export function ServicesSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display text-lg font-bold text-foreground group-hover:text-accent-secondary transition-colors leading-snug mb-3">
+                  <h3 className="font-display text-lg font-bold text-slate-900 group-hover:text-accent transition-colors leading-snug mb-3">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs text-muted-foreground leading-relaxed font-light mb-5">
+                  <p className="text-xs text-slate-600 leading-relaxed font-light mb-5">
                     {service.description}
                   </p>
 
                   {/* Deliverables Bullet List */}
-                  <ul className="space-y-2 mb-6 border-t border-white/5 pt-4">
+                  <ul className="space-y-2 mb-6 border-t border-slate-100 pt-4">
                     {service.deliverables.map((item, dIdx) => (
-                      <li key={dIdx} className="flex items-start gap-2 text-[11px] text-foreground/80 leading-tight">
+                      <li key={dIdx} className="flex items-start gap-2 text-[11px] text-slate-700 leading-tight">
                         <CheckCircle2 size={13} className="shrink-0 mt-0.5" style={{ color: '#1155CC' }} />
                         <span>{item}</span>
                       </li>
@@ -264,16 +250,16 @@ export function ServicesSection() {
                 </div>
 
                 {/* Bottom: Tech Stack badges */}
-                <div className="border-t border-white/5 pt-4 mt-auto">
+                <div className="border-t border-slate-100 pt-4 mt-auto">
                   <div className="flex flex-wrap gap-1.5">
                     {service.techStack.map((tech) => (
                       <span
                         key={tech}
                         className="px-2 py-0.5 rounded-md text-[10px] font-mono border"
                         style={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                          borderColor: 'rgba(255, 255, 255, 0.06)',
-                          color: 'rgba(255, 255, 255, 0.6)',
+                          backgroundColor: '#F1F5F9',
+                          borderColor: '#E2E8F0',
+                          color: '#475569',
                         }}
                       >
                         {tech}
@@ -291,16 +277,16 @@ export function ServicesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-14 p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden"
+          className="mt-14 p-6 sm:p-8 rounded-3xl border border-blue-100 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-sm"
           style={{
-            background: 'linear-gradient(135deg, rgba(15,82,186,0.12) 0%, rgba(17,85,204,0.08) 50%, rgba(34,182,246,0.06) 100%)',
+            background: 'linear-gradient(135deg, #EEF6FF 0%, #FFFFFF 50%, #EFF8FF 100%)',
           }}
         >
           <div className="flex flex-col text-center sm:text-left">
-            <h4 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+            <h4 className="font-display text-xl sm:text-2xl font-bold text-slate-900">
               Need a Custom Solution for Your Business?
             </h4>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-xl font-light">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl font-light">
               Let's evaluate your technical requirements, architecture constraints, and roadmap in a direct technical discovery call.
             </p>
           </div>

@@ -147,7 +147,7 @@ export default function ProjectDetailPage() {
                     <img 
                       src={project.logo} 
                       alt={`${project.name} logo`} 
-                      className="h-16 w-auto object-contain bg-white/5 p-3 rounded-2xl border border-white/10"
+                      className="h-16 w-auto object-contain bg-white p-3 rounded-2xl border border-slate-200 shadow-xs"
                     />
                   )}
                   <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
@@ -161,8 +161,8 @@ export default function ProjectDetailPage() {
 
               {/* Right Column: Metadata Details (Span 4) */}
               <div className="lg:col-span-4 lg:pl-10">
-                <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col gap-4">
-                  <h4 className="text-xs text-foreground/80 font-mono uppercase tracking-wider border-b border-white/5 pb-3">
+                <div className="glass-card bg-white p-6 rounded-2xl border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex flex-col gap-4">
+                  <h4 className="text-xs text-foreground/80 font-mono uppercase tracking-wider border-b border-slate-200 pb-3">
                     Project Info
                   </h4>
                   
@@ -204,7 +204,7 @@ export default function ProjectDetailPage() {
               {project.metrics.map((metric, idx) => (
                 <div 
                   key={idx} 
-                  className="glass-card p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-colors duration-300 flex flex-col gap-2"
+                  className="glass-card bg-white p-8 rounded-2xl border border-slate-200/90 hover:border-slate-300 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex flex-col gap-2"
                 >
                   <span className="text-3xl md:text-4xl font-display font-bold text-accent">
                     {metric.value}
@@ -224,14 +224,14 @@ export default function ProjectDetailPage() {
               
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 {/* Main Image: Span 8 */}
-                <div className="lg:col-span-8 bg-surface-light rounded-3xl overflow-hidden border border-white/5 shadow-2xl relative aspect-video flex items-center justify-center group">
+                <div className="lg:col-span-8 bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl relative aspect-video flex items-center justify-center group">
                   <img 
                     src={project.image} 
                     alt={`${project.name} interface preview`} 
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                    <span className="text-xs font-mono tracking-wider uppercase text-white bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                    <span className="text-xs font-mono tracking-wider uppercase text-white bg-black/70 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20">
                       Primary Interface Dashboard
                     </span>
                   </div>
@@ -242,15 +242,15 @@ export default function ProjectDetailPage() {
                   {project.gallery && project.gallery.map((imgUrl, i) => (
                     <div 
                       key={i} 
-                      className="bg-surface-light rounded-3xl overflow-hidden border border-white/5 shadow-2xl relative flex-grow aspect-video lg:aspect-auto lg:h-[calc(50%-12px)] flex items-center justify-center group animate-pulse-subtle"
+                      className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl relative flex-grow aspect-video lg:aspect-auto lg:h-[calc(50%-12px)] flex items-center justify-center group"
                     >
                       <img 
                         src={imgUrl} 
                         alt={`${project.name} gallery ${i + 1}`} 
                         className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" 
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span className="text-[10px] font-mono tracking-wider uppercase text-white bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span className="text-[10px] font-mono tracking-wider uppercase text-white bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20">
                           System Artifact {i + 1}
                         </span>
                       </div>
@@ -260,7 +260,7 @@ export default function ProjectDetailPage() {
                   {/* Fallback mockup spacer card if gallery has only 1 image */}
                   {(!project.gallery || project.gallery.length < 2) && (
                     <div 
-                      className="bg-surface-light/50 rounded-3xl p-8 border border-dashed border-white/10 flex flex-col items-center justify-center text-center gap-3 lg:h-[calc(50%-12px)] flex-grow"
+                      className="bg-slate-50/80 rounded-3xl p-8 border border-dashed border-slate-200 flex flex-col items-center justify-center text-center gap-3 lg:h-[calc(50%-12px)] flex-grow"
                     >
                       <Cpu className="text-accent/40 w-10 h-10 animate-bounce-subtle" />
                       <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
@@ -323,7 +323,7 @@ export default function ProjectDetailPage() {
 
                 {/* 4. AI integration section (if applicable) */}
                 {project.aiDetails && project.aiDetails.length > 0 && (
-                  <div className="flex flex-col gap-6 pt-6 border-t border-white/5">
+                  <div className="flex flex-col gap-6 pt-6 border-t border-slate-200">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-accent/5 border border-accent/15 text-accent">
                         <Sparkles size={18} />
@@ -337,9 +337,9 @@ export default function ProjectDetailPage() {
                       {project.aiDetails.map((ai, idx) => (
                         <div 
                           key={idx} 
-                          className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col sm:flex-row gap-4 items-start"
+                          className="glass-card bg-white p-6 rounded-2xl border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row gap-4 items-start"
                         >
-                          <div className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs text-accent-secondary font-mono shrink-0">
+                          <div className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-accent-secondary font-mono shrink-0">
                             {ai.engine}
                           </div>
                           <p className="text-body-sm text-muted-foreground leading-relaxed font-light">
@@ -357,7 +357,7 @@ export default function ProjectDetailPage() {
               <div className="lg:col-span-4 flex flex-col gap-8">
                 
                 {/* Tech Specs */}
-                <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col gap-6">
+                <div className="glass-card bg-white p-6 rounded-2xl border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex flex-col gap-6">
                   <h4 className="font-display text-lg font-semibold text-foreground flex items-center gap-2.5">
                     <Server size={16} className="text-accent" />
                     Technical Architecture
@@ -368,7 +368,7 @@ export default function ProjectDetailPage() {
                     {project.stack.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs text-foreground/80 font-mono"
+                        className="px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-800 font-mono"
                       >
                         {tech}
                       </span>
@@ -376,15 +376,15 @@ export default function ProjectDetailPage() {
                   </div>
 
                   {project.architectureDetails && (
-                    <p className="text-xs text-muted-foreground leading-relaxed font-light border-t border-white/5 pt-4">
+                    <p className="text-xs text-muted-foreground leading-relaxed font-light border-t border-slate-200 pt-4">
                       {project.architectureDetails}
                     </p>
                   )}
                 </div>
 
                 {/* Core Features Checkmarks */}
-                <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col gap-4">
-                  <h4 className="text-xs text-foreground/80 font-mono uppercase tracking-wider border-b border-white/5 pb-3">
+                <div className="glass-card bg-white p-6 rounded-2xl border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex flex-col gap-4">
+                  <h4 className="text-xs text-foreground/80 font-mono uppercase tracking-wider border-b border-slate-200 pb-3">
                     Key Implementations
                   </h4>
                   <ul className="flex flex-col gap-3">
@@ -399,7 +399,7 @@ export default function ProjectDetailPage() {
 
                 {/* Discuss Solution CTA Card */}
                 <div 
-                  className="glass-card p-8 rounded-3xl border border-accent/20 flex flex-col gap-6 relative overflow-hidden group"
+                  className="glass-card bg-white p-8 rounded-3xl border border-accent/20 shadow-md flex flex-col gap-6 relative overflow-hidden group"
                   style={{ backgroundImage: `radial-gradient(circle at top right, ${project.color}15 0%, transparent 70%)` }}
                 >
                   <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
