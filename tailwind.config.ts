@@ -17,6 +17,7 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Space Grotesk', 'system-ui', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
+        sora: ['Sora', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -127,12 +128,15 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-accent': 'linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-hover)) 100%)',
+        'gradient-accent': 'linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-secondary)) 100%)',
+        'gradient-brand': 'linear-gradient(135deg, #0F52BA 0%, #1155CC 50%, #008BD9 100%)',
         'hero-glow': 'radial-gradient(ellipse 60% 40% at 50% 50%, hsl(var(--accent-glow)), transparent)',
       },
       boxShadow: {
         'glow': '0 0 60px hsl(var(--accent-glow))',
         'glow-lg': '0 0 100px hsl(var(--accent-glow))',
+        'brand': '0 4px 14px rgba(17, 85, 204, 0.35)',
+        'brand-lg': '0 10px 28px rgba(17, 85, 204, 0.5)',
         'card': '0 4px 24px rgba(0, 0, 0, 0.3)',
         'card-hover': '0 8px 40px rgba(0, 0, 0, 0.4)',
       },

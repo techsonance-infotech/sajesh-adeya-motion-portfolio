@@ -27,8 +27,8 @@ export function Skills() {
       x: x * 0.45,
       y: y * 0.45,
       scale: 1.05,
-      borderColor: 'rgba(34, 197, 94, 0.4)',
-      backgroundColor: 'rgba(34, 197, 94, 0.08)',
+      borderColor: 'rgba(17, 85, 204, 0.4)',
+      backgroundColor: 'rgba(17, 85, 204, 0.08)',
       duration: 0.2,
       ease: 'power1.out',
     });

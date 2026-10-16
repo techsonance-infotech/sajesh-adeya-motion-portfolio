@@ -75,7 +75,7 @@ export function CustomCursor() {
           width: 80,
           height: 80,
           borderRadius: '50%',
-          backgroundColor: 'rgba(34, 197, 94, 0.95)',
+          backgroundColor: 'rgba(17, 85, 204, 0.95)',
           borderColor: 'transparent',
           borderWidth: 0,
           xPercent: -24,
@@ -87,15 +87,15 @@ export function CustomCursor() {
       } else {
         gsap.to(ring, {
           scale: 1.5,
-          backgroundColor: 'rgba(34, 197, 94, 0.15)',
-          borderColor: 'rgba(34, 197, 94, 0.8)',
+          backgroundColor: 'rgba(17, 85, 204, 0.15)',
+          borderColor: 'rgba(17, 85, 204, 0.8)',
           borderWidth: '1.5px',
           duration: 0.3,
           ease: 'power2.out',
         });
         gsap.to(cursor, {
           scale: 0.5,
-          backgroundColor: '#22c55e',
+          backgroundColor: '#1155CC',
           duration: 0.3,
         });
       }
@@ -119,7 +119,7 @@ export function CustomCursor() {
       gsap.to(cursor, {
         opacity: 1,
         scale: 1,
-        backgroundColor: '#22c55e',
+        backgroundColor: '#1155CC',
         duration: 0.3,
       });
     };
@@ -165,8 +165,8 @@ export function CustomCursor() {
     >
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-emerald-500 rounded-full -translate-x-1/2 -translate-y-1/2 z-[99991]"
-        style={{ willChange: 'transform' }}
+        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full -translate-x-1/2 -translate-y-1/2 z-[99991]"
+        style={{ willChange: 'transform', backgroundColor: '#1155CC' }}
       />
       <div
         ref={ringRef}

@@ -59,7 +59,7 @@ function CentralClock({ isInView }: { isInView: boolean }) {
       {/* Multi-layer enhanced glow for visual separation */}
       <div className="absolute inset-0 rounded-full bg-white/10 blur-3xl scale-110" />
       <div className="absolute inset-0 rounded-full bg-gradient-radial from-white/8 via-white/3 to-transparent blur-2xl" />
-      <div className="absolute inset-0 rounded-full bg-emerald-500/5 blur-xl" />
+      <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, rgba(17,85,204,0.12) 0%, transparent 70%)' }} />
       
       <svg viewBox="0 0 200 200" className="w-full h-full relative z-10">
         <defs>
@@ -254,10 +254,10 @@ export function BentoGrid() {
                   </span>
                 </h2>
                 <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/50">
-                  <MapPin size={14} className="text-emerald-500 shrink-0" />
+                  <MapPin size={14} className="text-accent shrink-0" />
                   <span>SURAT, IN</span>
                   <span className="text-white/20">•</span>
-                  <Clock size={14} className="text-emerald-500/70 shrink-0" />
+                  <Clock size={14} className="text-accent/70 shrink-0" />
                   <span className="font-mono text-xs">{currentTime}</span>
                 </div>
               </div>
@@ -300,7 +300,7 @@ export function BentoGrid() {
                     href={url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-white/40 hover:text-emerald-500 transition-colors p-2 rounded-full hover:bg-emerald-500/10"
+                    className="text-white/40 hover:text-accent transition-colors p-2 rounded-full hover:bg-accent/10"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -331,7 +331,7 @@ export function BentoGrid() {
                 {/* Left Column: Main Title */}
                 <div className="flex flex-col justify-start pt-2 md:pt-4">
                   <div className="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest mb-4 md:mb-6">
-                    <Sparkles size={12} className="text-emerald-500" />
+                    <Sparkles size={12} className="text-accent" />
                     <span>Detail-Driven UI</span>
                   </div>
                   
@@ -378,18 +378,18 @@ export function BentoGrid() {
                   <div className="w-3 h-3 rounded-full bg-white/60" />
                 </div>
                 <motion.div 
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30"
                   animate={{ 
                     boxShadow: [
-                      '0 0 10px rgba(34,197,94,0.15)', 
-                      '0 0 20px rgba(34,197,94,0.25)', 
-                      '0 0 10px rgba(34,197,94,0.15)'
+                      '0 0 10px rgba(17,85,204,0.15)', 
+                      '0 0 20px rgba(17,85,204,0.30)', 
+                      '0 0 10px rgba(17,85,204,0.15)'
                     ] 
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-medium text-emerald-500">Available</span>
+                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                  <span className="text-xs font-medium text-accent">Available</span>
                 </motion.div>
               </div>
 
@@ -413,12 +413,12 @@ export function BentoGrid() {
                 >
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
                     copied 
-                      ? 'bg-emerald-500/20 border-emerald-500 text-emerald-500' 
-                      : 'bg-white/5 border-white/10 group-hover/email:border-emerald-500/50 group-hover/email:bg-emerald-500/10'
+                      ? 'bg-accent/20 border-accent text-accent' 
+                      : 'bg-white/5 border-white/10 group-hover/email:border-accent/50 group-hover/email:bg-accent/10'
                   }`}>
                     {copied ? <Check size={14} /> : <Copy size={14} />}
                   </div>
-                  <span className="font-mono text-sm text-white group-hover/email:text-emerald-500 transition-colors truncate">
+                  <span className="font-mono text-sm text-white group-hover/email:text-accent transition-colors truncate">
                     {siteConfig.email}
                   </span>
                 </motion.button>
@@ -428,13 +428,14 @@ export function BentoGrid() {
 
                 <motion.a 
                   href="#contact"
-                  className="flex items-center justify-center gap-2 w-full py-4 rounded-full bg-white text-black font-semibold uppercase tracking-wider text-sm relative overflow-hidden group/btn"
-                  whileHover={{ scale: 1.02 }}
+                  className="flex items-center justify-center gap-2 w-full py-4 rounded-full font-semibold uppercase tracking-wider text-sm relative overflow-hidden group/btn text-white"
+                  style={{ background: 'linear-gradient(135deg, #0F52BA 0%, #1155CC 60%, #008BD9 100%)', boxShadow: '0 4px 14px rgba(17,85,204,0.35)' }}
+                  whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="relative z-10">Connect Now</span>
                   <ArrowUpRight size={16} className="relative z-10 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                  <div className="absolute inset-0 bg-emerald-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                 </motion.a>
               </div>
             </motion.div>
@@ -486,8 +487,8 @@ export function BentoGrid() {
                 {/* Text Content - Top Left */}
                 <div className="absolute top-6 sm:top-8 left-6 sm:left-8 z-20">
                   <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                    <Globe size={14} className="text-emerald-500" />
-                    <span className="text-xs text-emerald-500 uppercase tracking-widest font-medium">Available Globally</span>
+                    <Globe size={14} className="text-accent" />
+                    <span className="text-xs text-accent uppercase tracking-widest font-medium">Available Globally</span>
                   </div>
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight">
                     Adaptable across<br />time zones
@@ -565,7 +566,7 @@ export function BentoGrid() {
                     TechSonance <span className="font-serif italic text-blue-400 font-light">InfoTech</span>
                   </span>
                 </div>
-                <h3 className="font-mono text-sm sm:text-base font-bold text-emerald-400 mb-1 uppercase tracking-wider">
+                <h3 className="font-mono text-sm sm:text-base font-bold text-accent mb-1 uppercase tracking-wider">
                   CO-Founder & CTO
                 </h3>
                 <p className="text-xs text-white/50 max-w-[280px]">

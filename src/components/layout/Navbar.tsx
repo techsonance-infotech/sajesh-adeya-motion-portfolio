@@ -116,12 +116,17 @@ export function Navbar() {
             })}
           </div>
 
-          {/* CTA Button - Desktop */}
+          {/* CTA Button - Desktop (TechSonance Brand Style) */}
           <button
             onClick={() => window.dispatchEvent(new CustomEvent('open-scheduling'))}
-            className="hidden md:inline-flex btn-secondary text-sm cursor-pointer"
+            className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold uppercase tracking-wide text-white cursor-pointer transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 relative overflow-hidden group"
+            style={{
+              background: 'linear-gradient(135deg, #0F52BA 0%, #1155CC 60%, #008BD9 100%)',
+              boxShadow: '0 4px 14px rgba(17,85,204,0.35)',
+            }}
           >
-            Book a Call
+            <span className="relative z-10">Book a Call</span>
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full z-0" />
           </button>
 
           {/* Mobile Menu Button */}
@@ -173,11 +178,12 @@ export function Navbar() {
                           e.preventDefault();
                           handleLinkClick(link.href);
                         }}
-                        className={`block py-3 px-4 rounded-lg text-lg font-medium transition-colors ${
+                        className={`block py-3 px-4 rounded-lg text-lg font-medium transition-all duration-300 ${
                           isActive 
-                            ? 'bg-foreground text-background' 
+                            ? 'text-white shadow-brand' 
                             : 'text-foreground hover:bg-white/5'
                         }`}
+                        style={isActive ? { background: 'linear-gradient(135deg, #1155CC, #22B6F6)' } : undefined}
                       >
                         {link.label}
                       </a>
@@ -190,7 +196,7 @@ export function Navbar() {
                       setIsMobileMenuOpen(false);
                       window.dispatchEvent(new CustomEvent('open-scheduling'));
                     }}
-                    className="btn-secondary w-full justify-center cursor-pointer"
+                    className="btn-primary w-full justify-center cursor-pointer text-xs"
                   >
                     Book a Call
                   </button>

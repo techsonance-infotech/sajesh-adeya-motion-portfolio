@@ -106,7 +106,7 @@ export function ExperienceAndEducation() {
               <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-white/[0.06] rounded-full" />
               <div
                 ref={expLineRef}
-                className="absolute left-0 top-3 w-[1px] bg-gradient-to-b from-accent via-emerald-500 to-accent rounded-full origin-top transform-gpu"
+                className="absolute left-0 top-3 w-[1px] bg-gradient-to-b from-accent via-accent-secondary to-accent rounded-full origin-top transform-gpu"
                 style={{ height: '0%' }}
               />
 
@@ -116,8 +116,8 @@ export function ExperienceAndEducation() {
                   className="timeline-item-anim relative group"
                 >
                   {/* Indicator Node */}
-                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050505] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(34,197,94,0.15)]">
-                    <div className="h-1.5 w-1.5 rounded-full bg-accent group-hover:bg-emerald-400 transition-colors duration-300" />
+                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050A14] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(17,85,204,0.15)]">
+                    <div className="h-1.5 w-1.5 rounded-full bg-accent group-hover:bg-accent-secondary transition-colors duration-300" />
                   </div>
 
                   {/* Card Container */}
@@ -202,7 +202,7 @@ export function ExperienceAndEducation() {
               <div className="absolute left-0 top-3 bottom-3 w-[1px] bg-white/[0.06] rounded-full" />
               <div
                 ref={eduLineRef}
-                className="absolute left-0 top-3 w-[1px] bg-gradient-to-b from-accent via-emerald-500 to-accent rounded-full origin-top transform-gpu"
+                className="absolute left-0 top-3 w-[1px] bg-gradient-to-b from-accent via-accent-secondary to-accent rounded-full origin-top transform-gpu"
                 style={{ height: '0%' }}
               />
 
@@ -212,8 +212,8 @@ export function ExperienceAndEducation() {
                   className="timeline-item-anim relative group"
                 >
                   {/* Indicator Node */}
-                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050505] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(34,197,94,0.15)]">
-                    <div className="h-1.5 w-1.5 rounded-full bg-accent group-hover:bg-emerald-400 transition-colors duration-300" />
+                  <div className="absolute left-[-29px] sm:left-[-37px] md:left-[-45px] top-1.5 z-10 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[#050A14] border border-accent/40 group-hover:border-accent group-hover:scale-115 transition-all duration-300 shadow-[0_0_12px_rgba(17,85,204,0.15)]">
+                    <div className="h-1.5 w-1.5 rounded-full bg-accent group-hover:bg-accent-secondary transition-colors duration-300" />
                   </div>
 
                   {/* Card Container */}

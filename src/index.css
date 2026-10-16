@@ -4,57 +4,69 @@
 
 @layer base {
   :root {
-    /* Dark Premium Theme - Neon Green & Cyan */
-    --background: 0 0% 2%;
-    --background-hex: #050505;
-    --surface: 0 0% 5%;
-    --surface-hex: #0D0D0D;
+    /* ================================================
+       TechSonance Brand Color System
+       Primary: #1155CC (Royal Blue)
+       Secondary: #22B6F6 (Sky Blue)
+       Deep: #0F52BA → #071A35 (gradient)
+    ================================================ */
+
+    /* Dark Premium Theme - TechSonance Blue */
+    --background: 222 47% 4%;
+    --background-hex: #050A14;
+    --surface: 222 47% 7%;
+    --surface-hex: #0B1220;
     
     /* Cards with glassmorphism */
-    --card: 0 0% 100% / 0.04;
-    --card-hover: 0 0% 100% / 0.08;
-    --card-foreground: 0 0% 96%;
+    --card: 220 50% 100% / 0.04;
+    --card-hover: 220 50% 100% / 0.08;
+    --card-foreground: 210 40% 96%;
     
     /* Borders */
-    --border: 0 0% 100% / 0.10;
-    --border-strong: 0 0% 100% / 0.20;
+    --border: 220 50% 100% / 0.10;
+    --border-strong: 220 50% 100% / 0.20;
     
     /* Text colors */
-    --foreground: 0 0% 96%;
-    --text-muted: 0 0% 96% / 0.60;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 96% / 0.60;
+    --foreground: 210 40% 96%;
+    --text-muted: 210 40% 96% / 0.60;
+    --muted: 222 47% 12%;
+    --muted-foreground: 210 40% 96% / 0.60;
     
-    /* Accent - Neon Green */
-    --accent: 142 76% 50%;
-    --accent-hex: #22C55E;
-    --accent-glow: 142 76% 50% / 0.30;
-    --accent-hover: 142 76% 60%;
-    --accent-foreground: 0 0% 5%;
+    /* Accent - TechSonance Royal Blue #1155CC */
+    --accent: 222 78% 56%;
+    --accent-hex: #1155CC;
+    --accent-glow: 222 78% 56% / 0.30;
+    --accent-hover: 222 78% 40%;
+    --accent-foreground: 0 0% 100%;
     
-    /* Secondary Accent - Cyan */
-    --accent-secondary: 192 91% 55%;
-    --accent-secondary-hex: #22D3EE;
+    /* Secondary Accent - TechSonance Sky Blue #22B6F6 */
+    --accent-secondary: 201 91% 55%;
+    --accent-secondary-hex: #22B6F6;
+    
+    /* Brand gradient colors */
+    --brand-start: 216 83% 40%;     /* #0F52BA */
+    --brand-mid: 222 78% 56%;       /* #1155CC */
+    --brand-end: 201 91% 55%;       /* #22B6F6 */
     
     /* Primary mapped to accent */
-    --primary: 142 76% 50%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 222 78% 56%;
+    --primary-foreground: 0 0% 100%;
     
     /* Secondary */
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 210 40% 96%;
     
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
     /* Popover */
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 96%;
     
     /* Input & Ring */
-    --input: 0 0% 100% / 0.10;
-    --ring: 142 76% 50%;
+    --input: 220 50% 100% / 0.10;
+    --ring: 222 78% 56%;
     
     /* Radius */
     --radius: 0.75rem;
@@ -62,14 +74,14 @@
     --radius-full: 9999px;
     
     /* Sidebar (keeping for compatibility) */
-    --sidebar-background: 0 0% 5%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 142 76% 50%;
-    --sidebar-primary-foreground: 0 0% 5%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 100% / 0.10;
-    --sidebar-ring: 142 76% 50%;
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 222 78% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 12%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 220 50% 100% / 0.10;
+    --sidebar-ring: 222 78% 56%;
   }
 }
 
@@ -133,10 +145,27 @@
     transform: translateY(-4px);
   }
   
-  /* Gradient text */
+  /* Gradient text - white to blue */
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--accent)) 100%);
+  }
+  
+  /* TechSonance brand gradient text - Blue to Sky Blue */
+  .ts-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, #1155CC, #22B6F6);
+  }
+  
+  /* TechSonance brand gradient - for backgrounds/borders */
+  .ts-gradient-bg {
+    background: linear-gradient(135deg, #0F52BA 0%, #1155CC 50%, #008BD9 100%);
+  }
+  
+  /* Brand border gradient */
+  .ts-gradient-border {
+    border: 1px solid;
+    border-image: linear-gradient(135deg, #1155CC, #22B6F6) 1;
   }
   
   /* Accent glow */
@@ -150,16 +179,21 @@
     font-style: italic;
   }
   
-  /* Button styles */
+  /* Button styles - TechSonance Blue Primary */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300;
-    background: hsl(var(--foreground));
-    color: hsl(var(--background));
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold uppercase tracking-wide transition-all duration-300;
+    background: linear-gradient(135deg, #0F52BA 0%, #1155CC 60%, #008BD9 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(17, 85, 204, 0.35);
   }
   
   .btn-primary:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 20px hsl(var(--foreground) / 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(17, 85, 204, 0.5);
+  }
+  
+  .btn-primary:active {
+    transform: translateY(0);
   }
   
   .btn-secondary {
@@ -185,8 +219,9 @@
   }
   
   .nav-pill-active {
-    background: hsl(var(--foreground));
-    color: hsl(var(--background)) !important;
+    background: linear-gradient(135deg, #1155CC, #22B6F6);
+    color: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(17, 85, 204, 0.4);
   }
   
   /* Tech badge */
@@ -225,6 +260,29 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
   
+  /* TechSonance marquee track for tech-stack scroll */
+  .marquee-track {
+    animation: marquee-scroll 30s linear infinite;
+  }
+  
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  
+  /* TS Stats badge */
+  .ts-stat-badge {
+    @apply flex flex-col items-center justify-center p-4 rounded-2xl;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+  }
+  
+  .ts-stat-badge:hover {
+    border-color: rgba(17, 85, 204, 0.4);
+    box-shadow: 0 0 20px rgba(17, 85, 204, 0.15);
+  }
+  
   /* Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
@@ -249,6 +307,12 @@
 }
 
 @layer utilities {
+  /* Marquee scrolling animation */
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
   /* Fluid typography */
   .text-hero {
     font-size: clamp(2.25rem, 8.5vw, 10rem);

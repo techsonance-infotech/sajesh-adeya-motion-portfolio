@@ -47,13 +47,13 @@ const BlobShader = {
       // Calculate fresnel (glow on outer edges)
       float fresnel = pow(1.0 - max(dot(vNormal, viewDir), 0.0), 3.0);
       
-      // Dynamic green/cyan color palette matching the UI
-      vec3 colorGreen = vec3(0.13, 0.77, 0.37); // #22c55e (neon green)
-      vec3 colorCyan = vec3(0.13, 0.83, 0.93);  // #22d3ee (cyan)
+      // Dynamic blue/sky-blue color palette matching TechSonance brand
+      vec3 colorBlue = vec3(0.067, 0.333, 0.80); // #1155CC (TechSonance Royal Blue)
+      vec3 colorSky = vec3(0.133, 0.714, 0.965); // #22B6F6 (TechSonance Sky Blue)
       
       // Interpolate colors based on coordinates and time
       float colorShift = sin(vPosition.x * 1.5 + uTime * 0.4) * 0.5 + 0.5;
-      vec3 baseColor = mix(colorGreen, colorCyan, colorShift);
+      vec3 baseColor = mix(colorBlue, colorSky, colorShift);
       
       // Holographic glow composition
       vec3 finalColor = mix(baseColor * 0.3, baseColor, fresnel) + vec3(fresnel * 0.4);

@@ -9,6 +9,8 @@ import { BentoGrid } from '@/components/sections/BentoGrid';
 import { ProjectShowcase } from '@/components/sections/ProjectShowcase';
 import { Contact } from '@/components/sections/Contact';
 import { AEOFAQ } from '@/components/sections/AEOFAQ';
+import { TechStackMarquee } from '@/components/sections/TechStackMarquee';
+import { CTABanner } from '@/components/sections/CTABanner';
 import { SchedulingModal } from '@/components/common/SchedulingModal';
 import { SEOHead } from '@/components/common/SEOHead';
 
@@ -38,8 +40,10 @@ function Index() {
         <main>
           <Hero />
           <BentoGrid />
+          <TechStackMarquee />
           <ProjectShowcase />
           <AEOFAQ />
+          <CTABanner />
           <Contact />
         </main>
         
