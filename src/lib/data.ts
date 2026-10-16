@@ -406,9 +406,10 @@ export const highlights = [
 
 export const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "Showcase", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Experience", href: "/about#experience" },
-  { label: "Showcase", href: "/projects" },
   { label: "Skills", href: "/about#skills" },
   { label: "Contact", href: "/#contact" },
 ];

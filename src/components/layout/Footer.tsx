@@ -160,6 +160,21 @@ export function Footer() {
               </a>
 
               <a 
+                href="https://wa.me/919173101711" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-body-sm text-muted-foreground hover:text-foreground transition-colors group cursor-none"
+              >
+                <div className="p-2 rounded-lg bg-white/5 border border-white/5 group-hover:border-emerald-500/30 transition-colors">
+                  <Phone size={16} className="text-emerald-400" />
+                </div>
+                <span className="flex items-center gap-1.5">
+                  <span>WhatsApp Chat</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono">Quick Connect</span>
+                </span>
+              </a>
+
+              <a 
                 href="https://www.techsonance.co.in" 
                 target="_blank"
                 rel="noopener noreferrer"

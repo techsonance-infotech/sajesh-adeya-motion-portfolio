@@ -177,10 +177,15 @@ export function ProjectShowcase() {
         <div className="mt-16 flex justify-center pb-20 relative z-20">
           <button
             onClick={() => navigate('/projects')}
-            className="flex items-center gap-3 px-8 py-4 rounded-xl bg-accent text-accent-foreground font-mono text-xs uppercase tracking-wider hover:bg-accent/80 transition-all duration-300 cursor-none group shadow-glow"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold uppercase tracking-wider text-xs text-white overflow-hidden cursor-none transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+            style={{
+              background: 'linear-gradient(135deg, #0F52BA 0%, #1155CC 60%, #008BD9 100%)',
+              boxShadow: '0 4px 14px rgba(17,85,204,0.35)',
+            }}
           >
-            <span>View All Venture Case Studies</span>
-            <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+            <span className="relative z-10">View All Venture Case Studies</span>
+            <ArrowRight size={14} className="relative z-10 group-hover:translate-x-1.5 transition-transform duration-300" />
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full z-0" />
           </button>
         </div>
       </div>

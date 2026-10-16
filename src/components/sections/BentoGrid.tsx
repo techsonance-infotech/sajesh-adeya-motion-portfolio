@@ -517,7 +517,7 @@ export function BentoGrid() {
                           key={country.code}
                           className={`px-4 py-2 rounded-full border text-xs font-medium cursor-pointer transition-all duration-300 w-fit flex items-center justify-between min-w-[100px] ${
                             country.active 
-                              ? 'bg-[#1a1a1a] border-orange-600/50 text-orange-300' 
+                              ? 'bg-[#1155CC]/15 border-[#1155CC]/60 text-[#22B6F6] shadow-[0_0_15px_rgba(17,85,204,0.25)]' 
                               : 'bg-white/5 border-white/10 text-white/40 hover:border-white/20'
                           }`}
                           whileHover={{ scale: 1.05, x: -4 }}

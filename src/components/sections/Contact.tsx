@@ -268,10 +268,14 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-accent text-accent-foreground font-mono text-xs uppercase tracking-wider hover:bg-accent/80 transition-all duration-300 cursor-none disabled:opacity-50 disabled:cursor-not-allowed group shadow-glow"
+                  className="group relative w-full flex items-center justify-center gap-3 px-8 py-4 rounded-full font-semibold uppercase tracking-wider text-xs text-white overflow-hidden transition-all duration-300 cursor-none disabled:opacity-50 disabled:cursor-not-allowed shadow-brand hover:-translate-y-0.5 active:translate-y-0"
+                  style={{
+                    background: 'linear-gradient(135deg, #0F52BA 0%, #1155CC 60%, #008BD9 100%)',
+                  }}
                 >
-                  <span>{isSubmitting ? 'Sending message...' : 'Send message'}</span>
-                  <Send size={14} className={`${isSubmitting ? 'animate-pulse' : 'group-hover:translate-x-1 group-hover:-translate-y-1'} transition-transform duration-300`} />
+                  <span className="relative z-10">{isSubmitting ? 'Sending message...' : 'Send message'}</span>
+                  <Send size={14} className={`relative z-10 ${isSubmitting ? 'animate-pulse' : 'group-hover:translate-x-1 group-hover:-translate-y-1'} transition-transform duration-300`} />
+                  <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full z-0" />
                 </button>
               </div>
             </form>

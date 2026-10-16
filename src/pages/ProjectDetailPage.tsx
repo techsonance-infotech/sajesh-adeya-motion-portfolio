@@ -39,7 +39,10 @@ export default function ProjectDetailPage() {
         <h1 className="text-3xl font-display font-bold text-foreground mb-4">Project Not Found</h1>
         <button 
           onClick={() => navigate('/projects')}
-          className="px-6 py-3 rounded-xl bg-accent text-accent-foreground font-mono text-sm uppercase tracking-wider cursor-none"
+          className="px-6 py-3 rounded-full font-semibold uppercase tracking-wider text-xs text-white cursor-none shadow-brand hover:-translate-y-0.5 transition-all"
+          style={{
+            background: 'linear-gradient(135deg, #0F52BA 0%, #1155CC 60%, #008BD9 100%)',
+          }}
         >
           Back to Projects
         </button>
@@ -412,9 +415,13 @@ export default function ProjectDetailPage() {
 
                     <button
                       onClick={triggerScheduling}
-                      className="w-full py-3 rounded-xl bg-accent hover:bg-accent/80 text-accent-foreground font-mono text-xs uppercase tracking-wider transition-all duration-300 mt-2 cursor-none"
+                      className="group relative w-full py-3.5 rounded-full font-semibold uppercase tracking-wider text-xs text-white overflow-hidden transition-all duration-300 mt-2 cursor-none shadow-brand hover:-translate-y-0.5 active:translate-y-0"
+                      style={{
+                        background: 'linear-gradient(135deg, #0F52BA 0%, #1155CC 60%, #008BD9 100%)',
+                      }}
                     >
-                      Book a Strategy Session
+                      <span className="relative z-10">Book a Strategy Session</span>
+                      <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full z-0" />
                     </button>
                   </div>
                 </div>

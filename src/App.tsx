@@ -12,6 +12,8 @@ import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import NotFound from "./pages/NotFound";
+import { BrandPreloader } from "@/components/common/BrandPreloader";
+import { SonanceAIAssistant } from "@/components/common/SonanceAIAssistant";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,6 +53,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <BrandPreloader />
           <ScrollToHash />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -61,6 +64,7 @@ const App = () => (
             <Route path="/projects/:slug" element={<ProjectDetailPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <SonanceAIAssistant />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

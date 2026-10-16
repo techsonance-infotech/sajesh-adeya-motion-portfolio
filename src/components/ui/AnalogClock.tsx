@@ -154,7 +154,7 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
           width: 2,
           height: size * 0.36,
           marginLeft: -1,
-          background: 'hsl(142 76% 50%)',
+          background: 'hsl(var(--accent-secondary))',
           borderRadius: 1,
         }}
         animate={{ rotate: secondsRotation }}
@@ -180,7 +180,7 @@ export function AnalogClock({ size = 300, className = '' }: AnalogClockProps) {
           width: size * 0.025,
           height: size * 0.025,
           transform: 'translate(-50%, -50%)',
-          background: 'hsl(142 76% 50%)',
+          background: 'hsl(var(--accent))',
         }}
       />
     </div>

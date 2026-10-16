@@ -5,12 +5,14 @@ import { CustomCursor } from '@/components/effects/CustomCursor';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
+import { ClientLogosMarquee } from '@/components/sections/ClientLogosMarquee';
 import { BentoGrid } from '@/components/sections/BentoGrid';
-import { ProjectShowcase } from '@/components/sections/ProjectShowcase';
-import { Contact } from '@/components/sections/Contact';
-import { AEOFAQ } from '@/components/sections/AEOFAQ';
+import { ServicesSection } from '@/components/sections/ServicesSection';
 import { TechStackMarquee } from '@/components/sections/TechStackMarquee';
+import { ProjectShowcase } from '@/components/sections/ProjectShowcase';
+import { AEOFAQ } from '@/components/sections/AEOFAQ';
 import { CTABanner } from '@/components/sections/CTABanner';
+import { Contact } from '@/components/sections/Contact';
 import { SchedulingModal } from '@/components/common/SchedulingModal';
 import { SEOHead } from '@/components/common/SEOHead';
 
@@ -39,7 +41,9 @@ function Index() {
         {/* Main content */}
         <main>
           <Hero />
+          <ClientLogosMarquee />
           <BentoGrid />
+          <ServicesSection />
           <TechStackMarquee />
           <ProjectShowcase />
           <AEOFAQ />
