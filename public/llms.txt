@@ -1,4 +1,6 @@
 # Sajesh Adeya & TechSonance InfoTech LLP
+# https://sajesh.techsonance.co.in
+# Parent Company: https://www.techsonance.co.in
 
 > Co-Founder & CTO at TechSonance InfoTech LLP | Senior Full-Stack Developer & Software Architect based in Surat, Gujarat, India.
 
@@ -6,16 +8,28 @@
 Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializing in JavaScript, Node.js, Next.js, React, Java Microservices, PostgreSQL, and AWS Cloud Architecture. As Co-Founder & CTO of TechSonance InfoTech LLP, he leads the design, development, and deployment of enterprise SaaS applications, multi-tenant e-commerce platforms, logistics management suites, and AI-driven automated workflows.
 
 ## Key Information
-- **Name**: Sajesh Adeya
+- **Name**: Sajesh Adeya (Sajeshkumar Adeya)
 - **Role**: Co-Founder & CTO, TechSonance InfoTech LLP | Senior Full-Stack Developer
-- **Organization**: TechSonance InfoTech LLP
-- **Location**: Surat, Gujarat, India
-- **Email**: sajeshkumar@techsonanceinfotech.com / connect.techsonance@gmail.com
-- **Website**: https://sajesh.techsonance.co.in
-- **Agency Website**: https://marketplace.techsonance.co.in
+- **Parent Organization**: TechSonance InfoTech LLP (https://www.techsonance.co.in)
+- **Corporate Address**: UG-15, Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India
+- **Geo Coordinates**: 21.1418° N, 72.7709° E
+- **Email**: admin@techsonance.co.in / sajeshkumar@techsonanceinfotech.com
+- **Phone / WhatsApp**: +91 91731 01711
+- **Portfolio Website**: https://sajesh.techsonance.co.in
+- **Company Website**: https://www.techsonance.co.in
 - **LinkedIn**: https://www.linkedin.com/in/sajeshkumar-adeya-418809148
 - **GitHub**: https://github.com/techsonance-infotech
 - **X (Twitter)**: https://x.com/sajeshadeya
+- **Terms of Service**: https://sajesh.techsonance.co.in/terms
+- **Privacy Policy**: https://sajesh.techsonance.co.in/privacy
+
+## Verified Client Testimonials (Client Stories)
+- **FreightFlow (Ankur Rajput, Founder & Managing Director)**: "We were managing LR details and expenses across spreadsheets and WhatsApp. The new workflow has made it much easier to track each trip and catch billing issues before they become a problem."
+- **Zion (Anush, Founder & CEO)**: "The team worked closely with us on the mobile experience and paid attention to the small details in the ticket flow. Communication was straightforward, and we could discuss changes as we tested."
+- **MasterWeg (Sandeep Rudra, Founder & Managing Director)**: "We needed a backend that could support several workflows without becoming difficult to maintain. The team took time to understand the requirements and helped us shape a cleaner foundation."
+- **SyncServe POS (Rahul Rajput, Founder & Owner)**: "During rush hours when the internet fluctuates, billing can't stop. The offline mode keeps orders and KOTs printing reliably, and everything syncs automatically as soon as the connection is back."
+- **AccuNest (Narayan Singh, Founder & Managing Director)**: "Textile job-work and GST invoices used to require endless manual calculation across registers. Accunest simplified our workflow so our accountants generate compliant e-invoices in minutes without stress."
+- **TechSonance Marketplace (Ronak Kothari, Multi-Brand Merchant Partner)**: "Handling multiple vendors, diverse product catalogs, and automated payout splits seemed overwhelming. The platform handles cart updates smoothly and keeps our merchant onboarding straightforward and simple."
 
 ## Enterprise SaaS Portfolio & Case Studies
 
@@ -61,10 +75,10 @@ Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializin
 
 ## Technical Core Competencies
 - **Frontend Architecture**: React.js, Next.js (App Router / SSR), TypeScript, Tailwind CSS, Framer Motion, GSAP, Zustand, TanStack Query.
-- **Backend Architecture**: Node.js, Express, Java (Spring Boot Microservices), JPA, Hibernate, REST APIs, GraphQL, Socket.io.
+- **Backend Architecture**: Node.js, Express, Java (Spring Boot Microservices), CORBA Migrations, JPA, Hibernate, REST APIs, GraphQL, Socket.io.
 - **Databases & ORM**: PostgreSQL, MongoDB, SQLite, Supabase, Prisma ORM, Drizzle ORM, Row-Level Security (RLS).
 - **Cloud & DevOps**: AWS (EC2, S3, RDS), Docker, Kubernetes, CI/CD Pipelines, Vercel, Nginx, Linux Server Administration.
-- **AI Integrations**: Groq SDK (Llama 3.3 70B), Google Gemini 3.5 Flash, OCR Parsers, AI Chatbots, Voice-to-Text Workflows.
+- **AI Integrations**: Groq SDK (Llama 3.3 70B), Google Gemini, AI OCR Parsers, WhatsApp Bots, Agent Workflows.
 
 ## Optional Extended Documentation
 For comprehensive technical architecture documentation, see [llms-full.txt](https://sajesh.techsonance.co.in/llms-full.txt).

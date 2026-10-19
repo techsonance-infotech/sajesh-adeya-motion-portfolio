@@ -10,6 +10,7 @@ import { BentoGrid } from '@/components/sections/BentoGrid';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { TechStackMarquee } from '@/components/sections/TechStackMarquee';
 import { ProjectShowcase } from '@/components/sections/ProjectShowcase';
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { AEOFAQ } from '@/components/sections/AEOFAQ';
 import { CTABanner } from '@/components/sections/CTABanner';
 import { Contact } from '@/components/sections/Contact';
@@ -46,6 +47,7 @@ function Index() {
           <ServicesSection />
           <TechStackMarquee />
           <ProjectShowcase />
+          <TestimonialsSection />
           <AEOFAQ />
           <CTABanner />
           <Contact />

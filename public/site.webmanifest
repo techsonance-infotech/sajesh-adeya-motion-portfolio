@@ -1,0 +1,33 @@
+{
+  "name": "Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech LLP",
+  "short_name": "Sajesh Adeya",
+  "description": "Portfolio and technical showcase of Sajesh Adeya, Senior Full-Stack Developer and CTO at TechSonance InfoTech LLP.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFBFD",
+  "theme_color": "#1155CC",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/sajesh_logo_only.png",
+      "sizes": "247x216",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

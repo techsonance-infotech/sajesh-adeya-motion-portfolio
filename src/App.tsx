@@ -11,6 +11,8 @@ import Index from "./pages/Index";
 import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 import { BrandPreloader } from "@/components/common/BrandPreloader";
 import { SonanceAIAssistant } from "@/components/common/SonanceAIAssistant";
@@ -62,6 +64,9 @@ const App = () => (
             <Route path="/About" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <SonanceAIAssistant />

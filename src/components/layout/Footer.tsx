@@ -130,6 +130,28 @@ export function Footer() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="/terms"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/terms');
+                }}
+                className="text-body-sm text-slate-600 hover:text-accent transition-colors flex items-center gap-1.5 group cursor-pointer"
+              >
+                <span className="w-1.5 h-1.5 bg-accent rounded-full scale-0 group-hover:scale-100 transition-transform duration-200" />
+                Terms of Service
+              </a>
+              <a
+                href="/privacy"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/privacy');
+                }}
+                className="text-body-sm text-slate-600 hover:text-accent transition-colors flex items-center gap-1.5 group cursor-pointer"
+              >
+                <span className="w-1.5 h-1.5 bg-accent rounded-full scale-0 group-hover:scale-100 transition-transform duration-200" />
+                Privacy Policy
+              </a>
             </nav>
           </div>
 
@@ -195,8 +217,8 @@ export function Footer() {
         {/* Bottom Tier: Copyright, Local Time, & Social Connections */}
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           
-          {/* Copyright & Location Info */}
-          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left text-xs text-slate-500">
+          {/* Copyright, Legal Links & Location Info */}
+          <div className="flex flex-col md:flex-row items-center gap-3 text-center md:text-left text-xs text-slate-500">
             <span>
               © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
             </span>
@@ -204,6 +226,24 @@ export function Footer() {
             <span className="font-mono">
               Surat, Gujarat, IN {localTime ? `— ${localTime} IST` : ''}
             </span>
+            <span className="hidden md:inline text-slate-300">|</span>
+            <div className="flex items-center gap-3">
+              <a 
+                href="/privacy"
+                onClick={(e) => { e.preventDefault(); navigate('/privacy'); }}
+                className="hover:text-accent hover:underline transition-colors cursor-pointer"
+              >
+                Privacy Policy
+              </a>
+              <span className="text-slate-300">•</span>
+              <a 
+                href="/terms"
+                onClick={(e) => { e.preventDefault(); navigate('/terms'); }}
+                className="hover:text-accent hover:underline transition-colors cursor-pointer"
+              >
+                Terms of Service
+              </a>
+            </div>
           </div>
 
           {/* Social Links & Scroll-to-Top Button */}

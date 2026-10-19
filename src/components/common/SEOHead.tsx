@@ -96,13 +96,33 @@ export function SEOHead({
       <meta name="author" content="Sajesh Adeya" />
       <link rel="canonical" href={fullCanonicalUrl} />
 
+      {/* Crawl Directives */}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+      {/* GEO & Local Geographic Optimization */}
+      <meta name="geo.region" content="IN-GJ" />
+      <meta name="geo.placename" content="Surat" />
+      <meta name="geo.position" content="21.1418;72.7709" />
+      <meta name="ICBM" content="21.1418, 72.7709" />
+
+      {/* Favicon & Web Manifest Suite */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <meta name="theme-color" content="#1155CC" />
+
       {/* OpenGraph Tags */}
-      <meta property="og:site_name" content="Sajesh Adeya Portfolio | TechSonance InfoTech LLP" />
+      <meta property="og:site_name" content="Sajesh Adeya | TechSonance InfoTech LLP" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={fullCanonicalUrl} />
       <meta property="og:image" content={fullOgImage} />
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale:alternate" content="en_IN" />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />

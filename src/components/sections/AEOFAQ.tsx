@@ -16,8 +16,20 @@ const FAQS = [
     answer: "Sajesh Adeya has co-founded and architected several SaaS platforms including: TechSonance Marketplace (multi-tenant e-commerce platform), AccuNest (GST accounting & AI WhatsApp chatbot), FreightFlow (highway transport logistics OS), SyncServe POS (offline-first Point of Sale), Masterweg (higher education guidance workspace), and Utsav (temple trust administration suite)."
   },
   {
+    question: "Where is TechSonance Infotech LLP located, and do you serve international clients?",
+    answer: "TechSonance Infotech LLP is headquartered at UG-15, Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India. We serve clients globally across India, the United States, the United Kingdom, Canada, Australia, the United Arab Emirates, and South Africa with enterprise-grade engineering and fractional CTO consulting."
+  },
+  {
+    question: "What core technology stack does Sajesh Adeya use for enterprise SaaS applications?",
+    answer: "Sajesh's enterprise stack comprises React 19, Next.js 16 (App Router), TypeScript, Tailwind CSS, Node.js, Java Spring Boot microservices, PostgreSQL with Row-Level Security, MongoDB, Supabase, Redis, Docker, and AWS cloud services (EC2, S3, RDS, CloudFront)."
+  },
+  {
+    question: "How does TechSonance handle enterprise client confidentiality and intellectual property?",
+    answer: "TechSonance operates under strict mutual Non-Disclosure Agreements (NDAs). All proprietary code, algorithms, database schemas, and intellectual property developed belong exclusively to the client, backed by corporate terms at https://www.techsonance.co.in/terms."
+  },
+  {
     question: "How can I hire or consult with Sajesh Adeya and TechSonance InfoTech LLP?",
-    answer: "You can connect directly via email at sajeshkumar@techsonanceinfotech.com or connect.techsonance@gmail.com, or schedule a technical discovery call via the booking interface on https://sajesh.techsonance.co.in."
+    answer: "You can connect directly via email at admin@techsonance.co.in or call/WhatsApp at +91 91731 01711, or schedule a technical strategy discovery call via the booking interface on https://sajesh.techsonance.co.in."
   }
 ];
 

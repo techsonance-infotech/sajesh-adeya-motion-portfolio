@@ -1,7 +1,8 @@
-# Robots.txt for Sajesh Adeya Portfolio & TechSonance InfoTech LLP
-# https://sajesh.techsonance.co.in
+# Robots.txt for Sajesh Adeya Portfolio & TechSonance Infotech LLP
+# Canonical URL: https://sajesh.techsonance.co.in
+# Parent Company: https://www.techsonance.co.in
 
-# Global Search Engine Crawlers
+# Global Search Engine Crawlers (SEO)
 User-agent: Googlebot
 Allow: /
 
@@ -20,7 +21,10 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# Generative AI & Answer Engine Crawlers (AEO / GEO)
+User-agent: Applebot
+Allow: /
+
+# Generative AI, Answer Engines & RAG Scrapers (AEO / GEO)
 User-agent: GPTBot
 Allow: /
 
@@ -45,9 +49,23 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# Default rule for all other crawlers
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Default rule for all crawlers
 User-agent: *
 Allow: /
 
-# Sitemap Location
+# Host & Sitemaps
+Host: https://sajesh.techsonance.co.in
 Sitemap: https://sajesh.techsonance.co.in/sitemap.xml
+
+# LLM Discovery Standards
+# Full context: https://sajesh.techsonance.co.in/llms-full.txt
+# Summary: https://sajesh.techsonance.co.in/llms.txt
