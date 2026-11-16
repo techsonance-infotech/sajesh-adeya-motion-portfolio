@@ -46,21 +46,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const mailOptions = {
       from: `"${name}" <${email}>`,
-      to: user, // Send to your own inbox
+      to: process.env.TO_EMAIL || 'sajesh@techsonance.co.in', // Send directly to Sajesh
       replyTo: email,
       subject: subject ? `Portfolio inquiry: ${subject}` : `New portfolio contact form submission from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject || 'N/A'}\n\nMessage:\n${message}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #eee; border-radius: 10px;">
-          <h2 style="color: #FF9F1A; border-bottom: 1px solid #eee; padding-bottom: 10px;">New Portfolio Inquiry</h2>
+          <h2 style="color: #1155CC; border-bottom: 1px solid #eee; padding-bottom: 10px;">New Portfolio Inquiry</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
           <p><strong>Subject:</strong> ${subject || 'N/A'}</p>
-          <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 15px; border-left: 4px solid #FF9F1A;">
+          <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 15px; border-left: 4px solid #1155CC;">
             <p style="margin: 0; white-space: pre-wrap;">${message}</p>
           </div>
           <hr style="border: 0; border-top: 1px solid #eee; margin-top: 20px;" />
-          <p style="font-size: 11px; color: #999;">Sent from Sajesh Adeya Portfolio Contact Form.</p>
+          <p style="font-size: 11px; color: #999;">Sent from Sajesh Adeya Portfolio Contact Form (https://sajesh.techsonance.co.in).</p>
         </div>
       `,
     };

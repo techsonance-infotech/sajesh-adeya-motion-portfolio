@@ -162,13 +162,13 @@ export function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a 
-                href="mailto:admin@techsonance.co.in" 
+                href="mailto:sajesh@techsonance.co.in" 
                 className="flex items-center gap-3 text-body-sm text-slate-600 hover:text-slate-900 transition-colors group cursor-pointer"
               >
                 <div className="p-2 rounded-lg bg-blue-50 border border-blue-100 group-hover:border-accent/30 transition-colors">
                   <Mail size={16} className="text-[#1155CC]" />
                 </div>
-                <span>admin@techsonance.co.in</span>
+                <span>sajesh@techsonance.co.in</span>
               </a>
 
               <a 

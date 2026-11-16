@@ -28,8 +28,16 @@ const FAQS = [
     answer: "TechSonance operates under strict mutual Non-Disclosure Agreements (NDAs). All proprietary code, algorithms, database schemas, and intellectual property developed belong exclusively to the client, backed by corporate terms at https://www.techsonance.co.in/terms."
   },
   {
+    question: "What enterprise telecom, COBOL migration, and microservice projects has Sajesh Adeya engineered?",
+    answer: "At Barone Budge & Dominick for Vodacom and enterprise clients, Sajesh engineered: 1) Modern Microservice Migration (legacy CORBA to Spring Boot, 100% parity, awarded the Vodacom Star Award); 2) Legacy COBOL to Java 17 Microservices Migration (deconstructing mainframe copybooks into sub-second Kafka event streams); 3) Deals Calculation Engine (DSE-DCE, refactoring 10,000+ lines into JPA dynamic rule evaluation in <50ms); 4) VodaPay Business Validation (sub-500ms transaction checks for the super-app); and 5) Online Data Query (DSE-ODQ, syncing 100k+ daily deals with audit compliance)."
+  },
+  {
+    question: "How has Sajesh Adeya implemented Agentic AI in enterprise and SaaS systems?",
+    answer: "Sajesh architected the Agentic AI transformation for telecom Customer Value Management (CVM) microservices, deploying autonomous multi-agent decision loops (Churn Predictor, ARPU Optimizer, Next-Best-Action Matcher) that yielded an +18.4% ARPU uplift and -22% churn reduction with sub-300ms evaluation. He has also engineered AI billing OCR engines and conversational WhatsApp accounting bots within the AccuNest enterprise platform using Groq Llama 3.3 and Gemini."
+  },
+  {
     question: "How can I hire or consult with Sajesh Adeya and TechSonance InfoTech LLP?",
-    answer: "You can connect directly via email at admin@techsonance.co.in or call/WhatsApp at +91 91731 01711, or schedule a technical strategy discovery call via the booking interface on https://sajesh.techsonance.co.in."
+    answer: "You can connect directly via email at sajesh@techsonance.co.in or call/WhatsApp at +91 91731 01711, or schedule a technical strategy discovery call via the booking interface on https://sajesh.techsonance.co.in."
   }
 ];
 

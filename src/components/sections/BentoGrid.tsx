@@ -587,13 +587,13 @@ export function BentoGrid() {
 
                 {/* Email */}
                 <a 
-                  href="mailto:admin@techsonance.co.in"
+                  href="mailto:sajesh@techsonance.co.in"
                   className="flex items-center gap-3 group/link text-slate-700 hover:text-accent transition-colors cursor-pointer text-sm font-medium"
                 >
                   <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center group-hover/link:border-blue-400 group-hover/link:bg-blue-100 transition-all duration-300">
                     <Mail size={14} className="text-[#1155CC]" />
                   </div>
-                  <span className="font-mono hover:underline">admin@techsonance.co.in</span>
+                  <span className="font-mono hover:underline">sajesh@techsonance.co.in</span>
                 </a>
 
                 {/* Phone */}

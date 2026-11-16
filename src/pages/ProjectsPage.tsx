@@ -16,7 +16,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FILTER_TAGS = ['All', 'React / Next.js', 'Node.js', 'AI Solutions', 'Mobile / Offline'];
+const FILTER_TAGS = [
+  'All', 
+  'Java & Microservices', 
+  'Enterprise Telecom', 
+  'React / Next.js', 
+  'Node.js & Cloud', 
+  'AI Solutions', 
+  'Mobile / Offline'
+];
 
 const projectsSchema = {
   "@context": "https://schema.org",
@@ -25,12 +33,12 @@ const projectsSchema = {
       "@type": "CollectionPage",
       "@id": "https://sajesh.techsonance.co.in/projects/#webpage",
       "url": "https://sajesh.techsonance.co.in/projects",
-      "name": "Venture Showcase & Enterprise SaaS Case Studies | TechSonance InfoTech LLP",
-      "description": "Explore production enterprise SaaS systems engineered by Sajesh Adeya and TechSonance InfoTech LLP, including TechSonance Marketplace, AccuNest, FreightFlow, and SyncServe POS."
+      "name": "Enterprise Case Studies & Microservice Architectures | Sajesh Adeya",
+      "description": "Explore production enterprise SaaS, telecom microservice migrations, and high-concurrency systems engineered by Sajesh Adeya and TechSonance InfoTech LLP."
     },
     {
       "@type": "ItemList",
-      "name": "Enterprise SaaS Showcase",
+      "name": "Enterprise Architecture & SaaS Showcase",
       "itemListElement": showcaseProjects.map((p, idx) => ({
         "@type": "ListItem",
         "position": idx + 1,
@@ -65,11 +73,34 @@ export default function ProjectsPage() {
   // Filter logic matching project attributes
   const filteredProjects = showcaseProjects.filter((project) => {
     if (selectedFilter === 'All') return true;
+    if (selectedFilter === 'Java & Microservices') {
+      return project.stack.some(s => {
+        const lower = s.toLowerCase();
+        return lower.includes('java') || lower.includes('spring') || lower.includes('microservice') || lower.includes('hibernate') || lower.includes('liquibase');
+      });
+    }
+    if (selectedFilter === 'Enterprise Telecom') {
+      return (
+        project.client.toLowerCase().includes('vodacom') ||
+        project.client.toLowerCase().includes('telecom') ||
+        project.name.toLowerCase().includes('vodacom') ||
+        project.name.toLowerCase().includes('deal') ||
+        project.slug.includes('deals') ||
+        project.slug.includes('vodapay') ||
+        project.slug.includes('online-data') ||
+        project.slug.includes('cobol') ||
+        project.slug.includes('cvm') ||
+        (project.industry ? project.industry.toLowerCase().includes('telecom') : false)
+      );
+    }
     if (selectedFilter === 'React / Next.js') {
       return project.stack.some(s => s.toLowerCase().includes('react') || s.toLowerCase().includes('next'));
     }
-    if (selectedFilter === 'Node.js') {
-      return project.stack.some(s => s.toLowerCase().includes('node') || s.toLowerCase().includes('express'));
+    if (selectedFilter === 'Node.js & Cloud') {
+      return project.stack.some(s => {
+        const lower = s.toLowerCase();
+        return lower.includes('node') || lower.includes('express') || lower.includes('aws') || lower.includes('docker') || lower.includes('cloud');
+      });
     }
     if (selectedFilter === 'AI Solutions') {
       return project.stack.some(s => s.toLowerCase().includes('groq') || s.toLowerCase().includes('gemini') || s.toLowerCase().includes('ai'));
@@ -85,9 +116,9 @@ export default function ProjectsPage() {
       <div className="relative min-h-screen bg-background">
         <SEOHead 
           canonicalUrl="/projects"
-          title="Venture Showcase & Enterprise SaaS Case Studies | TechSonance InfoTech LLP"
-          description="A detailed look into enterprise architectures, high-performance backends, and multi-tenant SaaS platforms engineered by Sajesh Adeya and TechSonance InfoTech LLP."
-          keywords="TechSonance Marketplace, FreightFlow, AccuNest, SyncServe POS, SaaS Case Studies, Next.js Projects, React Architecture"
+          title="Enterprise Case Studies & Microservice Architectures | Sajesh Adeya"
+          description="Granular architectural deep-dives into enterprise telecom microservices, COBOL-to-Java migrations, Agentic AI systems, and multi-tenant SaaS platforms engineered by Sajesh Adeya."
+          keywords="Enterprise Case Studies, Microservices Architecture, COBOL Migration, Agentic AI, Vodacom Telecom, Next.js SaaS, TechSonance InfoTech LLP, Sajesh Adeya, Surat Software Architect"
           schemaData={projectsSchema}
         />
         <CustomCursor />

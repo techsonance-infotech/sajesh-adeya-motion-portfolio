@@ -20,9 +20,15 @@ export function ProjectShowcase() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const progressFillRef = useRef<HTMLDivElement>(null);
   const progressKnobRef = useRef<HTMLDivElement>(null);
-  const homeProjects = showcaseProjects.slice(0, 3);
+  // Curated showcase of flagship platforms spanning multi-tenant SaaS and enterprise telecom microservices
+  const homeProjects = [
+    showcaseProjects.find(p => p.slug === 'marketplace') || showcaseProjects[0],
+    showcaseProjects.find(p => p.slug === 'vodacom-microservices-migration') || showcaseProjects[8],
+    showcaseProjects.find(p => p.slug === 'freightflow') || showcaseProjects[2],
+    showcaseProjects.find(p => p.slug === 'deals-calculation-engine') || showcaseProjects[9],
+  ];
   const [activeProject, setActiveProject] = useState(0);
-  const currentProject = homeProjects[activeProject];
+  const currentProject = homeProjects[activeProject] || homeProjects[0];
 
   // GSAP ScrollTrigger for progress indicator
   useEffect(() => {
@@ -59,7 +65,7 @@ export function ProjectShowcase() {
     <section 
       id="showcase" 
       ref={sectionRef}
-      className="relative min-h-[300vh] bg-background"
+      className="relative min-h-[400vh] bg-background"
     >
       <div className="container-custom">
         {/* Section Header */}

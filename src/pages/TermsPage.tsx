@@ -180,9 +180,9 @@ export default function TermsPage() {
                     <span>UG-15, Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India</span>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <a href="mailto:admin@techsonance.co.in" className="flex items-center gap-2.5 hover:text-[#1155CC] transition-colors">
+                    <a href="mailto:sajesh@techsonance.co.in" className="flex items-center gap-2.5 hover:text-[#1155CC] transition-colors">
                       <Mail size={16} className="text-[#1155CC]" />
-                      <span>admin@techsonance.co.in</span>
+                      <span>sajesh@techsonance.co.in</span>
                     </a>
                     <a href="tel:+919173101711" className="flex items-center gap-2.5 hover:text-[#1155CC] transition-colors">
                       <Phone size={16} className="text-[#22B6F6]" />

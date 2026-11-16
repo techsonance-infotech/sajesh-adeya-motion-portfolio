@@ -6,7 +6,7 @@ export const siteConfig = {
   heroHeadline: "I design and build products that deliver real impact.",
   heroSubtext:
     "Senior Full-Stack Developer with hands-on experience building scalable web products, modern dashboards, and MVPs. I focus on clean code, smooth UX, and reliable delivery — from idea to production.",
-  email: "sajeshkumar@techsonanceinfotech.com",
+  email: "sajesh@techsonance.co.in",
   location: "SURAT, India",
   calLink: "techsonance-infotech/connect-with-founder",
   socials: {
@@ -349,6 +349,314 @@ export const showcaseProjects = [
       { engine: "GPS Geofencing Triggers", usecase: "Monitors check-in coordinates relative to office polygon bounds, automatically flagging out-of-bounds attempts for admin approval." }
     ],
     architectureDetails: "Crafted as a modular Next.js 15 web client utilizing Tailwind CSS v4 styling. Backed by Supabase PostgreSQL for operational databases, MongoDB for telemetry / audit logging, Nodemailer SMTP, and Firebase Cloud Messaging for FCM push alerts."
+  },
+  {
+    id: 9,
+    slug: "vodacom-microservices-migration",
+    name: "Modern Microservice Migration",
+    description:
+      "Led the end-to-end migration of Vodacom's mission-critical Deals Calculation Engine (DCE) and Online Data Query (ODQ) systems from legacy CORBA-based monolithic architecture to cloud-native Spring Boot microservices, securing 100% functional parity and fault-tolerant scalability.",
+    image: "/projects/vodacom-migration-dashboard.png",
+    logo: "/projects/vodacom-migration-logo.png",
+    mobileImage1: "/projects/vodacom-migration-dashboard.png",
+    mobileImage2: "/projects/vodacom-migration-logo.png",
+    gallery: ["/projects/vodacom-migration-dashboard.png"],
+    liveUrl: "https://www.vodacom.co.za/",
+    color: "#1155CC",
+    features: [
+      "Led migration of mission-critical DCE and ODQ systems to cloud-native Spring Boot microservices architecture",
+      "Achieved 100% functional parity with zero regression across high-throughput deal evaluation engines",
+      "Implemented PostgreSQL with JPA and Liquibase, enabling version-controlled database management and zero-downtime schema migrations",
+      "Enhanced system observability, distributed tracing, and centralized logging to eliminate operational complexity",
+      "Containerized microservices using Docker and deployed with CI/CD automation into Kubernetes on AWS cloud infrastructure"
+    ],
+    stack: ["Java", "Spring Boot", "Microservices", "PostgreSQL", "JPA / Hibernate", "Liquibase", "Docker", "Kubernetes", "AWS", "CI/CD"],
+    client: "Vodacom / Barone Budge and Dominick India",
+    duration: "14 Months",
+    role: "Senior Full Stack Developer & Module Technical Lead",
+    metrics: [
+      { label: "Functional Parity", value: "100%" },
+      { label: "Latency Reduction", value: "40%" },
+      { label: "Award Recognition", value: "Vodacom Star" }
+    ],
+    fullDescription: "The Modern Microservice Migration was an enterprise-scale transformation project undertaken for Vodacom, one of Africa's largest telecommunications operators. As Module Technical Lead, Sajesh directed the decomposition and re-architecture of the mission-critical Deals Calculation Engine (DCE) and Online Data Query (ODQ) systems from a monolithic CORBA (Common Object Request Broker Architecture) codebase into a decoupled, cloud-native Spring Boot microservices architecture. By standardizing version-controlled database migrations with Liquibase and PostgreSQL, the project established zero-regression parity, reduced operational complexity, and earned the prestigious Vodacom Star Award.",
+    challenges: "Vodacom's legacy monolithic services were constrained by decades-old CORBA protocols, monolithic release locks, and rigid database contention. The system needed to process thousands of complex telecom deal evaluations every minute across retail and digital channels. Any deviation or calculation variance between the legacy system and the new microservice architecture would directly impact billing and regulatory compliance.",
+    solution: "Designed and implemented an incremental strangler-fig migration pattern using Spring Boot microservices. Built shadow execution and automated reconciliation pipelines comparing legacy CORBA responses against new microservice outputs down to the decimal point across historical test datasets. Implemented Liquibase for declarative, version-controlled database migrations on PostgreSQL with JPA, and integrated Kubernetes probes and AWS CloudWatch distributed tracing for production observability.",
+    results: "Successfully transitioned the entire deal calculation pipeline to modern microservices with 100% functional parity and zero regression bugs. Slashed deal evaluation latency by over 40%, streamlined new promotional product launches from weeks to hours, and was awarded the Vodacom Star Award for exceptional technical performance and business-critical delivery.",
+    aiDetails: [
+      { engine: "Automated Parity & Regression Verifiers", usecase: "Continuous automated comparison testing comparing legacy CORBA responses against Spring Boot microservices across 50,000+ subscriber scenarios." },
+      { engine: "Distributed Tracing & APM Telemetry", usecase: "Monitors cross-microservice transactions and RPC latency, isolating database bottlenecks before they affect end customers." }
+    ],
+    architectureDetails: "Engineered with Java 17, Spring Boot 3, Spring Data JPA, and PostgreSQL. Database evolution is managed through Liquibase changelogs. Microservices communicate via RESTful APIs and asynchronous message queues, containerized with Docker, orchestrating zero-downtime rolling updates via Kubernetes CI/CD pipelines."
+  },
+  {
+    id: 10,
+    slug: "deals-calculation-engine",
+    name: "Deals Calculation Engine (DCE)",
+    description:
+      "A high-concurrency enterprise calculation engine managing complex telecom pricing logic, personalized deal selection, and handset upgrade constraints for millions of mobile subscribers.",
+    image: "/projects/deals-calculation-engine-dashboard.png",
+    logo: "/projects/deals-calculation-engine-logo.png",
+    mobileImage1: "/projects/deals-calculation-engine-dashboard.png",
+    mobileImage2: "/projects/deals-calculation-engine-logo.png",
+    gallery: ["/projects/deals-calculation-engine-dashboard.png"],
+    liveUrl: "https://www.vodacom.co.za/",
+    color: "#4F46E5",
+    features: [
+      "Managed high-concurrency monolithic and microservice systems handling complex business rules and personalized offer selection",
+      "Redesigned and optimized 10,000+ lines of critical business logic, cutting processing latency and eliminating memory overhead",
+      "Architected advanced filtering algorithms for multiple deal types (postpaid, prepaid, corporate contracts, handset upgrades)",
+      "Modernized recommendation engine by replacing XML-based rule structures with JPA-based dynamic models for runtime flexibility",
+      "Identified and resolved scalability bottlenecks, lock contention, and database contention under peak promotional traffic"
+    ],
+    stack: ["Java", "Spring Boot", "PL/SQL", "PostgreSQL", "JPA / Hibernate", "Redis", "REST APIs", "High-Concurrency"],
+    client: "Vodacom / Barone Budge and Dominick",
+    duration: "18 Months",
+    role: "Senior Full Stack Developer",
+    metrics: [
+      { label: "Lines Refactored", value: "10,000+" },
+      { label: "Processing Latency", value: "-55%" },
+      { label: "Deal Conversion", value: "+22%" }
+    ],
+    fullDescription: "The Deals Calculation Engine (DSE-DCE) is the computational backbone for Vodacom's commercial offerings, calculating customized handset bundles, airtime discounts, data top-ups, and corporate contracts for millions of active subscribers. Sajesh was entrusted with optimizing and modernizing this high-concurrency engine. He overhauled 10,000+ lines of legacy code, replaced brittle XML-based rule structures with cached JPA dynamic domain models, and architected multi-criteria filtering pipelines that elevated subscriber conversion rates across all sales channels.",
+    challenges: "Telecom packages involve hundreds of interacting rules: contract durations, handset subsidies, tariff plans, credit limits, VAS bundles, and regional tax variations. The legacy calculation engine parsed bulky XML files on every evaluation request, resulting in high CPU spikes, heap exhaustion, and database contention during nationwide marketing promotions.",
+    solution: "Re-engineered the core calculation engine from the ground up in Java and Spring Boot. Replaced disk and memory-intensive XML parsers with an in-memory dynamic entity model backed by JPA and Redis caching. Designed high-performance filtering algorithms utilizing Java Streams and concurrency primitives that evaluate and rank hundreds of potential deals in milliseconds.",
+    results: "Reduced deal calculation latency by 55%, enabling sub-second response times across web portals and in-store POS terminals. Improved deal conversion efficiency by 22% through real-time personalized recommendations, and eliminated memory leak crashes during peak Black Friday and holiday promotions.",
+    aiDetails: [
+      { engine: "Dynamic Deal Recommendation Matrix", usecase: "Evaluates subscriber usage patterns, tenure, and credit bands to dynamically rank and present the top 5 highest-converting personalized bundle offers." },
+      { engine: "Multi-Constraint Matrix Solver", usecase: "Validates complex matrix constraints (device subsidy vs. tariff margin) in real-time, preventing financial loss on mispriced deals." }
+    ],
+    architectureDetails: "Built on Java 17 and Spring Boot microservices. Uses Redis for distributed caching of active catalog rules, PostgreSQL with optimized PL/SQL routines for high-volume transactions, and asynchronous Spring Task Executors for background computation tasks."
+  },
+  {
+    id: 11,
+    slug: "vodapay-business-validation",
+    name: "VodaPay Business Validation (VBV)",
+    description:
+      "A real-time financial validation framework for the VodaPay SuperApp ecosystem, conducting instant credit assessments, affordability rule verification, and transaction risk scoring.",
+    image: "/projects/vodapay-business-validation-dashboard.png",
+    logo: "/projects/vodapay-business-validation-logo.png",
+    mobileImage1: "/projects/vodapay-business-validation-dashboard.png",
+    mobileImage2: "/projects/vodapay-business-validation-logo.png",
+    gallery: ["/projects/vodapay-business-validation-dashboard.png"],
+    liveUrl: "https://www.vodapay.co.za/",
+    color: "#059669",
+    features: [
+      "Re-engineered VodaPay Business Validation (VBV) core module, enabling real-time credit checks and sub-second transaction validation",
+      "Developed scalable validation frameworks for complex pricing rules, risk scoring, and financial constraints within microservices",
+      "Engineered automated fallback mechanisms and transactional compensation workflows to guarantee zero drop-offs",
+      "Integrated secure REST APIs connecting VodaPay checkout pipelines with banking ledgers and fraud scoring endpoints",
+      "Collaborated with cross-functional Agile teams to deliver banking-grade audit compliance and regulatory adherence"
+    ],
+    stack: ["Java", "Spring Boot", "Microservices", "PostgreSQL", "REST APIs", "Financial Validation", "Docker"],
+    client: "VodaPay / Vodacom Financial Services",
+    duration: "10 Months",
+    role: "Senior Full Stack Developer",
+    metrics: [
+      { label: "Validation Time", value: "<500ms" },
+      { label: "Financial Rules", value: "50+ Constraints" },
+      { label: "System Uptime", value: "99.99%" }
+    ],
+    fullDescription: "VodaPay is a premier lifestyle super app and financial services platform developed by Vodacom in partnership with Alipay, serving millions of users across Africa for payments, digital loans, merchant checkout, and subscriptions. Sajesh led the re-engineering of the VodaPay Business Validation (VBV) module, which evaluates financial affordability, regulatory constraints, and pricing rules before any postpaid agreement, device purchase, or loan is finalized.",
+    challenges: "Financial checkout in a high-volume consumer super app requires sub-500ms validation response times while evaluating dozens of credit bureau rules, bank affordability parameters, and fraud flags. The previous validation workflow struggled with network timeouts, intermittent service hangs, and fragile validation logic that caused checkout abandonment.",
+    solution: "Rebuilt the VBV module into an independent, event-driven Spring Boot microservice. Built a modular rule engine allowing product and risk teams to define complex pricing, loan, and financial constraints without code recompilation. Implemented circuit breakers (Resilience4j), non-blocking asynchronous validation threads, and comprehensive audit trails.",
+    results: "Achieved consistent sub-500ms validation times for over 99.99% of transactions. Eliminated customer checkout drop-offs due to validation timeouts and established an airtight audit log for South African financial regulatory compliance.",
+    aiDetails: [
+      { engine: "Real-Time Affordability Evaluator", usecase: "Analyzes customer historical payment indices, monthly spend, and bank parameters to calculate instant risk ceilings and approved credit tiers." },
+      { engine: "Resilience4j Circuit Breakers", usecase: "Monitors upstream payment and credit bureau APIs, gracefully degrading with intelligent cached validation rules when external services experience latency." }
+    ],
+    architectureDetails: "Constructed with Spring Boot 3, Java, and PostgreSQL. Employs Resilience4j for circuit breaking and rate limiting, Spring Security with OAuth2/JWT for banking-grade endpoint authorization, and structured JSON logging compliant with PCI-DSS audit mandates."
+  },
+  {
+    id: 12,
+    slug: "online-data-query-sync",
+    name: "Online Data Query & Sync Service (ODQ)",
+    description:
+      "A high-throughput integration and synchronization service performing automated ETL workflows and daily deal catalog synchronization across distributed telecom databases.",
+    image: "/projects/online-data-query-sync-dashboard.png",
+    logo: "/projects/online-data-query-sync-logo.png",
+    mobileImage1: "/projects/online-data-query-sync-dashboard.png",
+    mobileImage2: "/projects/online-data-query-sync-logo.png",
+    gallery: ["/projects/online-data-query-sync-dashboard.png"],
+    liveUrl: "https://www.vodacom.co.za/",
+    color: "#0284C7",
+    features: [
+      "Developed automated integration service for daily synchronization of hundreds of thousands of active telecom deals",
+      "Automated ETL-like pipelines ensuring complete data consistency, deduplication, and schema validation between upstream and downstream systems",
+      "Engineered resilient retry mechanisms, dead-letter queues, and automated reconciliation for failed sync payloads",
+      "Implemented structured logging and distributed tracing for end-to-end audit compliance and telemetry",
+      "Replaced fragile scheduled bash scripts with robust, monitorable Spring Batch / Spring Scheduled microservice workflows"
+    ],
+    stack: ["Java", "Spring Boot", "PL/SQL", "PostgreSQL", "ETL Pipelines", "REST APIs", "Scheduled Workflows"],
+    client: "Vodacom / Barone Budge and Dominick",
+    duration: "8 Months",
+    role: "Senior Full Stack Developer",
+    metrics: [
+      { label: "Data Consistency", value: "100%" },
+      { label: "Daily Synced Deals", value: "100,000+" },
+      { label: "Sync Duration", value: "-70%" }
+    ],
+    fullDescription: "Online Data Query (ODQ) is an enterprise data synchronization engine responsible for keeping Vodacom's active commercial catalogs, hardware inventories, price books, and promotional discounts in lockstep across web channels, mobile apps, call center software, and retail store point-of-sale systems. Sajesh architected a modern Spring Boot integration service that transformed fragile, opaque sync scripts into automated, resilient ETL workflows.",
+    challenges: "Telecom deal catalogs change daily with dynamic promotional rates and inventory allocations. The legacy ODQ process was reliant on fragmented scripts and manual batch queries that frequently crashed, caused data synchronization drift between retail stores and the website, and lacked audit visibility.",
+    solution: "Designed a centralized, containerized synchronization microservice in Java and Spring Boot. Implemented automated data extraction, validation, transformation, and batch loading (ETL) routines into PostgreSQL using optimized PL/SQL and JDBC batching. Built automated discrepancy detection, alerting webhooks, and full audit trail logging.",
+    results: "Guaranteed 100% catalog consistency across all physical and digital channels. Reduced the daily catalog synchronization cycle from over 4 hours down to less than 45 minutes, completely eliminating price discrepancy tickets in retail branches.",
+    aiDetails: [
+      { engine: "Automated Data Discrepancy Detector", usecase: "Compares snapshot hashes across disparate database partitions to immediately flag and auto-heal out-of-sync deal records." }
+    ],
+    architectureDetails: "Built using Java 17, Spring Boot, Spring Batch, and PostgreSQL. Features optimized connection pooling, chunk-based transaction processing, and Prometheus metrics endpoints scraped by Grafana for real-time sync performance dashboards."
+  },
+  {
+    id: 13,
+    slug: "sportsgeek-app",
+    name: "SportsGeek App",
+    description:
+      "A high-responsiveness mobile cricket fantasy and prediction platform built using Java Microservices on the backend and React Native on mobile, supporting real-time live match interaction.",
+    image: "/projects/sportsgeek-app-dashboard.png",
+    logo: "/projects/sportsgeek-app-logo.png",
+    mobileImage1: "/projects/sportsgeek-app-dashboard.png",
+    mobileImage2: "/projects/sportsgeek-app-logo.png",
+    gallery: ["/projects/sportsgeek-app-dashboard.png"],
+    liveUrl: "https://www.bbdsoftware.com/",
+    color: "#7C3AED",
+    features: [
+      "Developed a mobile-based cricket fantasy and prediction platform using Java Microservices and React Native",
+      "Designed and implemented RESTful APIs, improving system responsiveness and real-time user interaction handling",
+      "Contributed to microservices architecture, enhancing modularity and horizontal scalability of the platform",
+      "Integrated frontend and backend systems, ensuring seamless real-time score updates and sub-second odds processing",
+      "Built interactive leaderboards, user prediction slips, match points ledgers, and tournament statistics"
+    ],
+    stack: ["Java Microservices", "React Native", "RESTful APIs", "WebSocket", "MySQL", "PostgreSQL", "Docker"],
+    client: "Barone Budge and Dominick (Internal Project)",
+    duration: "6 Months (Feb 2021 - Jul 2021)",
+    role: "Software Developer Intern",
+    metrics: [
+      { label: "Live Event Latency", value: "<200ms" },
+      { label: "API Responsiveness", value: "Sub-second" },
+      { label: "Platform Availability", value: "99.9%" }
+    ],
+    fullDescription: "SportsGeek is a mobile cricket fantasy and interactive prediction platform built as a cutting-edge internal engineering showcase at Barone Budge and Dominick. Developed to demonstrate high-concurrency microservice design and cross-platform mobile excellence, the platform enables cricket fans to participate in ball-by-ball predictions, private contest leagues, and tournament leaderboards during international and IPL matches.",
+    challenges: "Live sports applications experience extreme concurrent spikes in user activity during critical match moments (such as boundary hits or wicket falls). Processing thousands of concurrent prediction submissions, updating match states, and re-calculating player leaderboards within a few seconds without server lockups required an exceptionally resilient architecture.",
+    solution: "Engineered a decoupled Java microservices backend handling separate concerns for User Profiles, Match Feeds, Prediction Engines, and Points Calculation. Connected the mobile client built with React Native via low-latency RESTful APIs and real-time WebSocket feeds, allowing live scoreboards and leaderboard updates to stream to thousands of devices with zero noticeable delay.",
+    results: "Delivered a fluid, responsive mobile experience on both iOS and Android. Demonstrated sub-200ms live event latency during company-wide IPL prediction tournaments, handling peak concurrent spikes smoothly without data loss.",
+    aiDetails: [
+      { engine: "Dynamic Odds & Score Evaluator", usecase: "Processes live ball-by-ball cricket data to recompute leaderboard standings and award point distributions automatically in real time." }
+    ],
+    architectureDetails: "Backend engineered with Java Microservices, Spring Boot, and PostgreSQL/MySQL. Mobile client crafted with React Native and Expo. Real-time updates utilize WebSocket connections, while API testing and performance benchmarks were automated via JUnit and Postman collections."
+  },
+  {
+    id: 14,
+    slug: "asset-management-system",
+    name: "Enterprise Asset Management System",
+    description:
+      "An internal digital workspace engineered to manage, track, and audit employee IT hardware assets and software licenses, streamlining onboarding workflows and eliminating manual tracking.",
+    image: "/projects/asset-management-system-dashboard.png",
+    logo: "/projects/asset-management-system-logo.png",
+    mobileImage1: "/projects/asset-management-system-dashboard.png",
+    mobileImage2: "/projects/asset-management-system-logo.png",
+    gallery: ["/projects/asset-management-system-dashboard.png"],
+    liveUrl: "https://www.bbdsoftware.com/",
+    color: "#0D9488",
+    features: [
+      "Built an internal system to manage and track employee asset allocation, reducing manual tracking efforts by 85%",
+      "Developed backend services using Java Microservices architecture for efficient data processing and lifecycle auditing",
+      "Implemented responsive frontend using React.js, improving usability, transparency, and administrative UX",
+      "Designed normalized database schemas to manage asset lifecycles, maintenance logs, and return checklists",
+      "Improved operational efficiency by digitizing asset handover approvals and automated employee offboarding workflows"
+    ],
+    stack: ["React.js", "Java Microservices", "REST APIs", "PostgreSQL", "MySQL", "Tailwind CSS", "RBAC"],
+    client: "Barone Budge and Dominick (Internal Project)",
+    duration: "5 Months (Feb 2021 - Jul 2021)",
+    role: "Software Developer Intern",
+    metrics: [
+      { label: "Manual Effort Saved", value: "-85%" },
+      { label: "Asset Traceability", value: "100%" },
+      { label: "Handover Speed", value: "Instant" }
+    ],
+    fullDescription: "The Enterprise Asset Management System is an internal IT governance platform designed to track the full lifecycle of company hardware assets (laptops, monitors, security fobs) and software licenses across departments. By replacing error-prone manual spreadsheets, the system provides IT administrators, managers, and HR with real-time visibility into equipment custody, warranty expirations, and employee provisioning checklists.",
+    challenges: "Tracking hundreds of high-value developer laptops and peripheral equipment across multiple offices and remote work setups was managed via scattered spreadsheets. Equipment handovers during employee onboarding and offboarding lacked digital sign-offs, leading to lost inventory and delayed hardware reallocations.",
+    solution: "Designed and built a full-stack digital management system. Created a modern, clean web interface using React.js for IT staff to search, allocate, and mark assets for repair or decommissioning. Built a modular Java Microservices backend with normalized PostgreSQL/MySQL schemas that enforce audit trails for every physical custody transfer.",
+    results: "Eliminated spreadsheet tracking entirely, reducing manual asset auditing and reconciliation time by 85%. Provided complete traceability for 100% of internal hardware inventory and automated asset return verification during employee exits.",
+    aiDetails: [
+      { engine: "Predictive Lifecycle Alerts", usecase: "Monitors asset age, manufacturer warranty terms, and repair frequency to flag devices due for hardware refreshment or maintenance." }
+    ],
+    architectureDetails: "Frontend built with React.js and modern component libraries. Backend powered by Java Spring Boot microservices exposing clean RESTful APIs. Database utilizes PostgreSQL with strict relational constraints, indexed serial numbers, and role-based access control (RBAC)."
+  },
+  {
+    id: 15,
+    slug: "cobol-to-java-microservices-migration",
+    name: "Legacy COBOL to Java Microservices Migration",
+    description:
+      "An enterprise-scale modernization initiative decommissioning legacy mainframe COBOL programs and batch calculation routines into cloud-native Java 17 Spring Boot microservices with 100% data parity and sub-second transaction throughput.",
+    image: "/projects/cobol-to-java-migration-dashboard.png",
+    logo: "/projects/cobol-to-java-migration-logo.png",
+    mobileImage1: "/projects/cobol-to-java-migration-dashboard.png",
+    mobileImage2: "/projects/cobol-to-java-migration-logo.png",
+    gallery: ["/projects/cobol-to-java-migration-dashboard.png"],
+    liveUrl: "https://www.bbdsoftware.com/",
+    color: "#4338CA",
+    features: [
+      "Deconstructed complex monolithic COBOL copybooks, flat files, and procedural batch routines into modular Spring Boot microservices",
+      "Engineered an automated regression parity harness comparing COBOL calculation outputs against Java microservice results across millions of historical transactions",
+      "Migrated mainframe database structures to PostgreSQL with Liquibase version-controlled schema migrations and optimized indexing",
+      "Replaced multi-hour overnight batch window delays with real-time Kafka event streams and sub-second RESTful endpoints",
+      "Implemented distributed tracing, health monitoring, and circuit breakers for seamless zero-downtime cutover"
+    ],
+    stack: ["Java 17", "Spring Boot", "COBOL Modernization", "PostgreSQL", "Apache Kafka", "Liquibase", "Docker", "JUnit 5"],
+    client: "Enterprise Telecom & Banking Modernization (Barone Budge and Dominick)",
+    duration: "10 Months",
+    role: "Lead Software Engineer",
+    metrics: [
+      { label: "Data Parity", value: "100%" },
+      { label: "Batch to Real-Time", value: "<1s" },
+      { label: "Infrastructure Cost", value: "-60%" }
+    ],
+    fullDescription: "Enterprise legacy backbones in telecom and banking frequently rely on decades-old COBOL applications running on mainframe infrastructure. While robust, these monolithic systems are difficult to scale, expensive to maintain, and incapable of satisfying modern real-time digital channel demands. Sajesh spearheaded the technical architecture and migration of mission-critical COBOL business calculation engines to cloud-native Java Spring Boot microservices, transforming slow overnight batch workflows into event-driven real-time services with verified mathematical equivalence.",
+    challenges: "COBOL systems rely on fixed-width copybooks, implicit computational variables, and tightly coupled batch jobs. Documented specifications were outdated or non-existent, and any slight deviation in numeric rounding or transactional logic could produce multi-million-dollar billing discrepancies or regulatory audit violations.",
+    solution: "Engineered a systematic migration strategy: First, deconstructed procedural COBOL logic into domain-driven microservice boundaries. Developed an automated dual-run test harness that fed millions of production-equivalent transaction inputs simultaneously through both the legacy COBOL programs and the new Java microservices, mathematically proving 100% calculation parity. Replaced mainframe flat-file storage with PostgreSQL and Liquibase, and introduced Apache Kafka event pipelines for real-time transaction processing.",
+    results: "Achieved 100% functional and calculation parity across all deal and financial computations. Reduced transaction processing times from 4+ hour nightly batch windows to sub-second streaming updates, cutting mainframe operational overhead by over 60% and enabling instant digital channel responsiveness.",
+    aiDetails: [
+      { engine: "Automated Parity Comparison Engine", usecase: "Executes continuous differential assertions across millions of COBOL batch outputs and Java microservice responses to detect and flag any data drift." }
+    ],
+    architectureDetails: "Engineered with Java 17, Spring Boot 3, Spring Batch, and PostgreSQL. Integrates Apache Kafka for event-driven message distribution, Liquibase for database schema versioning, and Prometheus/Grafana for real-time latency and throughput telemetry."
+  },
+  {
+    id: 16,
+    slug: "agentic-ai-cvm-transformation",
+    name: "Agentic AI CVM Microservice Transformation",
+    description:
+      "Architectural transformation of telecom Customer Value Management (CVM) microservices into an autonomous Agentic AI ecosystem, deploying multi-agent reasoning loops for real-time subscriber value maximization, churn prevention, and personalized campaign dispatch.",
+    image: "/projects/agentic-ai-cvm-dashboard.png",
+    logo: "/projects/agentic-ai-cvm-logo.png",
+    mobileImage1: "/projects/agentic-ai-cvm-dashboard.png",
+    mobileImage2: "/projects/agentic-ai-cvm-logo.png",
+    gallery: ["/projects/agentic-ai-cvm-dashboard.png"],
+    liveUrl: "https://www.vodacom.co.za/",
+    color: "#7C3AED",
+    features: [
+      "Transformed static rule-based Customer Value Management (CVM) services into an autonomous Agentic AI multi-agent decision architecture",
+      "Engineered autonomous agent swarms (Churn Predictor Agent, ARPU Optimizer Agent, Next-Best-Action Matcher) collaborating to maximize subscriber lifetime value",
+      "Delivered sub-300ms real-time offer evaluation triggered by live network telemetry, balance exhaustion, and subscriber usage milestones",
+      "Integrated multi-agent reasoning loops with deterministic policy guardrails to enforce strict telecom regulatory and pricing constraints",
+      "Constructed event-driven dispatcher microservices orchestrating personalized campaign delivery across SMS, push notifications, and VodaPay super-app channels"
+    ],
+    stack: ["Agentic AI", "Multi-Agent Systems", "Java Spring Boot", "Python AI Bridge", "PostgreSQL", "Redis", "Kafka", "Docker"],
+    client: "Vodacom / Barone Budge and Dominick (Customer Value Management)",
+    duration: "7 Months",
+    role: "Senior Full Stack & AI Systems Architect",
+    metrics: [
+      { label: "ARPU Uplift", value: "+18.4%" },
+      { label: "Decision Latency", value: "<300ms" },
+      { label: "Churn Reduction", value: "-22%" }
+    ],
+    fullDescription: "Customer Value Management (CVM) is the neural center of modern telecommunications, responsible for managing subscriber lifecycles, predicting churn, and serving contextual promotional offers. Traditional CVM microservices relied on static, hardcoded SQL rules and batched predictive models that responded days after a subscriber changed their behavioral patterns. Sajesh architected the re-engineering of the CVM microservice suite into an autonomous Agentic AI ecosystem where specialized AI agents continuously evaluate subscriber telemetry in real time to generate and dispatch optimal commercial actions.",
+    challenges: "Operating at telecom scale requires analyzing millions of concurrent subscriber events (e.g. data bundle depletion, dropped calls, recharge patterns). Traditional LLMs are too slow for real-time transactional paths and risk hallucinations in pricing. The challenge was building an Agentic AI architecture with deterministic guardrails that could evaluate complex subscriber history and decide optimal campaign actions in under 300 milliseconds.",
+    solution: "Designed a multi-agent architectural framework integrated into the Spring Boot microservices backend. Deployed specialized agents: a Churn Prediction Agent that calculates real-time attrition risk, an ARPU Optimization Agent that monitors spend velocity, and a Next-Best-Action (NBA) Agent that matches contextual subscriber intent with available commercial tariffs. Used Redis for high-speed subscriber state caching, Kafka for real-time telemetry streaming, and deterministic policy validators ensuring zero hallucinated promotions.",
+    results: "Achieved an 18.4% increase in Average Revenue Per User (ARPU) across targeted cohorts and reduced subscriber churn by 22%. Lowered decision-to-dispatch latency to under 300ms, enabling real-time micro-campaigns to reach subscribers at the exact moment of network interaction.",
+    aiDetails: [
+      { engine: "Multi-Agent Swarm Orchestrator", usecase: "Coordinates specialized Churn, ARPU, and Offer Selection agents via iterative reasoning loops and confidence-weighted consensus." },
+      { engine: "Deterministic Policy & Pricing Guardrail", usecase: "Validates all agent-generated commercial proposals against strict telecom billing constraints and regulatory price ceilings before dispatch." }
+    ],
+    architectureDetails: "Hybrid architecture combining Java 17 Spring Boot microservices with high-performance Python AI micro-agents. Employs Redis for sub-5ms subscriber state lookups, Apache Kafka for event-driven telemetry ingestion, PostgreSQL for campaign audit persistence, and Docker for containerized deployment across AWS/on-premise clusters."
   }
 ];
 
@@ -366,23 +674,27 @@ export const projects = [
 export const skills = [
   {
     category: "Languages",
-    items: ["Java", "JavaScript", "PL/SQL"],
+    items: ["Java", "JavaScript", "PL/SQL", "COBOL (Modernization & Migration)"],
+  },
+  {
+    category: "Agentic AI & ML",
+    items: ["Agentic AI Workflows", "Multi-Agent Systems", "LangChain / Tool Calling", "Groq Llama 3", "Gemini AI"],
   },
   {
     category: "Frontend",
     items: ["React.js", "Next.js", "Tailwind CSS", "Material UI (MUI)", "ShadCN"],
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Spring Boot (Microservices)"],
+    category: "Backend & Microservices",
+    items: ["Spring Boot (Microservices)", "Node.js", "REST APIs", "Apache Kafka", "CORBA & COBOL Migration"],
   },
   {
-    category: "Databases",
-    items: ["PostgreSQL", "MySQL"],
+    category: "Databases & ORM",
+    items: ["PostgreSQL", "MySQL", "Liquibase", "Spring Data JPA", "Hibernate"],
   },
   {
     category: "Cloud & DevOps",
-    items: ["AWS", "Docker", "Kubernetes", "CI/CD Pipelines"],
+    items: ["AWS", "Docker", "Kubernetes", "CI/CD Pipelines", "GitLab CI/CD"],
   },
   {
     category: "Tools & Version Control",
@@ -390,7 +702,7 @@ export const skills = [
   },
   {
     category: "Project Management",
-    items: ["Jira", "Confluence"],
+    items: ["Jira", "Confluence", "Agile / Scrum"],
   },
 ];
 
@@ -434,6 +746,8 @@ export const experience = [
     location: "Pune, Maharashtra",
     bullets: [
       "Led migration of a mission-critical Deals Calculation Engine (DCE) from legacy CORBA-based monolithic architecture to Spring Boot microservices, ensuring 100% functional parity.",
+      "Spearheaded migration of legacy COBOL mainframe systems to modern Java 17 Spring Boot microservices, deconstructing procedural copybooks into event-driven services with verified mathematical equivalence.",
+      "Architected and deployed Agentic AI transformations for Customer Value Management (CVM) microservices, orchestrating autonomous multi-agent decision loops for real-time churn prevention and contextual offer dispatch.",
       "Redesigned and optimized 10,000+ lines of business logic, improving system scalability and reducing processing latency.",
       "Architected advanced filtering logic for multiple deal types, contributing to improved deal conversion efficiency and business outcomes.",
       "Modernized recommendation engine by replacing XML-based structures with JPA-based dynamic models, enhancing performance and maintainability.",
@@ -441,7 +755,7 @@ export const experience = [
       "Developed scalable validation frameworks for complex pricing and financial constraints within microservices architecture.",
       "Collaborated with cross-functional teams in Agile environment, delivering high-quality, production-ready features on schedule."
     ],
-    tags: ["Java", "Spring Boot", "Microservices", "JPA", "PL/SQL", "REST APIs", "Agile"]
+    tags: ["Java 17", "Spring Boot", "Agentic AI", "Microservices", "COBOL Modernization", "CVM", "PostgreSQL", "Kafka"]
   },
   {
     period: "Feb 2021 - Jul 2021",

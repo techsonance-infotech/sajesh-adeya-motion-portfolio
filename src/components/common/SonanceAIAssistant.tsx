@@ -43,9 +43,9 @@ const INITIAL_MESSAGES: ChatMessage[] = [
 
 const SUGGESTIONS = [
   "Who is Sajesh Adeya?",
+  "Tell me about Agentic AI in CVM",
+  "COBOL to Java Microservice migration",
   "What platforms has he built?",
-  "What is his core tech stack?",
-  "What services does TechSonance offer?",
   "How can I book a call?",
 ];
 
@@ -72,7 +72,7 @@ export function SonanceAIAssistant() {
     } else if (action.actionType === 'whatsapp') {
       window.open(action.link || 'https://wa.me/919173101711', '_blank');
     } else if (action.actionType === 'email') {
-      window.location.href = action.link || 'mailto:sajeshkumar@techsonanceinfotech.com';
+      window.location.href = action.link || 'mailto:sajesh@techsonance.co.in';
     } else if (action.actionType === 'navigate') {
       if (action.link?.startsWith('http')) {
         window.open(action.link, '_blank');
@@ -95,19 +95,49 @@ export function SonanceAIAssistant() {
       };
     }
 
+    if (q.includes('cobol') || q.includes('mainframe')) {
+      return {
+        text: "Sajesh spearheaded the legacy COBOL to Java 17 Microservices migration at Barone Budge & Dominick:\n• Deconstructed monolithic COBOL copybooks and batch calculation programs into Spring Boot microservices.\n• Built automated differential parity test harnesses proving 100% calculation equivalence.\n• Converted 4+ hour overnight batch windows into sub-second real-time Kafka event streams.\n• Migrated mainframe files to PostgreSQL with Liquibase version-controlled schema management.",
+        actions: [
+          { label: 'COBOL Migration Case Study', actionType: 'navigate', link: '/projects/cobol-to-java-microservices-migration' },
+          { label: 'Book Technical Consultation', actionType: 'schedule' },
+        ],
+      };
+    }
+
+    if (q.includes('agentic') || q.includes('cvm') || q.includes('agent')) {
+      return {
+        text: "Sajesh architected the Agentic AI transformation for telecom Customer Value Management (CVM) microservices:\n• Deployed autonomous multi-agent swarms (Churn Predictor, ARPU Optimizer, Next-Best-Action Matcher).\n• Evaluates subscriber telemetry and usage triggers in real time (<300ms).\n• Drove an +18.4% ARPU uplift and a -22% reduction in subscriber churn.\n• Engineered deterministic policy guardrails preventing promotional hallucinations.",
+        actions: [
+          { label: 'Agentic AI CVM Case Study', actionType: 'navigate', link: '/projects/agentic-ai-cvm-transformation' },
+          { label: 'Discuss AI Transformation', actionType: 'schedule' },
+        ],
+      };
+    }
+
+    if (q.includes('vodacom') || q.includes('telecom') || q.includes('dce') || q.includes('vodapay') || q.includes('corba') || q.includes('migration')) {
+      return {
+        text: "At Barone Budge & Dominick (Vodacom client), Sajesh engineered mission-critical telecom services:\n• Monolith to Spring Boot Microservices Migration: 100% functional parity, zero downtime, honored with the Vodacom Star Award.\n• Deals Calculation Engine (DCE): Refactored 10,000+ lines into high-concurrency JPA dynamic rule evaluation (<50ms).\n• VodaPay Business Validation (VBV): Sub-500ms real-time credit & risk validation for the super-app.\n• Legacy COBOL to Java Microservice Modernization: Converting overnight batch calculations to real-time Kafka streaming.\n• Agentic AI for CVM: Real-time autonomous subscriber value optimization.",
+        actions: [
+          { label: 'Vodacom Migration Study', actionType: 'navigate', link: '/projects/vodacom-microservices-migration' },
+          { label: 'COBOL to Java Case Study', actionType: 'navigate', link: '/projects/cobol-to-java-microservices-migration' },
+        ],
+      };
+    }
+
     if (q.includes('platform') || q.includes('project') || q.includes('built') || q.includes('work') || q.includes('case')) {
       return {
-        text: "Sajesh has architected and delivered several production enterprise platforms, including:\n• TechSonance Marketplace (Multi-tenant e-commerce)\n• AccuNest (GST accounting & AI WhatsApp invoice bot)\n• FreightFlow (Highway logistics OS & TMS)\n• SyncServe POS (Offline-first POS with SQLite sync)\n• Masterweg (German higher-ed workspace)\n• Utsav (Temple trust & volunteer logistics)\n• TechSonance Learn (Enterprise LMS)",
+        text: "Sajesh has architected and delivered 16 production enterprise systems, telecom platforms, and SaaS products, including:\n• Modern Microservice Migration (Vodacom Telecom monolith to Spring Boot)\n• Legacy COBOL to Java 17 Microservices Migration\n• Agentic AI CVM Microservice Transformation\n• Deals Calculation Engine & VodaPay Business Validation\n• TechSonance Marketplace (Multi-tenant e-commerce)\n• AccuNest (GST accounting & AI WhatsApp invoice bot)\n• FreightFlow (Highway logistics OS & TMS)\n• SyncServe POS (Offline-first POS with SQLite sync)",
         actions: [
-          { label: 'Explore Venture Showcase', actionType: 'navigate', link: '/projects' },
+          { label: 'Explore All 16 Case Studies', actionType: 'navigate', link: '/projects' },
           { label: 'Visit TechSonance.co.in', actionType: 'navigate', link: 'https://www.techsonance.co.in' },
         ],
       };
     }
 
-    if (q.includes('stack') || q.includes('tech') || q.includes('skill') || q.includes('language') || q.includes('react') || q.includes('node') || q.includes('java')) {
+    if (q.includes('stack') || q.includes('tech') || q.includes('skill') || q.includes('language') || q.includes('react') || q.includes('node') || q.includes('java') || q.includes('cobol')) {
       return {
-        text: "Sajesh's battle-tested stack includes:\n• Frontend: React 19, Next.js 15, TypeScript, Tailwind CSS, Framer Motion\n• Backend: Node.js, Express, Java Spring Boot (Microservices)\n• Databases: PostgreSQL, Supabase, SQLite, MongoDB, Redis\n• Cloud & DevOps: AWS, Docker, Kubernetes, CI/CD GitHub Actions\n• AI & Automation: Groq Llama 3, Google Gemini, Tesseract OCR",
+        text: "Sajesh's battle-tested stack includes:\n• Languages: Java (17/21), JavaScript, PL/SQL, COBOL\n• Backend: Spring Boot (Microservices), Node.js, Apache Kafka, REST APIs\n• Agentic AI: Multi-Agent Systems, LangChain / Tool Calling, Groq, Gemini\n• Frontend: React 19, Next.js 16, TypeScript, Tailwind CSS, Framer Motion\n• Databases: PostgreSQL, MySQL, Supabase, SQLite, Redis, Liquibase\n• Cloud & DevOps: AWS, Docker, Kubernetes, CI/CD GitLab / GitHub Actions",
         actions: [
           { label: 'View Skills Breakdown', actionType: 'navigate', link: '/about#skills' },
         ],
@@ -130,17 +160,17 @@ export function SonanceAIAssistant() {
         actions: [
           { label: 'Open Booking Calendar', actionType: 'schedule' },
           { label: 'WhatsApp +91 91731 01711', actionType: 'whatsapp', link: 'https://wa.me/919173101711' },
-          { label: 'Email Office', actionType: 'email', link: 'mailto:admin@techsonance.co.in' },
+          { label: 'Email Office', actionType: 'email', link: 'mailto:sajesh@techsonance.co.in' },
         ],
       };
     }
 
     if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('office') || q.includes('address') || q.includes('surat')) {
       return {
-        text: "Office Location: UG-15, Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India.\nEmail: sajeshkumar@techsonanceinfotech.com / admin@techsonance.co.in\nPhone/WhatsApp: +91 91731 01711\nHours: Mon-Fri 09:00 - 18:00 IST",
+        text: "Office Location: UG-15, Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India.\nEmail: sajesh@techsonance.co.in\nPhone/WhatsApp: +91 91731 01711\nHours: Mon-Fri 09:00 - 18:00 IST",
         actions: [
           { label: 'WhatsApp Sajesh', actionType: 'whatsapp', link: 'https://wa.me/919173101711' },
-          { label: 'Send Email', actionType: 'email', link: 'mailto:admin@techsonance.co.in' },
+          { label: 'Send Email', actionType: 'email', link: 'mailto:sajesh@techsonance.co.in' },
         ],
       };
     }

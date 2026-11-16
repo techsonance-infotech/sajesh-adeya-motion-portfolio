@@ -5,7 +5,7 @@
 > Co-Founder & CTO at TechSonance InfoTech LLP | Senior Full-Stack Developer & Software Architect based in Surat, Gujarat, India.
 
 ## Executive Summary
-Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializing in JavaScript, Node.js, Next.js, React, Java Microservices, PostgreSQL, and AWS Cloud Architecture. As Co-Founder & CTO of TechSonance InfoTech LLP, he leads the design, development, and deployment of enterprise SaaS applications, multi-tenant e-commerce platforms, logistics management suites, and AI-driven automated workflows.
+Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializing in Java Spring Boot Microservices, Legacy COBOL Modernization, Agentic AI, Next.js, React, Node.js, PostgreSQL, and AWS Cloud Architecture. As Co-Founder & CTO of TechSonance InfoTech LLP and former key engineer at Barone Budge & Dominick for Vodacom, he leads the modernization of mission-critical enterprise telecom services, autonomous AI agent workflows, and multi-tenant SaaS platforms.
 
 ## Key Information
 - **Name**: Sajesh Adeya (Sajeshkumar Adeya)
@@ -13,7 +13,7 @@ Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializin
 - **Parent Organization**: TechSonance InfoTech LLP (https://www.techsonance.co.in)
 - **Corporate Address**: UG-15, Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India
 - **Geo Coordinates**: 21.1418° N, 72.7709° E
-- **Email**: admin@techsonance.co.in / sajeshkumar@techsonanceinfotech.com
+- **Email**: sajesh@techsonance.co.in
 - **Phone / WhatsApp**: +91 91731 01711
 - **Portfolio Website**: https://sajesh.techsonance.co.in
 - **Company Website**: https://www.techsonance.co.in
@@ -73,12 +73,59 @@ Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializin
 - **Description**: Multi-tenant corporate ERP portal integrating GPS geofenced attendance logs, NFC readers, automated payroll, and a 23-role RBAC permissions system.
 - **Tech Stack**: Next.js, React 19, Supabase, PostgreSQL, MongoDB, Docker.
 
+### 9. Modern Microservice Migration (Vodacom Telecom)
+- **URL**: https://sajesh.techsonance.co.in/projects/vodacom-microservices-migration
+- **Client / Employer**: Barone Budge & Dominick (Pty) Ltd / Vodacom
+- **Description**: Migrated business-critical telecom services from a monolithic CORBA architecture to cloud-native Spring Boot microservices, achieving 100% functional parity and zero operational downtime. Awarded the Vodacom Star Award for flawless execution.
+- **Tech Stack**: Java 17, Spring Boot, PostgreSQL, Spring Data JPA, Liquibase, Docker, CORBA, GitLab CI/CD.
+
+### 10. Deals Calculation Engine (DSE-DCE)
+- **URL**: https://sajesh.techsonance.co.in/projects/deals-calculation-engine
+- **Client / Employer**: Barone Budge & Dominick (Pty) Ltd / Vodacom
+- **Description**: High-concurrency calculation engine processing dynamic telecom contract rules, plan upgrades, and promotions. Refactored 10,000+ lines of legacy code, replacing XML-based data structures with JPA dynamic models and sub-50ms rule evaluation.
+- **Tech Stack**: Java, Spring Boot, Spring Data JPA, PostgreSQL, Hibernate, JUnit 5, Git.
+
+### 11. VodaPay Business Validation (VBV)
+- **URL**: https://sajesh.techsonance.co.in/projects/vodapay-business-validation
+- **Client / Employer**: Barone Budge & Dominick (Pty) Ltd / Vodacom
+- **Description**: High-throughput validation service for the VodaPay super-app ecosystem, executing real-time credit checks, customer eligibility verifications, and financial constraints in under 500ms per transaction.
+- **Tech Stack**: Java 17, Spring Boot, REST APIs, Microservices, PostgreSQL, Spring Security.
+
+### 12. Online Data Query & Deal Sync (DSE-ODQ)
+- **URL**: https://sajesh.techsonance.co.in/projects/online-data-query-sync
+- **Client / Employer**: Barone Budge & Dominick (Pty) Ltd / Vodacom
+- **Description**: Automated synchronization service ensuring distributed deal catalog consistency across retail portals and backend microservices with resilient retry policies and full audit compliance.
+- **Tech Stack**: Java, Spring Boot, PostgreSQL, Liquibase, Spring Scheduling, REST APIs.
+
+### 13. SportsGeek Fantasy Platform
+- **URL**: https://sajesh.techsonance.co.in/projects/sportsgeek-app
+- **Description**: Real-time cricket fantasy and tournament prediction mobile application engineered with Java microservices and a React Native frontend, processing live match point updates via WebSockets.
+- **Tech Stack**: Java, Spring Boot, React Native, WebSockets, PostgreSQL, Redis, REST APIs.
+
+### 14. Enterprise IT Asset Management System
+- **URL**: https://sajesh.techsonance.co.in/projects/asset-management-system
+- **Description**: Internal enterprise IT hardware and software license lifecycle tracking platform with automated depreciation calculations, warranty alerts, and custodian handoff workflows.
+- **Tech Stack**: Java, Spring Boot, React.js, PostgreSQL, Hibernate, Docker.
+
+### 15. Legacy COBOL to Java Microservices Migration
+- **URL**: https://sajesh.techsonance.co.in/projects/cobol-to-java-microservices-migration
+- **Client / Employer**: Barone Budge & Dominick (Pty) Ltd / Enterprise Telecom & Banking
+- **Description**: Architectural modernization of legacy mainframe COBOL programs into cloud-native Java 17 Spring Boot microservices, achieving 100% calculation parity and converting multi-hour batch runs to sub-second real-time streaming.
+- **Tech Stack**: Java 17, Spring Boot, COBOL Modernization, PostgreSQL, Apache Kafka, Liquibase, Docker, JUnit 5.
+
+### 16. Agentic AI CVM Microservice Transformation
+- **URL**: https://sajesh.techsonance.co.in/projects/agentic-ai-cvm-transformation
+- **Client / Employer**: Barone Budge & Dominick (Pty) Ltd / Vodacom
+- **Description**: Re-engineered telecom Customer Value Management (CVM) microservices into an autonomous Agentic AI ecosystem, deploying multi-agent reasoning loops for real-time churn prevention, ARPU maximization (+18.4%), and contextual offer dispatch.
+- **Tech Stack**: Agentic AI, Multi-Agent Systems, Java Spring Boot, Python AI Bridge, PostgreSQL, Redis, Apache Kafka.
+
 ## Technical Core Competencies
-- **Frontend Architecture**: React.js, Next.js (App Router / SSR), TypeScript, Tailwind CSS, Framer Motion, GSAP, Zustand, TanStack Query.
-- **Backend Architecture**: Node.js, Express, Java (Spring Boot Microservices), CORBA Migrations, JPA, Hibernate, REST APIs, GraphQL, Socket.io.
-- **Databases & ORM**: PostgreSQL, MongoDB, SQLite, Supabase, Prisma ORM, Drizzle ORM, Row-Level Security (RLS).
-- **Cloud & DevOps**: AWS (EC2, S3, RDS), Docker, Kubernetes, CI/CD Pipelines, Vercel, Nginx, Linux Server Administration.
-- **AI Integrations**: Groq SDK (Llama 3.3 70B), Google Gemini, AI OCR Parsers, WhatsApp Bots, Agent Workflows.
+- **Agentic AI & LLMs**: Multi-Agent Systems, Autonomous Reasoning Loops, Dynamic NBA Engines, Groq Llama 3.3, Google Gemini, Tesseract OCR.
+- **Legacy Modernization**: COBOL Mainframe to Java 17 Microservices, CORBA Monolith Migration, Parity Regression Testing, Liquibase Versioning.
+- **Backend Architecture**: Java (Spring Boot Microservices), Node.js, Express, Apache Kafka, REST APIs, GraphQL, Socket.io, Redis.
+- **Frontend Architecture**: React 19, Next.js 16 (App Router / SSR), TypeScript, Tailwind CSS, Framer Motion, GSAP, Zustand.
+- **Databases & ORM**: PostgreSQL, MySQL, SQLite, Supabase, Prisma ORM, Spring Data JPA, Hibernate, Row-Level Security (RLS).
+- **Cloud & DevOps**: AWS (EC2, S3, RDS), Docker, Kubernetes, CI/CD Pipelines, GitLab CI/CD, Nginx, Linux Server Administration.
 
 ## Optional Extended Documentation
 For comprehensive technical architecture documentation, see [llms-full.txt](https://sajesh.techsonance.co.in/llms-full.txt).

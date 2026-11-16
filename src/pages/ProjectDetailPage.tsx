@@ -58,9 +58,35 @@ export default function ProjectDetailPage() {
         "@id": `https://sajesh.techsonance.co.in/projects/${project.slug}/#software`,
         "name": project.name,
         "description": project.fullDescription || project.description,
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "All",
-        "url": project.liveUrl,
+        "applicationCategory": project.stack.some(s => s.toLowerCase().includes('ai')) ? "ArtificialIntelligenceApplication" : "BusinessApplication",
+        "operatingSystem": "Cloud, Linux, Web, Docker",
+        "url": project.liveUrl && project.liveUrl !== '#' ? project.liveUrl : `https://sajesh.techsonance.co.in/projects/${project.slug}`,
+        "image": `https://sajesh.techsonance.co.in${project.image}`,
+        "author": {
+          "@type": "Person",
+          "name": "Sajesh Adeya",
+          "jobTitle": "Co-Founder & Chief Technology Officer (CTO)",
+          "url": "https://sajesh.techsonance.co.in"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TechSonance InfoTech LLP",
+          "url": "https://www.techsonance.co.in",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://sajesh.techsonance.co.in/techsonance_logo.png"
+          }
+        }
+      },
+      {
+        "@type": "TechArticle",
+        "@id": `https://sajesh.techsonance.co.in/projects/${project.slug}/#article`,
+        "headline": `${project.name} - Technical Architecture Case Study`,
+        "description": project.description,
+        "articleBody": `${project.fullDescription || project.description} Architectural Challenges: ${project.challenges || ''} Engineering Solution: ${project.solution || ''} Measurable Results: ${project.results || ''}`,
+        "url": `https://sajesh.techsonance.co.in/projects/${project.slug}`,
+        "image": `https://sajesh.techsonance.co.in${project.image}`,
+        "inLanguage": "en",
         "author": {
           "@type": "Person",
           "name": "Sajesh Adeya",
@@ -69,20 +95,52 @@ export default function ProjectDetailPage() {
         "publisher": {
           "@type": "Organization",
           "name": "TechSonance InfoTech LLP",
-          "url": "https://marketplace.techsonance.co.in"
+          "url": "https://www.techsonance.co.in",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://sajesh.techsonance.co.in/techsonance_logo.png"
+          }
+        },
+        "about": project.stack.map(s => ({ "@type": "Thing", "name": s })),
+        "contentLocation": {
+          "@type": "Place",
+          "name": "Surat, Gujarat, India",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 21.1418,
+            "longitude": 72.7709
+          }
         }
       },
       {
-        "@type": "TechArticle",
-        "@id": `https://sajesh.techsonance.co.in/projects/${project.slug}/#article`,
-        "headline": `${project.name} - Architectural Case Study`,
-        "description": project.description,
-        "articleBody": project.fullDescription,
-        "url": `https://sajesh.techsonance.co.in/projects/${project.slug}`,
-        "author": {
-          "@type": "Person",
-          "name": "Sajesh Adeya"
-        }
+        "@type": "FAQPage",
+        "@id": `https://sajesh.techsonance.co.in/projects/${project.slug}/#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": `What were the key achievements and metrics for ${project.name}?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `Engineered with high performance: ${project.metrics.map(m => `${m.label}: ${m.value}`).join(', ')}. ${project.results || project.description}`
+            }
+          },
+          {
+            "@type": "Question",
+            "name": `What is the technology stack and architecture of ${project.name}?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `Constructed using ${project.stack.join(', ')}. ${project.architectureDetails || project.solution || ''}`
+            }
+          },
+          {
+            "@type": "Question",
+            "name": `Who engineered ${project.name} and what was the business challenge?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `Sajesh Adeya served as ${project.role} for ${project.client}. The challenge addressed: ${project.challenges || project.description}`
+            }
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",

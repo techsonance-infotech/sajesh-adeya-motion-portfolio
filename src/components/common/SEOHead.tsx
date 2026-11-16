@@ -41,7 +41,7 @@ export function SEOHead({
         },
         "url": SITE_URL,
         "image": `${SITE_URL}/sajesh_logo_only.png`,
-        "email": "sajeshkumar@techsonanceinfotech.com",
+        "email": "sajesh@techsonance.co.in",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Surat",
@@ -59,19 +59,25 @@ export function SEOHead({
           "React.js",
           "Next.js",
           "Node.js",
-          "Java Spring Boot",
+          "Java Spring Boot Microservices",
+          "Legacy Mainframe COBOL Migration",
+          "Agentic AI & Multi-Agent Systems",
+          "Customer Value Management (CVM)",
+          "High-Concurrency Deals Calculation Engines",
+          "Apache Kafka Event Streaming",
           "PostgreSQL",
           "AWS Cloud Architecture",
-          "Multi-Tenant SaaS Systems"
+          "Multi-Tenant SaaS Systems",
+          "VodaPay Business Validation"
         ]
       },
       {
         "@type": "Organization",
         "@id": `${SITE_URL}/#organization`,
         "name": "TechSonance InfoTech LLP",
-        "url": "https://marketplace.techsonance.co.in",
+        "url": "https://www.techsonance.co.in",
         "logo": `${SITE_URL}/techsonance_logo.png`,
-        "email": "connect.techsonance@gmail.com",
+        "email": "sajesh@techsonance.co.in",
         "founder": {
           "@id": `${SITE_URL}/#person`
         },

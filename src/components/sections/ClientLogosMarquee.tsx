@@ -12,6 +12,22 @@ interface ClientItem {
 
 const clients: ClientItem[] = [
   {
+    name: 'Vodacom Telecom',
+    category: 'Telecom Microservices',
+    logo: '/projects/vodacom-migration-logo.png',
+    url: '/projects/vodacom-microservices-migration',
+    description: 'CORBA to Spring Boot microservices, DCE & VodaPay',
+    accentColor: '#E60000',
+  },
+  {
+    name: 'Barone Budge & Dominick',
+    category: 'Enterprise Engineering',
+    logo: '/projects/deals-calculation-engine-logo.png',
+    url: 'https://www.bbdsoftware.com/',
+    description: 'High-concurrency telecom rule engines & data sync',
+    accentColor: '#1155CC',
+  },
+  {
     name: 'TechSonance Marketplace',
     category: 'Multi-Tenant E-Commerce',
     logo: '/projects/marketplace-logo.png',

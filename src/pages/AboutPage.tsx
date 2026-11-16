@@ -65,8 +65,8 @@ export default function AboutPage() {
         <SEOHead 
           canonicalUrl="/about"
           title="About Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech LLP"
-          description="Senior Full-Stack Developer and CTO specializing in React, Next.js, Node.js, Java Spring Boot, and AWS Cloud Architecture. Learn about Sajesh Adeya's career timeline, leadership, and software architecture background."
-          keywords="Sajesh Adeya, TechSonance InfoTech LLP, Co-Founder, CTO, Senior Full-Stack Developer Surat, Java Microservices, Next.js Developer"
+          description="Senior Full-Stack Developer and CTO specializing in React, Next.js, Node.js, Java Spring Boot microservices, COBOL modernizations, and Agentic AI workflows. Learn about Sajesh Adeya's career timeline, leadership, and software architecture background."
+          keywords="Sajesh Adeya, TechSonance InfoTech LLP, Co-Founder, CTO, Senior Full-Stack Developer Surat, Java Microservices, Next.js Developer, COBOL Migration, Agentic AI, Vodacom Telecom"
           schemaData={aboutSchema}
         />
         {/* Custom cursor overlay */}
