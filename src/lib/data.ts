@@ -740,133 +740,141 @@ export const showcaseProjects = [
   },
   {
     id: 18,
-    slug: "zion-mobile",
-    name: "Zion Mobile (React Native eTicketing)",
+    slug: "zion-platform",
+    name: "Zion — Event & Ticketing Ecosystem (Backend, Super Admin & Flutter App)",
     description:
-      "A production React Native (New Architecture & Hermes V1) mobile eTicketing app engineered for Zion with an encrypted SQLCipher Ticket Vault, 3,000+ seat interactive Skia/SVG map, and dual-clock countdown synchronization.",
-    image: "/projects/zion-mobile-dashboard.png",
-    logo: "/projects/zion-mobile-logo.png",
-    mobileImage1: "/projects/zion-mobile-phone.png",
-    mobileImage2: "/projects/zion-mobile-logo.png",
-    gallery: ["/projects/zion-mobile-dashboard.png", "/projects/zion-mobile-phone.png"],
+      "A complete event discovery, social engagement, and ticketing ecosystem engineered across three tiers: a modular monolith Node.js backend (zion-api), a Next.js 15 Super Admin portal (zion-admin), and a cross-platform Flutter mobile application (zion-mobile) with real-time Socket.IO chat and offline Isar persistence.",
+    image: "/projects/zion-admin-dashboard.png",
+    logo: "/projects/zion-logo.png",
+    mobileImage1: "/projects/zion-mobile-hero.webp",
+    mobileImage2: "/projects/zion-mobile-detail.webp",
+    gallery: ["/projects/zion-admin-dashboard.png", "/projects/zion-mobile-hero.webp", "/projects/zion-mobile-detail.webp"],
     liveUrl: "https://www.techsonance.co.in/portfolio/zion",
     color: "#1155CC",
     features: [
-      "Encrypted Offline Ticket Vault: SQLCipher (vault.db) with 256-bit AES-GCM encryption key stored in Keychain / Keystore (WHEN_UNLOCKED_THIS_DEVICE_ONLY) for guaranteed offline gate entry",
-      "3,000+ Seat Interactive Map Engine: High-performance tiled SVG and Skia seat map with gesture-driven pinch/pan/zoom on UI thread, 44x44pt hit targets, and accessible List Mode fallback",
-      "Dual-Clock Basket Countdown: Monotonic clock (performance.now()) combined with server-offset wall clock, preventing timer tampering when users adjust device time or switch time zones",
-      "Anti-Forgery System Browser Payment: ASWebAuthenticationSession (iOS) and Custom Tabs (Android) with cryptographically validated returnState tokens, resisting OS process death",
-      "Strict Memory-Only PII Security: Customer form data and checkout drafts reside strictly in RAM, automatically wiping upon logout or app termination to comply with UAE PDPL regulations",
-      "Robust Offline & Fault Handling: TanStack Query + Zustand with automated latest-wins concurrency, request abort signals, and network jitter backoff algorithms"
+      "Cross-Platform Flutter Mobile Application (zion-mobile): Expressive iOS & Android app built with Flutter, Dart, Riverpod state management, and GoRouter deep linking delivering fluid 60fps animations",
+      "Modular Monolith Production Backend (zion-api): High-throughput Node.js v20+, Express.js, TypeScript, and Drizzle ORM backend over PostgreSQL with strict domain boundaries across 20+ modules (Events, Chat, Seller Analytics, Moderation)",
+      "Enterprise Super Admin Portal (zion-admin): Next.js 15 App Router, React 19, TypeScript, and Tailwind CSS dashboard empowering platform operators to govern events, onboard sellers, audit commissions, and manage real-time ban/policy enforcements",
+      "Real-Time Chat & Communications Engine: Scalable Socket.IO cluster with Redis Adapter for horizontal multi-node scaling, supporting low-latency attendee chat and organizer announcements",
+      "Resilient Background Queue Pipeline: BullMQ and Redis queues with automatic exponential backoff, dead-letter queues (DLQ), and idempotent asynchronous event processing",
+      "Offline-First Mobile Persistence: Multi-tiered mobile caching using Isar Community DB and Hive with Flutter Secure Storage for tamper-proof session tokens and biometric auth"
     ],
     stack: [
-      "React Native",
+      "Flutter",
+      "Dart",
+      "Next.js 15",
+      "React 19",
+      "Node.js",
+      "Express.js",
       "TypeScript",
-      "Hermes V1",
-      "Expo",
-      "TanStack Query",
-      "Zustand",
-      "SQLCipher",
-      "React Native Skia",
-      "React Native SVG",
-      "ASWebAuthenticationSession"
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Redis",
+      "BullMQ",
+      "Socket.IO",
+      "Tailwind CSS"
     ],
-    client: "Zion Entertainment & Events (Anush, Founder & CEO)",
-    duration: "4 Months",
-    role: "Lead Mobile Architect & React Native Engineer",
+    client: "Zion Entertainment & Events",
+    duration: "6 Months",
+    role: "Lead Full-Stack Architect & Mobile Systems Lead",
     metrics: [
-      { label: "Seat Map Render", value: "<500ms (1k)" },
-      { label: "Offline Availability", value: "100% Vault" },
-      { label: "Crash-Free Rate", value: "99.8%" }
+      { label: "Mobile Performance", value: "60 FPS" },
+      { label: "Real-Time Concurrency", value: "10k+ Sockets" },
+      { label: "API Query Latency", value: "<45ms" }
     ],
-    fullDescription: "Zion Mobile (zion-mobile) is an enterprise-grade React Native eTicketing application engineered on the New Architecture with Hermes V1. Designed for high-volume entertainment, concerts, and stadium events in the UAE, the application provides an uncompromising ticketing experience from rapid interactive seat selection to offline venue entry. The app features an offline-first encrypted Ticket Vault built on SQLCipher that protects ticket barcodes behind Keychain/Keystore hardware-backed keys, an interactive seat mapping engine rendering 3,000+ seats smoothly without frame drops, and a resilient payment handoff pipeline utilizing system browser sessions (ASWebAuthenticationSession / Custom Tabs) that survives background process termination.",
-    challenges: "Event ticketing mobile apps face severe real-world constraints: stadium gates frequently suffer from complete mobile network blackouts, rendering web-based tickets inaccessible. Furthermore, rendering thousands of interactive reserved seats in React Native causes severe frame drops and Android ANRs, while dishonest device clocks can allow users to exploit hold timers or pay for expired baskets. Finally, payment handoffs via WebViews frequently break banking 3D-Secure flows and biometric authentications.",
-    solution: "Engineered an offline-first architecture with dual databases: an encrypted SQLCipher vault (vault.db) holding confirmed barcodes accessible offline with a 'Last verified' provenance stamp, and a disposable cache (cache.db) for public catalogue data. Built a hybrid seat map engine combining tiled SVG chunks and Skia rendering with an accessible list mode for screen readers. Formulated a dual-clock algorithm pairing performance.now() monotonic intervals with server-offset timestamps to make hold countdowns tamper-proof. Prohibited WebViews in favor of system browser sessions with single-use returnState anti-forgery tokens, paired with a persistent pending_checkout pointer that auto-recovers transaction state upon app relaunch.",
-    results: "Delivered sub-500ms first interactive render on 1,000+ seat maps on mid-range Android devices, maintained 100% offline ticket readability at venue turnstiles, achieved a 99.8% crash-free session rate across diverse iOS and Android hardware, and completely eliminated orphan basket holds and payment return drop-offs.",
+    fullDescription: "Zion is a comprehensive, production-grade event discovery, social engagement, and ticketing platform engineered by Sajesh Adeya at TechSonance InfoTech LLP. Spanning three major repositories (zion-api, zion-admin, and zion-mobile), the platform delivers an integrated digital ecosystem: an expressive Flutter mobile app for iOS and Android, a high-throughput Modular Monolith backend powering real-time chat and background job queues, and an enterprise Next.js 15 Super Admin portal for organizers and administrators. With deep focus on scalability, type safety, and real-time interaction, Zion supports multi-tiered event booking, AI-driven content moderation, escrow payment splits, and offline ticket persistence.",
+    challenges: "Engineering a synchronized three-tier ecosystem across mobile (Flutter), admin web (Next.js 15), and backend services (Node.js) introduces complex challenges: maintaining absolute data integrity during flash event ticket drops, preventing socket server fragmentation across horizontally scaled instances, enforcing strict role-based access controls and AI content moderation across user-generated event posts, and ensuring seamless mobile operation even in fluctuating stadium cell network conditions.",
+    solution: "Architected zion-api as a strictly bounded Modular Monolith using Drizzle ORM and PostgreSQL with BullMQ job queues for asynchronous tasks like media processing, notifications, and commission settlements. Scaled real-time chat via Socket.IO with a shared Redis adapter across server nodes. Designed zion-admin with Next.js 15 App Router and React 19 for real-time seller verification, financial dispute audits, and policy enforcement. In zion-mobile, implemented a reactive Flutter architecture powered by Riverpod and Isar database, ensuring offline ticket retrieval and fluid 60fps animations.",
+    results: "Achieved sub-45ms average database query latency, supported 10,000+ concurrent Socket.IO connections with zero message drop, achieved 60fps rendering across both low-end and flagship mobile devices, and empowered platform administrators to manage thousands of concurrent events and seller accounts with zero operational downtime.",
     aiDetails: [
-      { engine: "Predictive Seat Allocation Engine", usecase: "Analyzes stadium group sizes and seat availability matrices to automatically suggest optimal adjacent seat clusters with zero aisle fragmentation." },
-      { engine: "Dual-Clock Monotonic Guard", usecase: "Monitors clock skew and network round-trip latency to dynamically adjust local ticket hold expiry countdowns with sub-second accuracy." }
+      { engine: "Automated Content & Media Moderation", usecase: "Analyzes uploaded event photos, seller banners, and social posts via integrated AI moderation pipelines to detect and flag policy violations in real-time." },
+      { engine: "Intelligent Event Discovery & Matcher", usecase: "Personalizes user discovery feeds based on past attendance, category interests, geolocation, and trending community interactions." }
     ],
-    architectureDetails: "Engineered with React Native (New Architecture enabled), Hermes V1 engine, and TypeScript strict mode. Local state powered by TanStack Query for server synchronization and Zustand for memory-only UI interactions. Secure storage handled by SQLCipher with 256-bit AES-GCM encryption keys sealed inside iOS Keychain and Android Keystore. Payment handoff executed via ASWebAuthenticationSession / Custom Tabs.",
+    architectureDetails: "Engineered across three decoupled layers: zion-mobile written in Flutter (Dart) using Riverpod, GoRouter, Isar DB, and Dio; zion-admin built with Next.js 15 App Router, React 19, TypeScript, and Tailwind CSS; zion-api structured as a Modular Monolith with Node.js v20+, Express.js, Drizzle ORM, PostgreSQL, Redis TLS, BullMQ workers, and Socket.IO real-time gateways.",
     architecturePipeline: [
-      { step: "01. App Boot & Security Gating", role: "Hermes V1 & SQLCipher Init", detail: "Initializes New Architecture bridge, unlocks vault.db via Keychain/Keystore key, and reads /v1/app/config for live kill-switches and version floors." },
-      { step: "02. High-Density Seat Engine", role: "Skia / SVG Tiled Map", detail: "Renders 3,000+ seats in clamped viewport chunks with UI-thread gestures, 44pt hit-targets, and automatic a11y list mode fallback for TalkBack/VoiceOver." },
-      { step: "03. Dual-Clock Synchronization", role: "Monotonic Timer Engine", detail: "Calculates server time offsets on every network cycle, combining performance.now() with wall-clock bounds to prevent local device time cheating." },
-      { step: "04. Anti-Forgery Payment Handoff", role: "ASWebAuthSession / Custom Tabs", detail: "Launches hosted checkout in system browser; returnState token validated upon return, recovering status seamlessly even if the OS kills the app." },
-      { step: "05. Offline Ticket Vault", role: "Hardware-Backed Local Storage", detail: "Stores confirmed barcodes under AES-GCM encryption, displaying 'Last verified' stamps and offline warning banners when signal is lost." }
+      { step: "01. Mobile Client & Offline Cache", role: "Flutter & Isar Community DB", detail: "Renders event discovery and ticket checkout at 60fps, storing passes and profiles locally for instant offline verification." },
+      { step: "02. Ingress API & Domain Routing", role: "Node.js Express Modular Monolith", detail: "Validates incoming REST payloads with Zod, enforcing strict inter-module boundaries across Events, Users, and Payments." },
+      { step: "03. Real-Time Socket Gateway", role: "Socket.IO + Redis Cluster", detail: "Maintains persistent bi-directional WebSocket connections for event chat, live inventory updates, and instant notifications." },
+      { step: "04. Asynchronous Queue Processing", role: "BullMQ + Redis Workers", detail: "Processes media transcoding, AI moderation scans, email notifications, and commission disbursements in background queues." },
+      { step: "05. Super Admin Governance", role: "Next.js 15 App Router & React 19", detail: "Provides platform operators with real-time financial reporting, seller KYC approvals, commission splits, and policy enforcement." }
     ],
     stateWorkflows: [
       {
-        persona: "Event Goer & Fan Flow",
+        persona: "Event Goer & Attendee Flow (Flutter)",
         color: "#1155CC",
         commands: [
-          { trigger: "1. Discover & Pick Section", outcome: "Browse live shows with cached catalogue and realtime availability indicators." },
-          { trigger: "2. Interactive Seat Selection", outcome: "Select adjacent reserved seats with instant conflict alerts and estimated subtotal preview." },
-          { trigger: "3. Countdown Hold & Form", outcome: "Enforces 10-minute hold with dual-clock sync and memory-only customer detail entry." },
-          { trigger: "4. System Browser Checkout", outcome: "Completes 3D-Secure banking flow in system browser with automatic cold-start recovery." }
+          { trigger: "1. Discover & Explore Events", outcome: "Browse personalized event feeds filtered by geo-radius, music genres, and community interest tags." },
+          { trigger: "2. Reserve Seats & Checkout", outcome: "Selects ticket tiers with live seat allocation and completes secure payment via integrated gateway." },
+          { trigger: "3. Join Live Event Chat", outcome: "Connects to real-time Socket.IO chat room to engage with organizers and fellow attendees." },
+          { trigger: "4. Offline Pass Access", outcome: "Retrieves confirmed event barcode instantly from local Isar database without requiring cellular signal." }
         ]
       },
       {
-        persona: "Offline Gate Presentation Flow",
-        color: "#10B981",
+        persona: "Platform Administrator & Super Admin Flow",
+        color: "#D97706",
         commands: [
-          { trigger: "1. Zero-Signal Venue Mode", outcome: "Automatically activates read-only Ticket Vault displaying cached tickets with last-synced timestamp." },
-          { trigger: "2. Hardware Barcode Rendering", outcome: "Renders high-contrast QR / Code128 barcode with automatic screen brightness boost." },
-          { trigger: "3. Re-Sync on Reconnect", outcome: "Pulls delta updates (/v1/orders?updatedSince) to instantly reflect any refunded or transferred tickets." }
+          { trigger: "1. Review Seller Onboarding", outcome: "Audits seller credentials, KYC documentation, and banking details before activating organizer accounts." },
+          { trigger: "2. Real-Time Content Moderation", outcome: "Monitors flagged events and posts flagged by AI moderation, executing instantaneous bans or warnings." },
+          { trigger: "3. Commission & Escrow Settlement", outcome: "Calculates platform fees, deducts tax withholding, and triggers automated payouts to event hosts." }
         ]
       }
     ]
   },
   {
     id: 19,
-    slug: "zion-api",
-    name: "Zion API & Caven DET Integration Engine",
+    slug: "caven-det-ticketing",
+    name: "Caven — Dubai Economy & Tourism (DET) eTicketing Engine",
     description:
-      "An enterprise integration middleware and event orchestration backend connecting Zion with the Dubai Economy & Tourism (DET) Sales API v1.3, featuring BullMQ distributed queuing, atomic inventory holds, and idempotent payment reconciliation.",
-    image: "/projects/zion-api-dashboard.png",
-    logo: "/projects/zion-api-logo.png",
-    mobileImage1: "/projects/zion-api-dashboard.png",
-    mobileImage2: "/projects/zion-api-logo.png",
-    gallery: ["/projects/zion-api-dashboard.png"],
-    liveUrl: "https://www.techsonance.co.in/portfolio/zion",
+      "An enterprise government integration middleware and mobile client interfacing directly with the Dubai Economy & Tourism (DET) Sales API v1.3. Features React Native New Architecture with SQLCipher encrypted ticket vault, BullMQ distributed queuing, atomic Redis mutex inventory holds, and idempotent financial reconciliation.",
+    image: "/projects/caven-det-dashboard.png",
+    logo: "/projects/caven-det-logo.png",
+    mobileImage1: "/projects/caven-det-mobile.png",
+    mobileImage2: "/projects/caven-det-logo.png",
+    gallery: ["/projects/caven-det-dashboard.png", "/projects/caven-det-mobile.png"],
+    liveUrl: "https://www.techsonance.co.in/portfolio/caven",
     color: "#635BFF",
     features: [
-      "DET Sales API v1.3 Enterprise Integration: Translates DET ticketing protocols, seat matrices (columnPos/rowPos), and inventory statuses into modern RESTful /v1 endpoints",
+      "DET Sales API v1.3 Enterprise Integration: Translates government DET ticketing protocols, seat matrices (columnPos/rowPos), and inventory statuses into modern RESTful /v1 endpoints",
+      "React Native Client (New Architecture & Hermes V1): Production mobile app featuring SQLCipher encrypted Ticket Vault (AES-GCM Keychain/Keystore) and 3,000+ seat interactive Skia map engine (<500ms first render)",
       "Distributed Queue Decoupling (BullMQ + Redis): Ingress webhook layer responds in <300ms, queuing payment capture verification (gateway.capture.verify) with 3-second deduplication windows",
-      "Atomic Inventory Holds & Hold Expiry: Implements Redis distributed mutex locks and automatic TTL expiration to prevent double-booking and orphan seat allocations",
+      "Atomic Inventory Holds & Sliding Expiry: Implements Redis distributed mutex locks and automatic TTL expiration to prevent double-booking and orphan seat allocations",
+      "Anti-Forgery System Browser Payment Handoff: ASWebAuthenticationSession (iOS) and Custom Tabs (Android) with cryptographically validated returnState tokens, resisting OS process death",
       "Idempotent Financial Reconciliation: Cryptographically verified HMAC SHA256 webhooks, synthetic event ledgers, and automated partial/full refund processing with zero calculation drift",
       "Dynamic Remote App Configuration (BD-02): Live /v1/app/config endpoint controlling minimum app versions, feature toggles, and instant emergency kill-switches (checkout, seats, refunds)",
       "Strict Opaque ID Shielding: Translates internal DET codes into opaque client identifiers (PRF-, BSK-, CHK-, CVN-, TKT-), shielding the frontend and mobile apps from DET legacy internals"
     ],
     stack: [
-      "Node.js",
+      "React Native",
       "TypeScript",
+      "Hermes V1",
+      "Expo",
+      "Node.js",
       "Express.js v5",
       "BullMQ",
       "Redis (TLS)",
       "PostgreSQL",
-      "JSONB",
+      "SQLCipher",
+      "React Native Skia",
       "DET Sales API v1.3",
-      "HMAC SHA256",
-      "Sentry"
+      "HMAC SHA256"
     ],
-    client: "Zion Entertainment & Events / Caven DET Integration",
+    client: "Caven / Dubai Economy & Tourism (DET Integration)",
     duration: "4 Months",
-    role: "Principal Backend & Integration Systems Architect",
+    role: "Principal Integration Architect & Mobile Systems Engineer",
     metrics: [
       { label: "Webhook Ingress ACK", value: "<300ms" },
       { label: "Reconciliation Parity", value: "100%" },
-      { label: "Concurrent Holds", value: "5,000+/min" }
+      { label: "Seat Map Render", value: "<500ms (1k)" }
     ],
-    fullDescription: "Zion API (zion-api) is the enterprise integration backend and event-driven middleware connecting the Zion eTicketing platform with the Dubai Economy & Tourism (DET) Sales API v1.3. Functioning as the mission-critical transactional backbone, it abstracts DET's legacy protocols into a resilient, developer-friendly REST API while handling distributed seat hold management, payment gateway webhook verification, and automated refund auditing. Built with Node.js, TypeScript, BullMQ, and Redis, the engine guarantees sub-second response times, enforces strict multi-tenant isolation, and ensures zero lost tickets or double-charging during peak nationwide concert sales.",
-    challenges: "Integrating with external government tourism APIs (such as DET) introduces severe friction: DET's legacy endpoints lack event listing capabilities, omit image/venue metadata, feature ambiguous error semantics, and lack explicit basket expiry fields. Furthermore, peak ticket drop traffic can swamp external payment gateways, creating webhook delivery delays and leaving purchase outcomes in an ambiguous state that risks double-charging consumers.",
-    solution: "Engineered a decoupled, resilient architecture: Created a Caven metadata registry layer (BD-01) enriching DET performances with rich CDN assets, venue details, and availability status. Built an asynchronous BullMQ queue pipeline on top of Redis with dedicated workers for payment capture verification (gateway.capture.verify), deduplicated at 3-second intervals so incoming app return hints trigger immediate gateway queries without flooding APIs. Implemented an idempotent financial ledger verifying HMAC SHA256 signatures and recording all transactions in an append-only payment_events store before issuing final ticket barcodes.",
-    results: "Delivered 100% mathematical and data parity across all DET ticketing operations, achieved consistent sub-300ms webhook ingress response times, supported 5,000+ concurrent hold requests per minute during headline stadium launches, and provided live emergency kill-switch controls executable within seconds without requiring app store re-submissions.",
+    fullDescription: "Caven is an enterprise government integration middleware and mobile client interfacing directly with the Dubai Economy & Tourism (DET) Sales API v1.3. Functioning as the mission-critical transactional backbone for major UAE entertainment, concert, and stadium events, Caven abstracts DET's legacy protocols into a resilient, developer-friendly REST API while providing a flagship React Native mobile client. Built with Node.js, TypeScript, BullMQ, Redis, and React Native (New Architecture with Hermes V1), the system guarantees sub-second response times, enforces atomic seat hold mutexes, and ensures zero lost tickets or double-charging during peak nationwide concert drops.",
+    challenges: "Integrating with external government tourism APIs (such as DET) introduces severe technical friction: DET's legacy endpoints lack event listing capabilities, omit image/venue metadata, feature ambiguous error semantics, and lack explicit basket expiry fields. On mobile, stadium turnstiles experience complete cellular blackouts, and rendering thousands of reserved seats in mobile frameworks can cause severe frame drops. During peak drops, external payment gateways face webhook delivery delays that risk double-charging consumers.",
+    solution: "Engineered a decoupled, resilient architecture: Created a Caven metadata registry layer (BD-01) enriching DET performances with rich CDN assets, venue details, and availability status. Built an asynchronous BullMQ queue pipeline on top of Redis with dedicated workers for payment capture verification (gateway.capture.verify), deduplicated at 3-second intervals so incoming app return hints trigger immediate gateway queries without flooding APIs. Implemented an idempotent financial ledger verifying HMAC SHA256 signatures and recording all transactions in an append-only payment_events store. On mobile, built an encrypted SQLCipher Ticket Vault (vault.db) with 256-bit AES-GCM keys stored in Keychain/Keystore for 100% offline gate presentation, paired with a Skia/SVG tiled seat mapping engine.",
+    results: "Delivered 100% mathematical and data parity across all DET ticketing operations, achieved consistent sub-300ms webhook ingress response times, supported 5,000+ concurrent hold requests per minute during headline stadium launches, and delivered sub-500ms first render on 1,000+ seat maps on mid-range Android devices with a 99.8% crash-free rate.",
     aiDetails: [
       { engine: "Automated Ticket Reconciliation Solver", usecase: "Executes continuous differential verification between DET confirmed booking states and payment gateway settlement batches to ensure 100% ledger balance." },
-      { engine: "Dynamic Hold Expiry & Cleanup Worker", usecase: "Monitors active Redis seat locks and auto-cancels abandoned baskets at the exact millisecond of deadline expiration, releasing seats to waiting fans." }
+      { engine: "Dual-Clock Monotonic Guard", usecase: "Monitors active Redis seat locks and auto-cancels abandoned baskets at the exact millisecond of deadline expiration, dynamically preventing client time tampering." }
     ],
-    architectureDetails: "Engineered using Node.js v20+ with TypeScript. Express.js v5 ingress layer decoupled from message processing via BullMQ cluster over Redis (Upstash / TLS). Persistence is managed in PostgreSQL with JSONB columns for flexible Caven metadata schemas and Liquibase versioned migrations. Integrates Dubai Economy & Tourism (DET) Sales API v1.3 over secure mutual TLS with Sentry tracing.",
+    architectureDetails: "Engineered using Node.js v20+ with TypeScript and Express.js v5 decoupled from message processing via BullMQ cluster over Redis (Upstash / TLS). Mobile client built on React Native New Architecture with Hermes V1, SQLCipher AES-GCM, and Skia graphics. Integrates Dubai Economy & Tourism (DET) Sales API v1.3 over secure mutual TLS with Sentry tracing.",
     architecturePipeline: [
       { step: "01. Client Ingress & Opaque Translation", role: "Express.js v5 Gateway", detail: "Translates opaque client refs (PRF-, BSK-) into DET internal codes, applying rate limits and verifying Bearer authentication." },
       { step: "02. Atomic Seat Locking & TTL", role: "Redis Distributed Mutex", detail: "Executes atomic seat locks across requested seat IDs, setting synchronized hold timers and releasing expired baskets automatically." },

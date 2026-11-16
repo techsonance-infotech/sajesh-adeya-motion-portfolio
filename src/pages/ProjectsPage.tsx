@@ -90,8 +90,6 @@ export default function ProjectsPage() {
         project.slug.includes('online-data') ||
         project.slug.includes('cobol') ||
         project.slug.includes('cvm') ||
-        project.slug.includes('zion') ||
-        project.client.toLowerCase().includes('det') ||
         (project.industry ? project.industry.toLowerCase().includes('telecom') : false)
       );
     }
@@ -108,7 +106,10 @@ export default function ProjectsPage() {
       return project.stack.some(s => s.toLowerCase().includes('groq') || s.toLowerCase().includes('gemini') || s.toLowerCase().includes('ai'));
     }
     if (selectedFilter === 'Mobile / Offline') {
-      return project.stack.some(s => s.toLowerCase().includes('native') || s.toLowerCase().includes('socket') || s.toLowerCase().includes('localforage') || s.toLowerCase().includes('whatsapp'));
+      return project.stack.some(s => {
+        const lower = s.toLowerCase();
+        return lower.includes('native') || lower.includes('flutter') || lower.includes('dart') || lower.includes('socket') || lower.includes('localforage') || lower.includes('whatsapp') || lower.includes('offline');
+      });
     }
     return true;
   });
