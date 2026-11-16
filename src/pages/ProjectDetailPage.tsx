@@ -162,8 +162,8 @@ export default function ProjectDetailPage() {
       <div className="relative min-h-screen bg-background">
         <SEOHead 
           canonicalUrl={`/projects/${project.slug}`}
-          title={`${project.name} Case Study | Sajesh Adeya & TechSonance InfoTech LLP`}
-          description={`${project.description} Engineered by Sajesh Adeya, CTO at TechSonance InfoTech LLP.`}
+          title={`${project.name} Case Study | Sajesh Adeya`}
+          description={project.description.length > 155 ? `${project.description.slice(0, 152)}...` : project.description}
           keywords={`${project.name}, ${project.stack.join(', ')}, Sajesh Adeya, TechSonance InfoTech LLP, Enterprise SaaS`}
           ogImage={project.image}
           ogType="article"
@@ -205,6 +205,10 @@ export default function ProjectDetailPage() {
                     <img 
                       src={project.logo} 
                       alt={`${project.name} logo`} 
+                      width={140}
+                      height={64}
+                      loading="lazy"
+                      decoding="async"
                       className="h-16 w-auto object-contain bg-white p-3 rounded-2xl border border-slate-200 shadow-xs"
                     />
                   )}
@@ -286,6 +290,10 @@ export default function ProjectDetailPage() {
                   <img 
                     src={project.image} 
                     alt={`${project.name} interface preview`} 
+                    width={1200}
+                    height={675}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
@@ -305,6 +313,10 @@ export default function ProjectDetailPage() {
                       <img 
                         src={imgUrl} 
                         alt={`${project.name} gallery ${i + 1}`} 
+                        width={600}
+                        height={338}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" 
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -403,6 +415,87 @@ export default function ProjectDetailPage() {
                           <p className="text-body-sm text-muted-foreground leading-relaxed font-light">
                             {ai.usecase}
                           </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 5. Architectural Pipeline & Ingress Flow (if applicable) */}
+                {(project as any).architecturePipeline && (project as any).architecturePipeline.length > 0 && (
+                  <div className="flex flex-col gap-6 pt-6 border-t border-slate-200">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-600">
+                        <Cpu size={18} />
+                      </div>
+                      <h3 className="font-display text-2xl font-bold text-foreground">
+                        Decoupled Event Ingress & Worker Pipeline
+                      </h3>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                      {(project as any).architecturePipeline.map((pipe: any, idx: number) => (
+                        <div 
+                          key={idx}
+                          className="glass-card bg-white p-5 rounded-2xl border border-slate-200 shadow-[0_2px_15px_rgba(0,0,0,0.02)] flex flex-col sm:flex-row gap-4 sm:items-center justify-between"
+                        >
+                          <div className="flex items-center gap-3.5 shrink-0">
+                            <span className="w-8 h-8 rounded-xl bg-slate-900 text-white font-mono text-xs flex items-center justify-center font-bold">
+                              {idx + 1}
+                            </span>
+                            <div>
+                              <p className="text-[11px] font-mono font-semibold text-accent uppercase tracking-wider">
+                                {pipe.step}
+                              </p>
+                              <h4 className="text-sm font-semibold text-slate-900">
+                                {pipe.role}
+                              </h4>
+                            </div>
+                          </div>
+                          <p className="text-xs text-slate-600 max-w-lg leading-relaxed">
+                            {pipe.detail}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 6. Dual-Persona State Workflows (if applicable) */}
+                {(project as any).stateWorkflows && (project as any).stateWorkflows.length > 0 && (
+                  <div className="flex flex-col gap-6 pt-6 border-t border-slate-200">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-blue-50 border border-blue-200 text-blue-600">
+                        <Server size={18} />
+                      </div>
+                      <h3 className="font-display text-2xl font-bold text-foreground">
+                        Dual-Persona State Machine Workflows
+                      </h3>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {(project as any).stateWorkflows.map((flow: any, fIdx: number) => (
+                        <div 
+                          key={fIdx}
+                          className="glass-card bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-4"
+                          style={{ borderTop: `4px solid ${flow.color}` }}
+                        >
+                          <h4 className="font-display text-base font-bold text-slate-900 flex items-center gap-2">
+                            <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: flow.color }} />
+                            {flow.persona}
+                          </h4>
+                          <div className="flex flex-col gap-3">
+                            {flow.commands.map((cmd: any, cIdx: number) => (
+                              <div key={cIdx} className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-1">
+                                <span className="font-mono text-xs font-semibold text-slate-900">
+                                  {cmd.trigger}
+                                </span>
+                                <span className="text-xs text-slate-600 leading-relaxed">
+                                  {cmd.outcome}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       ))}
                     </div>

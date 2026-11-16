@@ -164,6 +164,10 @@ export function ClientLogosMarquee() {
                   <img
                     src={client.logo}
                     alt={client.name}
+                    width={40}
+                    height={40}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain"
                   />
                 ) : (

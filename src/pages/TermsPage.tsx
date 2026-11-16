@@ -35,8 +35,8 @@ export default function TermsPage() {
     <SmoothScroll>
       <div className="relative min-h-screen bg-[#FAFBFD] text-[#0F172A]">
         <SEOHead
-          title="Terms of Service | Sajesh Adeya & TechSonance Infotech LLP"
-          description="Terms and conditions governing the technical portfolio, consulting services, and enterprise engineering solutions by Sajesh Adeya, CTO at TechSonance Infotech LLP."
+          title="Terms of Service | Sajesh Adeya & TechSonance"
+          description="Terms and conditions governing the technical portfolio, consulting services, and enterprise engineering solutions by Sajesh Adeya."
           canonicalUrl="/terms"
           schemaData={termsSchema}
         />

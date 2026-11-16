@@ -119,6 +119,12 @@ Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializin
 - **Description**: Re-engineered telecom Customer Value Management (CVM) microservices into an autonomous Agentic AI ecosystem, deploying multi-agent reasoning loops for real-time churn prevention, ARPU maximization (+18.4%), and contextual offer dispatch.
 - **Tech Stack**: Agentic AI, Multi-Agent Systems, Java Spring Boot, Python AI Bridge, PostgreSQL, Redis, Apache Kafka.
 
+### 17. Hisaab WhatsApp Bot (Conversational Commerce & Billing Engine)
+- **URL**: https://sajesh.techsonance.co.in/projects/hisaab-whatsapp-bot
+- **Client / Venture**: TechSonance Venture / Indian Retail & Wholesale SMBs
+- **Description**: Enterprise-grade autonomous conversational commerce and billing engine on Meta WhatsApp Cloud API with sub-second BullMQ event queues, dual-persona state machines, atomic GST tax invoice generation (15s creation time), and automated Razorpay financial reconciliation.
+- **Tech Stack**: Meta WhatsApp Cloud API, Node.js, TypeScript, Express.js, BullMQ, Redis, MongoDB, Razorpay, Groq (Llama 3 70B), Google Gemini.
+
 ## Technical Core Competencies
 - **Agentic AI & LLMs**: Multi-Agent Systems, Autonomous Reasoning Loops, Dynamic NBA Engines, Groq Llama 3.3, Google Gemini, Tesseract OCR.
 - **Legacy Modernization**: COBOL Mainframe to Java 17 Microservices, CORBA Monolith Migration, Parity Regression Testing, Liquibase Versioning.

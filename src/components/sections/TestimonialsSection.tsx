@@ -194,6 +194,10 @@ export function TestimonialsSection() {
                 <img
                   src={item.avatar}
                   alt={item.author}
+                  width={48}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
                   className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-xs shrink-0"
                 />
                 <div className="min-w-0">

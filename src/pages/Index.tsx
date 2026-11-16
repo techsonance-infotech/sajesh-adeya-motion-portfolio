@@ -23,8 +23,8 @@ function Index() {
       <div className="relative min-h-screen bg-background">
         <SEOHead 
           canonicalUrl="/"
-          title="Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech LLP | Senior Full-Stack Developer"
-          description="Sajesh Adeya is the Co-Founder & CTO of TechSonance InfoTech LLP and a Senior Full-Stack Developer specializing in React, Next.js, Node.js, Java, and AWS Cloud Architecture. Building high-performance enterprise SaaS, e-commerce, and logistics platforms."
+          title="Sajesh Adeya | CTO & Enterprise Full-Stack Developer"
+          description="Sajesh Adeya is CTO at TechSonance and Senior Full-Stack Developer building enterprise SaaS, Java microservices, and AI cloud platforms."
         />
 
         {/* Custom cursor overlay */}

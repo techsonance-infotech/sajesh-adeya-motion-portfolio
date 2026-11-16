@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     question: "What products has Sajesh Adeya built at TechSonance InfoTech LLP?",
-    answer: "Sajesh Adeya has co-founded and architected several SaaS platforms including: TechSonance Marketplace (multi-tenant e-commerce platform), AccuNest (GST accounting & AI WhatsApp chatbot), FreightFlow (highway transport logistics OS), SyncServe POS (offline-first Point of Sale), Masterweg (higher education guidance workspace), and Utsav (temple trust administration suite)."
+    answer: "Sajesh Adeya has co-founded and architected several SaaS platforms including: TechSonance Marketplace (multi-tenant e-commerce platform), Hisaab WhatsApp Bot (autonomous conversational billing & GST POS), AccuNest (GST accounting & compliance SaaS), FreightFlow (highway transport logistics OS), SyncServe POS (offline-first Point of Sale), Masterweg (higher education guidance workspace), and Utsav (temple trust administration suite)."
   },
   {
     question: "Where is TechSonance Infotech LLP located, and do you serve international clients?",
@@ -34,6 +34,10 @@ const FAQS = [
   {
     question: "How has Sajesh Adeya implemented Agentic AI in enterprise and SaaS systems?",
     answer: "Sajesh architected the Agentic AI transformation for telecom Customer Value Management (CVM) microservices, deploying autonomous multi-agent decision loops (Churn Predictor, ARPU Optimizer, Next-Best-Action Matcher) that yielded an +18.4% ARPU uplift and -22% churn reduction with sub-300ms evaluation. He has also engineered AI billing OCR engines and conversational WhatsApp accounting bots within the AccuNest enterprise platform using Groq Llama 3.3 and Gemini."
+  },
+  {
+    question: "What is Hisaab WhatsApp Bot and how does it automate conversational billing?",
+    answer: "Hisaab WhatsApp Bot is an autonomous conversational commerce and POS platform built by Sajesh Adeya on the Meta WhatsApp Cloud API. It enables Indian SMBs to create GST invoices in 15 seconds, query live inventory, and deliver daily ledger summaries ('Aaj ka Hisaab'). End customers browse interactive WhatsApp catalogs, checkout via dynamic Razorpay UPI links, and receive stamped PDF tax invoices in-chat. Its decoupled BullMQ + Redis queuing architecture responds in <300ms to meet Meta's strict webhook SLA and reduces receivables aging by 35%."
   },
   {
     question: "How can I hire or consult with Sajesh Adeya and TechSonance InfoTech LLP?",

@@ -70,12 +70,18 @@ export function Navbar() {
             <img 
               src="/sajesh_logo_only.png" 
               alt="Logo Symbol" 
+              width={247}
+              height={216}
+              decoding="async"
               className="h-7 sm:h-8 md:h-9 w-auto"
             />
             {/* Logo Name Image */}
             <img 
               src="/sajesh_logo_name.png" 
               alt="Sajesh Adeya" 
+              width={425}
+              height={79}
+              decoding="async"
               className="h-7 sm:h-9 md:h-11 w-auto max-w-[140px] sm:max-w-none"
             />
           </a>

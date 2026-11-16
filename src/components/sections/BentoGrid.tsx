@@ -230,7 +230,7 @@ export function BentoGrid() {
   return (
     <section className="py-12 md:py-20 bg-[#FAFBFD]">
       <div className="container mx-auto px-6 md:px-8 lg:px-8 max-w-[1600px]">
-        
+        <h2 className="sr-only">Executive Overview, Design Philosophy & Global Availability</h2>
         {/* Hybrid Layout: CSS Grid + Absolute Positioning */}
         <div className="relative">
           
@@ -244,12 +244,12 @@ export function BentoGrid() {
             >
               {/* Header */}
               <div className="mb-6 relative z-10">
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mb-2 tracking-tight">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mb-2 tracking-tight">
                   {siteConfig.name.split(' ')[0]}{' '}
                   <span className="font-serif italic font-light text-slate-500">
                     {siteConfig.name.split(' ')[1]}
                   </span>
-                </h2>
+                </h3>
                 <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-500">
                   <MapPin size={14} className="text-accent shrink-0" />
                   <span>SURAT, IN</span>
@@ -277,7 +277,11 @@ export function BentoGrid() {
                       >
                         <img 
                           src={img} 
-                          alt={`Gallery ${idx + 1}`} 
+                          alt={`Gallery Showcase ${idx + 1}`} 
+                          width={140}
+                          height={248}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transition-all duration-500"
                         />
                       </motion.div>
@@ -497,6 +501,10 @@ export function BentoGrid() {
                    <img 
                       src="/indiaMap.png" 
                       alt="World Map" 
+                      width={600}
+                      height={573}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-contain"
                    />
                 </div>
@@ -554,6 +562,10 @@ export function BentoGrid() {
                   <img 
                     src="/techsonance_logo.png" 
                     alt="TechSonance Logo" 
+                    width={48}
+                    height={48}
+                    loading="lazy"
+                    decoding="async"
                     className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
                   />
                   <span className="font-display text-xl sm:text-2xl font-bold text-slate-900 tracking-wide">
@@ -613,6 +625,10 @@ export function BentoGrid() {
                 <img 
                   src="/techsonance_logo.png" 
                   alt="TechSonance Watermark" 
+                  width={256}
+                  height={256}
+                  loading="lazy"
+                  decoding="async"
                   className="w-64 h-64 object-contain"
                 />
               </div>

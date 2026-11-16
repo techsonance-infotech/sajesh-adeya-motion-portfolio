@@ -11,17 +11,20 @@
     <link rel="manifest" href="/site.webmanifest" />
     
     <!-- Primary Meta Tags -->
-    <title>Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech LLP | Senior Full-Stack Developer</title>
-    <meta name="title" content="Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech LLP | Senior Full-Stack Developer" />
-    <meta name="description" content="Sajesh Adeya is the Co-Founder & CTO of TechSonance InfoTech LLP and a Senior Full-Stack Developer specializing in React, Next.js, Node.js, Java, and AWS Cloud Architecture. Building high-performance enterprise SaaS, e-commerce, and logistics platforms." />
+    <title>Sajesh Adeya | CTO & Enterprise Full-Stack Developer</title>
+    <meta name="title" content="Sajesh Adeya | CTO & Enterprise Full-Stack Developer" />
+    <meta name="description" content="Sajesh Adeya is CTO at TechSonance and Senior Full-Stack Developer building enterprise SaaS, Java microservices, and AI cloud platforms." />
     <meta name="author" content="Sajesh Adeya" />
-    <meta name="keywords" content="Sajesh Adeya, TechSonance InfoTech LLP, Co-Founder, CTO, Senior Full-Stack Developer, React Developer Surat, Next.js Developer India, Node.js Architect, Enterprise SaaS Developer, Multi-Tenant E-Commerce, FreightFlow, AccuNest, SyncServe POS, Cloud Architecture Surat, Legacy COBOL Migration, Agentic AI CVM, Telecom Microservices, Vodacom Star Award, Deals Calculation Engine, Java 17 Spring Boot" />
-    <link rel="canonical" href="https://sajesh.techsonance.co.in" />
+    <meta name="keywords" content="Sajesh Adeya, TechSonance InfoTech LLP, CTO, Senior Full-Stack Developer, Java Spring Boot, Microservices Modernization, COBOL to Java Migration, Agentic AI CVM, React, Next.js, Node.js, AWS Architecture, Surat, India" />
 
     <!-- Crawl & Indexing Directives (SEO / AEO) -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- Language & Regional Hreflang Targeting -->
+    <link rel="alternate" hreflang="en" href="https://sajesh.techsonance.co.in" />
+    <link rel="alternate" hreflang="x-default" href="https://sajesh.techsonance.co.in" />
 
     <!-- Geographic & Local Optimization (GEO) -->
     <meta name="geo.region" content="IN-GJ" />
@@ -29,10 +32,23 @@
     <meta name="geo.position" content="21.1418;72.7709" />
     <meta name="ICBM" content="21.1418, 72.7709" />
 
-    <!-- Google Fonts - TechSonance Brand Typography -->
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TECHSONANCE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TECHSONANCE', { send_page_view: true });
+    </script>
+
+    <!-- Google Fonts - Asynchronous Non-Render-Blocking Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,300;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,300;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,300;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,300;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" />
+    </noscript>
     
     <!-- TechSonance brand theme color -->
     <meta name="theme-color" content="#1155CC" />
@@ -217,7 +233,8 @@
             { "@type": "ListItem", "position": 6, "name": "TechSonance Marketplace", "url": "https://sajesh.techsonance.co.in/projects/marketplace" },
             { "@type": "ListItem", "position": 7, "name": "AccuNest GST Accounting", "url": "https://sajesh.techsonance.co.in/projects/accunest" },
             { "@type": "ListItem", "position": 8, "name": "FreightFlow Logistics OS", "url": "https://sajesh.techsonance.co.in/projects/freightflow" },
-            { "@type": "ListItem", "position": 9, "name": "SyncServe Offline POS", "url": "https://sajesh.techsonance.co.in/projects/sync-serve-pos" }
+            { "@type": "ListItem", "position": 9, "name": "SyncServe Offline POS", "url": "https://sajesh.techsonance.co.in/projects/sync-serve-pos" },
+            { "@type": "ListItem", "position": 10, "name": "Hisaab WhatsApp Bot", "url": "https://sajesh.techsonance.co.in/projects/hisaab-whatsapp-bot" }
           ]
         }
       ]
@@ -226,7 +243,59 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Semantic Static Fallback for Search Crawlers and LLM Indexers (Instant Hydration Target) -->
+      <header style="padding: 24px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0;">
+        <nav aria-label="Main Navigation">
+          <p style="font-size: 1.25rem; font-weight: bold; margin: 0 0 8px 0; color: #0f172a;">Sajesh Adeya | CTO & Enterprise Full-Stack Architect</p>
+          <ul style="list-style: none; display: flex; gap: 20px; padding: 0; margin: 0;">
+            <li><a href="/" style="color: #1155cc; text-decoration: none; font-weight: 500;">Home</a></li>
+            <li><a href="/projects" style="color: #1155cc; text-decoration: none; font-weight: 500;">Case Studies</a></li>
+            <li><a href="/about" style="color: #1155cc; text-decoration: none; font-weight: 500;">About & Leadership</a></li>
+            <li><a href="mailto:sajesh@techsonance.co.in" style="color: #1155cc; text-decoration: none; font-weight: 500;">Contact: sajesh@techsonance.co.in</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main style="padding: 32px 24px; max-width: 1200px; margin: 0 auto; color: #334155; line-height: 1.7;">
+        <h1 style="color: #0f172a; font-size: 2.25rem; margin-bottom: 12px;">Sajesh Adeya — CTO & Senior Full-Stack Architect</h1>
+        <p style="font-size: 1.15rem; color: #475569; margin-bottom: 24px;">
+          Co-Founder & Chief Technology Officer at TechSonance InfoTech LLP and Senior Full-Stack Developer with 6+ years of expertise delivering mission-critical enterprise systems, cloud-native Java Spring Boot microservices, high-concurrency telecom engines, and agentic AI transformations.
+        </p>
+
+        <section style="margin-bottom: 32px;">
+          <h2 style="color: #0f172a; font-size: 1.5rem; margin-bottom: 12px;">Core Engineering Specializations</h2>
+          <ul>
+            <li><strong>Enterprise Microservices Architecture:</strong> Java 17, Spring Boot, PostgreSQL, Kafka, Liquibase, Docker, Kubernetes.</li>
+            <li><strong>Legacy Mainframe & Telecom Modernization:</strong> CORBA/COBOL to cloud-native Spring Boot migration with 100% functional parity.</li>
+            <li><strong>Agentic AI & Multi-Agent Orchestration:</strong> Autonomous AI agents transforming Customer Value Management (CVM) microservices.</li>
+            <li><strong>Full-Stack Cloud SaaS:</strong> React.js, Next.js, Node.js, TypeScript, Tailwind CSS, AWS Cloud Architecture.</li>
+          </ul>
+        </section>
+
+        <section style="margin-bottom: 32px;">
+          <h2 style="color: #0f172a; font-size: 1.5rem; margin-bottom: 12px;">Featured Case Studies</h2>
+          <ul>
+            <li><a href="/projects/vodacom-microservices-migration" style="color: #1155cc;"><strong>Modern Microservice Migration (Vodacom Project):</strong></a> Migration of legacy DCE and ODQ systems to cloud-native Spring Boot microservices. Winner of Vodacom Star Award.</li>
+            <li><a href="/projects/cobol-to-java-microservices-migration" style="color: #1155cc;"><strong>Legacy COBOL to Java Microservices Migration:</strong></a> Architectural transformation of legacy mainframe telecom transactions into event-driven Java Spring Boot microservices.</li>
+            <li><a href="/projects/agentic-ai-cvm-transformation" style="color: #1155cc;"><strong>Agentic AI CVM Microservice Transformation:</strong></a> Intelligent LLM multi-agent workflow transforming Customer Value Management real-time offer dispatch.</li>
+            <li><a href="/projects/deals-calculation-engine" style="color: #1155cc;"><strong>Legacy DSE-DCE (Deals Calculation Engine):</strong></a> Optimized 10,000+ lines of high-concurrency business logic and pricing constraint engines.</li>
+            <li><a href="/projects/vodapay-business-validation" style="color: #1155cc;"><strong>VodaPay Business Validation (VBV):</strong></a> Real-time financial credit checks and risk validation module for Vodacom mobile payments.</li>
+            <li><a href="/projects/marketplace" style="color: #1155cc;"><strong>TechSonance Marketplace:</strong></a> Multi-tenant SaaS platform powering global B2B digital asset exchange.</li>
+            <li><a href="/projects/freightflow" style="color: #1155cc;"><strong>FreightFlow Logistics OS:</strong></a> End-to-end freight forwarding operations engine with route optimization.</li>
+            <li><a href="/projects/accunest" style="color: #1155cc;"><strong>AccuNest GST Accounting:</strong></a> Automated invoice reconciliation and tax compliance SaaS.</li>
+            <li><a href="/projects/sync-serve-pos" style="color: #1155cc;"><strong>SyncServe Offline POS:</strong></a> Real-time retail sync architecture with SQLite and cloud PostgreSQL synchronization.</li>
+            <li><a href="/projects/hisaab-whatsapp-bot" style="color: #1155cc;"><strong>Hisaab WhatsApp Bot:</strong></a> Autonomous conversational commerce & billing engine with sub-second BullMQ event queues, dual-persona state machines, and automated Razorpay reconciliation.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 style="color: #0f172a; font-size: 1.5rem; margin-bottom: 12px;">Contact & Professional Presence</h2>
+          <p>Email: <a href="mailto:sajesh@techsonance.co.in" style="color: #1155cc;">sajesh@techsonance.co.in</a> | Direct Phone: +91 91731 01711</p>
+          <p>Address: TechSonance InfoTech LLP, UG-15 Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India.</p>
+        </section>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -657,6 +657,86 @@ export const showcaseProjects = [
       { engine: "Deterministic Policy & Pricing Guardrail", usecase: "Validates all agent-generated commercial proposals against strict telecom billing constraints and regulatory price ceilings before dispatch." }
     ],
     architectureDetails: "Hybrid architecture combining Java 17 Spring Boot microservices with high-performance Python AI micro-agents. Employs Redis for sub-5ms subscriber state lookups, Apache Kafka for event-driven telemetry ingestion, PostgreSQL for campaign audit persistence, and Docker for containerized deployment across AWS/on-premise clusters."
+  },
+  {
+    id: 17,
+    slug: "hisaab-whatsapp-bot",
+    name: "Hisaab WhatsApp Bot",
+    description:
+      "An autonomous conversational commerce and billing engine on Meta WhatsApp Cloud API with sub-second BullMQ event queuing, dual-persona state machines, atomic GST invoice generation, and automated Razorpay financial reconciliation.",
+    image: "/projects/hisaab-bot-dashboard.png",
+    logo: "/projects/hisaab-bot-logo.png",
+    mobileImage1: "/projects/hisaab-bot-mobile.png",
+    mobileImage2: "/projects/hisaab-bot-logo.png",
+    gallery: ["/projects/hisaab-bot-dashboard.png", "/projects/hisaab-bot-mobile.png"],
+    liveUrl: "https://www.techsonance.co.in",
+    color: "#25D366",
+    features: [
+      "Zero-UI Conversational Commerce: Transforms standard WhatsApp Business numbers into interactive point-of-sale (POS) terminals using WhatsApp Interactive Lists, Quick Replies, and CTA links",
+      "Dual-Persona Auto-Routing: Intelligently detects whether the incoming phone number belongs to a verified Shop Admin or End Customer, dynamically altering permissions and interactive menus",
+      "Sub-Second Ingress & Queue Decoupling: Express ingress acknowledges Meta webhooks in <300ms, pushing payloads into BullMQ + Redis queues with unique deduplication IDs (${phone}-${msg.id})",
+      "Deterministic Hybrid State Machine: 24-hour TTL Redis session management with sub-millisecond regex fast-path execution and Groq (Llama 3 70B) / Gemini 1.5 semantic function calling",
+      "Idempotent Financial Reconciliation: HMAC SHA256 verified Razorpay webhooks with idempotency guards, automated ledger settlements, and instant digital PDF invoice dispatch",
+      "Real-Time GST Tax Compliance: Instant calculation of CGST, SGST, and IGST with dynamic server-side PDF invoice compilation delivered directly into the WhatsApp chat thread"
+    ],
+    stack: [
+      "Meta WhatsApp Cloud API",
+      "Node.js",
+      "TypeScript",
+      "Express.js",
+      "BullMQ",
+      "Redis",
+      "MongoDB",
+      "Razorpay",
+      "Groq (Llama 3)",
+      "Google Gemini"
+    ],
+    client: "TechSonance Venture / Indian Retail & Wholesale SMBs",
+    duration: "4 Months",
+    role: "Co-Founder & Lead Systems Architect",
+    metrics: [
+      { label: "Invoice Creation", value: "15s (was 3m)" },
+      { label: "Webhook ACK", value: "<300ms" },
+      { label: "Receivables Aging", value: "-35%" }
+    ],
+    fullDescription: "Hisaab WhatsApp Bot is an enterprise-grade autonomous conversational commerce and billing engine built directly on top of the Meta WhatsApp Cloud API. Engineered for small and medium Indian enterprises (SMBs, traders, wholesalers, and retail merchants), the platform replaces fragmented paper chits and clumsy web dashboards with an interactive WhatsApp-native point of sale. For business owners, it serves as a 24/7 accounting copilot that creates GST/Non-GST tax invoices in under 15 seconds, checks real-time inventory, reports daily ledger summaries ('Aaj ka Hisaab'), and tracks outstanding receivables. For end customers, it provides an interactive storefront to browse catalogs with WhatsApp Interactive Lists, manage persistent carts, complete instant UPI checkout via dynamic Razorpay links, and receive stamped tax invoice PDFs directly inside their active chat thread.",
+    challenges: "Indian retail and wholesale commerce runs on conversational trust via WhatsApp, but creates massive administrative bottlenecks: handwritten chits and audio notes lead to frequent ordering errors, shopkeepers spend 3-4 hours every night manually copying orders into accounting software like Tally or Vyapar, collecting payments requires tedious manual UTR verification against bank statements, and customers refuse to install third-party mobile apps or navigate complex web portals.",
+    solution: "Architected a decoupled, fault-tolerant backend system running alongside the core Hisaab-Kitaab ERP. Engineered an ultra-low latency Express ingress gateway that acknowledges Meta webhooks in under 300ms to honor Meta's strict SLA, passing payloads into BullMQ over Redis with message-level deduplication and token-bucket rate limiting. Replaced brittle LLM loops with a deterministic hybrid state machine in Redis (24-hour session TTL), routing transactional actions through sub-millisecond regex rules while reserving Groq (Llama 3 70B) and Gemini 1.5 for semantic natural language understanding and Hinglish product recommendations. Integrated dynamic Razorpay payment links with HMAC SHA256 webhook signature verification and automated PDF invoice generation dispatched back into WhatsApp chat via Meta Cloud Media APIs.",
+    results: "Cut invoice generation time by 92% (from ~3 minutes down to 15 seconds). Maintained a 100% webhook SLA compliance with consistent sub-250ms ingress response times. Slashed outstanding receivables aging by 35% through real-time in-chat Razorpay UPI links, and achieved 2.4x higher cart-to-order conversions compared to external web storefronts.",
+    aiDetails: [
+      { engine: "Groq Llama 3 70B & Gemini 1.5 NLP Gateway", usecase: "Performs intent classification, Hinglish conversational parsing, and contextual product search with strict function-calling definitions." },
+      { engine: "Deterministic Hybrid State Machine", usecase: "Maintains 24-hour Redis session states and executes sub-millisecond regex validation on transactional buttons to eliminate hallucinated pricing or rogue state transitions." }
+    ],
+    architectureDetails: "Engineered with Node.js v20+ and strict TypeScript. Ingress webhook layer built on Express.js v5 with payload validation. Queue clustering powered by BullMQ over Redis (Upstash / TLS) with distributed concurrency and Bull-Board observability. Multi-tenant company isolation, product catalogs, and invoice documents stored in MongoDB via Mongoose v9. Integrates Meta WhatsApp Cloud API v20.0 and Razorpay Node SDK with HMAC SHA256 cryptographic webhook reconciliation.",
+    architecturePipeline: [
+      { step: "01. Sub-Second Ingress ACK", role: "Express.js Ingress Gateway", detail: "Validates HMAC SHA256 Meta webhook signatures and responds with HTTP 200 in <300ms, adhering strictly to Meta's 3-second SLA." },
+      { step: "02. Event Deduplication", role: "BullMQ + Redis Queue Cluster", detail: "Payloads enqueued with unique deduplication IDs (${phone}-${msg.id}) and token-bucket rate limiters to eliminate duplicate message processing during retries." },
+      { step: "03. Conversational State Engine", role: "Hybrid Deterministic State Machine", detail: "24-hour Redis session state lookup. Executes sub-millisecond regex rules for transactional buttons; routes complex text to Groq Llama 3 70B & Gemini." },
+      { step: "04. Core Accounting API", role: "Hisaab-Kitaab ERP Backend", detail: "Performs atomic stock locking, price catalog evaluations, and dynamic CGST/SGST/IGST tax calculation." },
+      { step: "05. Payment & Invoicing", role: "Razorpay Gateway & Meta Media API", detail: "Generates dynamic UPI payment links. On HMAC SHA256 webhook capture, marks invoices PAID and pushes stamped PDF invoices into the chat." }
+    ],
+    stateWorkflows: [
+      {
+        persona: "Shop Owner & Staff Persona",
+        color: "#128C7E",
+        commands: [
+          { trigger: "1. 'Bill banao'", outcome: "Generates GST-compliant invoice, locks stock, and delivers payment link in under 15 seconds." },
+          { trigger: "2. 'Stock dekho'", outcome: "Queries live MongoDB inventory ledger, returning low-stock warnings and reorder recommendations." },
+          { trigger: "3. 'Aaj ka hisaab'", outcome: "Summarizes total cash sales, UPI receipts, pending credit balances, and customer transaction counts." },
+          { trigger: "4. 'Baaki check karo'", outcome: "Displays aging ledger of outstanding receivables with one-tap payment reminder triggers." }
+        ]
+      },
+      {
+        persona: "End Customer Persona",
+        color: "#25D366",
+        commands: [
+          { trigger: "🛍️ Browse Products", outcome: "Interactive WhatsApp lists categorized by product categories with live stock availability." },
+          { trigger: "🛒 Persistent Cart", outcome: "Session-persisted shopping cart with instant quantity adjustment and automatic tax calculation." },
+          { trigger: "💳 1-Tap UPI Checkout", outcome: "Dynamic Razorpay payment links for seamless mobile checkout without leaving WhatsApp." },
+          { trigger: "📄 Instant Tax Invoice", outcome: "Automatic delivery of official stamped PDF tax invoice directly into the WhatsApp thread." }
+        ]
+      }
+    ]
   }
 ];
 

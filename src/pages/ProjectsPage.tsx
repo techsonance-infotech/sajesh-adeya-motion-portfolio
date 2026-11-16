@@ -106,7 +106,7 @@ export default function ProjectsPage() {
       return project.stack.some(s => s.toLowerCase().includes('groq') || s.toLowerCase().includes('gemini') || s.toLowerCase().includes('ai'));
     }
     if (selectedFilter === 'Mobile / Offline') {
-      return project.stack.some(s => s.toLowerCase().includes('native') || s.toLowerCase().includes('socket') || s.toLowerCase().includes('localforage'));
+      return project.stack.some(s => s.toLowerCase().includes('native') || s.toLowerCase().includes('socket') || s.toLowerCase().includes('localforage') || s.toLowerCase().includes('whatsapp'));
     }
     return true;
   });
@@ -116,8 +116,8 @@ export default function ProjectsPage() {
       <div className="relative min-h-screen bg-background">
         <SEOHead 
           canonicalUrl="/projects"
-          title="Enterprise Case Studies & Microservice Architectures | Sajesh Adeya"
-          description="Granular architectural deep-dives into enterprise telecom microservices, COBOL-to-Java migrations, Agentic AI systems, and multi-tenant SaaS platforms engineered by Sajesh Adeya."
+          title="Enterprise Case Studies & Architectures | Sajesh Adeya"
+          description="Explore telecom microservices, COBOL to Java modernizations, Agentic AI, and enterprise SaaS systems engineered by Sajesh Adeya."
           keywords="Enterprise Case Studies, Microservices Architecture, COBOL Migration, Agentic AI, Vodacom Telecom, Next.js SaaS, TechSonance InfoTech LLP, Sajesh Adeya, Surat Software Architect"
           schemaData={projectsSchema}
         />
@@ -196,6 +196,10 @@ export default function ProjectsPage() {
                           <img 
                             src={project.logo} 
                             alt={`${project.name} logo`} 
+                            width={120}
+                            height={48}
+                            loading="lazy"
+                            decoding="async"
                             className="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
                           />
                         ) : (

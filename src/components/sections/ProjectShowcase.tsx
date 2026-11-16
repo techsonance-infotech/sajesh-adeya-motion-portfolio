@@ -20,9 +20,10 @@ export function ProjectShowcase() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const progressFillRef = useRef<HTMLDivElement>(null);
   const progressKnobRef = useRef<HTMLDivElement>(null);
-  // Curated showcase of flagship platforms spanning multi-tenant SaaS and enterprise telecom microservices
+  // Curated showcase of flagship platforms spanning multi-tenant SaaS, conversational commerce, and enterprise telecom microservices
   const homeProjects = [
     showcaseProjects.find(p => p.slug === 'marketplace') || showcaseProjects[0],
+    showcaseProjects.find(p => p.slug === 'hisaab-whatsapp-bot') || showcaseProjects[16],
     showcaseProjects.find(p => p.slug === 'vodacom-microservices-migration') || showcaseProjects[8],
     showcaseProjects.find(p => p.slug === 'freightflow') || showcaseProjects[2],
     showcaseProjects.find(p => p.slug === 'deals-calculation-engine') || showcaseProjects[9],
@@ -65,7 +66,7 @@ export function ProjectShowcase() {
     <section 
       id="showcase" 
       ref={sectionRef}
-      className="relative min-h-[400vh] bg-background"
+      className="relative min-h-[500vh] bg-background"
     >
       <div className="container-custom">
         {/* Section Header */}
@@ -114,9 +115,9 @@ export function ProjectShowcase() {
             <div className="lg:pl-12 lg:pr-12">
               {/* Dynamic Content Switching */}
               <div key={activeProject}>
-                <h2 className="font-display text-section font-bold text-foreground mb-6">
+                <h3 className="font-display text-section font-bold text-foreground mb-6">
                   {currentProject.name}
-                </h2>
+                </h3>
 
                 <p className="text-body-lg text-muted-foreground mb-8">
                   {currentProject.description}
@@ -342,6 +343,10 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
           <img 
             src={project.image} 
             alt={`${project.name} preview`} 
+            width={220}
+            height={135}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover" 
           />
         </div>
@@ -376,6 +381,10 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
                   <img 
                      src={project.image} 
                      alt={`${project.name} Desktop Dashboard`} 
+                     width={1200}
+                     height={750}
+                     loading="lazy"
+                     decoding="async"
                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.01]"
                   />
                ) : (
@@ -397,6 +406,10 @@ function ProjectCard({ project, isActive, onInView, onClick }: ProjectCardProps)
                   <img 
                      src={(project as any).mobileImage1} 
                      alt={`${project.name} Mobile View`} 
+                     width={375}
+                     height={667}
+                     loading="lazy"
+                     decoding="async"
                      className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />

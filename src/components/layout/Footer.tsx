@@ -87,11 +87,19 @@ export function Footer() {
               <img 
                 src="/sajesh_logo_only.png" 
                 alt="Logo Symbol" 
+                width={247}
+                height={216}
+                loading="lazy"
+                decoding="async"
                 className="h-7 sm:h-8 w-auto hover:rotate-12 transition-transform duration-300"
               />
               <img 
                 src="/sajesh_logo_name.png" 
                 alt="Sajesh Adeya" 
+                width={425}
+                height={79}
+                loading="lazy"
+                decoding="async"
                 className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-none"
               />
             </a>

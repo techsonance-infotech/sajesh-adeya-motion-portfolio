@@ -35,8 +35,8 @@ export default function PrivacyPage() {
     <SmoothScroll>
       <div className="relative min-h-screen bg-[#FAFBFD] text-[#0F172A]">
         <SEOHead
-          title="Privacy Policy | Sajesh Adeya & TechSonance Infotech LLP"
-          description="Privacy policy outlining data security, confidentiality, and data handling practices for Sajesh Adeya's engineering portfolio and TechSonance Infotech LLP."
+          title="Privacy Policy | Sajesh Adeya & TechSonance"
+          description="Privacy policy outlining data security, confidentiality, and data handling practices for Sajesh Adeya and TechSonance Infotech LLP."
           canonicalUrl="/privacy"
           schemaData={privacySchema}
         />
