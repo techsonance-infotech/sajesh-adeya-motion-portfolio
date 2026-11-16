@@ -14,7 +14,7 @@ const DEFAULT_TITLE = "Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech L
 const DEFAULT_DESCRIPTION = "Sajesh Adeya is the Co-Founder & CTO of TechSonance InfoTech LLP and a Senior Full-Stack Developer specializing in React, Next.js, Node.js, Java, and AWS Cloud Architecture. Building high-performance enterprise SaaS, e-commerce, and logistics platforms.";
 const DEFAULT_KEYWORDS = "Sajesh Adeya, TechSonance InfoTech LLP, Co-Founder, CTO, Senior Full-Stack Developer, React Developer Surat, Next.js Developer India, Node.js Architect, Enterprise SaaS Developer, Multi-Tenant E-Commerce, FreightFlow, AccuNest, SyncServe POS";
 const SITE_URL = "https://sajesh.techsonance.co.in";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/projects/marketplace-dashboard.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/projects/marketplace-dashboard.webp`;
 
 export function SEOHead({
   title = DEFAULT_TITLE,
@@ -40,7 +40,7 @@ export function SEOHead({
           "@id": `${SITE_URL}/#organization`
         },
         "url": SITE_URL,
-        "image": `${SITE_URL}/sajesh_logo_only.png`,
+        "image": `${SITE_URL}/sajesh_logo_only.webp`,
         "email": "sajesh@techsonance.co.in",
         "address": {
           "@type": "PostalAddress",
@@ -76,7 +76,7 @@ export function SEOHead({
         "@id": `${SITE_URL}/#organization`,
         "name": "TechSonance InfoTech LLP",
         "url": "https://www.techsonance.co.in",
-        "logo": `${SITE_URL}/techsonance_logo.png`,
+        "logo": `${SITE_URL}/techsonance_logo.webp`,
         "email": "sajesh@techsonance.co.in",
         "founder": {
           "@id": `${SITE_URL}/#person`

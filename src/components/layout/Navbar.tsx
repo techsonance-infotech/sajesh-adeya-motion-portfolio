@@ -68,21 +68,21 @@ export function Navbar() {
           >
             {/* Logo Icon on the left */}
             <img 
-              src="/sajesh_logo_only.png" 
+              src="/sajesh_logo_only.webp" 
               alt="Logo Symbol" 
               width={247}
               height={216}
               decoding="async"
-              className="h-7 sm:h-8 md:h-9 w-auto"
+              className="h-7 sm:h-8 md:h-9 w-auto aspect-[247/216]"
             />
             {/* Logo Name Image */}
             <img 
-              src="/sajesh_logo_name.png" 
+              src="/sajesh_logo_name.webp" 
               alt="Sajesh Adeya" 
               width={425}
               height={79}
               decoding="async"
-              className="h-7 sm:h-9 md:h-11 w-auto max-w-[140px] sm:max-w-none"
+              className="h-7 sm:h-9 md:h-11 w-auto max-w-[140px] sm:max-w-none aspect-[425/79]"
             />
           </a>
 

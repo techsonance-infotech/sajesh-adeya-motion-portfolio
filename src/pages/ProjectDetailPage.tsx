@@ -81,7 +81,7 @@ export default function ProjectDetailPage() {
           "url": "https://www.techsonance.co.in",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://sajesh.techsonance.co.in/techsonance_logo.png"
+            "url": "https://sajesh.techsonance.co.in/techsonance_logo.webp"
           }
         }
       },
@@ -105,7 +105,7 @@ export default function ProjectDetailPage() {
           "url": "https://www.techsonance.co.in",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://sajesh.techsonance.co.in/techsonance_logo.png"
+            "url": "https://sajesh.techsonance.co.in/techsonance_logo.webp"
           }
         },
         "about": project.stack.map(s => ({ "@type": "Thing", "name": s })),
@@ -212,11 +212,9 @@ export default function ProjectDetailPage() {
                     <img 
                       src={project.logo} 
                       alt={`${project.name} logo`} 
-                      width={140}
-                      height={64}
                       loading="lazy"
                       decoding="async"
-                      className="h-16 w-auto object-contain bg-white p-3 rounded-2xl border border-slate-200 shadow-xs"
+                      className="h-16 w-auto max-w-[160px] object-contain aspect-auto bg-white p-3 rounded-2xl border border-slate-200 shadow-xs"
                     />
                   )}
                   <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">

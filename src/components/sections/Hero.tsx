@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useRef } from 'react';
+import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { MapPin, Layers } from 'lucide-react';
 import { siteConfig } from '@/lib/data';
 import { gsap } from 'gsap';
@@ -13,9 +13,23 @@ export function Hero() {
   const headline1Ref = useRef<HTMLParagraphElement>(null);
   const headline2Ref = useRef<HTMLParagraphElement>(null);
   const bottomBarRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad3D, setShouldLoad3D] = useState(false);
 
   const headlinePart1 = "I DESIGN AND BUILD PRODUCTS THAT";
   const headlinePart2 = "deliver real impact.";
+
+  useEffect(() => {
+    // Only load 3D WebGL scene when main thread is idle and viewport is desktop
+    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+      if ('requestIdleCallback' in window) {
+        const id = (window as any).requestIdleCallback(() => setShouldLoad3D(true), { timeout: 2500 });
+        return () => (window as any).cancelIdleCallback(id);
+      } else {
+        const timer = setTimeout(() => setShouldLoad3D(true), 1500);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,11 +80,13 @@ export function Hero() {
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background"
     >
       {/* 3D background layer with lazy loading Suspense */}
-      <Suspense fallback={
+      {shouldLoad3D ? (
+        <Suspense fallback={<div className="absolute inset-0 bg-hero-glow opacity-20 pointer-events-none" />}>
+          <ThreeCanvas />
+        </Suspense>
+      ) : (
         <div className="absolute inset-0 bg-hero-glow opacity-20 pointer-events-none" />
-      }>
-        <ThreeCanvas />
-      </Suspense>
+      )}
 
       <div className="container-custom relative z-10 flex-1 flex flex-col justify-center py-20">
         <div className="flex flex-col items-center text-center select-none">

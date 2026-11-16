@@ -14,7 +14,7 @@ const clients: ClientItem[] = [
   {
     name: 'Vodacom Telecom',
     category: 'Telecom Microservices',
-    logo: '/projects/vodacom-migration-logo.png',
+    logo: '/projects/vodacom-migration-logo.webp',
     url: '/projects/vodacom-microservices-migration',
     description: 'CORBA to Spring Boot microservices, DCE & VodaPay',
     accentColor: '#E60000',
@@ -22,7 +22,7 @@ const clients: ClientItem[] = [
   {
     name: 'Barone Budge & Dominick',
     category: 'Enterprise Engineering',
-    logo: '/projects/deals-calculation-engine-logo.png',
+    logo: '/projects/deals-calculation-engine-logo.webp',
     url: 'https://www.bbdsoftware.com/',
     description: 'High-concurrency telecom rule engines & data sync',
     accentColor: '#1155CC',
@@ -30,7 +30,7 @@ const clients: ClientItem[] = [
   {
     name: 'TechSonance Marketplace',
     category: 'Multi-Tenant E-Commerce',
-    logo: '/projects/marketplace-logo.png',
+    logo: '/projects/marketplace-logo.webp',
     url: 'https://marketplace.techsonance.co.in/',
     description: 'Cloud e-commerce storefronts & logistics automation',
     accentColor: '#1155CC',
@@ -38,7 +38,7 @@ const clients: ClientItem[] = [
   {
     name: 'AccuNest',
     category: 'GST Invoicing & AI Suite',
-    logo: '/projects/accunest-logo.png',
+    logo: '/projects/accunest-logo.webp',
     url: 'https://accunest.techsonance.co.in/',
     description: 'Enterprise GST billing, AI OCR & WhatsApp chatbot',
     accentColor: '#10B981',
@@ -46,7 +46,7 @@ const clients: ClientItem[] = [
   {
     name: 'FreightFlow',
     category: 'Logistics OS & TMS',
-    logo: '/projects/freightflow-logo.png',
+    logo: '/projects/freightflow-logo.webp',
     url: 'https://freightflow.techsonance.co.in/',
     description: 'Highway transport consignment ledgers & e-Way API',
     accentColor: '#22B6F6',
@@ -54,7 +54,7 @@ const clients: ClientItem[] = [
   {
     name: 'SyncServe POS',
     category: 'Offline-First Retail POS',
-    logo: '/projects/syncserve-logo.png',
+    logo: '/projects/syncserve-logo.webp',
     url: 'https://syncserve.techsonance.co.in/',
     description: 'Desktop SQLite + Cloud PostgreSQL bi-directional sync',
     accentColor: '#EC4899',
@@ -62,7 +62,7 @@ const clients: ClientItem[] = [
   {
     name: 'Masterweg',
     category: 'EdTech & Admissions',
-    logo: '/projects/masterweg-logo.png',
+    logo: '/projects/masterweg-logo.webp',
     url: 'https://masterweg.com/',
     description: 'German grade conversions & university application portal',
     accentColor: '#F59E0B',
@@ -70,7 +70,7 @@ const clients: ClientItem[] = [
   {
     name: 'Utsav',
     category: 'Trust & Event Management',
-    logo: '/projects/utsav-logo.png',
+    logo: '/projects/utsav-logo.webp',
     url: 'https://utsav.techsonance.co.in/',
     description: 'High-volume UPI donations, volunteer rosters & GPS procession',
     accentColor: '#8B5CF6',
@@ -78,7 +78,7 @@ const clients: ClientItem[] = [
   {
     name: 'TechSonance Learn',
     category: 'Enterprise LMS',
-    logo: '/projects/learn-logo.png',
+    logo: '/projects/learn-logo.webp',
     url: 'https://learn.techsonance.co.in/',
     description: 'Online grading, campus billing & student gradebooks',
     accentColor: '#3B82F6',
@@ -164,11 +164,9 @@ export function ClientLogosMarquee() {
                   <img
                     src={client.logo}
                     alt={client.name}
-                    width={40}
-                    height={40}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-contain"
+                    className="w-auto h-auto max-w-full max-h-full object-contain m-auto aspect-auto"
                   />
                 ) : (
                   <span

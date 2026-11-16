@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from 'react';
 import { siteConfig } from '@/lib/data';
 
 // Import images
-import gallery1 from '@/assets/gallery-1.png';
-import gallery2 from '@/assets/gallery-2.png';
-import gallery3 from '@/assets/gallery-3.png';
-import mobileMockups from '@/assets/mobile-mockups.png';
+import gallery1 from '@/assets/gallery-1.webp';
+import gallery2 from '@/assets/gallery-2.webp';
+import gallery3 from '@/assets/gallery-3.webp';
+import mobileMockups from '@/assets/mobile-mockups.webp';
 
 // Custom X (Twitter) Icon since lucide-react doesn't provide a modern X logo
 function XIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
@@ -499,13 +499,13 @@ export function BentoGrid() {
                 {/* India Map Background */}
                 <div className="absolute top-[60%] -translate-y-1/2 left-[-18%] w-[80%] h-[80%] mix-blend-multiply opacity-25 pointer-events-none scale-150">
                    <img 
-                      src="/indiaMap.png" 
+                      src="/indiaMap.webp" 
                       alt="World Map" 
                       width={600}
-                      height={573}
+                      height={572}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain aspect-[600/572]"
                    />
                 </div>
                 
@@ -560,13 +560,13 @@ export function BentoGrid() {
               <div className="flex flex-col items-start lg:items-end text-left lg:text-right z-20 mt-4 sm:mt-6 lg:mt-10">
                 <div className="flex items-center gap-3 mb-2 justify-start lg:justify-end">
                   <img 
-                    src="/techsonance_logo.png" 
+                    src="/techsonance_logo.webp" 
                     alt="TechSonance Logo" 
                     width={48}
-                    height={48}
+                    height={47}
                     loading="lazy"
                     decoding="async"
-                    className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
+                    className="h-10 w-10 sm:h-12 sm:w-12 object-contain aspect-[240/235]"
                   />
                   <span className="font-display text-xl sm:text-2xl font-bold text-slate-900 tracking-wide">
                     TechSonance <span className="font-serif italic text-[#1155CC] font-light">InfoTech</span>
@@ -623,13 +623,13 @@ export function BentoGrid() {
               {/* Background watermarked Logo Icon */}
               <div className="absolute bottom-[-20px] right-[-20px] opacity-10 mix-blend-multiply group-hover:opacity-15 group-hover:scale-105 transition-all duration-700 pointer-events-none z-[0]">
                 <img 
-                  src="/techsonance_logo.png" 
+                  src="/techsonance_logo.webp" 
                   alt="TechSonance Watermark" 
                   width={256}
-                  height={256}
+                  height={251}
                   loading="lazy"
                   decoding="async"
-                  className="w-64 h-64 object-contain"
+                  className="w-64 h-64 object-contain aspect-[240/235]"
                 />
               </div>
 

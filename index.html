@@ -32,19 +32,23 @@
     <meta name="geo.position" content="21.1418;72.7709" />
     <meta name="ICBM" content="21.1418, 72.7709" />
 
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TECHSONANCE"></script>
+    <!-- Google Analytics (GA4) - Deferred Non-Blocking Execution -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-TECHSONANCE', { send_page_view: true });
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TECHSONANCE';
+        s.async = true;
+        document.head.appendChild(s);
+      });
     </script>
 
     <!-- Google Fonts - Asynchronous Non-Render-Blocking Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,300;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,300;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,300;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" />
@@ -62,7 +66,8 @@
     <meta property="og:locale:alternate" content="en_IN" />
     <meta property="og:title" content="Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech LLP" />
     <meta property="og:description" content="Senior Full-Stack Developer and CTO specializing in React, Next.js, Node.js, Java, and AWS. Building fast, scalable, enterprise web applications." />
-    <meta property="og:image" content="https://sajesh.techsonance.co.in/projects/marketplace-dashboard.png" />
+    <meta property="og:image" content="https://sajesh.techsonance.co.in/projects/marketplace-dashboard.webp" />
+    <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Sajesh Adeya - Full-Stack Developer & CTO Portfolio" />
@@ -72,7 +77,7 @@
     <meta property="twitter:url" content="https://sajesh.techsonance.co.in/" />
     <meta property="twitter:title" content="Sajesh Adeya | Co-Founder & CTO at TechSonance InfoTech LLP" />
     <meta property="twitter:description" content="Senior Full-Stack Developer specializing in React, Next.js, Node.js, Java, and AWS Cloud." />
-    <meta property="twitter:image" content="https://sajesh.techsonance.co.in/projects/marketplace-dashboard.png" />
+    <meta property="twitter:image" content="https://sajesh.techsonance.co.in/projects/marketplace-dashboard.webp" />
     <meta property="twitter:creator" content="@sajeshadeya" />
 
     <!-- JSON-LD Structured Data Schema Graph (SEO / AEO / GEO) -->
@@ -90,7 +95,7 @@
             "@id": "https://sajesh.techsonance.co.in/#organization"
           },
           "url": "https://sajesh.techsonance.co.in",
-          "image": "https://sajesh.techsonance.co.in/sajesh_logo_only.png",
+          "image": "https://sajesh.techsonance.co.in/sajesh_logo_only.webp",
           "email": "sajesh@techsonance.co.in",
           "telephone": "+91 91731 01711",
           "address": {
@@ -144,7 +149,7 @@
           "url": "https://www.techsonance.co.in",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://sajesh.techsonance.co.in/techsonance_logo.png"
+            "url": "https://sajesh.techsonance.co.in/techsonance_logo.webp"
           },
           "email": "sajesh@techsonance.co.in",
           "telephone": "+91 91731 01711",
@@ -255,7 +260,7 @@
             <li><a href="/" style="color: #1155cc; text-decoration: none; font-weight: 500;">Home</a></li>
             <li><a href="/projects" style="color: #1155cc; text-decoration: none; font-weight: 500;">Case Studies</a></li>
             <li><a href="/about" style="color: #1155cc; text-decoration: none; font-weight: 500;">About & Leadership</a></li>
-            <li><a href="mailto:sajesh@techsonance.co.in" style="color: #1155cc; text-decoration: none; font-weight: 500;">Contact: sajesh@techsonance.co.in</a></li>
+            <li><a href="&#109;&#97;&#105;&#108;&#116;&#111;:&#115;&#97;&#106;&#101;&#115;&#104;&#64;&#116;&#101;&#99;&#104;&#115;&#111;&#110;&#97;&#110;&#99;&#101;&#46;&#99;&#111;&#46;&#105;&#110;" style="color: #1155cc; text-decoration: none; font-weight: 500;">Contact: &#115;&#97;&#106;&#101;&#115;&#104;&#64;&#116;&#101;&#99;&#104;&#115;&#111;&#110;&#97;&#110;&#99;&#101;&#46;&#99;&#111;&#46;&#105;&#110;</a></li>
           </ul>
         </nav>
       </header>
@@ -297,7 +302,7 @@
 
         <section>
           <h2 style="color: #0f172a; font-size: 1.5rem; margin-bottom: 12px;">Contact & Professional Presence</h2>
-          <p>Email: <a href="mailto:sajesh@techsonance.co.in" style="color: #1155cc;">sajesh@techsonance.co.in</a> | Direct Phone: +91 91731 01711</p>
+          <p>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;:&#115;&#97;&#106;&#101;&#115;&#104;&#64;&#116;&#101;&#99;&#104;&#115;&#111;&#110;&#97;&#110;&#99;&#101;&#46;&#99;&#111;&#46;&#105;&#110;" style="color: #1155cc;">&#115;&#97;&#106;&#101;&#115;&#104;&#64;&#116;&#101;&#99;&#104;&#115;&#111;&#110;&#97;&#110;&#99;&#101;&#46;&#99;&#111;&#46;&#105;&#110;</a> | Direct Phone: +91 91731 01711</p>
           <p>Address: TechSonance InfoTech LLP, UG-15 Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India.</p>
         </section>
       </main>

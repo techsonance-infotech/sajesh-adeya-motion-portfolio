@@ -85,22 +85,22 @@ export function Footer() {
               }}
             >
               <img 
-                src="/sajesh_logo_only.png" 
+                src="/sajesh_logo_only.webp" 
                 alt="Logo Symbol" 
                 width={247}
                 height={216}
                 loading="lazy"
                 decoding="async"
-                className="h-7 sm:h-8 w-auto hover:rotate-12 transition-transform duration-300"
+                className="h-7 sm:h-8 w-auto hover:rotate-12 transition-transform duration-300 aspect-[247/216]"
               />
               <img 
-                src="/sajesh_logo_name.png" 
+                src="/sajesh_logo_name.webp" 
                 alt="Sajesh Adeya" 
                 width={425}
                 height={79}
                 loading="lazy"
                 decoding="async"
-                className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-none"
+                className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-none aspect-[425/79]"
               />
             </a>
             
