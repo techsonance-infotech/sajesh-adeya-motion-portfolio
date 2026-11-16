@@ -9,7 +9,7 @@ import { Footer } from '@/components/layout/Footer';
 import { SchedulingModal } from '@/components/common/SchedulingModal';
 import { SEOHead } from '@/components/common/SEOHead';
 import { showcaseProjects } from '@/lib/data';
-import { ArrowLeft, Calendar, User, Building, ExternalLink, Cpu, Sparkles, Server, Check } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Building, ExternalLink, Cpu, Sparkles, Server, Check, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -255,6 +255,18 @@ export default function ProjectDetailPage() {
                     >
                       <span>Visit Live Site</span>
                       <ExternalLink size={12} />
+                    </a>
+                  )}
+
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 font-mono text-xs uppercase tracking-wider hover:bg-slate-100 hover:border-slate-300 transition-colors duration-300 cursor-none"
+                    >
+                      <Github size={13} />
+                      <span>Source Code (GitHub)</span>
                     </a>
                   )}
                 </div>

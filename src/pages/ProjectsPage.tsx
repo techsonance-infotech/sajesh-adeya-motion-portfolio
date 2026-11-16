@@ -90,6 +90,8 @@ export default function ProjectsPage() {
         project.slug.includes('online-data') ||
         project.slug.includes('cobol') ||
         project.slug.includes('cvm') ||
+        project.slug.includes('zion') ||
+        project.client.toLowerCase().includes('det') ||
         (project.industry ? project.industry.toLowerCase().includes('telecom') : false)
       );
     }

@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     question: "What products has Sajesh Adeya built at TechSonance InfoTech LLP?",
-    answer: "Sajesh Adeya has co-founded and architected several SaaS platforms including: TechSonance Marketplace (multi-tenant e-commerce platform), Hisaab WhatsApp Bot (autonomous conversational billing & GST POS), AccuNest (GST accounting & compliance SaaS), FreightFlow (highway transport logistics OS), SyncServe POS (offline-first Point of Sale), Masterweg (higher education guidance workspace), and Utsav (temple trust administration suite)."
+    answer: "Sajesh Adeya has co-founded and architected several SaaS and web platforms including: TechSonance Marketplace (multi-tenant e-commerce platform), Zion Mobile & Zion API (Caven × DET eTicketing platform), OM Interior Design Studio (luxury architectural platform with Next.js 15 & localized SEO), Hisaab WhatsApp Bot (autonomous conversational billing & GST POS), AccuNest (GST accounting & compliance SaaS), FreightFlow (highway transport logistics OS), SyncServe POS (offline-first Point of Sale), Masterweg (higher education guidance workspace), and Utsav (temple trust administration suite)."
   },
   {
     question: "Where is TechSonance Infotech LLP located, and do you serve international clients?",
@@ -38,6 +38,14 @@ const FAQS = [
   {
     question: "What is Hisaab WhatsApp Bot and how does it automate conversational billing?",
     answer: "Hisaab WhatsApp Bot is an autonomous conversational commerce and POS platform built by Sajesh Adeya on the Meta WhatsApp Cloud API. It enables Indian SMBs to create GST invoices in 15 seconds, query live inventory, and deliver daily ledger summaries ('Aaj ka Hisaab'). End customers browse interactive WhatsApp catalogs, checkout via dynamic Razorpay UPI links, and receive stamped PDF tax invoices in-chat. Its decoupled BullMQ + Redis queuing architecture responds in <300ms to meet Meta's strict webhook SLA and reduces receivables aging by 35%."
+  },
+  {
+    question: "What did Sajesh Adeya engineer for Zion and the Caven DET eTicketing integration?",
+    answer: "Sajesh architected both Zion Mobile (zion-mobile) and Zion API (zion-api) for Dubai events. Zion Mobile is a React Native New Architecture app featuring an offline-first SQLCipher Ticket Vault (AES-GCM Keychain/Keystore encryption for zero-signal stadium turnstiles), 3,000+ seat interactive Skia map engine (<500ms first render), and dual-clock monotonic countdown sync. Zion API is the enterprise backend integrating Dubai Economy & Tourism (DET) Sales API v1.3 with BullMQ queue clusters, atomic Redis seat locks, and idempotent HMAC SHA256 payment webhook reconciliation."
+  },
+  {
+    question: "What did Sajesh Adeya engineer for OM Interior Design Studio?",
+    answer: "Sajesh Adeya engineered the modern architectural web application for OM Interior Design Studio (https://www.om-interior.in/) using Next.js 15 App Router, React 19, TypeScript, and Tailwind CSS. The platform features high-fidelity residential and commercial project showcases, smooth Jarallax parallax motion, automated consultation lead dispatch powered by Nodemailer, and comprehensive Schema.org LocalBusiness and GeoCoordinates (21.1702, 72.8311) optimizations that achieved a 98/100 Lighthouse score and #1 search visibility across Surat's luxury design corridors (Vesu, Adajan, Pal, City Light)."
   },
   {
     question: "How can I hire or consult with Sajesh Adeya and TechSonance InfoTech LLP?",

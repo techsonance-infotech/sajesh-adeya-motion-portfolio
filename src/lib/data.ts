@@ -737,6 +737,242 @@ export const showcaseProjects = [
         ]
       }
     ]
+  },
+  {
+    id: 18,
+    slug: "zion-mobile",
+    name: "Zion Mobile (React Native eTicketing)",
+    description:
+      "A production React Native (New Architecture & Hermes V1) mobile eTicketing app engineered for Zion with an encrypted SQLCipher Ticket Vault, 3,000+ seat interactive Skia/SVG map, and dual-clock countdown synchronization.",
+    image: "/projects/zion-mobile-dashboard.png",
+    logo: "/projects/zion-mobile-logo.png",
+    mobileImage1: "/projects/zion-mobile-phone.png",
+    mobileImage2: "/projects/zion-mobile-logo.png",
+    gallery: ["/projects/zion-mobile-dashboard.png", "/projects/zion-mobile-phone.png"],
+    liveUrl: "https://www.techsonance.co.in/portfolio/zion",
+    color: "#1155CC",
+    features: [
+      "Encrypted Offline Ticket Vault: SQLCipher (vault.db) with 256-bit AES-GCM encryption key stored in Keychain / Keystore (WHEN_UNLOCKED_THIS_DEVICE_ONLY) for guaranteed offline gate entry",
+      "3,000+ Seat Interactive Map Engine: High-performance tiled SVG and Skia seat map with gesture-driven pinch/pan/zoom on UI thread, 44x44pt hit targets, and accessible List Mode fallback",
+      "Dual-Clock Basket Countdown: Monotonic clock (performance.now()) combined with server-offset wall clock, preventing timer tampering when users adjust device time or switch time zones",
+      "Anti-Forgery System Browser Payment: ASWebAuthenticationSession (iOS) and Custom Tabs (Android) with cryptographically validated returnState tokens, resisting OS process death",
+      "Strict Memory-Only PII Security: Customer form data and checkout drafts reside strictly in RAM, automatically wiping upon logout or app termination to comply with UAE PDPL regulations",
+      "Robust Offline & Fault Handling: TanStack Query + Zustand with automated latest-wins concurrency, request abort signals, and network jitter backoff algorithms"
+    ],
+    stack: [
+      "React Native",
+      "TypeScript",
+      "Hermes V1",
+      "Expo",
+      "TanStack Query",
+      "Zustand",
+      "SQLCipher",
+      "React Native Skia",
+      "React Native SVG",
+      "ASWebAuthenticationSession"
+    ],
+    client: "Zion Entertainment & Events (Anush, Founder & CEO)",
+    duration: "4 Months",
+    role: "Lead Mobile Architect & React Native Engineer",
+    metrics: [
+      { label: "Seat Map Render", value: "<500ms (1k)" },
+      { label: "Offline Availability", value: "100% Vault" },
+      { label: "Crash-Free Rate", value: "99.8%" }
+    ],
+    fullDescription: "Zion Mobile (zion-mobile) is an enterprise-grade React Native eTicketing application engineered on the New Architecture with Hermes V1. Designed for high-volume entertainment, concerts, and stadium events in the UAE, the application provides an uncompromising ticketing experience from rapid interactive seat selection to offline venue entry. The app features an offline-first encrypted Ticket Vault built on SQLCipher that protects ticket barcodes behind Keychain/Keystore hardware-backed keys, an interactive seat mapping engine rendering 3,000+ seats smoothly without frame drops, and a resilient payment handoff pipeline utilizing system browser sessions (ASWebAuthenticationSession / Custom Tabs) that survives background process termination.",
+    challenges: "Event ticketing mobile apps face severe real-world constraints: stadium gates frequently suffer from complete mobile network blackouts, rendering web-based tickets inaccessible. Furthermore, rendering thousands of interactive reserved seats in React Native causes severe frame drops and Android ANRs, while dishonest device clocks can allow users to exploit hold timers or pay for expired baskets. Finally, payment handoffs via WebViews frequently break banking 3D-Secure flows and biometric authentications.",
+    solution: "Engineered an offline-first architecture with dual databases: an encrypted SQLCipher vault (vault.db) holding confirmed barcodes accessible offline with a 'Last verified' provenance stamp, and a disposable cache (cache.db) for public catalogue data. Built a hybrid seat map engine combining tiled SVG chunks and Skia rendering with an accessible list mode for screen readers. Formulated a dual-clock algorithm pairing performance.now() monotonic intervals with server-offset timestamps to make hold countdowns tamper-proof. Prohibited WebViews in favor of system browser sessions with single-use returnState anti-forgery tokens, paired with a persistent pending_checkout pointer that auto-recovers transaction state upon app relaunch.",
+    results: "Delivered sub-500ms first interactive render on 1,000+ seat maps on mid-range Android devices, maintained 100% offline ticket readability at venue turnstiles, achieved a 99.8% crash-free session rate across diverse iOS and Android hardware, and completely eliminated orphan basket holds and payment return drop-offs.",
+    aiDetails: [
+      { engine: "Predictive Seat Allocation Engine", usecase: "Analyzes stadium group sizes and seat availability matrices to automatically suggest optimal adjacent seat clusters with zero aisle fragmentation." },
+      { engine: "Dual-Clock Monotonic Guard", usecase: "Monitors clock skew and network round-trip latency to dynamically adjust local ticket hold expiry countdowns with sub-second accuracy." }
+    ],
+    architectureDetails: "Engineered with React Native (New Architecture enabled), Hermes V1 engine, and TypeScript strict mode. Local state powered by TanStack Query for server synchronization and Zustand for memory-only UI interactions. Secure storage handled by SQLCipher with 256-bit AES-GCM encryption keys sealed inside iOS Keychain and Android Keystore. Payment handoff executed via ASWebAuthenticationSession / Custom Tabs.",
+    architecturePipeline: [
+      { step: "01. App Boot & Security Gating", role: "Hermes V1 & SQLCipher Init", detail: "Initializes New Architecture bridge, unlocks vault.db via Keychain/Keystore key, and reads /v1/app/config for live kill-switches and version floors." },
+      { step: "02. High-Density Seat Engine", role: "Skia / SVG Tiled Map", detail: "Renders 3,000+ seats in clamped viewport chunks with UI-thread gestures, 44pt hit-targets, and automatic a11y list mode fallback for TalkBack/VoiceOver." },
+      { step: "03. Dual-Clock Synchronization", role: "Monotonic Timer Engine", detail: "Calculates server time offsets on every network cycle, combining performance.now() with wall-clock bounds to prevent local device time cheating." },
+      { step: "04. Anti-Forgery Payment Handoff", role: "ASWebAuthSession / Custom Tabs", detail: "Launches hosted checkout in system browser; returnState token validated upon return, recovering status seamlessly even if the OS kills the app." },
+      { step: "05. Offline Ticket Vault", role: "Hardware-Backed Local Storage", detail: "Stores confirmed barcodes under AES-GCM encryption, displaying 'Last verified' stamps and offline warning banners when signal is lost." }
+    ],
+    stateWorkflows: [
+      {
+        persona: "Event Goer & Fan Flow",
+        color: "#1155CC",
+        commands: [
+          { trigger: "1. Discover & Pick Section", outcome: "Browse live shows with cached catalogue and realtime availability indicators." },
+          { trigger: "2. Interactive Seat Selection", outcome: "Select adjacent reserved seats with instant conflict alerts and estimated subtotal preview." },
+          { trigger: "3. Countdown Hold & Form", outcome: "Enforces 10-minute hold with dual-clock sync and memory-only customer detail entry." },
+          { trigger: "4. System Browser Checkout", outcome: "Completes 3D-Secure banking flow in system browser with automatic cold-start recovery." }
+        ]
+      },
+      {
+        persona: "Offline Gate Presentation Flow",
+        color: "#10B981",
+        commands: [
+          { trigger: "1. Zero-Signal Venue Mode", outcome: "Automatically activates read-only Ticket Vault displaying cached tickets with last-synced timestamp." },
+          { trigger: "2. Hardware Barcode Rendering", outcome: "Renders high-contrast QR / Code128 barcode with automatic screen brightness boost." },
+          { trigger: "3. Re-Sync on Reconnect", outcome: "Pulls delta updates (/v1/orders?updatedSince) to instantly reflect any refunded or transferred tickets." }
+        ]
+      }
+    ]
+  },
+  {
+    id: 19,
+    slug: "zion-api",
+    name: "Zion API & Caven DET Integration Engine",
+    description:
+      "An enterprise integration middleware and event orchestration backend connecting Zion with the Dubai Economy & Tourism (DET) Sales API v1.3, featuring BullMQ distributed queuing, atomic inventory holds, and idempotent payment reconciliation.",
+    image: "/projects/zion-api-dashboard.png",
+    logo: "/projects/zion-api-logo.png",
+    mobileImage1: "/projects/zion-api-dashboard.png",
+    mobileImage2: "/projects/zion-api-logo.png",
+    gallery: ["/projects/zion-api-dashboard.png"],
+    liveUrl: "https://www.techsonance.co.in/portfolio/zion",
+    color: "#635BFF",
+    features: [
+      "DET Sales API v1.3 Enterprise Integration: Translates DET ticketing protocols, seat matrices (columnPos/rowPos), and inventory statuses into modern RESTful /v1 endpoints",
+      "Distributed Queue Decoupling (BullMQ + Redis): Ingress webhook layer responds in <300ms, queuing payment capture verification (gateway.capture.verify) with 3-second deduplication windows",
+      "Atomic Inventory Holds & Hold Expiry: Implements Redis distributed mutex locks and automatic TTL expiration to prevent double-booking and orphan seat allocations",
+      "Idempotent Financial Reconciliation: Cryptographically verified HMAC SHA256 webhooks, synthetic event ledgers, and automated partial/full refund processing with zero calculation drift",
+      "Dynamic Remote App Configuration (BD-02): Live /v1/app/config endpoint controlling minimum app versions, feature toggles, and instant emergency kill-switches (checkout, seats, refunds)",
+      "Strict Opaque ID Shielding: Translates internal DET codes into opaque client identifiers (PRF-, BSK-, CHK-, CVN-, TKT-), shielding the frontend and mobile apps from DET legacy internals"
+    ],
+    stack: [
+      "Node.js",
+      "TypeScript",
+      "Express.js v5",
+      "BullMQ",
+      "Redis (TLS)",
+      "PostgreSQL",
+      "JSONB",
+      "DET Sales API v1.3",
+      "HMAC SHA256",
+      "Sentry"
+    ],
+    client: "Zion Entertainment & Events / Caven DET Integration",
+    duration: "4 Months",
+    role: "Principal Backend & Integration Systems Architect",
+    metrics: [
+      { label: "Webhook Ingress ACK", value: "<300ms" },
+      { label: "Reconciliation Parity", value: "100%" },
+      { label: "Concurrent Holds", value: "5,000+/min" }
+    ],
+    fullDescription: "Zion API (zion-api) is the enterprise integration backend and event-driven middleware connecting the Zion eTicketing platform with the Dubai Economy & Tourism (DET) Sales API v1.3. Functioning as the mission-critical transactional backbone, it abstracts DET's legacy protocols into a resilient, developer-friendly REST API while handling distributed seat hold management, payment gateway webhook verification, and automated refund auditing. Built with Node.js, TypeScript, BullMQ, and Redis, the engine guarantees sub-second response times, enforces strict multi-tenant isolation, and ensures zero lost tickets or double-charging during peak nationwide concert sales.",
+    challenges: "Integrating with external government tourism APIs (such as DET) introduces severe friction: DET's legacy endpoints lack event listing capabilities, omit image/venue metadata, feature ambiguous error semantics, and lack explicit basket expiry fields. Furthermore, peak ticket drop traffic can swamp external payment gateways, creating webhook delivery delays and leaving purchase outcomes in an ambiguous state that risks double-charging consumers.",
+    solution: "Engineered a decoupled, resilient architecture: Created a Caven metadata registry layer (BD-01) enriching DET performances with rich CDN assets, venue details, and availability status. Built an asynchronous BullMQ queue pipeline on top of Redis with dedicated workers for payment capture verification (gateway.capture.verify), deduplicated at 3-second intervals so incoming app return hints trigger immediate gateway queries without flooding APIs. Implemented an idempotent financial ledger verifying HMAC SHA256 signatures and recording all transactions in an append-only payment_events store before issuing final ticket barcodes.",
+    results: "Delivered 100% mathematical and data parity across all DET ticketing operations, achieved consistent sub-300ms webhook ingress response times, supported 5,000+ concurrent hold requests per minute during headline stadium launches, and provided live emergency kill-switch controls executable within seconds without requiring app store re-submissions.",
+    aiDetails: [
+      { engine: "Automated Ticket Reconciliation Solver", usecase: "Executes continuous differential verification between DET confirmed booking states and payment gateway settlement batches to ensure 100% ledger balance." },
+      { engine: "Dynamic Hold Expiry & Cleanup Worker", usecase: "Monitors active Redis seat locks and auto-cancels abandoned baskets at the exact millisecond of deadline expiration, releasing seats to waiting fans." }
+    ],
+    architectureDetails: "Engineered using Node.js v20+ with TypeScript. Express.js v5 ingress layer decoupled from message processing via BullMQ cluster over Redis (Upstash / TLS). Persistence is managed in PostgreSQL with JSONB columns for flexible Caven metadata schemas and Liquibase versioned migrations. Integrates Dubai Economy & Tourism (DET) Sales API v1.3 over secure mutual TLS with Sentry tracing.",
+    architecturePipeline: [
+      { step: "01. Client Ingress & Opaque Translation", role: "Express.js v5 Gateway", detail: "Translates opaque client refs (PRF-, BSK-) into DET internal codes, applying rate limits and verifying Bearer authentication." },
+      { step: "02. Atomic Seat Locking & TTL", role: "Redis Distributed Mutex", detail: "Executes atomic seat locks across requested seat IDs, setting synchronized hold timers and releasing expired baskets automatically." },
+      { step: "03. Asynchronous Verification Queue", role: "BullMQ + Redis Worker", detail: "Enqueues gateway.capture.verify jobs upon webhook reception or client return hints, deduplicating checks to prevent gateway rate-limits." },
+      { step: "04. Government DET Integration Bridge", role: "DET Sales API v1.3 Client", detail: "Communicates with DET endpoint clusters over mutual TLS, mapping columnPos/rowPos grids into structured, selectable seat matrices." },
+      { step: "05. Idempotent Ledger & Barcode Issuance", role: "PostgreSQL & Cryptographic Engine", detail: "Records payment proofs, issues opaque ticket refs (TKT-), and prepares encrypted QR/Code128 barcode payloads for client vault sync." }
+    ],
+    stateWorkflows: [
+      {
+        persona: "Webhook Ingress & Verification Pipeline",
+        color: "#635BFF",
+        commands: [
+          { trigger: "1. Immediate <300ms Webhook ACK", outcome: "Ingress gateway returns HTTP 200 to gateway immediately, preventing timeouts and duplicate delivery." },
+          { trigger: "2. Deduplicated Verify Job", outcome: "Enqueues gateway.capture.verify in BullMQ with 3-second deduplication bucket." },
+          { trigger: "3. Cryptographic Signature Validation", outcome: "Verifies HMAC SHA256 header against stored gateway webhook secrets." },
+          { trigger: "4. State Transition & Barcode Push", outcome: "Transitions order state to CONFIRMED and compiles native barcode data." }
+        ]
+      },
+      {
+        persona: "DET Inventory & Reservation Pipeline",
+        color: "#D97706",
+        commands: [
+          { trigger: "1. Metadata Enrichment (BD-01)", outcome: "Attaches Caven CDN images, venue details, and pricing categories to raw DET event codes." },
+          { trigger: "2. Atomic Seat Hold Allocation", outcome: "Locks seat coordinates in Redis mutex and initiates DET reserve hold." },
+          { trigger: "3. Sliding Expiry Synchronization", outcome: "Sends expiresAt and serverTime headers to keep client countdowns synchronized." },
+          { trigger: "4. Automated Refund Reversal", outcome: "Executes partial or full ticket void operations directly via DET v1.3 refund endpoints." }
+        ]
+      }
+    ]
+  },
+  {
+    id: 20,
+    slug: "om-interiors",
+    name: "OM Interior Design Studio",
+    description:
+      "A luxury architectural and interior design web application engineered for OM Interior Design Studio in Surat, Gujarat. Built with Next.js 15, React 19, TypeScript, and Tailwind CSS, featuring high-fidelity project visual showcases, interactive consultation lead routing with Nodemailer, and localized Schema.org SEO/GEO optimizations.",
+    image: "/projects/om-interior-dashboard.png",
+    logo: "/projects/om-interior-logo.png",
+    mobileImage1: "/projects/om-interior-mobile.webp",
+    mobileImage2: "/projects/om-interior-logo.png",
+    gallery: ["/projects/om-interior-dashboard.png", "/projects/om-interior-mobile.webp"],
+    liveUrl: "https://www.om-interior.in/",
+    githubUrl: "https://github.com/techsonance-infotech/om-interiors",
+    color: "#C5A880",
+    features: [
+      "Next.js 15 App Router & React 19 Architecture: High-performance server-side rendered (SSR) and statically generated (SSG) web app with ultra-fast initial page loads and zero layout shift",
+      "High-Fidelity Architectural Visual Showcase: Immersive multi-room galleries (Living, Bedroom, Modular Kitchen, Commercial Office) with smooth Jarallax parallax motion and fluid responsive transitions",
+      "Automated Consultation & Lead Routing: Secure server-side inquiry dispatch powered by Nodemailer and structured email notifications for instant client quote turnaround",
+      "Hyper-Local SEO & GEO Search Authority: Implemented Schema.org LocalBusiness, InteriorDesignStudio, and GeoCoordinates (21.1702, 72.8311) targeting key Surat luxury hubs including Vesu, Adajan, Pal, and City Light",
+      "Optimized Web Vitals & Asset Delivery: Responsive Next.js WebP/AVIF asset pipelines delivering sub-second LCP and 98+ Google Lighthouse performance benchmarks",
+      "Responsive Luxury Design System: Mobile-first responsive layouts styled with Tailwind CSS, bespoke typography, and subtle micro-interactions tailored for high-net-worth residential clients"
+    ],
+    stack: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Nodemailer",
+      "Jarallax",
+      "Schema.org / JSON-LD",
+      "Vercel"
+    ],
+    client: "OM Interior Design Studio (Surat, Gujarat)",
+    duration: "2 Months",
+    role: "Lead Full-Stack Web Architect & SEO Strategist",
+    metrics: [
+      { label: "Lighthouse Performance", value: "98/100" },
+      { label: "Consultation Conversion", value: "+38%" },
+      { label: "Surat Search Visibility", value: "#1 Rank" }
+    ],
+    fullDescription: "OM Interior Design Studio (om-interior.in) is a premier digital presence engineered for Surat's premier luxury residential and commercial interior design firm. Built using Next.js 15 and React 19, the platform showcases bespoke architectural living spaces, modular kitchens, luxury 2/3 BHK residences, and corporate office designs. Engineered from the ground up by Sajesh Adeya at TechSonance InfoTech LLP, the web application combines high-fidelity visual aesthetics with lightning-fast server rendering, automated consultation request pipelines via Nodemailer, and comprehensive LocalBusiness and InteriorDesignStudio Geo-Schemas that capture high-intent architectural searches across Surat's luxury corridors (Vesu, Adajan, Pal, City Light, and Piplod).",
+    challenges: "High-end architectural and interior photography involves dense, multi-megabyte imagery that typically crushes mobile load speeds and cripples Core Web Vitals. Simultaneously, competing for local luxury interior design clients in Surat requires exceptional search visibility, zero-lag mobile responsiveness, and an effortless consultation booking flow that converts discerning luxury homeowners into qualified leads.",
+    solution: "Architected a Next.js 15 App Router application utilizing modern Next.js Image optimization with responsive WebP/AVIF compression and lazy loading with BlurDataURL placeholders. Integrated smooth parallax scroll dynamics using lightweight Jarallax mechanics for a tactile, editorial magazine feel. Deployed a serverless API endpoint powered by Nodemailer with input validation to route prospective design consultations directly to the studio's executive inbox. Implemented structured JSON-LD schemas incorporating LocalBusiness, InteriorDesignStudio, GeoCoordinates, and OpeningHoursSpecification to dominate local search algorithms and voice/AI engines.",
+    results: "Achieved a 98/100 Lighthouse performance score on desktop and mobile, drove a 38% increase in inbound consultation conversions within the first quarter of deployment, secured top organic rankings for high-intent Surat interior design queries, and established a scalable, modern foundation for ongoing project portfolio expansions.",
+    aiDetails: [
+      { engine: "Structured GEO & AEO Knowledge Graph", usecase: "Injects complete LocalBusiness, GeoCoordinates (21.1702, 72.8311), and postal address data into indexable JSON-LD graph nodes for Google SGE, Perplexity, and Apple Maps." },
+      { engine: "Automated Lead Sanitization & Dispatch", usecase: "Validates and structures inbound consultation inquiries server-side before dispatching styled email notifications to studio designers via Nodemailer." }
+    ],
+    architectureDetails: "Engineered with Next.js 15 App Router and React 19. Styling executed with Tailwind CSS and custom typography. Smooth scroll and parallax dynamics driven by Jarallax. Server-side lead submission handled by Next.js Server Actions / API routes with Nodemailer SMTP transport. Fully instrumented with Open Graph, Twitter Cards, Schema.org LocalBusiness, GeoCoordinates, and canonical SEO configurations deployed on Vercel with edge caching.",
+    architecturePipeline: [
+      { step: "01. Next.js 15 App Router & Edge Delivery", role: "Vercel Global CDN", detail: "Serves pre-rendered HTML and cached static assets from edge points of presence across India with sub-40ms TTFB." },
+      { step: "02. Responsive Asset Pipeline", role: "Next.js Image Optimizer", detail: "Dynamically transforms high-resolution interior photographs into modern WebP/AVIF formats with blur placeholders." },
+      { step: "03. Interactive Visual Experience", role: "Jarallax & Tailwind CSS", detail: "Renders silky-smooth parallax depth effects and responsive residential showcase grids without layout shifts." },
+      { step: "04. Serverless Consultation Dispatch", role: "Next.js API & Nodemailer", detail: "Validates incoming design consultation forms and securely dispatches structured alerts directly to studio administrators." },
+      { step: "05. Geo & Schema Search Authority", role: "Schema.org & JSON-LD", detail: "Exposes rich structured snippets with geographic coordinates (21.1702, 72.8311) and multi-locality service metadata." }
+    ],
+    stateWorkflows: [
+      {
+        persona: "Luxury Homeowner Discovery Flow",
+        color: "#C5A880",
+        commands: [
+          { trigger: "1. Browse Architectural Gallery", outcome: "Explores curated 2/3 BHK and villa project portfolios with instant modal zoom and layout insights." },
+          { trigger: "2. Schedule Design Consultation", outcome: "Submits property configuration, timeline, and design preferences through interactive inquiry modal." },
+          { trigger: "3. Instant Direct Routing", outcome: "Receives immediate on-screen submission receipt while dispatching formatted lead brief to studio." }
+        ]
+      },
+      {
+        persona: "Local Search & Discovery Engine Flow",
+        color: "#1155CC",
+        commands: [
+          { trigger: "1. Hyper-Local Query Match", outcome: "Matches search queries for 'interior designer in Vesu / Adajan / Surat' via structured LocalBusiness schemas." },
+          { trigger: "2. GeoCoordinates Geocoding", outcome: "Supplies precise latitude/longitude (21.1702, 72.8311) to Google Maps, Apple Maps, and local search packs." },
+          { trigger: "3. Rich Snippet Presentation", outcome: "Surfaces verified studio phone (+91 7990114574), address, and portfolio imagery in search knowledge panels." }
+        ]
+      }
+    ]
   }
 ];
 

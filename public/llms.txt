@@ -125,6 +125,26 @@ Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializin
 - **Description**: Enterprise-grade autonomous conversational commerce and billing engine on Meta WhatsApp Cloud API with sub-second BullMQ event queues, dual-persona state machines, atomic GST tax invoice generation (15s creation time), and automated Razorpay financial reconciliation.
 - **Tech Stack**: Meta WhatsApp Cloud API, Node.js, TypeScript, Express.js, BullMQ, Redis, MongoDB, Razorpay, Groq (Llama 3 70B), Google Gemini.
 
+### 18. Zion Mobile (React Native eTicketing App)
+- **URL**: https://sajesh.techsonance.co.in/projects/zion-mobile
+- **Client**: Zion Entertainment & Events (Anush, Founder & CEO)
+- **Description**: Production React Native (New Architecture, Hermes V1) mobile eTicketing app engineered for Zion with an encrypted SQLCipher Ticket Vault (AES-GCM Keychain/Keystore), 3,000+ seat interactive Skia/SVG map engine (<500ms first render), dual-clock countdown synchronization, and anti-forgery system browser payment handoffs.
+- **Tech Stack**: React Native (New Architecture), TypeScript, Hermes V1, Expo, TanStack Query, Zustand, SQLCipher, React Native Skia, ASWebAuthenticationSession.
+
+### 19. Zion API & Caven DET Integration Engine
+- **URL**: https://sajesh.techsonance.co.in/projects/zion-api
+- **Client / Partner**: Zion Entertainment & Events / Caven DET Integration
+- **Description**: Enterprise integration middleware and event orchestration backend connecting Zion with the Dubai Economy & Tourism (DET) Sales API v1.3. Features BullMQ distributed queuing, atomic seat locks, idempotent payment reconciliation (gateway.capture.verify), and dynamic remote app configuration with instant kill-switches.
+- **Tech Stack**: Node.js v20+, TypeScript, Express.js v5, BullMQ, Redis (TLS), PostgreSQL, JSONB, DET Sales API v1.3, HMAC SHA256, Sentry.
+
+### 20. OM Interior Design Studio
+- **URL**: https://sajesh.techsonance.co.in/projects/om-interiors
+- **Live Site**: https://www.om-interior.in/
+- **GitHub Repository**: https://github.com/techsonance-infotech/om-interiors
+- **Client / Venture**: OM Interior Design Studio (Surat, Gujarat)
+- **Description**: Premier digital presence and architectural web application engineered with Next.js 15 App Router, React 19, TypeScript, and Tailwind CSS. Features immersive multi-room galleries (Living, Bedroom, Modular Kitchen, Commercial Office) with smooth Jarallax parallax motion, automated consultation lead routing via Nodemailer, and localized Schema.org LocalBusiness and GeoCoordinates (21.1702, 72.8311) SEO optimizations achieving 98/100 Lighthouse performance and #1 organic ranking in Surat.
+- **Tech Stack**: Next.js 15, React 19, TypeScript, Tailwind CSS, Nodemailer, Jarallax, Schema.org / JSON-LD, Vercel.
+
 ## Technical Core Competencies
 - **Agentic AI & LLMs**: Multi-Agent Systems, Autonomous Reasoning Loops, Dynamic NBA Engines, Groq Llama 3.3, Google Gemini, Tesseract OCR.
 - **Legacy Modernization**: COBOL Mainframe to Java 17 Microservices, CORBA Monolith Migration, Parity Regression Testing, Liquibase Versioning.
