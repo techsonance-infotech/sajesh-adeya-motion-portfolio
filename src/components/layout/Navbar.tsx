@@ -47,6 +47,7 @@ export function Navbar() {
   return (
     <>
       <motion.header
+        role="banner"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -56,7 +57,7 @@ export function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        <nav className="container-custom flex items-center justify-between h-20">
+        <nav role="navigation" aria-label="Main Navigation" className="container-custom flex items-center justify-between h-20">
           {/* Logo */}
           <a 
             href="/" 

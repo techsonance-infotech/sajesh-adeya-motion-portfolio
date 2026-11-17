@@ -45,7 +45,7 @@ export default function TermsPage() {
         <ScrollProgress />
         <Navbar />
 
-        <main className="pt-32 pb-24 relative z-10">
+        <main id="main-content" role="main" className="pt-32 pb-24 relative z-10">
           <div className="container-custom max-w-4xl">
             
             {/* Back Navigation */}
@@ -167,6 +167,28 @@ export default function TermsPage() {
                 <p>
                   These Terms of Service are governed by and construed in accordance with the laws of India. Any legal dispute, claim, or controversy arising hereunder shall be subject to the exclusive jurisdiction of the competent courts in <strong>Surat, Gujarat, India</strong>.
                 </p>
+              </section>
+
+              {/* Section 6: Editorial & Technical Accuracy Policy (E-E-A-T Standard) */}
+              <section id="editorial-policy" className="bg-white rounded-3xl border border-slate-200/90 p-8 shadow-xs">
+                <h2 className="font-display text-xl font-bold text-slate-900 mb-4 flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-[#1155CC]" />
+                  6. Editorial & Technical Accuracy Policy
+                </h2>
+                <p className="mb-4">
+                  TechSonance InfoTech LLP and Sajesh Adeya adhere to strict standards of technical accuracy, transparency, and empirical verification across all published case studies, architecture benchmarks, and technical documentation.
+                </p>
+                <div className="space-y-3 text-sm text-slate-600 pl-4 border-l-2 border-emerald-200">
+                  <p>
+                    <strong>Production Verification:</strong> All performance metrics (e.g. latency reductions, query throughput, offline sync guarantees) are derived from verified staging benchmarks, production APM telemetries, or authorized post-deployment client audits.
+                  </p>
+                  <p>
+                    <strong>Enterprise Integrity & NDA Compliance:</strong> Client proprietary data, confidential business logic, and private credentials are never disclosed. All architecture descriptions comply with non-disclosure agreements while demonstrating core architectural patterns.
+                  </p>
+                  <p>
+                    <strong>Continuous Review:</strong> Technical content, framework versions, and migration case studies are reviewed quarterly by our engineering leadership to ensure information reflects modern industry standards.
+                  </p>
+                </div>
               </section>
 
               {/* Direct Office & Contact Block */}

@@ -129,7 +129,7 @@ export default function ProjectsPage() {
         <ScrollProgress />
         <Navbar />
 
-        <main className="pt-32 pb-24">
+        <main id="main-content" role="main" className="pt-32 pb-24">
           <div className="container-custom">
             
             {/* Header Section */}

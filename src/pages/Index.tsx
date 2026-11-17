@@ -40,7 +40,7 @@ function Index() {
         <Navbar />
         
         {/* Main content */}
-        <main>
+        <main id="main-content" role="main">
           <Hero />
           <ClientLogosMarquee />
           <BentoGrid />

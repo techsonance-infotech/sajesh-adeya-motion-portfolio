@@ -82,7 +82,7 @@ export default function AboutPage() {
         <Navbar />
         
         {/* Main content */}
-        <main className="pt-20">
+        <main id="main-content" role="main" className="pt-20">
           <About />
           <ExperienceAndEducation />
           <AchievementsAndLeadership />

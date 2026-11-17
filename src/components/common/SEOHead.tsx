@@ -103,8 +103,17 @@ export function SEOHead({
       <link rel="canonical" href={fullCanonicalUrl} />
 
       {/* Crawl Directives */}
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+      {/* AI / Generative Engine Optimization (GEO) */}
+      <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms.txt`} title="LLMs.txt" />
+      <link rel="help" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="LLMs Full Context" />
+
+      {/* Publication and Content Dates (E-E-A-T) */}
+      <meta property="article:published_time" content="2024-01-01T00:00:00+05:30" />
+      <meta property="article:modified_time" content="2026-11-16T17:30:00+05:30" />
 
       {/* GEO & Local Geographic Optimization */}
       <meta name="geo.region" content="IN-GJ" />

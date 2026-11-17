@@ -64,7 +64,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-slate-200/80 bg-white/95 backdrop-blur-md overflow-hidden">
+    <footer role="contentinfo" className="relative border-t border-slate-200/80 bg-white/95 backdrop-blur-md overflow-hidden">
       {/* Decorative radial gradients for luxury backdrop glow */}
       <div className="absolute -bottom-48 -left-48 w-96 h-96 rounded-full bg-accent/5 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-48 -right-48 w-96 h-96 rounded-full bg-accent-secondary/5 blur-3xl pointer-events-none" />
@@ -109,6 +109,35 @@ export function Footer() {
               Architecting high-performance enterprise systems, custom SaaS, and low-latency database sync models.
             </p>
 
+            {/* Author Attribution, Credentials & Physical Address (E-E-A-T) */}
+            <div className="text-xs text-slate-500 flex flex-col gap-1.5" rel="author">
+              <p>
+                <strong className="text-slate-800">Sajesh Adeya</strong> (MCA, Veer Narmad South Gujarat University) • Senior Full-Stack Architect & Vodacom Star Award Winner.
+              </p>
+              <address className="not-italic text-slate-500 font-normal">
+                UG-15, Palladium Plaza, VIP Road, Vesu, Surat, Gujarat 395007, India.
+              </address>
+              <div className="flex items-center gap-2 text-[11px] text-slate-400">
+                <span>Last Updated: <time dateTime="2026-11-16">November 2026</time></span>
+              </div>
+            </div>
+
+            {/* Trust Signals & Certifications (E-E-A-T) */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 font-mono font-medium">
+                ISO 9001:2015 Adherent
+              </span>
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-mono font-medium">
+                100% Delivery Record
+              </span>
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 font-mono font-medium">
+                Vodacom Star Award
+              </span>
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 font-mono font-medium">
+                99.99% Uptime SLA
+              </span>
+            </div>
+
             {/* Availability status badge */}
             <div className="flex items-center gap-2.5 bg-accent/5 border border-accent/20 px-4 py-2 rounded-full w-fit">
               <span className="relative flex h-2 w-2">
@@ -126,7 +155,7 @@ export function Footer() {
             <h4 className="text-xs text-slate-900 font-mono uppercase tracking-wider font-bold">
               Navigation
             </h4>
-            <nav className="flex flex-col gap-3">
+            <nav className="flex flex-col gap-3" aria-label="Footer Navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -138,6 +167,17 @@ export function Footer() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="/about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/about');
+                }}
+                className="text-body-sm text-slate-600 hover:text-accent transition-colors flex items-center gap-1.5 group cursor-pointer"
+              >
+                <span className="w-1.5 h-1.5 bg-accent rounded-full scale-0 group-hover:scale-100 transition-transform duration-200" />
+                About & Credentials
+              </a>
               <a
                 href="/terms"
                 onClick={(e) => {
@@ -159,6 +199,17 @@ export function Footer() {
               >
                 <span className="w-1.5 h-1.5 bg-accent rounded-full scale-0 group-hover:scale-100 transition-transform duration-200" />
                 Privacy Policy
+              </a>
+              <a
+                href="/terms#editorial-policy"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/terms');
+                }}
+                className="text-body-sm text-slate-600 hover:text-accent transition-colors flex items-center gap-1.5 group cursor-pointer"
+              >
+                <span className="w-1.5 h-1.5 bg-accent rounded-full scale-0 group-hover:scale-100 transition-transform duration-200" />
+                Editorial Policy
               </a>
             </nav>
           </div>
@@ -254,33 +305,68 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Social Links & Scroll-to-Top Button */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
+          {/* Social Share Buttons, Profiles & Scroll-to-Top Button */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            {/* Social Share Buttons */}
+            <div className="flex items-center gap-2 text-xs text-slate-500 font-mono">
+              <span className="hidden sm:inline">Share:</span>
+              <a
+                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajesh.techsonance.co.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 py-1 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-accent text-[11px] font-sans font-medium transition-colors"
+                aria-label="Share this portfolio on LinkedIn"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsajesh.techsonance.co.in&text=Check%20out%20Sajesh%20Adeya%27s%20portfolio%20-%20CTO%20%26%20Enterprise%20Full-Stack%20Architect"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 py-1 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-accent text-[11px] font-sans font-medium transition-colors"
+                aria-label="Share this portfolio on X (Twitter)"
+              >
+                X
+              </a>
+              <a
+                href="https://api.whatsapp.com/send?text=Check%20out%20Sajesh%20Adeya%27s%20portfolio%20https%3A%2F%2Fsajesh.techsonance.co.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 py-1 rounded bg-slate-100 hover:bg-emerald-100 text-slate-700 hover:text-emerald-700 text-[11px] font-sans font-medium transition-colors"
+                aria-label="Share this portfolio on WhatsApp"
+              >
+                WhatsApp
+              </a>
+            </div>
+
+            <span className="hidden sm:inline h-5 w-px bg-slate-200" />
+
+            {/* Profile links with rel="me" */}
+            <div className="flex items-center gap-2.5">
               <a
                 href={siteConfig.socials.github}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 className="p-2.5 rounded-full bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-accent text-slate-600 hover:text-accent transition-all cursor-pointer"
-                aria-label="GitHub"
+                aria-label="GitHub Profile"
               >
                 <Github size={18} />
               </a>
               <a
                 href={siteConfig.socials.linkedin}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 className="p-2.5 rounded-full bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-accent text-slate-600 hover:text-accent transition-all cursor-pointer"
-                aria-label="LinkedIn"
+                aria-label="LinkedIn Profile"
               >
                 <Linkedin size={18} />
               </a>
               <a
                 href={siteConfig.socials.x}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 className="p-2.5 rounded-full bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-accent-secondary text-slate-600 hover:text-accent transition-all cursor-pointer"
-                aria-label="X"
+                aria-label="X (Twitter) Profile"
               >
                 <XIcon size={18} />
               </a>

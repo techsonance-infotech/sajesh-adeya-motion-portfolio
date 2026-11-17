@@ -187,7 +187,7 @@ export default function ProjectDetailPage() {
           style={{ backgroundImage: `radial-gradient(circle, ${project.color} 0%, transparent 70%)` }}
         />
 
-        <main className="pt-32 pb-24 relative z-10">
+        <main id="main-content" role="main" className="pt-32 pb-24 relative z-10">
           <div className="container-custom">
             
             {/* Back Button */}

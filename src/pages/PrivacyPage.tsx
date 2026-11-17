@@ -45,7 +45,7 @@ export default function PrivacyPage() {
         <ScrollProgress />
         <Navbar />
 
-        <main className="pt-32 pb-24 relative z-10">
+        <main id="main-content" role="main" className="pt-32 pb-24 relative z-10">
           <div className="container-custom max-w-4xl">
             
             {/* Back Navigation */}
