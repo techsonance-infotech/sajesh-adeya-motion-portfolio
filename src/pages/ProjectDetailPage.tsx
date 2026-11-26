@@ -20,15 +20,8 @@ export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   
-  // Find project based on slug match, with alias resolution for backwards compatibility
-  const project = showcaseProjects.find((p) => 
-    p.slug === slug ||
-    (slug === 'zion' && p.slug === 'zion-platform') ||
-    (slug === 'zion-mobile' && p.slug === 'zion-platform') ||
-    (slug === 'zion-api' && p.slug === 'zion-platform') ||
-    (slug === 'caven' && p.slug === 'caven-det-ticketing') ||
-    (slug === 'caven-det' && p.slug === 'caven-det-ticketing')
-  );
+  // Find project based on slug match
+  const project = showcaseProjects.find((p) => p.slug === slug);
 
   useEffect(() => {
     window.scrollTo(0, 0);

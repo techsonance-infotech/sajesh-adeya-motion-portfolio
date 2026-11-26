@@ -8,7 +8,7 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https: 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https: data: https://fonts.gstatic.com; connect-src 'self' https: wss:; frame-ancestors 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https: 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https: data: https://fonts.gstatic.com; connect-src 'self' https: wss: https://www.googletagmanager.com https://www.google-analytics.com; frame-ancestors 'self';" />
 
     <!-- Favicon & PWA Suite -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -32,7 +32,9 @@
 
     <!-- AI / Generative Engine Optimization (GEO) & Machine Discoverability -->
     <link rel="alternate" type="text/plain" href="https://sajesh.techsonance.co.in/llms.txt" title="LLMs.txt" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
     <link rel="help" type="text/plain" href="https://sajesh.techsonance.co.in/llms-full.txt" title="LLMs Full Context" />
+    <link rel="help" type="text/plain" href="/llms-full.txt" title="llms-full.txt" />
 
     <!-- Language & Regional Hreflang Targeting -->
     <link rel="alternate" hreflang="en" href="https://sajesh.techsonance.co.in/" />
@@ -46,13 +48,18 @@
 
     <!-- Publication & Modification Content Dates (E-E-A-T) -->
     <meta property="article:published_time" content="2024-01-01T00:00:00+05:30" />
-    <meta property="article:modified_time" content="2026-11-16T17:30:00+05:30" />
+    <meta property="article:modified_time" content="2026-11-26T12:00:00+05:30" />
 
     <!-- Network Preconnect & DNS-Prefetch Hints -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
     <!-- Google Analytics (GA4) - Deferred Non-Blocking Execution -->
     <script>
@@ -110,7 +117,9 @@
           "alternateName": "Sajeshkumar Adeya",
           "jobTitle": "Co-Founder & Chief Technology Officer (CTO)",
           "worksFor": {
-            "@id": "https://sajesh.techsonance.co.in/#organization"
+            "@type": "Organization",
+            "@id": "https://sajesh.techsonance.co.in/#organization",
+            "name": "TechSonance InfoTech LLP"
           },
           "url": "https://sajesh.techsonance.co.in",
           "image": "https://sajesh.techsonance.co.in/sajesh_logo_only.webp",
@@ -172,7 +181,9 @@
           "email": "sajesh@techsonance.co.in",
           "telephone": "+91 91731 01711",
           "founder": {
-            "@id": "https://sajesh.techsonance.co.in/#person"
+            "@type": "Person",
+            "@id": "https://sajesh.techsonance.co.in/#person",
+            "name": "Sajesh Adeya"
           },
           "address": {
             "@type": "PostalAddress",
@@ -207,7 +218,9 @@
           "@id": "https://sajesh.techsonance.co.in/#localbusiness",
           "name": "TechSonance Infotech LLP",
           "parentOrganization": {
-            "@id": "https://sajesh.techsonance.co.in/#organization"
+            "@type": "Organization",
+            "@id": "https://sajesh.techsonance.co.in/#organization",
+            "name": "TechSonance Infotech LLP"
           },
           "url": "https://www.techsonance.co.in",
           "telephone": "+91 91731 01711",
@@ -239,7 +252,9 @@
           "url": "https://sajesh.techsonance.co.in",
           "name": "Sajesh Adeya Portfolio & Technical Showcase",
           "publisher": {
-            "@id": "https://sajesh.techsonance.co.in/#person"
+            "@type": "Person",
+            "@id": "https://sajesh.techsonance.co.in/#person",
+            "name": "Sajesh Adeya"
           }
         },
         {
@@ -258,9 +273,7 @@
             { "@type": "ListItem", "position": 8, "name": "FreightFlow Logistics OS", "url": "https://sajesh.techsonance.co.in/projects/freightflow" },
             { "@type": "ListItem", "position": 9, "name": "SyncServe Offline POS", "url": "https://sajesh.techsonance.co.in/projects/sync-serve-pos" },
             { "@type": "ListItem", "position": 10, "name": "Hisaab WhatsApp Bot", "url": "https://sajesh.techsonance.co.in/projects/hisaab-whatsapp-bot" },
-            { "@type": "ListItem", "position": 11, "name": "Zion — Event & Ticketing Ecosystem (Backend, Super Admin & Flutter App)", "url": "https://sajesh.techsonance.co.in/projects/zion-platform" },
-            { "@type": "ListItem", "position": 12, "name": "Caven — Dubai Economy & Tourism (DET) eTicketing Engine", "url": "https://sajesh.techsonance.co.in/projects/caven-det-ticketing" },
-            { "@type": "ListItem", "position": 13, "name": "OM Interior Design Studio", "url": "https://sajesh.techsonance.co.in/projects/om-interiors" }
+            { "@type": "ListItem", "position": 11, "name": "OM Interior Design Studio", "url": "https://sajesh.techsonance.co.in/projects/om-interiors" }
           ]
         }
       ]
@@ -287,9 +300,13 @@
             <li><a href="/projects" style="color: #1155cc; text-decoration: none; font-weight: 500;">Case Studies & Projects</a></li>
             <li><a href="/about" style="color: #1155cc; text-decoration: none; font-weight: 500;">About & Credentials</a></li>
             <li><a href="/about#contact" style="color: #1155cc; text-decoration: none; font-weight: 500;">Contact & Consultations</a></li>
+            <li><a href="/contact" style="color: #1155cc; text-decoration: none; font-weight: 500;">Contact</a></li>
             <li><a href="/terms" style="color: #1155cc; text-decoration: none; font-weight: 500;">Terms of Service</a></li>
             <li><a href="/privacy" style="color: #1155cc; text-decoration: none; font-weight: 500;">Privacy Policy</a></li>
             <li><a href="/terms#editorial-policy" style="color: #1155cc; text-decoration: none; font-weight: 500;">Editorial Policy</a></li>
+            <li><a href="/editorial-policy" style="color: #1155cc; text-decoration: none; font-weight: 500;">Editorial Guidelines</a></li>
+            <li><a href="/llms.txt" style="color: #1155cc; text-decoration: none; font-weight: 500;">llms.txt</a></li>
+            <li><a href="/llms-full.txt" style="color: #1155cc; text-decoration: none; font-weight: 500;">llms-full.txt</a></li>
           </ul>
         </nav>
       </header>
@@ -298,11 +315,17 @@
         
         <article>
           <header style="margin-bottom: 24px;">
+            <figure style="margin: 0 0 16px 0;">
+              <img src="/sajesh_logo_only.webp" alt="Sajesh Adeya Engineering Emblem" width="100" height="87" style="height: 50px; width: auto;" />
+              <figcaption style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">Sajesh Adeya — CTO & Enterprise Full-Stack Cloud Architect</figcaption>
+            </figure>
+
             <h1 style="color: #0f172a; font-size: 2.25rem; margin-bottom: 12px; line-height: 1.2;">Sajesh Adeya — CTO & Senior Full-Stack Cloud Architect</h1>
             
             <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 16px;">
-              Published by <span rel="author"><strong>Sajesh Adeya</strong>, Co-Founder & CTO at TechSonance InfoTech LLP</span> |
-              Last Updated: <time datetime="2026-11-16">November 16, 2026</time> |
+              Published by <span rel="author" itemprop="author"><strong>Sajesh Adeya</strong>, Co-Founder & CTO at TechSonance InfoTech LLP</span> |
+              Published Date: <time datetime="2024-01-01">January 1, 2024</time> |
+              Last Updated: <time datetime="2026-11-26">November 26, 2026</time> |
               Location: <address style="display: inline; font-style: normal;">Surat, Gujarat, India</address>
             </div>
 
@@ -311,13 +334,25 @@
               <span style="background: #eff6ff; color: #1d4ed8; padding: 4px 10px; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">ISO 9001:2015 Standards Adherence</span>
               <span style="background: #ecfdf5; color: #047857; padding: 4px 10px; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">Vodacom Star Award Winner</span>
               <span style="background: #fdf4ff; color: #7e22ce; padding: 4px 10px; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">100% Production Delivery Record (19+ Systems)</span>
-              <span style="background: #fffbeb; color: #b45309; padding: 4px 10px; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">99.99% Architecture SLA</span>
+              <span style="background: #fffbeb; color: #b45309; padding: 4px 10px; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">99.99% Architecture SLA Guarantee</span>
+              <span style="background: #f1f5f9; color: #334155; padding: 4px 10px; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">Verified Clutch Enterprise Partner</span>
             </div>
 
             <p style="font-size: 1.15rem; color: #475569; margin-bottom: 24px;">
-              Sajesh Adeya is the Chief Technology Officer and Co-Founder at TechSonance InfoTech LLP, bringing over 6 years of proven engineering leadership specializing in high-concurrency microservices, telecom core engine migrations, distributed offline-first databases, and agentic AI transformations. Former Senior Full-Stack Developer at <a href="https://www.bbdsoftware.com/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Barone Budge & Dominick (BBD)</a>, where he led mission-critical modernizations for telecom giants including <a href="https://www.vodacom.co.za/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Vodacom South Africa</a>.
+              Sajesh Adeya is the Chief Technology Officer and Co-Founder at TechSonance InfoTech LLP, bringing over 6 years of proven engineering leadership specializing in high-concurrency microservices, telecom core engine migrations, distributed offline-first databases, and agentic AI transformations. Former Senior Full-Stack Developer at <a href="https://www.bbdsoftware.com/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Barone Budge & Dominick (BBD Software)</a>, where he led mission-critical modernizations for telecom giants including <a href="https://www.vodacom.co.za/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Vodacom South Africa</a>.
             </p>
           </header>
+
+          <!-- Aside: Executive Summary & Highlights -->
+          <aside role="complementary" aria-label="Executive Architectural Highlights" style="background: #f1f5f9; border-left: 4px solid #0284c7; padding: 16px 20px; border-radius: 6px; margin-bottom: 28px;">
+            <h2 style="font-size: 1.15rem; color: #0f172a; margin-top: 0; margin-bottom: 8px;">Executive Architectural Highlights</h2>
+            <p style="font-size: 0.95rem; margin: 0 0 8px 0;">
+              Specializing in cloud-native microservice architecture, mission-critical mainframe decoupling, real-time event streaming via Apache Kafka, and autonomous multi-agent AI systems. Operating with a 100% delivery track record across 19+ enterprise software deployments worldwide.
+            </p>
+            <p style="font-size: 0.85rem; color: #475569; margin: 0;">
+              Direct consultation inquiries: <a href="/contact" style="color: #1155cc; font-weight: 600;">Contact Sajesh Adeya</a> | Read machine documentation: <a href="/llms.txt" style="color: #1155cc; font-weight: 600;">llms.txt</a>
+            </p>
+          </aside>
 
           <!-- Author Biography & Academic Credentials (E-E-A-T) -->
           <section style="margin-bottom: 36px; background: #f8fafc; padding: 24px; border-radius: 8px; border-left: 4px solid #1155cc;">
@@ -420,18 +455,6 @@
                     <td>Sub-second conversational billing with dual-persona state machines</td>
                   </tr>
                   <tr>
-                    <td><strong>Zion Platform</strong></td>
-                    <td>Three-Tier Event & Ticketing Ecosystem</td>
-                    <td>Flutter App, Node.js API, Next.js 15 Super Admin</td>
-                    <td>60fps mobile discovery, Isar DB offline caching, modular monolith API</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Caven DET Integration</strong></td>
-                    <td>Government Ticketing Middleware</td>
-                    <td>React Native Hermes, BullMQ, Redis, DET v1.3 API</td>
-                    <td>Strict Dubai Economy & Tourism compliance with atomic seat holds</td>
-                  </tr>
-                  <tr>
                     <td><strong>OM Interior Design Studio</strong></td>
                     <td>Architectural Portfolio & Booking</td>
                     <td>Next.js 15, React 19, Nodemailer, Localized SEO</td>
@@ -487,14 +510,6 @@
                 Conversational billing agent engineered with BullMQ asynchronous queue clusters, dual-persona state machines, and automated payment reconciliation.
               </li>
               <li style="margin-bottom: 12px;">
-                <a href="/projects/zion-platform" style="color: #1155cc; font-weight: 600;">Zion — Event & Ticketing Ecosystem</a>:
-                Enterprise ticketing ecosystem comprising a Flutter mobile application (Isar DB local caching, Socket.IO updates), modular monolith backend (zion-api), and Next.js 15 Super Admin dashboard.
-              </li>
-              <li style="margin-bottom: 12px;">
-                <a href="/projects/caven-det-ticketing" style="color: #1155cc; font-weight: 600;">Caven — Dubai Economy & Tourism (DET) eTicketing Engine</a>:
-                Government DET Sales API v1.3 integration engine with BullMQ concurrency queues, atomic seat reservation locks, and React Native mobile client.
-              </li>
-              <li style="margin-bottom: 12px;">
                 <a href="/projects/om-interiors" style="color: #1155cc; font-weight: 600;">OM Interior Design Studio</a>:
                 Luxury architecture and commercial interior studio platform built with Next.js 15, React 19, and local business Schema.org SEO engine (<a href="https://www.om-interior.in/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">www.om-interior.in</a>).
               </li>
@@ -502,13 +517,12 @@
           </section>
 
           <!-- External Citations & Authoritative References (E-E-A-T) -->
-          <section style="margin-bottom: 36px; border-top: 1px solid #e2e8f0; pt-4;">
+          <section style="margin-bottom: 36px; border-top: 1px solid #e2e8f0; padding-top: 16px;">
             <h2 style="color: #0f172a; font-size: 1.3rem; margin-bottom: 8px;">Authoritative External Citations & Partners</h2>
             <p>Referenced enterprise partners, industry standards, and academic institutions:</p>
             <ul style="font-size: 0.9rem;">
               <li><a href="https://www.bbdsoftware.com/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Barone Budge & Dominick (BBD Software)</a> — Global software development partner.</li>
               <li><a href="https://www.vodacom.co.za/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Vodacom South Africa</a> — Leading pan-African telecommunications company.</li>
-              <li><a href="https://www.dubaitourism.gov.ae/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Dubai Department of Economy and Tourism (DET)</a> — Government eTicketing standard.</li>
               <li><a href="https://www.vnsgu.ac.in/" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Veer Narmad South Gujarat University (VNSGU)</a> — Master of Computer Applications alma mater.</li>
               <li><a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer" style="color: #1155cc;">Spring Boot Enterprise Framework</a> — Cloud-native microservices ecosystem.</li>
             </ul>
@@ -527,9 +541,10 @@
 
             <h3 style="color: #0f172a; font-size: 1.1rem; margin-bottom: 8px;">Share This Portfolio</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajesh.techsonance.co.in" target="_blank" rel="noopener noreferrer" style="background: #0077b5; color: #ffffff; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.85rem;">Share on LinkedIn</a>
-              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsajesh.techsonance.co.in&text=Check%20out%20Sajesh%20Adeya%27s%20portfolio%20-%20CTO%20%26%20Enterprise%20Full-Stack%20Architect" target="_blank" rel="noopener noreferrer" style="background: #000000; color: #ffffff; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.85rem;">Share on X</a>
-              <a href="https://api.whatsapp.com/send?text=Check%20out%20Sajesh%20Adeya%27s%20portfolio%20https%3A%2F%2Fsajesh.techsonance.co.in" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #ffffff; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.85rem;">Share on WhatsApp</a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsajesh.techsonance.co.in" target="_blank" rel="noopener noreferrer" style="background: #0077b5; color: #ffffff; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.85rem;" aria-label="Share on LinkedIn">Share on LinkedIn</a>
+              <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsajesh.techsonance.co.in&text=Check%20out%20Sajesh%20Adeya%27s%20portfolio%20-%20CTO%20%26%20Enterprise%20Full-Stack%20Architect" target="_blank" rel="noopener noreferrer" style="background: #000000; color: #ffffff; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.85rem;" aria-label="Share on X">Share on X</a>
+              <a href="https://api.whatsapp.com/send?text=Check%20out%20Sajesh%20Adeya%27s%20portfolio%20https%3A%2F%2Fsajesh.techsonance.co.in" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #ffffff; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.85rem;" aria-label="Share on WhatsApp">Share on WhatsApp</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsajesh.techsonance.co.in" target="_blank" rel="noopener noreferrer" style="background: #1877f2; color: #ffffff; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.85rem;" aria-label="Share on Facebook">Share on Facebook</a>
             </div>
           </section>
 
@@ -556,13 +571,16 @@
         <div>
           © 2026 Sajesh Adeya. All rights reserved. | Surat, Gujarat, India.
         </div>
-        <div style="display: flex; gap: 16px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 16px;">
           <a href="/" style="color: #1155cc; text-decoration: none;">Home</a>
           <a href="/projects" style="color: #1155cc; text-decoration: none;">Projects</a>
           <a href="/about" style="color: #1155cc; text-decoration: none;">About</a>
+          <a href="/contact" style="color: #1155cc; text-decoration: none;">Contact</a>
           <a href="/privacy" style="color: #1155cc; text-decoration: none;">Privacy Policy</a>
           <a href="/terms" style="color: #1155cc; text-decoration: none;">Terms of Service</a>
-          <a href="/terms#editorial-policy" style="color: #1155cc; text-decoration: none;">Editorial Policy</a>
+          <a href="/editorial-policy" style="color: #1155cc; text-decoration: none;">Editorial Policy</a>
+          <a href="/llms.txt" style="color: #1155cc; text-decoration: none;">llms.txt</a>
+          <a href="/llms-full.txt" style="color: #1155cc; text-decoration: none;">llms-full.txt</a>
         </div>
       </footer>
     </div>

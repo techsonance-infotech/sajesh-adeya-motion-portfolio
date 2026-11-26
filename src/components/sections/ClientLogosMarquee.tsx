@@ -83,13 +83,6 @@ const clients: ClientItem[] = [
     description: 'Online grading, campus billing & student gradebooks',
     accentColor: '#3B82F6',
   },
-  {
-    name: 'Zion',
-    category: 'Enterprise Client',
-    url: 'https://www.techsonance.co.in/portfolio/zion',
-    description: 'Scalable web architecture & custom backend systems',
-    accentColor: '#1155CC',
-  },
 ];
 
 export function ClientLogosMarquee() {

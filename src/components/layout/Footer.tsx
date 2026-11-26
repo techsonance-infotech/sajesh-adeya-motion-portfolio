@@ -302,6 +302,23 @@ export function Footer() {
               >
                 Terms of Service
               </a>
+              <span className="text-slate-300">•</span>
+              <a 
+                href="/terms#editorial-policy"
+                onClick={(e) => { e.preventDefault(); navigate('/terms#editorial-policy'); }}
+                className="hover:text-accent hover:underline transition-colors cursor-pointer"
+              >
+                Editorial Policy
+              </a>
+              <span className="text-slate-300">•</span>
+              <a 
+                href="/llms.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent hover:underline transition-colors cursor-pointer font-mono text-[11px]"
+              >
+                llms.txt
+              </a>
             </div>
           </div>
 
@@ -336,6 +353,15 @@ export function Footer() {
                 aria-label="Share this portfolio on WhatsApp"
               >
                 WhatsApp
+              </a>
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsajesh.techsonance.co.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 py-1 rounded bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-600 text-[11px] font-sans font-medium transition-colors"
+                aria-label="Share this portfolio on Facebook"
+              >
+                Facebook
               </a>
             </div>
 

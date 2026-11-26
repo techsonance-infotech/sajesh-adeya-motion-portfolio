@@ -6,7 +6,7 @@
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
-  Header set Content-Security-Policy "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https: 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https: data: https://fonts.gstatic.com; connect-src 'self' https: wss:; frame-ancestors 'self';"
+  Header set Content-Security-Policy "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https: 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https: data: https://fonts.gstatic.com; connect-src 'self' https: wss: https://www.googletagmanager.com https://www.google-analytics.com; frame-ancestors 'self';"
   Header set Alt-Svc 'h3=":443"; ma=86400'
 </IfModule>
 

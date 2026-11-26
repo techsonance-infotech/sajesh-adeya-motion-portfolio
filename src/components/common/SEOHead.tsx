@@ -37,7 +37,9 @@ export function SEOHead({
         "name": "Sajesh Adeya",
         "jobTitle": "Co-Founder & Chief Technology Officer (CTO)",
         "worksFor": {
-          "@id": `${SITE_URL}/#organization`
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          "name": "TechSonance InfoTech LLP"
         },
         "url": SITE_URL,
         "image": `${SITE_URL}/sajesh_logo_only.webp`,
@@ -79,7 +81,9 @@ export function SEOHead({
         "logo": `${SITE_URL}/techsonance_logo.webp`,
         "email": "sajesh@techsonance.co.in",
         "founder": {
-          "@id": `${SITE_URL}/#person`
+          "@type": "Person",
+          "@id": `${SITE_URL}/#person`,
+          "name": "Sajesh Adeya"
         },
         "address": {
           "@type": "PostalAddress",
@@ -109,11 +113,13 @@ export function SEOHead({
 
       {/* AI / Generative Engine Optimization (GEO) */}
       <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms.txt`} title="LLMs.txt" />
+      <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
       <link rel="help" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="LLMs Full Context" />
+      <link rel="help" type="text/plain" href="/llms-full.txt" title="llms-full.txt" />
 
       {/* Publication and Content Dates (E-E-A-T) */}
       <meta property="article:published_time" content="2024-01-01T00:00:00+05:30" />
-      <meta property="article:modified_time" content="2026-11-16T17:30:00+05:30" />
+      <meta property="article:modified_time" content="2026-11-26T12:00:00+05:30" />
 
       {/* GEO & Local Geographic Optimization */}
       <meta name="geo.region" content="IN-GJ" />

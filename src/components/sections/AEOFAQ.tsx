@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     question: "What products has Sajesh Adeya built at TechSonance InfoTech LLP?",
-    answer: "Sajesh Adeya has co-founded and architected several enterprise SaaS and mobile platforms including: TechSonance Marketplace (multi-tenant e-commerce platform), Zion Platform (event ecosystem with Flutter mobile app, Node.js backend, and Next.js 15 Super Admin), Caven (Dubai Economy & Tourism DET Sales API v1.3 integration engine & mobile client), OM Interior Design Studio (luxury architectural platform with Next.js 15 & localized SEO), Hisaab WhatsApp Bot (autonomous conversational billing & GST POS), AccuNest (GST accounting & compliance SaaS), FreightFlow (highway transport logistics OS), SyncServe POS (offline-first Point of Sale), Masterweg (higher education guidance workspace), and Utsav (temple trust administration suite)."
+    answer: "Sajesh Adeya has co-founded and architected several enterprise SaaS and mobile platforms including: TechSonance Marketplace (multi-tenant e-commerce platform), OM Interior Design Studio (luxury architectural platform with Next.js 15 & localized SEO), Hisaab WhatsApp Bot (autonomous conversational billing & GST POS), AccuNest (GST accounting & compliance SaaS), FreightFlow (highway transport logistics OS), SyncServe POS (offline-first Point of Sale), Masterweg (higher education guidance workspace), and Utsav (temple trust administration suite)."
   },
   {
     question: "Where is TechSonance Infotech LLP located, and do you serve international clients?",
@@ -38,14 +38,6 @@ const FAQS = [
   {
     question: "What is Hisaab WhatsApp Bot and how does it automate conversational billing?",
     answer: "Hisaab WhatsApp Bot is an autonomous conversational commerce and POS platform built by Sajesh Adeya on the Meta WhatsApp Cloud API. It enables Indian SMBs to create GST invoices in 15 seconds, query live inventory, and deliver daily ledger summaries ('Aaj ka Hisaab'). End customers browse interactive WhatsApp catalogs, checkout via dynamic Razorpay UPI links, and receive stamped PDF tax invoices in-chat. Its decoupled BullMQ + Redis queuing architecture responds in <300ms to meet Meta's strict webhook SLA and reduces receivables aging by 35%."
-  },
-  {
-    question: "What did Sajesh Adeya engineer for the Zion Event Platform?",
-    answer: "Sajesh architected the entire Zion ecosystem across three core tiers: 1) Zion Mobile (zion-mobile), a production cross-platform Flutter application (Dart, Riverpod, Isar DB, Socket.IO) featuring 60fps event discovery, real-time community chat, and offline ticket vaults; 2) Zion API (zion-api), a high-concurrency Node.js and Express Modular Monolith backend powered by Drizzle ORM, PostgreSQL, Redis, BullMQ job queues, and AI-driven content moderation; and 3) Zion Admin (zion-admin), a Next.js 15 App Router and React 19 Super Admin portal giving platform operators real-time control over multi-tenant events, seller verification, commission payouts, and policy enforcement."
-  },
-  {
-    question: "What did Sajesh Adeya engineer for Caven and the Dubai Economy & Tourism (DET) integration?",
-    answer: "Caven is an enterprise eTicketing platform and government integration engine engineered by Sajesh Adeya to interface with the Dubai Economy & Tourism (DET) Sales API v1.3 for UAE concerts and stadium tours. It comprises a decoupled Node.js and Express v5 backend with BullMQ distributed queues responding in <300ms, atomic Redis mutex inventory holds, and idempotent HMAC SHA256 financial reconciliation, paired with a React Native New Architecture (Hermes V1) mobile client featuring an encrypted SQLCipher Ticket Vault and 3,000+ seat interactive Skia map."
   },
   {
     question: "What did Sajesh Adeya engineer for OM Interior Design Studio?",

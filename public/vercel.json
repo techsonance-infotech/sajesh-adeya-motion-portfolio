@@ -8,9 +8,47 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https: 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https: data: https://fonts.gstatic.com; connect-src 'self' https: wss:; frame-ancestors 'self';" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https: 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https: data: https://fonts.gstatic.com; connect-src 'self' https: wss: https://www.googletagmanager.com https://www.google-analytics.com; frame-ancestors 'self';" },
         { "key": "Alt-Svc", "value": "h3=\":443\"; ma=86400" }
       ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/projects/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "/llms.txt"
+    },
+    {
+      "source": "/llms-full.txt",
+      "destination": "/llms-full.txt"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

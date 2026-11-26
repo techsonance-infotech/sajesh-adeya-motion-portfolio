@@ -73,8 +73,10 @@ const App = () => (
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/projects/:slug" element={<ProjectDetailPage />} />
               <Route path="/terms" element={<TermsPage />} />
+              <Route path="/editorial-policy" element={<TermsPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/privacy-policy" element={<PrivacyPage />} />
+              <Route path="/contact" element={<AboutPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <SonanceAIAssistant />

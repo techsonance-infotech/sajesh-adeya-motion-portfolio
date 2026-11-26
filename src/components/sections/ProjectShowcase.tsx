@@ -20,15 +20,14 @@ export function ProjectShowcase() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const progressFillRef = useRef<HTMLDivElement>(null);
   const progressKnobRef = useRef<HTMLDivElement>(null);
-  // Curated showcase of flagship platforms spanning multi-tenant SaaS, cross-platform Flutter & React Native apps, conversational commerce, luxury architectural platforms, and enterprise microservices
+  // Curated showcase of flagship platforms spanning multi-tenant SaaS, conversational commerce, luxury architectural platforms, and enterprise microservices
   const homeProjects = [
     showcaseProjects.find(p => p.slug === 'marketplace') || showcaseProjects[0],
-    showcaseProjects.find(p => p.slug === 'zion-platform') || showcaseProjects[17],
-    showcaseProjects.find(p => p.slug === 'caven-det-ticketing') || showcaseProjects[18],
     showcaseProjects.find(p => p.slug === 'hisaab-whatsapp-bot') || showcaseProjects[16],
-    showcaseProjects.find(p => p.slug === 'om-interiors') || showcaseProjects[19],
+    showcaseProjects.find(p => p.slug === 'om-interiors') || showcaseProjects[17],
     showcaseProjects.find(p => p.slug === 'vodacom-microservices-migration') || showcaseProjects[8],
     showcaseProjects.find(p => p.slug === 'freightflow') || showcaseProjects[2],
+    showcaseProjects.find(p => p.slug === 'accunest') || showcaseProjects[1],
   ];
   const [activeProject, setActiveProject] = useState(0);
   const currentProject = homeProjects[activeProject] || homeProjects[0];

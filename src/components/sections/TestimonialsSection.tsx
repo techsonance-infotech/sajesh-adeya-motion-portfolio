@@ -24,15 +24,6 @@ export const testimonials: Testimonial[] = [
     rating: 5,
   },
   {
-    project: "Zion",
-    quote: "The team worked closely with us on the mobile experience and paid attention to the small details in the ticket flow. Communication was straightforward, and we could discuss changes as we tested.",
-    author: "Anush",
-    role: "Founder & CEO",
-    companySubtitle: "Entertainment & Events",
-    avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=200&h=200&q=80",
-    rating: 5,
-  },
-  {
     project: "MasterWeg",
     quote: "We needed a backend that could support several workflows without becoming difficult to maintain. The team took time to understand the requirements and helped us shape a cleaner foundation.",
     author: "Sandeep Rudra",

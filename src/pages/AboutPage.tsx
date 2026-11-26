@@ -9,6 +9,7 @@ import { About } from '@/components/sections/About';
 import { ExperienceAndEducation } from '@/components/sections/ExperienceAndEducation';
 import { AchievementsAndLeadership } from '@/components/sections/AchievementsAndLeadership';
 import { Skills } from '@/components/sections/Skills';
+import { Contact } from '@/components/sections/Contact';
 import { AEOFAQ } from '@/components/sections/AEOFAQ';
 import { SchedulingModal } from '@/components/common/SchedulingModal';
 import { SEOHead } from '@/components/common/SEOHead';
@@ -87,6 +88,7 @@ export default function AboutPage() {
           <ExperienceAndEducation />
           <AchievementsAndLeadership />
           <Skills />
+          <Contact />
           <AEOFAQ />
         </main>
         

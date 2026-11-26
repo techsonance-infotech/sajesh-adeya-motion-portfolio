@@ -25,7 +25,6 @@ Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializin
 
 ## Verified Client Testimonials (Client Stories)
 - **FreightFlow (Ankur Rajput, Founder & Managing Director)**: "We were managing LR details and expenses across spreadsheets and WhatsApp. The new workflow has made it much easier to track each trip and catch billing issues before they become a problem."
-- **Zion (Anush, Founder & CEO)**: "The team worked closely with us on the mobile experience and paid attention to the small details in the ticket flow. Communication was straightforward, and we could discuss changes as we tested."
 - **MasterWeg (Sandeep Rudra, Founder & Managing Director)**: "We needed a backend that could support several workflows without becoming difficult to maintain. The team took time to understand the requirements and helped us shape a cleaner foundation."
 - **SyncServe POS (Rahul Rajput, Founder & Owner)**: "During rush hours when the internet fluctuates, billing can't stop. The offline mode keeps orders and KOTs printing reliably, and everything syncs automatically as soon as the connection is back."
 - **AccuNest (Narayan Singh, Founder & Managing Director)**: "Textile job-work and GST invoices used to require endless manual calculation across registers. Accunest simplified our workflow so our accountants generate compliant e-invoices in minutes without stress."
@@ -125,19 +124,7 @@ Sajesh Adeya is a Senior Full-Stack Developer and Software Architect specializin
 - **Description**: Enterprise-grade autonomous conversational commerce and billing engine on Meta WhatsApp Cloud API with sub-second BullMQ event queues, dual-persona state machines, atomic GST tax invoice generation (15s creation time), and automated Razorpay financial reconciliation.
 - **Tech Stack**: Meta WhatsApp Cloud API, Node.js, TypeScript, Express.js, BullMQ, Redis, MongoDB, Razorpay, Groq (Llama 3 70B), Google Gemini.
 
-### 18. Zion Platform (Backend, Super Admin & Flutter App)
-- **URL**: https://sajesh.techsonance.co.in/projects/zion-platform
-- **Client**: Zion Entertainment & Events
-- **Description**: Production event discovery, social engagement, and ticketing ecosystem spanning three tiers: an expressive cross-platform Flutter mobile application (zion-mobile, Riverpod, Isar DB, 60fps), a high-concurrency Node.js Express modular monolith backend (zion-api, Drizzle ORM, Redis, BullMQ, Socket.IO real-time chat), and a Next.js 15 App Router Super Admin portal (zion-admin, React 19, Tailwind CSS) for multi-tenant event governance, seller verification, and commission audits.
-- **Tech Stack**: Flutter (Dart), Next.js 15, React 19, Node.js, Express.js, TypeScript, Drizzle ORM, PostgreSQL, Redis, BullMQ, Socket.IO, Tailwind CSS.
-
-### 19. Caven — Dubai Economy & Tourism (DET) eTicketing Engine
-- **URL**: https://sajesh.techsonance.co.in/projects/caven-det-ticketing
-- **Client / Partner**: Caven / Dubai Economy & Tourism (DET)
-- **Description**: Enterprise government integration middleware and mobile client interfacing directly with the Dubai Economy & Tourism (DET) Sales API v1.3. Features React Native New Architecture (Hermes V1) mobile app with encrypted SQLCipher Ticket Vault, BullMQ distributed queuing responding in <300ms, atomic Redis mutex inventory holds, and idempotent payment reconciliation.
-- **Tech Stack**: React Native (New Architecture, Hermes V1), TypeScript, Node.js v20+, Express.js v5, BullMQ, Redis (TLS), PostgreSQL, SQLCipher, React Native Skia, DET Sales API v1.3, HMAC SHA256.
-
-### 20. OM Interior Design Studio
+### 18. OM Interior Design Studio
 - **URL**: https://sajesh.techsonance.co.in/projects/om-interiors
 - **Live Site**: https://www.om-interior.in/
 - **GitHub Repository**: https://github.com/techsonance-infotech/om-interiors
